@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Title }}</title>
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ .Hugo.Generator }}
+    {{ if .RSSLink }}<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Feed" href="{{ .RSSLink }}">{{ end }}
+    {{ if .Params.tags }}
+      <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+    {{ end }}
+    <link rel="canonical" href="{{ .URL | absURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/foundation/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/foundation/foundation-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}hashover/comments.css">
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/site.css">
+    {{ partial "custom_css.html" . }}
+    <script defer type="text/javascript" src="{{ .Site.BaseURL }}js/foundation/jquery.js"></script>
+    <script defer type="text/javascript" src="{{ .Site.BaseURL }}js/foundation/foundation.min.js"></script>
+    <script defer type="text/javascript" src="{{ .Site.BaseURL }}js/main.js"></script>
+  </head>
+  <body>
+    <div id="site-container">
+      <div id="site-header">
+        <header>
+          <a href="{{ .Site.BaseURL }}">
+            <h1 id="site-title">{{ .Site.Title }}</h1>
+            {{ with .Site.Params.tagline }}<h3 id="site-tagline">{{ . }}</h3>{{ end }}
+          </a>
+        </header>
+        <div id="menu-toggle" class="main-nav hide-for-medium"><span><i class="fi-list"></i> MENU</span></div>
+        <nav id="main-nav">
+          <ul class="vertical medium-horizontal menu show" data-responsive-menu="drilldown medium-dropdown">
+            {{ if .Site.Menus.main }}
+        		{{ $currentNode := . }}
+        		{{ range sort .Site.Menus.main }}
+        			<li class="{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}active{{end}}"><a class="main-nav button" href="{{ .URL }}">{{ .Name | upper }}</a></li>
+        		{{ end }}
+        		{{ end }}
+          </ul>
+        </nav>
+      </div>
+      <div id="main-container" class="row" role="main">
+        {{ if .Site.Params.leftsidebar }}{{ partial "sidebar.html" . }}{{ end }}

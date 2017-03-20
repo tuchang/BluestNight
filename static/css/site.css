@@ -1,0 +1,270 @@
+a h1, a h2, a h3, a h4, a h5, a h6 {
+  color: #e2e2e2;
+}
+
+#site-container {
+  margin: auto;
+  background-color: #050505;
+  color: #e2e2e2;
+  width: 100%;
+	max-width: 1080px;
+	margin: 25px auto;
+	position: relative;
+}
+
+body {
+  background-color: #000000;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#site-header {
+  background-color: #0a66c6;
+}
+
+#site-header h1, #site-header h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#site-header nav, .tag {
+  background-color: #252525;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tag:hover, .tag:active, #main-nav .active a {
+  background-color: #0a66c6;
+}
+
+#site-header nav, #main-nav a {
+  background-color: #050505;
+}
+
+#main-nav a:hover {
+  background-color: #0a66c6;
+}
+
+#site-header nav a {
+  color: #e2e2e2;
+}
+
+#site-header header {
+  padding: 1rem 2rem;
+}
+
+#site-tagline {
+  font-size: 1.2rem;
+  border-top: 1px solid #e2e2e2;
+  display: inline-block;
+}
+
+#menu-toggle {
+  padding-left: 10px;
+  background-color: #050505;
+}
+
+#main-container {
+  margin: 0.5rem 0.5rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#post-header h1, #page-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#post-metadata a {
+  color: #e2e2e2;
+}
+
+#post-metadata a:hover,
+#post-content a:hover {
+  text-decoration: underline;
+}
+
+#post-content a, #post-content a:hover {
+  color: #0a66c6;
+}
+
+#post-list article {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+#post-list .media-object-section {
+  padding: 0;
+}
+
+#post-list article h4 {
+  font-weight: bold;
+}
+
+#post-tags {
+  margin: 1rem 0.4rem 1rem;
+}
+
+.tag {
+  font-size: 0.8rem;
+  margin: 0.2rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.pagination .pagination-previous a,
+.pagination .pagination-next a {
+  color: #0a66c6;
+}
+
+.pagination .pagination-previous a:hover,
+.pagination .pagination-next a:hover {
+  color: #050505;
+  background-color: #0a66c6;
+}
+
+#authorbox {
+  background-color: #050505;
+  color: #e2e2e2;
+  padding: 1.6rem 0.7rem;
+  border-style: solid hidden;
+  border-color: #e2e2e2;
+  border-width: 1px;
+}
+
+.widget h4, #site-header nav {
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  border-bottom: 3px solid #0a66c6;
+}
+
+.widget ul li {
+  border-bottom: 1px dotted #e2e2e2;
+  padding: 0.2rem;
+}
+
+.widget ul li a {
+  font-size: 0.9rem;
+  color: #e2e2e2;
+}
+
+aside {
+  padding-bottom: 20px;
+}
+
+footer {
+  padding: 0.5rem 1rem;
+  background-color: #333333;
+  border-top: 3px solid #999999;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+table, table thead th, table tbody td {
+  border: 1px solid #e2e2e2;
+  border-collapse: collapse;
+}
+
+table thead th {
+  background-color: #0a66c6;
+  color: #e2e2e2;
+}
+
+table thead th a, table thead th a:hover {
+  color: #e2e2e2;
+}
+
+table tbody td {
+  color: #e2e2e2;
+  background-color: #050505;
+}
+
+table tbody td a, table tbody td a:hover {
+  color: #0a66c6;
+}
+
+pre {
+  padding: 1.2rem;
+  background-color: #050505;
+}
+
+/* Hashover override (hashoverride?) */
+#hashover form div.cmtbox {
+  background-color: #222222 !important;
+  border-color: #e2e2e2 !important;
+  border-width: 0 !important;
+  border-radius: 0 !important;
+}
+
+#hashover table tbody tr td {
+  background-color: #222222 !important;
+}
+
+#hashover table,
+#hashover table tbody,
+#hashover table tbody tr,
+#hashover table tbody tr td {
+  border: none !important;
+}
+
+#hashover a:hover {
+  text-shadow: unset;
+}
+
+#hashover form input.post_cmt {
+  border-style: none !important;
+}
+
+#hashover .cmtdiv input.post_cmt,
+#hashover input.post_cmt:focus,
+#hashover form input.post_cmt {
+  background-color: #0a66c6 !important;
+  color: #e2e2e2 !important;
+}
+
+#hashover .cmtdiv input.post_cmt:hover,
+#hashover form input.post_cmt:hover {
+  background-color: #050505 !important;
+  color: #e2e2e2 !important;
+}
+
+#hashover .cmtbubble {
+  background-color: #222222 !important;
+  color: #e2e2e2 !important;
+  border-style: none !important;
+  border-radius: 0 !important;
+}
+
+#hashover span.cmtnumber {
+  color: #222222 !important;
+}
+
+#hashover .cmtnumber img {
+  border-radius: 0 !important;
+  border-style: none !important;
+}
+
+#hashover .cmtdiv input[type="button"],
+#hashover .cmtdiv input.delete[type="submit"],
+#hashover .cmtdiv .optionbuttons a,
+#hashover .cmtdiv label {
+  background: #e2e2e2 !important;
+  color: #050505 !important;
+}
+
+#hashover span.options,
+#hashover span.options hr {
+  background-color: #222222 !important;
+}
+
+#hashover a, #hashover a:link {
+  color: #0a66c6 !important;
+}
+
+#hashover select {
+  border-style: none;
+}
+
+#hashover > center {
+  display: none !important;
+}

@@ -1,0 +1,45 @@
+{{ partial "header.html" . }}
+  <main id="post-list" class="columns small-12 medium-8 {{ if .Site.Params.leftsidebar }}right{{ else }}left{{ end }}">
+    {{ if not .IsHome }}
+		<header id="page-header">
+			<h1 id="page-title">{{ .Title }}</h1>
+		</header>
+		{{ end }}
+
+    {{ $paginator := .Paginate ( where .Data.Pages "Section" "post") }}
+		{{ range $paginator.Pages }}
+		<article class="media-object">
+			{{ if .Params.thumbnail }}
+      <div class="media-object-section">
+  			<figure class="thumbnail">
+  				<a href="{{ .Permalink }}">
+  					<img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" />
+  				</a>
+  			</figure>
+      </div>
+			{{ end }}
+			<div class="media-object-section">
+				<header class="post-list-title">
+          <a href="{{ .Permalink }}">
+					  <h4>{{ .Title }}</h4>
+          </a>
+					<div class="metadata">
+            <i class="fi-clock"></i>
+						<time datetime="{{ .Date }}">{{.Date.Format "January 02, 2006"}}</time>
+					</div>
+				</header>
+				<div class="post-list-summary">
+					<p>
+            {{ with .Description }}
+              {{ . }}
+            {{ else }}
+              {{ .Summary }}
+            {{ end }}
+					</p>
+				</div>
+			</div>
+		</article>
+		{{ end }}
+    {{ partial "pagination.html" . }}
+  </main>
+{{ partial "footer.html" . }}

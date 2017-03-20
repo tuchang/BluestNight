@@ -1,0 +1,17 @@
+{{ if and (.Site.Params.authorbox) (not .Params.hide_authorbox) }}
+<div id="authorbox" class="callout media-object">
+	<div class="media-object-section">
+		<figure class="thumbnail">
+			<img alt="{{ .Site.Author.name }} avatar" src="{{ .Site.Author.avatar | absURL }}" height="90" width="90">
+		</figure>
+	</div>
+	<div class="media-object-section">
+		<div>
+			<h5>About {{ .Site.Author.name }}</h5>
+		</div>
+		<p>
+			{{ .Site.Author.bio }}
+		</p>
+	</div>
+</div>
+{{ end }}
