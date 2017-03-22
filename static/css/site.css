@@ -185,7 +185,16 @@ table tbody td a, table tbody td a:hover {
 
 pre {
   padding: 1.2rem;
-  background-color: #050505;
+  background-color: #222222;
+  font-size: 0.8rem;
+}
+
+/* Drilldown style override */
+/* For some reason the drilldown
+has a hardcoded max-width: 0px;
+style attribute. This overrides that*/
+nav > div.is-drilldown {
+  max-width: none !important;
 }
 
 /* Hashover override (hashoverride?) */
