@@ -2,7 +2,7 @@
 /* body_text */
 {{ with .Site.Params.color.body_text }}
 a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
-#site-header nav a, #authorbox, .widget ul li a,
+#site-header nav a:hover, #authorbox, .widget ul li a,
 #post-metadata a, table thead th a, table tbody td,
 table thead th a:hover {
   color: {{ . }};
@@ -18,9 +18,26 @@ table thead th a:hover {
 }
 {{ end }}
 
+/* alt_body_text */
+{{ with .Site.Params.color.alt_body_text }}
+#main-nav a:hover, #menu-toggle,
+#site-header nav, .tag, #main-nav a {
+  color: {{ . }};
+}
+#hashover form div.cmtbox,
+#hashover table tbody tr td,
+#hashover .cmtbubble,
+#hashover span.cmtnumber,
+#hashover span.options,
+#hashover span.options hr {
+  color: {{ . }} !important;
+}
+{{ end }}
+
 /* background_color */
 {{ with .Site.Params.color.background_color }}
-#site-container, #authorbox, table tbody td {
+#site-container, #authorbox, table tbody td,
+#main-nav a:hover {
   background-color: {{ . }};
 }
 #hashover .cmtdiv input.post_cmt:hover,
@@ -39,12 +56,28 @@ table thead th a:hover {
 }
 {{ end }}
 
+/* alt_background_color */
+{{ with .Site.Params.color.alt_background_color }}
+pre, #site-header ul.menu, #menu-toggle,
+#site-header nav, .tag, #main-nav a {
+  background-color: {{ . }};
+}
+#hashover form div.cmtbox, #hashover table tbody tr td,
+#hashover .cmtbubble, #hashover span.options,
+#hashover span.options hr {
+  background-color: {{ . }} !important;
+}
+#hashover span.cmtnumber {
+  color: {{ . }} !important;
+}
+{{ end }}
+
 /* accent_color */
 {{ with .Site.Params.color.accent_color }}
 #site-header, .tag:hover, .tag:active, #main-nav .active a,
 .pagination .pagination-previous a:hover,
 .pagination .pagination-next a:hover,
-#main-nav a:hover, table thead th {
+table thead th {
   background-color: {{ . }};
 }
 #hashover .cmtdiv input.post_cmt,
