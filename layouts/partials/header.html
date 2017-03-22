@@ -29,17 +29,7 @@
             {{ with .Site.Params.tagline }}<h3 id="site-tagline">{{ . }}</h3>{{ end }}
           </a>
         </header>
-        <div id="menu-toggle" class="main-nav hide-for-medium"><span><i class="fi-list"></i> MENU</span></div>
-        <nav id="main-nav">
-          <ul class="vertical medium-horizontal menu show" data-responsive-menu="drilldown medium-dropdown">
-            {{ if .Site.Menus.main }}
-        		{{ $currentNode := . }}
-        		{{ range sort .Site.Menus.main }}
-        			<li class="{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}active{{end}}"><a class="main-nav button" href="{{ .URL }}">{{ .Name | upper }}</a></li>
-        		{{ end }}
-        		{{ end }}
-          </ul>
-        </nav>
+        {{ partial "menu.html" . }}
       </div>
       <div id="main-container" class="row" role="main">
         {{ if .Site.Params.leftsidebar }}{{ partial "sidebar.html" . }}{{ end }}
