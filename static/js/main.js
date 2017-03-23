@@ -30,9 +30,24 @@ function checkChangeMenu() {
   }
 }
 
+function rmInvisibleSubMenu() {
+  var nav = document.getElementById("main-nav");
+  var submenus = nav.getElementsByClassName("submenu invisible");
+  var c;
+  for (menu of submenus) {
+    c = menu.getAttribute("class");
+    menu.setAttribute("class", c.substring(0, c.indexOf("invisible")) + c.substring(c.indexOf("invisible") + 9));
+  }
+}
+
+function onResize() {
+  checkChangeMenu();
+  rmInvisibleSubMenu();
+}
+
 // After this call, isMobile is correct
 checkChangeMenu();
 
-window.addEventListener("resize", checkChangeMenu, false);
-window.addEventListener("orientationchange", checkChangeMenu, false);
+window.addEventListener("resize", onResize, false);
+window.addEventListener("orientationchange", onResize, false);
 document.getElementById("menu-toggle").addEventListener("click", changeMenu, false);
