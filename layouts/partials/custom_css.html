@@ -3,8 +3,7 @@
 {{ with .Site.Params.color.body_text }}
 a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
 #site-header nav a:hover, #authorbox, .widget ul li a,
-#post-metadata a, table thead th a, table tbody td,
-table thead th a:hover {
+#post-metadata a, table thead th a, table tbody td {
   color: {{ . }};
 }
 #site-tagline {
@@ -20,7 +19,7 @@ table thead th a:hover {
 
 /* alt_body_text */
 {{ with .Site.Params.color.alt_body_text }}
-#main-nav a:hover, #menu-toggle,
+#main-nav a:hover, #menu-toggle, code,
 #site-header nav, .tag, #main-nav a {
   color: {{ . }};
 }
@@ -59,7 +58,7 @@ table thead th a:hover {
 /* alt_background_color */
 {{ with .Site.Params.color.alt_background_color }}
 pre, #site-header ul.menu, #menu-toggle,
-#site-header nav, .tag, #main-nav a {
+#site-header nav, .tag, #main-nav a, code {
   background-color: {{ . }};
 }
 #hashover form div.cmtbox, #hashover table tbody tr td,
@@ -69,6 +68,9 @@ pre, #site-header ul.menu, #menu-toggle,
 }
 #hashover span.cmtnumber {
   color: {{ . }} !important;
+}
+code {
+  border-color: {{ . }};
 }
 {{ end }}
 
@@ -100,7 +102,8 @@ table tbody td a:hover, #post-content a,
 {{ end }}
 {{ with .Site.Params.color.header_text }}
 #site-title, #site-tagline, table thead th,
-table thead th a, table thead th a:hover,
+#post-content table thead th a,
+#post-content table thead th a:hover,
 #main-nav .active a, #main-nav a:hover {
   color: {{ . }};
 }

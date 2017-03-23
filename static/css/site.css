@@ -22,6 +22,12 @@ body {
   background-color: #0a66c6;
 }
 
+code {
+  background-color: #222222;
+  color: #e2e2e2;
+  border-color: #222222;
+}
+
 #site-header h1, #site-header h3 {
   text-transform: uppercase;
   font-weight: bold;
@@ -172,6 +178,7 @@ table thead th {
 
 table thead th a, table thead th a:hover {
   color: #e2e2e2;
+  text-decoration: underline;
 }
 
 table tbody td {
