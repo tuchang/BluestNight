@@ -1,7 +1,7 @@
 {{ $page := .page }}
 {{ $site := .site }}
 {{ range sort .menu }}
-  <li class="{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}active{{end}}">
+  <li class="{{if ($page.IsMenuCurrent "main" .) }}active{{end}}">
     <a class="main-nav button" href="{{ .URL }}">{{ .Name | upper }}</a>
     {{ if .HasChildren }}
       <ul class="menu" data-auto-height="true">
