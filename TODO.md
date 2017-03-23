@@ -4,19 +4,24 @@
 - [ ] Add search widget to sidebar - .fi-magnifying-glass icon
 - [ ] Donate with Paypal widget? - .fi-paypal icon
 - [x] Fix menu visibility issues
-   - Menu is not visible on large screen if previously hidden
-   - Menu is not visible on small screen if above happens
+   - Menu is not visible on large screen if previously hidden (JS fix)
+   - Menu is not visible on small screen if above happens (JS fix)
+   - [x] Submenu does not expand after leaving small screen size (JS fix)
 - [ ] [GitInfo](https://gohugo.io/extras/gitinfo/) support? What is this?
 - [ ] [Google Analytics](https://gohugo.io/extras/analytics/)
 
 ## Posts
 
 - [x] Add customizable and privacy-friendly comment system
+- [x] Allow optionally overriding site page navigation setting
+   - [ ] Optionally show only the next or previous nav, even if Hugo says the other exists
 
 ## Color scheme
 
 - [x] Allow modification to certain base colors
 - [x] Figure out how to get the nav elements to turn (accent color) on hover
+- [ ] Menu items that are also sub menus do not get marked active
+- [ ] (Optionally?) zebra stripe tables
 
 ## Templates
 
