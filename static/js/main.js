@@ -30,19 +30,21 @@ function checkChangeMenu() {
   }
 }
 
-function rmInvisibleSubMenu() {
-  var nav = document.getElementById("main-nav");
-  var submenus = nav.getElementsByClassName("submenu invisible");
+function rmInvisibleSubMenu(topmenu) {
+  var submenus = topmenu.getElementsByClassName("submenu");
   var c;
   for (menu of submenus) {
-    c = menu.getAttribute("class");
-    menu.setAttribute("class", c.substring(0, c.indexOf("invisible")) + c.substring(c.indexOf("invisible") + 9));
+    if (menu.getAttribute("class").includes("invisible")) {
+      c = menu.getAttribute("class");
+      menu.setAttribute("class", c.substring(0, c.indexOf("invisible")) + c.substring(c.indexOf("invisible") + 9));
+    }
+    rmInvisibleSubMenu(menu);
   }
 }
 
 function onResize() {
   checkChangeMenu();
-  rmInvisibleSubMenu();
+  rmInvisibleSubMenu(document.getElementById("main-nav"));
 }
 
 // After this call, isMobile is correct
