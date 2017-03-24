@@ -22,6 +22,10 @@ body {
   background-color: #0a66c6;
 }
 
+#main-nav .is-dropdown-submenu .button {
+  text-align: left;
+}
+
 code {
   background-color: #222222;
   color: #e2e2e2;
