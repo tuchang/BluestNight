@@ -96,6 +96,9 @@ table tbody td a:hover, #post-content a,
 #hashover a, #hashover a:link {
   color: {{ . }} !important;
 }
+#main-nav .is-dropdown-submenu {
+  border-color: {{ . }};
+}
 .widget h4, #site-header nav {
   border-bottom-color: {{ . }}
 }
@@ -104,7 +107,8 @@ table tbody td a:hover, #post-content a,
 #site-title, #site-tagline, table thead th,
 #post-content table thead th a,
 #post-content table thead th a:hover,
-#main-nav .active a, #main-nav a:hover {
+#main-nav .active a, #main-nav a:hover,
+.tag:hover {
   color: {{ . }};
 }
 #site-header h3 {

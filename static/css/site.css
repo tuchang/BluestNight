@@ -55,6 +55,10 @@ code {
   background-color: #0a66c6;
 }
 
+#main-nav .is-dropdown-submenu {
+   border-color: #0a66c6
+}
+
 #site-header nav a {
   color: #e2e2e2;
 }
