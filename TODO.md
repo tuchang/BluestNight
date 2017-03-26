@@ -7,7 +7,7 @@
    - Menu is not visible on large screen if previously hidden (JS fix)
    - Menu is not visible on small screen if above happens (JS fix)
    - [x] Submenu does not expand after leaving small screen size (JS fix)
-- [ ] [GitInfo](https://gohugo.io/extras/gitinfo/) support? What is this?
+~~- [ ] [GitInfo](https://gohugo.io/extras/gitinfo/) support? What is this?~~
 - [ ] [Google Analytics](https://gohugo.io/extras/analytics/)
 
 ## Posts
