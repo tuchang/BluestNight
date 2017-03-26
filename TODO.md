@@ -21,7 +21,7 @@
 - [x] Allow modification to certain base colors
 - [x] Figure out how to get the nav elements to turn (accent color) on hover
 - [ ] Menu items that are also sub menus do not get marked active
-- [ ] (Optionally?) zebra stripe tables
+- [x] (Optionally?) zebra stripe tables
 
 ## Templates
 

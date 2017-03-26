@@ -20,7 +20,8 @@ a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
 /* alt_body_text */
 {{ with .Site.Params.color.alt_body_text }}
 #main-nav a:hover, #menu-toggle, code,
-#site-header nav, .tag, #main-nav a {
+#site-header nav, .tag, #main-nav a,
+table tbody tr:nth-child(even) {
   color: {{ . }};
 }
 #hashover form div.cmtbox,
@@ -35,7 +36,7 @@ a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
 
 /* background_color */
 {{ with .Site.Params.color.background_color }}
-#site-container, #authorbox, table tbody td,
+#site-container, #authorbox, table tbody tr,
 #main-nav a:hover {
   background-color: {{ . }};
 }
@@ -58,7 +59,8 @@ a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
 /* alt_background_color */
 {{ with .Site.Params.color.alt_background_color }}
 pre, #site-header ul.menu, #menu-toggle,
-#site-header nav, .tag, #main-nav a, code {
+#site-header nav, .tag, #main-nav a, code,
+table tbody tr:nth-child(even) {
   background-color: {{ . }};
 }
 #hashover form div.cmtbox, #hashover table tbody tr td,

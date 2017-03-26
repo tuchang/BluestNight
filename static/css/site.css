@@ -189,9 +189,13 @@ table thead th a, table thead th a:hover {
   text-decoration: underline;
 }
 
-table tbody td {
+table tbody tr {
   color: #e2e2e2;
   background-color: #050505;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #222222;
 }
 
 table tbody td a, table tbody td a:hover {
