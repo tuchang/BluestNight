@@ -1,3 +1,23 @@
+::-moz-selection {
+  color: #e2e2e2;
+  background-color: #0a66c6;
+}
+
+::selection {
+  color: #e2e2e2;
+  background-color: #0a66c6;
+}
+
+header ::-moz-selection, .tag ::-moz-selection {
+  color: #e2e2e2;
+  background-color: #050505;
+}
+
+header ::selection, .tag ::selection {
+  color: #050505;
+  background-color: #e2e2e2;
+}
+
 a h1, a h2, a h3, a h4, a h5, a h6 {
   color: #e2e2e2;
 }

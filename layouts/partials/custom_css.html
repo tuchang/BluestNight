@@ -6,6 +6,12 @@ a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
 #post-metadata a, table thead th a, table tbody td {
   color: {{ . }};
 }
+header ::-moz-selection, .tag ::-moz-selection {
+  color: {{ . }};
+}
+header ::selection, .tag ::selection {
+  color: {{ . }};
+}
 #site-tagline {
   border-top-color: {{ . }};
 }
@@ -54,6 +60,12 @@ table tbody tr:nth-child(even) {
 #hashover .cmtdiv label {
   color: {{ . }} !important;
 }
+header ::-moz-selection, .tag ::-moz-selection {
+  background-color: {{ . }};
+}
+header ::selection, .tag ::selection {
+  background-color: {{ . }};
+}
 {{ end }}
 
 /* alt_background_color */
@@ -84,6 +96,12 @@ code {
 table thead th {
   background-color: {{ . }};
 }
+::-moz-selection {
+  background-color: {{ . }};
+}
+::selection {
+  background-color: {{ . }};
+}
 #hashover .cmtdiv input.post_cmt,
 #hashover input.post_cmt:focus,
 #hashover form input.post_cmt {
@@ -111,6 +129,12 @@ table tbody td a:hover, #post-content a,
 #post-content table thead th a:hover,
 #main-nav .active a, #main-nav a:hover,
 .tag:hover {
+  color: {{ . }};
+}
+::-moz-selection {
+  color: {{ . }};
+}
+::selection {
   color: {{ . }};
 }
 #site-header h3 {
