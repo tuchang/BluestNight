@@ -7,7 +7,7 @@
   			<p id="post-metadata">
           {{ if not .Date.IsZero }}
   				<i class="fi-clock"></i>
-  				<time datetime="{{ .Date }}">{{.Date.Format "January 02, 2006"}}</time>
+  				<time datetime="{{ .Date.Format "2006-01-02" }}">{{.Date.Format "January 02, 2006"}}</time>
   				&nbsp;&nbsp;&nbsp;
   				{{ end }}
   				{{ if .Params.categories }}

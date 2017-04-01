@@ -25,8 +25,8 @@
       <div id="site-header">
         <header>
           <a href="{{ .Site.BaseURL }}">
-            <h1 id="site-title">{{ .Site.Title }}</h1>
-            {{ with .Site.Params.tagline }}<h3 id="site-tagline">{{ . }}</h3>{{ end }}
+            <span id="site-title">{{ .Site.Title }}</span>
+            {{ with .Site.Params.tagline }}<br/><span id="site-tagline">{{ . }}</span>{{ end }}
           </a>
         </header>
         {{ partial "menu.html" . }}

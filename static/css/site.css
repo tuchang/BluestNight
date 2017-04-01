@@ -52,9 +52,20 @@ code {
   border-color: #222222;
 }
 
-#site-header h1, #site-header h3 {
+#site-title, #site-tagline {
   text-transform: uppercase;
   font-weight: bold;
+}
+
+#site-title {
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+#site-tagline {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e2e2;
 }
 
 #site-header nav, .tag {
@@ -87,11 +98,7 @@ code {
   padding: 1rem 2rem;
 }
 
-#site-tagline {
-  font-size: 1.2rem;
-  border-top: 1px solid #e2e2e2;
-  display: inline-block;
-}
+
 
 #menu-toggle {
   padding-left: 10px;
