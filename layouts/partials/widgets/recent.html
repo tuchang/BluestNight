@@ -3,7 +3,7 @@
 	<h4><i class="fi-calendar"></i> Recent Posts</h4>
 	<ul class="no-bullet">
 		{{ range first 10 (where .Site.Pages "Section" "post") }}
-		<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+		{{ if not (eq .URL "/post/") }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
 		{{ end }}
 	</ul>
 </div>
