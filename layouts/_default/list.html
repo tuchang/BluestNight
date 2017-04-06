@@ -5,41 +5,19 @@
 			<h1 id="page-title">{{ .Title }}</h1>
 		</header>
 		{{ end }}
-
-    {{ $paginator := .Paginate ( where .Data.Pages "Section" "post") }}
-		{{ range $paginator.Pages }}
-		<article class="media-object">
-			{{ if .Params.thumbnail }}
-      <div class="media-object-section">
-  			<figure class="thumbnail">
-  				<a href="{{ .Permalink }}">
-  					<img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" />
-  				</a>
-  			</figure>
-      </div>
-			{{ end }}
-			<div class="media-object-section">
-				<header class="post-list-title">
-          <a href="{{ .Permalink }}">
-					  <h4>{{ .Title }}</h4>
-          </a>
-					<div class="metadata">
-            <i class="fi-clock"></i>
-						<time datetime="{{ .Date.Format "2006-01-02" }}">{{.Date.Format "January 02, 2006"}}</time>
-					</div>
-				</header>
-				<div class="post-list-summary">
-					<p>
-            {{ with .Description }}
-              {{ . }}
-            {{ else }}
-              {{ .Summary }}
-            {{ end }}
-					</p>
-				</div>
-			</div>
-		</article>
-		{{ end }}
-    {{ partial "pagination.html" . }}
+    {{ .Content }}
+    {{ if (or (not (isset .Params "hide_list")) (not .Params.hide_list)) }}
+      {{ if .IsHome }}
+        {{ $paginator := .Paginate (where .Data.Pages "Section" "post") }}
+        {{ range $paginator.Pages }}
+          {{ partial "list_item.html" . }}
+        {{ end }}
+      {{ else }}
+    		{{ range .Data.Pages }}
+    		  {{ partial "list_item.html" . }}
+    		{{ end }}
+      {{ end }}
+      {{ partial "pagination.html" . }}
+    {{ end }}
   </main>
 {{ partial "footer.html" . }}

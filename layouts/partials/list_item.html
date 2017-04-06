@@ -1,0 +1,31 @@
+<article class="media-object">
+  {{ if .Params.thumbnail }}
+  <div class="media-object-section">
+    <figure class="thumbnail">
+      <a href="{{ .Permalink }}">
+        <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" />
+      </a>
+    </figure>
+  </div>
+  {{ end }}
+  <div class="media-object-section">
+    <header class="post-list-title">
+      <a href="{{ .Permalink }}">
+        <h4>{{ .Title }}</h4>
+      </a>
+      <div class="metadata">
+        <i class="fi-clock"></i>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{.Date.Format "January 02, 2006"}}</time>
+      </div>
+    </header>
+    <div class="post-list-summary">
+      <p>
+        {{ with .Description }}
+          {{ . }}
+        {{ else }}
+          {{ .Summary }}
+        {{ end }}
+      </p>
+    </div>
+  </div>
+</article>
