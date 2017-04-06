@@ -323,3 +323,27 @@ nav > div.is-drilldown {
 #hashover > center {
   display: none !important;
 }
+
+/* PRINTED PAGE STYLING */
+@media print {
+  body {
+    font-size: 12pt;
+  }
+  #hashover, aside, #site-header, footer, #authorbox {
+    display: none;
+  }
+  a:link:after, a:visited:after {
+    content: "";
+  }
+  a { text-decoration: none; }
+  #main-container { display: block; }
+  #main-container main {
+    width: 100%;
+    max-width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  @page {
+    margin: 0.75in 0.5in;
+  }
+}
