@@ -13,7 +13,7 @@
           {{ partial "list_item.html" . }}
         {{ end }}
       {{ else }}
-    		{{ range .Data.Pages }}
+    		{{ range .Paginator.Pages }}
     		  {{ partial "list_item.html" . }}
     		{{ end }}
       {{ end }}
