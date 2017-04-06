@@ -74,7 +74,7 @@ code {
   text-transform: uppercase;
 }
 
-.tag:hover, .tag:active, #main-nav .active a {
+.tag:hover, .tag:active, #main-nav .active > a {
   background-color: #0a66c6;
 }
 

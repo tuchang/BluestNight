@@ -87,7 +87,7 @@ code {
 
 /* accent_color */
 {{ with .Site.Params.color.accent_color }}
-#site-header, .tag:hover, .tag:active, #main-nav .active a,
+#site-header, .tag:hover, .tag:active, #main-nav .active > a,
 .pagination .pagination-previous a:hover,
 .pagination .pagination-next a:hover,
 table thead th {
@@ -124,7 +124,7 @@ table tbody td a:hover, #post-content a,
 #site-title, #site-tagline, table thead th,
 #post-content table thead th a,
 #post-content table thead th a:hover,
-#main-nav .active a, #main-nav a:hover,
+#main-nav .active > a, #main-nav a:hover,
 .tag:hover {
   color: {{ . }};
 }
