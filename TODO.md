@@ -10,6 +10,10 @@
 ~~- [ ] [GitInfo](https://gohugo.io/extras/gitinfo/) support? What is this?~~
 - [ ] [Google Analytics](https://gohugo.io/extras/analytics/)
 
+## Archetypes
+- [x] Add default archetype
+- [x] Add archetype for `post`
+
 ## Posts
 
 - [x] Add customizable and privacy-friendly comment system
@@ -29,3 +33,11 @@
 - [ ] Implement [blocks](https://gohugo.io/templates/blocks/)
 - [ ] Generate [pages for tags/categories](https://gohugo.io/templates/terms/) (also taxonomy lists on [this page](https://gohugo.io/templates/list/) and [this one](https://gohugo.io/taxonomies/displaying))
 - [ ] Custom [home page](https://gohugo.io/templates/homepage/)?
+  - What would a custom home page include?
+- [ ] Templates for list pages containing `{{ .Content }}` for custom content ([Docs](https://gohugo.io/content/using-index-md/))
+
+## Other
+- [ ] Reduce dependencies on JavaScript as much as possible
+  - [ ] Bonus: remove all dependencies on JavaScript so the theme is only HTML and CSS
+- [ ] Card-esque items in post list?
+- [ ] Implement microdata based on [Schema.org](https://schema.org/docs/gs.html)
