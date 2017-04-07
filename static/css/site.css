@@ -121,11 +121,11 @@ code {
 }
 
 #post-metadata a:hover,
-#post-content a:hover {
+main a:hover {
   text-decoration: underline;
 }
 
-#post-content a, #post-content a:hover {
+main a, main a:hover {
   color: #0a66c6;
 }
 
