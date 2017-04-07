@@ -287,6 +287,10 @@ nav > div.is-drilldown {
   color: #e2e2e2 !important;
 }
 
+#hashover .cmtnote {
+  color: #e2e2e2 !important;
+}
+
 #hashover .cmtbubble {
   background-color: #222222 !important;
   color: #e2e2e2 !important;
