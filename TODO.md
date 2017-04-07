@@ -7,7 +7,6 @@
    - Menu is not visible on large screen if previously hidden (JS fix)
    - Menu is not visible on small screen if above happens (JS fix)
    - [x] Submenu does not expand after leaving small screen size (JS fix)
-~~- [ ] [GitInfo](https://gohugo.io/extras/gitinfo/) support? What is this?~~
 - [ ] [Google Analytics](https://gohugo.io/extras/analytics/)
 
 ## Archetypes
@@ -19,6 +18,7 @@
 - [x] Add customizable and privacy-friendly comment system
 - [x] Allow optionally overriding site page navigation setting
    - [ ] Optionally show only the next or previous nav, even if Hugo says the other exists
+- [ ] Optionally include a Table of Contents for the page
 
 ## Color scheme
 
@@ -31,7 +31,7 @@
 ## Templates
 
 - [ ] Implement [blocks](https://gohugo.io/templates/blocks/)
-- [ ] Generate [pages for tags/categories](https://gohugo.io/templates/terms/) (also taxonomy lists on [this page](https://gohugo.io/templates/list/) and [this one](https://gohugo.io/taxonomies/displaying))
+- [x] Generate [pages for tags/categories](https://gohugo.io/templates/terms/) (also taxonomy lists on [this page](https://gohugo.io/templates/list/) and [this one](https://gohugo.io/taxonomies/displaying))
 - [ ] Custom [home page](https://gohugo.io/templates/homepage/)?
   - What would a custom home page include?
 - [x] Templates for list pages containing `{{ .Content }}` for custom content ([Docs](https://gohugo.io/content/using-index-md/))
@@ -46,4 +46,3 @@
 - [ ] Use CSS3 [@viewport](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport) for small screens (Does Foundation already do this?)
 - [ ] Use CSS3 [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) when necessary, e.g. for text select color
 - [ ] Add SASS/LESS support for people to generate their own style sheets instead of using generated <style> tags
-- [ ] Multiple development style sheets combined into one large one under /static

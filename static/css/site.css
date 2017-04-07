@@ -151,6 +151,10 @@ code {
   padding: 0.4rem 0.5rem;
 }
 
+.taxonomy-item {
+  list-style-type: none;
+}
+
 .pagination .pagination-previous a,
 .pagination .pagination-next a {
   color: #0a66c6;
