@@ -20,10 +20,11 @@
     </header>
     <div class="post-list-summary">
       <p>
+        {{ $page := . }}
         {{ with .Description }}
-          {{ . }}
+          {{ . | markdownify }} <a href="{{ $page.RelPermalink }}">[Read more...]</a>
         {{ else }}
-          {{ .Summary }}
+          {{ .Summary | markdownify }}{{ if .Truncated }} <a href="{{ $page.RelPermalink }}">[Read more...]</a>{{ end }}
         {{ end }}
       </p>
     </div>
