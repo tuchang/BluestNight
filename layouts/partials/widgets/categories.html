@@ -2,10 +2,10 @@
 {{ if isset .Site.Taxonomies "categories" }}
 {{ if not (eq (len .Site.Taxonomies.categories) 0) }}
 <div class="widget">
-	<h4><i class="fi-folder"></i> Categories</h4>
+	<h4><i class="fi-folder"></i> <a href="{{ $.Site.BaseURL }}categories/">Categories</a></h4>
 	<ul class="no-bullet">
-		{{ range $name, $items := .Site.Taxonomies.categories }}
-		<li><a href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name | title }}</a></li>
+		{{ range $key, $val := first 5 .Site.Taxonomies.categories.ByCount }}
+		<li><a href="{{ $.Site.BaseURL }}categories/{{ $val.Name | urlize | lower }}">{{ $val.Name | title }}</a></li>
 		{{ end }}
 	</ul>
 </div>

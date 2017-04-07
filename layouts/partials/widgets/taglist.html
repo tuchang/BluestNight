@@ -2,10 +2,12 @@
 {{ if isset .Site.Taxonomies "tags" }}
 {{ if not (eq (len .Site.Taxonomies.tags) 0) }}
 <div class="widget">
-	<h4><i class="fi-pricetag-multiple"></i> Tags</h4>
+	<h4><i class="fi-pricetag-multiple"></i> <a href="{{ $.Site.BaseURL }}tags/">Tags</a></h4>
 	<div>
-		{{ range $name, $items := .Site.Taxonomies.tags }}
-			<a href="{{ $.Site.BaseURL }}tags/{{ $name | urlize | lower  }}" class="tag button" title="{{ $name }}" style="font-size: 12px;">{{ $name }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $items.Count }}){{ end }}</a>
+		{{ range $key, $val := .Site.Taxonomies.tags.ByCount }}
+			<a href="{{ $.Site.BaseURL }}tags/{{ $val.Name | urlize | lower  }}" class="tag button" title="{{ $val.Name }}" style="font-size: 12px;">
+				{{ $val.Name }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $val.Count }}){{ end }}
+			</a>
 		{{ end }}
 	</div>
 </div>

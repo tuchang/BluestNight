@@ -1,7 +1,8 @@
 <style>
 /* body_text */
 {{ with .Site.Params.color.body_text }}
-a h1, a h2, a h3, a h4, a h5, a h6, #site-container,
+a h1, a h2, a h3, a h4, a h5, a h6,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, #site-container,
 #site-header nav a:hover, #authorbox, .widget ul li a,
 #post-metadata a, table thead th a, table tbody td {
   color: {{ . }};
@@ -109,8 +110,7 @@ table thead th {
 }
 .pagination .pagination-previous a,
 .pagination .pagination-next a, table tbody td a,
-table tbody td a:hover, main a,
-main a:hover {
+table tbody td a:hover, main a, main a:hover {
   color: {{ . }};
 }
 #hashover a, #hashover a:link {
