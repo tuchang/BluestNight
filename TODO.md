@@ -24,9 +24,13 @@
 
 - [x] Allow modification to certain base colors
 - [x] Figure out how to get the nav elements to turn (accent color) on hover
-- [ ] Menu items that are also sub menus do not get marked active
+- [x] Menu items that are also sub menus do not get marked active
+   - [ ] Items in sub menus are not marked active - limitation in Hugo?
 - [x] (Optionally?) zebra stripe tables
 - [x] Override the text selection color
+- [x] .tag:active colors are not overridden
+- [x] Headers need to underline in white
+- [x] Sidebar widget headers should look like other headers, not turn accent color
 
 ## Templates
 

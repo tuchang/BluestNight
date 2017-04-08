@@ -18,9 +18,7 @@ header ::selection, .tag ::selection {
   background-color: #e2e2e2;
 }
 
-a h1, a h2, a h3, a h4, a h5, a h6,
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
-header a {
+header a:link, header a:visited, header a:hover, header a:active {
   color: #e2e2e2;
 }
 
@@ -76,7 +74,7 @@ code {
   text-transform: uppercase;
 }
 
-.tag:hover, .tag:active, #main-nav .active > a {
+.tag:hover, .tag:focus, .tag:active, #main-nav .active > a {
   background-color: #0a66c6;
 }
 
@@ -100,8 +98,6 @@ code {
   padding: 1rem 2rem;
 }
 
-
-
 #menu-toggle {
   padding-left: 10px;
   background-color: #050505;
@@ -123,7 +119,9 @@ code {
 }
 
 #post-metadata a:hover,
-main a:hover {
+#post-content a:hover,
+.post-list-summary a:hover,
+.widget header a:hover {
   text-decoration: underline;
 }
 
