@@ -8,6 +8,7 @@
    - Menu is not visible on small screen if above happens (JS fix)
    - [x] Submenu does not expand after leaving small screen size (JS fix)
 - [ ] [Google Analytics](https://gohugo.io/extras/analytics/)
+- [ ] Custom ordering of widgets in the sidebar
 
 ## Archetypes
 - [x] Add default archetype
@@ -18,7 +19,7 @@
 - [x] Add customizable and privacy-friendly comment system
 - [x] Allow optionally overriding site page navigation setting
    - [ ] Optionally show only the next or previous nav, even if Hugo says the other exists
-- [ ] Optionally include a Table of Contents for the page
+- [x] Optionally include a Table of Contents for the page
 
 ## Color scheme
 
