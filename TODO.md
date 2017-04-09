@@ -45,6 +45,8 @@
 - [ ] Reduce dependencies on JavaScript as much as possible
   - [ ] Bonus: remove all dependencies on JavaScript so the theme is only HTML and CSS
      - [ ] [CSS3 Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) to show/hide menu
+       - This is made harder by having Foundation as the CSS framework library because it determines how to organize the site based on screen size. I'd have to have a screen size rule matching the small screen detection for hiding the menu and showing the toggle, and another rule for doing the opposite on larger screens.
+       - Perhaps I should also remove the dependency on Foundation, since it includes a bunch of styling I don't need anyways?
 - [ ] Card-esque items in post list?
 - [ ] Implement microdata based on [Schema.org](https://schema.org/docs/gs.html)
 - [x] Use CSS3 [@page](https://developer.mozilla.org/en-US/docs/Web/CSS/@page) to modify the look for printing
