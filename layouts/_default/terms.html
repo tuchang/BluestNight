@@ -6,7 +6,7 @@
 
     {{ .Content }}
 
-    <ul id="taxonomy-list">
+    <ul id="taxonomy-list" class="row">
       {{ $data := .Data }}
       {{ range $key, $val := .Data.Terms.Alphabetical }}
       <div class="row-item small-full medium-half large-third">
