@@ -279,6 +279,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 #site-title, #site-tagline {
   text-transform: uppercase;
   font-weight: bold;
+  display:inline-block;
 }
 
 #site-title {
