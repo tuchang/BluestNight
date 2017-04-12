@@ -23,7 +23,7 @@
         <header>
           <a href="{{ .Site.BaseURL }}">
             <span id="site-title">{{ .Site.Title }}</span>
-            {{ with .Site.Params.tagline }}<span id="site-tagline">{{ . }}</span>{{ end }}
+            {{ with .Site.Params.tagline }}<br/><span id="site-tagline">{{ . }}</span>{{ end }}
           </a>
         </header>
         {{ partial "menu.html" . }}
