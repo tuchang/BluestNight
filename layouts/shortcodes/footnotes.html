@@ -1,0 +1,14 @@
+{{ $count := (.Page.Scratch.Get "footnote-count") }}
+Count: {{ $count }}
+{{ if and (gt $count 0) }}
+  <div class="footnotes">
+    {{ .Page.Scratch.GetSortedMapValues "footnote-content" }}
+    {{ $scratch := .Scratch }}
+    {{ range (.Page.Scratch.GetSortedMapValues "footnote-content") }}
+      {{ $scratch.Add "i" 1 }}
+      {{ $i := $scratch.Get "i" }}
+      <p><a name="{{ string $i }}-note" href="#{{ $i }}-text">{{ string $i }}.</a> {{ string . }}</p>
+    {{ end }}
+    End: {{ .Scratch.Get "i" }}
+  </div>
+{{ end }}

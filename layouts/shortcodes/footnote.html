@@ -1,0 +1,7 @@
+{{ .Page.Scratch.Add "footnote-count" 1 }}
+{{ $count := (.Page.Scratch.Get "footnote-count") }}
+{{ $content := (string (.Get 0)) }}
+<p>{{$count}} {{$content}}</p>
+{{ .Page.Scratch.SetInMap "footnote-content" (string $count) $content }}
+
+<sup><a name="{{ $count }}-text" href="#{{ $count }}-note">[{{ $count }}]</a></sup>
