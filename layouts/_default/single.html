@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
-  <main class="columns small-12 medium-8 {{ if .Site.Params.leftsidebar }}right{{ else }}left{{ end }}">
+  <main class="row-item small-full medium-two-thirds">
     <article id="post-article">
-      <header id="post-header">
+      <header id="page-header">
         <h1>{{ .Title }}</h1>
         {{ if or (not .Date.IsZero) (.Params.categories) }}
   			<p id="post-metadata">

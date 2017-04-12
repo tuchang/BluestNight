@@ -1,6 +1,6 @@
-<div id="menu-toggle" class="main-nav hide-for-medium"><span><i class="fi-list"></i> MENU</span></div>
+<div id="menu-toggle" class="main-nav"><span><i class="fi-list"></i> MENU</span></div>
 <nav id="main-nav">
-  <ul class="vertical medium-horizontal menu show" data-responsive-menu="drilldown medium-dropdown">
+  <ul class="menu">
   {{ partial "nested_menu.html" (dict "menu" .Site.Menus.main "page" . "site" .Site) . }}
   </ul>
 </nav>

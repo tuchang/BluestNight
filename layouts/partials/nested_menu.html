@@ -4,7 +4,7 @@
   <li{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} class="active"{{end}}>
     <a class="main-nav button" href="{{ .URL }}">{{ .Name | upper }}</a>
     {{ if .HasChildren }}
-      <ul class="menu" data-auto-height="true">
+      <ul>
       {{ partial "nested_menu.html" (dict "menu" .Children "page" $page "site" $site) }}
       </ul>
     {{ end }}

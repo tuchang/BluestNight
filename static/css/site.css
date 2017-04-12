@@ -1,3 +1,231 @@
+/* CSS Reset */
+@import url("reset.css");
+
+/* Fix some of the resets */
+
+p { margin-bottom: 1rem; }
+p, li { line-height: 1.5rem; }
+ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+main ul { list-style: disc inside; }
+
+li > ul {
+  margin-left: 2rem;
+}
+
+div, article {
+  margin: 0.5rem 0;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.64rem; }
+h3 { font-size: 2.28rem; }
+h4 { font-size: 1.92rem; }
+h5 { font-size: 1.56rem; }
+h6 { font-size: 1.2rem; }
+h1,h2,h3,h4,h5,h6 {
+  margin: 0.5rem 0;
+}
+
+blockquote {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid #e2e2e2;
+  color: #8a8a8a;
+}
+
+small { font-size: 0.8em;}
+
+/* Base classes */
+.row, .menu {
+  display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.hcenter {
+  justify-content: center;
+}
+
+.vcenter {
+  align-items: center;
+}
+
+.row-item {
+  padding: 0 5px;
+}
+
+.small-full {
+  flex: 0 0 100%;
+}
+
+.small-half {
+  flex: 0 0 50%;
+}
+
+.small-quarter {
+  flex: 0 0 25%;
+}
+
+.small-third {
+  flex: 0 0 33.33333%;
+}
+
+.small-two-thirds {
+  flex: 0 0 66.66666%;
+}
+
+.menu {
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  position: relative;
+}
+
+.menu li {
+  flex: 0 0 auto;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.menu ul {
+  display: none;
+}
+
+.menu li:hover > ul {
+
+}
+
+.menu ul li, .menu ul li a {
+  text-align: left;
+  width: 100%;
+  margin: 0;
+}
+
+/* Medium screens */
+@media only screen and (min-width: 640px) {
+  .medium-full {
+    flex: 0 0 100%;
+  }
+
+  .medium-half {
+    flex: 0 0 50%;
+  }
+
+  .medium-quarter {
+    flex: 0 0 25%;
+  }
+
+  .medium-third {
+    flex: 0 0 33.33333%;
+  }
+
+  .medium-two-thirds {
+    flex: 0 0 66.66666%;
+  }
+
+  /* Horizontal menu styling */
+
+  #menu-toggle { display: none; }
+
+  .menu {
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    position: relative;
+  }
+
+  .menu li {
+    flex: 0 0 auto;
+  }
+
+  .menu a {
+    text-decoration: none;
+  }
+
+  .menu ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: auto;
+    margin: 0;
+    padding-right: 2rem;
+  }
+
+  .menu li:hover > ul {
+    display: block;
+    background: #252525;
+    border: 1px solid #0a66c6;
+  }
+
+  .menu ul li, .menu ul li a {
+    text-align: left;
+    width: 100%;
+    margin: 0;
+  }
+
+}
+
+/* Large screens */
+@media only screen and (min-width: 1024px) {
+  .large-full {
+    flex: 0 0 100%;
+  }
+
+  .large-half {
+    flex: 0 0 50%;
+  }
+
+  .large-quarter {
+    flex: 0 0 25%;
+  }
+
+  .large-third {
+    flex:  0 0 33.33333%;
+  }
+
+  .large-two-thirds {
+    flex: 0 0 66.66666%;
+  }
+}
+
+.left {
+  order: -1;
+}
+
+.right {
+  order: 1;
+}
+
+.button {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+
+.pagination {
+  padding: 0.4rem 0.7rem;
+}
+
+.pagination:hover {
+  background-color: #0a66c6;
+  color: #050505;
+}
+
+/* Entire page */
+
 ::-moz-selection {
   color: #e2e2e2;
   background-color: #0a66c6;
@@ -7,6 +235,23 @@
   color: #e2e2e2;
   background-color: #0a66c6;
 }
+
+#site-container {
+  margin: auto;
+  background-color: #050505;
+  color: #e2e2e2;
+  width: 100%;
+	max-width: 1080px;
+	margin: 25px auto;
+}
+
+body {
+  background-color: #000000;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Site header */
 
 header ::-moz-selection, .tag ::-moz-selection {
   color: #e2e2e2;
@@ -18,38 +263,17 @@ header ::selection, .tag ::selection {
   background-color: #e2e2e2;
 }
 
-header a:link, header a:visited, header a:hover, header a:active {
+header a:link, header a:visited, #site-header header a:hover, #site-header header a:active {
   color: #e2e2e2;
-}
-
-#site-container {
-  margin: auto;
-  background-color: #050505;
-  color: #e2e2e2;
-  width: 100%;
-	max-width: 1080px;
-	margin: 25px auto;
-	position: relative;
-}
-
-body {
-  background-color: #000000;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  text-decoration: none;
 }
 
 #site-header {
   background-color: #0a66c6;
 }
 
-#main-nav .is-dropdown-submenu .button {
-  text-align: left;
-}
-
-code {
-  background-color: #222222;
-  color: #e2e2e2;
-  border-color: #222222;
+#site-header header {
+  padding: 1rem 2rem;
 }
 
 #site-title, #site-tagline {
@@ -68,18 +292,22 @@ code {
   border-top: 1px solid #e2e2e2;
 }
 
-#site-header nav, .tag {
+/* Site nav (including tag buttons) */
+
+#main-nav, .tag {
   background-color: #252525;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.tag:hover, .tag:focus, .tag:active, #main-nav .active > a {
-  background-color: #0a66c6;
+  /* Site nav dropdown boxes align left */
+#main-nav .is-dropdown-submenu .button {
+  text-align: left;
 }
 
-#site-header nav, #main-nav a {
+#main-nav, #main-nav a {
   background-color: #050505;
+  color: #e2e2e2;
 }
 
 #main-nav a:hover {
@@ -90,12 +318,8 @@ code {
    border-color: #0a66c6
 }
 
-#site-header nav a {
-  color: #e2e2e2;
-}
-
-#site-header header {
-  padding: 1rem 2rem;
+.tag:hover, .tag:focus, .tag:active, #main-nav .active > a {
+  background-color: #0a66c6;
 }
 
 #menu-toggle {
@@ -103,31 +327,55 @@ code {
   background-color: #050505;
 }
 
+.tag {
+  font-size: 0.8rem;
+  margin: 0.2rem;
+  text-decoration: none;
+}
+
+/* Site main */
+
+code {
+  background-color: #222222;
+  color: #e2e2e2;
+  border-color: #222222;
+}
+
+pre {
+  padding: 1.2rem;
+  background-color: #222222;
+  font-size: 0.8rem;
+}
+
 #main-container {
   margin: 0.5rem 0.5rem;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 15px 20px 20px;
 }
 
-#post-header h1, #page-header h1 {
-  font-size: 2rem;
+#page-header h1 {
   font-weight: bold;
+  margin-top: 0;
 }
 
-#post-metadata a {
-  color: #e2e2e2;
-}
-
-#post-metadata a:hover,
-#post-content a:hover,
-.post-list-summary a:hover,
-.widget header a:hover {
+main a:hover, aside a:hover {
   text-decoration: underline;
 }
 
 main a, main a:hover {
   color: #0a66c6;
 }
+
+/* Site main - single */
+
+#post-metadata a {
+  color: #e2e2e2;
+}
+
+#post-tags {
+  margin: 1rem 0.4rem 1rem;
+}
+
+/* Site main - list */
 
 #post-list article {
   border-bottom: 1px solid #e2e2e2;
@@ -141,19 +389,13 @@ main a, main a:hover {
   font-weight: bold;
 }
 
-#post-tags {
-  margin: 1rem 0.4rem 1rem;
-}
-
-.tag {
-  font-size: 0.8rem;
-  margin: 0.2rem;
-  padding: 0.4rem 0.5rem;
-}
+/* Site main - taxonomy list */
 
 .taxonomy-item {
   list-style-type: none;
 }
+
+/* Site main - pagination */
 
 .pagination .pagination-previous a,
 .pagination .pagination-next a {
@@ -166,34 +408,13 @@ main a, main a:hover {
   background-color: #0a66c6;
 }
 
-#authorbox {
-  background-color: #050505;
-  color: #e2e2e2;
-  padding: 1.6rem 0.7rem;
-  border-style: solid hidden;
-  border-color: #e2e2e2;
-  border-width: 1px;
-}
-
-.widget h4, #site-header nav {
-  text-transform: uppercase;
-  margin: 0.5rem 0;
-  border-bottom: 3px solid #0a66c6;
-}
-
-.widget ul li {
-  border-bottom: 1px dotted #e2e2e2;
-  padding: 0.2rem;
-}
-
-.widget ul li a {
-  font-size: 0.9rem;
-  color: #e2e2e2;
-}
+/* Sidebar */
 
 aside {
   padding-bottom: 20px;
 }
+
+/* Footer */
 
 footer {
   padding: 0.5rem 1rem;
@@ -204,6 +425,8 @@ footer {
 footer p {
   margin-bottom: 0;
 }
+
+/* Tables */
 
 table, table thead th, table tbody td {
   border: 1px solid #e2e2e2;
@@ -229,22 +452,61 @@ table tbody tr:nth-child(even) {
   background-color: #222222;
 }
 
-table tbody td a, table tbody td a:hover {
+/* This should be covered by the general site rule */
+/*table tbody td a, table tbody td a:hover {
   color: #0a66c6;
+}*/
+
+/* Widgets */
+
+.widget header, #main-nav {
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  border-bottom: 3px solid #0a66c6;
 }
 
-pre {
-  padding: 1.2rem;
-  background-color: #222222;
-  font-size: 0.8rem;
+.widget ul li {
+  border-bottom: 1px dotted #e2e2e2;
+  padding: 0.2rem;
+  font-size: 0.9rem;
 }
 
-/* Drilldown style override */
-/* For some reason the drilldown
-has a hardcoded max-width: 0px;
-style attribute. This overrides that*/
-nav > div.is-drilldown {
-  max-width: none !important;
+.widget a:link, .widget a:visited {
+  text-decoration: none;
+}
+
+.widget a:hover, .widget a:active, .widget a:focus {
+  text-decoration: underline;
+}
+
+.widget-title {
+  font-size: 1.3rem;
+}
+
+/* Is this covered already? */
+/*.widget ul li a {
+  color: #e2e2e2;
+}*/
+
+/* Widgets -- Authorbox */
+
+#authorbox {
+  background-color: #050505;
+  color: #e2e2e2;
+  padding: 1rem 0.7rem;
+  border-style: solid hidden;
+  border-color: #e2e2e2;
+  border-width: 1px;
+}
+
+#authorbox img {
+  border: 3px solid #e2e2e2;
+}
+
+/* Widgets -- Patreon */
+  /* Contain the banner within the sidebar */
+#patreon-banner {
+  width: 100%;
 }
 
 /* Hashover override (hashoverride?) */
