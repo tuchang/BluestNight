@@ -2,7 +2,7 @@
 @import url("reset.css");
 
 /* Fix some of the resets */
-
+* { box-sizing: border-box;}
 p { margin-bottom: 1rem; }
 p, li { line-height: 1.5rem; }
 ul {
@@ -19,14 +19,25 @@ div, article {
   margin: 0.5rem 0;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.64rem; }
-h3 { font-size: 2.28rem; }
-h4 { font-size: 1.92rem; }
-h5 { font-size: 1.56rem; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.24rem; }
+h3 { font-size: 1.98rem; }
+h4 { font-size: 1.72rem; }
+h5 { font-size: 1.46rem; }
 h6 { font-size: 1.2rem; }
 h1,h2,h3,h4,h5,h6 {
   margin: 0.5rem 0;
+}
+
+table {
+  margin-bottom: 1rem;
+}
+
+code { padding: 0.2rem; }
+
+th, td {
+  padding: 0.6rem;
+  vertical-align: middle;
 }
 
 blockquote {
@@ -36,6 +47,8 @@ blockquote {
   color: #8a8a8a;
 }
 
+a:hover { cursor: pointer; }
+
 small { font-size: 0.8em;}
 
 /* Base classes */
@@ -44,6 +57,7 @@ small { font-size: 0.8em;}
 	display: flex;
 	-webkit-flex-direction: row;
 	flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
 }
@@ -77,36 +91,42 @@ small { font-size: 0.8em;}
 }
 
 .small-two-thirds {
-  flex: 0 0 66.66666%;
+  flex: 0 0 66.66667%;
 }
 
-.menu {
-  list-style: none;
-  align-items: center;
-  margin: 0;
-  position: relative;
-}
+@media only screen and (max-width: 639px) {
 
-.menu li {
-  flex: 0 0 auto;
-}
+  .menu {
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    position: relative;
+  }
 
-.menu a {
-  text-decoration: none;
-}
+  .menu li {
+    flex: 0 0 auto;
+    width: 100%;
+  }
 
-.menu ul {
-  display: none;
-}
+  .menu a {
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+  }
 
-.menu li:hover > ul {
+  .menu ul {
+    display: none;
+  }
 
-}
+  .menu li:hover > ul {
 
-.menu ul li, .menu ul li a {
-  text-align: left;
-  width: 100%;
-  margin: 0;
+  }
+
+  .menu ul li, .menu ul li a {
+    text-align: left;
+    width: 100%;
+    margin: 0;
+  }
 }
 
 /* Medium screens */
@@ -128,7 +148,7 @@ small { font-size: 0.8em;}
   }
 
   .medium-two-thirds {
-    flex: 0 0 66.66666%;
+    flex: 0 0 66.66667%;
   }
 
   /* Horizontal menu styling */
@@ -192,7 +212,7 @@ small { font-size: 0.8em;}
   }
 
   .large-two-thirds {
-    flex: 0 0 66.66666%;
+    flex: 0 0 66.66667%;
   }
 }
 
@@ -263,6 +283,11 @@ header ::selection, .tag ::selection {
   background-color: #e2e2e2;
 }
 
+header a:hover, header a:active, header a:focus {
+  text-decoration: underline;
+  color: #e2e2e2;
+}
+
 header a:link, header a:visited, #site-header header a:hover, #site-header header a:active {
   color: #e2e2e2;
   text-decoration: none;
@@ -307,12 +332,12 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 }
 
 #main-nav, #main-nav a {
-  background-color: #050505;
   color: #e2e2e2;
 }
 
 #main-nav a:hover {
   background-color: #0a66c6;
+  cursor: pointer;
 }
 
 #main-nav .is-dropdown-submenu {
@@ -321,6 +346,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 
 .tag:hover, .tag:focus, .tag:active, #main-nav .active > a {
   background-color: #0a66c6;
+  color: #e2e2e2;
 }
 
 #menu-toggle {
@@ -332,6 +358,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   font-size: 0.8rem;
   margin: 0.2rem;
   text-decoration: none;
+  color: #e2e2e2;
 }
 
 /* Site main */
@@ -345,7 +372,7 @@ code {
 pre {
   padding: 1.2rem;
   background-color: #222222;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 #main-container {
@@ -364,6 +391,10 @@ main a:hover, aside a:hover {
 
 main a, main a:hover {
   color: #0a66c6;
+}
+
+main header a:hover, main header a:active, main header a:focus {
+  color: #e2e2e2;
 }
 
 /* Site main - single */
@@ -473,6 +504,7 @@ table tbody tr:nth-child(even) {
 }
 
 .widget a:link, .widget a:visited {
+  color: #e2e2e2;
   text-decoration: none;
 }
 
@@ -600,7 +632,7 @@ table tbody tr:nth-child(even) {
   body {
     font-size: 12pt;
   }
-  #hashover, aside, #site-header, footer, #authorbox {
+  #hashover, aside, #site-header, footer, #authorbox, #post-tags {
     display: none;
   }
   a:link:after, a:visited:after {
