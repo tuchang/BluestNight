@@ -2,14 +2,17 @@
 @import url("reset.css");
 
 /* Fix some of the resets */
-* { box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
+body { font-family: "Verdana", "Liberation Sans", sans-serif; }
 p { margin-bottom: 1rem; }
 p, li { line-height: 1.5rem; }
 ul {
   list-style: none;
   margin-bottom: 1rem;
 }
-main ul { list-style: disc inside; }
+main ul { list-style: disc outside; }
 
 li > ul {
   margin-left: 2rem;
@@ -34,7 +37,9 @@ table {
 }
 
 code { padding: 0.2rem; }
-
+code, pre {
+  font-family: "Courier New", "Liberation Mono", monospace;
+}
 th, td {
   padding: 0.6rem;
   vertical-align: middle;
@@ -47,7 +52,12 @@ blockquote {
   color: #8a8a8a;
 }
 
-a:hover { cursor: pointer; }
+a { text-decoration: none; }
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 small { font-size: 0.8em;}
 
@@ -60,6 +70,21 @@ small { font-size: 0.8em;}
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
+}
+
+.menu {
+  font-size: 0.9rem;
+}
+
+.no-select {
+  /* Thanks to https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting-using-css#4407335 */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .hcenter {
@@ -96,6 +121,16 @@ small { font-size: 0.8em;}
 
 @media only screen and (max-width: 639px) {
 
+  #main-nav { display: none; }
+
+  #menu-toggle {
+    cursor: pointer;
+  }
+
+  #menu-toggle-box:checked + #main-nav {
+    display: block;
+  }
+
   .menu {
     list-style: none;
     align-items: center;
@@ -108,18 +143,20 @@ small { font-size: 0.8em;}
     width: 100%;
   }
 
-  .menu a {
+  .menu a, .menu label {
     text-decoration: none;
     width: 100%;
     text-align: left;
   }
 
-  .menu ul {
-    display: none;
+  .menu input[type=checkbox]:checked + ul {
+    display: block;
   }
 
-  .menu li:hover > ul {
-
+  .menu ul {
+    position: static;
+    display: none;
+    margin-left: 1rem;
   }
 
   .menu ul li, .menu ul li a {
@@ -174,9 +211,10 @@ small { font-size: 0.8em;}
     display: none;
     position: absolute;
     top: 100%;
+    min-width: 15rem;
     width: auto;
+    max-width: 20rem;
     margin: 0;
-    padding-right: 2rem;
   }
 
   .menu li:hover > ul {
@@ -185,12 +223,18 @@ small { font-size: 0.8em;}
     border: 1px solid #0a66c6;
   }
 
-  .menu ul li, .menu ul li a {
+  .menu ul li, .menu ul li a, .menu ul li label {
     text-align: left;
     width: 100%;
     margin: 0;
   }
 
+  .menu ul > li:hover > ul {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width:inherit;
+  }
 }
 
 /* Large screens */
@@ -224,6 +268,8 @@ small { font-size: 0.8em;}
   order: 1;
 }
 
+.hide { display: none; }
+
 .button {
   text-align: center;
   padding: 0.5rem 1rem;
@@ -241,7 +287,7 @@ small { font-size: 0.8em;}
 
 .pagination:hover {
   background-color: #0a66c6;
-  color: #050505;
+  color: #e2e2e2;
 }
 
 /* Entire page */
@@ -273,12 +319,12 @@ body {
 
 /* Site header */
 
-header ::-moz-selection, .tag ::-moz-selection {
+#site-header ::-moz-selection, .tag ::-moz-selection {
   color: #e2e2e2;
   background-color: #050505;
 }
 
-header ::selection, .tag ::selection {
+#site-header ::selection, .tag ::selection {
   color: #050505;
   background-color: #e2e2e2;
 }
@@ -335,7 +381,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   color: #e2e2e2;
 }
 
-#main-nav a:hover {
+#main-nav .button:hover {
   background-color: #0a66c6;
   cursor: pointer;
 }
@@ -436,7 +482,7 @@ main header a:hover, main header a:active, main header a:focus {
 
 .pagination .pagination-previous a:hover,
 .pagination .pagination-next a:hover {
-  color: #050505;
+  color: #e2e2e2;
   background-color: #0a66c6;
 }
 
@@ -484,11 +530,6 @@ table tbody tr:nth-child(even) {
   background-color: #222222;
 }
 
-/* This should be covered by the general site rule */
-/*table tbody td a, table tbody td a:hover {
-  color: #0a66c6;
-}*/
-
 /* Widgets */
 
 .widget header, #main-nav {
@@ -516,11 +557,6 @@ table tbody tr:nth-child(even) {
   font-size: 1.3rem;
 }
 
-/* Is this covered already? */
-/*.widget ul li a {
-  color: #e2e2e2;
-}*/
-
 /* Widgets -- Authorbox */
 
 #authorbox {
@@ -530,6 +566,7 @@ table tbody tr:nth-child(even) {
   border-style: solid hidden;
   border-color: #e2e2e2;
   border-width: 1px;
+  flex-wrap: nowrap;
 }
 
 #authorbox img {
@@ -631,6 +668,10 @@ table tbody tr:nth-child(even) {
 @media print {
   body {
     font-size: 12pt;
+    font-family: "Georgia", "Liberation Serif", serif;
+    background-image: none !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
   }
   #hashover, aside, #site-header, footer, #authorbox, #post-tags {
     display: none;
@@ -638,8 +679,9 @@ table tbody tr:nth-child(even) {
   a:link:after, a:visited:after {
     content: "";
   }
+  main, p, header, a, th, td { color: #000000 !important; }
   a { text-decoration: none; }
-  #site-container { margin: 0 auto; }
+  #site-container { margin: 0 auto; background-color: #ffffff; }
   #main-container { display: block; padding: 0; }
   #main-container main {
     width: 100%;
