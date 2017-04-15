@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-  <main class="columns small-12 medium-8 {{ if .Site.Params.leftsidebar }}right{{ else }}left{{ end }}">
+  <main class="row-item small-full medium-two-thirds">
 		<header id="page-header">
 			<h1 id="page-title">{{ .Title }}</h1>
 		</header>
@@ -9,7 +9,7 @@
     <ul id="taxonomy-list" class="row">
       {{ $data := .Data }}
       {{ range $key, $val := .Data.Terms.Alphabetical }}
-      <div class="columns small-12 medium-6 large-4">
+      <div class="row-item small-full medium-half large-third">
         <li class="taxonomy-item">
           <a href="/{{ $data.Plural | urlize }}/{{ $val.Name | urlize }}">{{ $val.Name }}</a> ({{ $val.Count }})
         </li>

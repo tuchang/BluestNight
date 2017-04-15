@@ -5,7 +5,7 @@
 	<header>
 		<h4><i class="fi-folder"></i> <a href="{{ $.Site.BaseURL }}categories/">Categories</a></h4>
 	</header>
-	<ul class="no-bullet">
+	<ul>
 		{{ range $key, $val := first 5 .Site.Taxonomies.categories.ByCount }}
 		<li><a href="{{ $.Site.BaseURL }}categories/{{ $val.Name | urlize | lower }}">{{ $val.Name | title }}</a></li>
 		{{ end }}

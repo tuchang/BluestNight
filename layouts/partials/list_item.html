@@ -1,14 +1,14 @@
-<article class="media-object">
+<article>
   {{ if .Params.thumbnail }}
-  <div class="media-object-section">
-    <figure class="thumbnail">
+  <div>
+    <figure>
       <a href="{{ .Permalink }}">
         <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" />
       </a>
     </figure>
   </div>
   {{ end }}
-  <div class="media-object-section">
+  <div>
     <header class="post-list-title">
       <a href="{{ .Permalink }}">
         <h4>{{ .Title }}</h4>
