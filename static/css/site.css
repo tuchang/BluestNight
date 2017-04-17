@@ -1,13 +1,14 @@
 /* CSS Reset */
 @import url("reset.css");
-
+/* Custom fonts */
+@import url("fonts/stylesheet.css");
 /* Fix some of the resets */
 * {
   box-sizing: border-box;
 }
 body { font-family: "Verdana", "Liberation Sans", sans-serif; }
 p { margin-bottom: 1rem; }
-p, li { line-height: 1.5rem; }
+p, li { line-height: 1.5; }
 ul {
   list-style: none;
   margin-bottom: 1rem;
@@ -289,6 +290,61 @@ small { font-size: 0.8em;}
   background-color: #0a66c6;
   color: #e2e2e2;
 }
+/* Handwriting styles */
+
+.allura {
+  font-family: "alluraregular";
+  font-size: 1.4em;
+}
+
+.calligraffiti {
+  font-family: "calligraffitiregular";
+  font-size: 1.1em;
+}
+
+.dancing-script {
+  font-family: "dancing_script_otregular";
+  font-size: 1.2em;
+}
+
+.euphoria-script {
+  font-family: "euphoria_scriptregular";
+  font-size: 1.4em;
+}
+
+.journal {
+  font-family: "journalregular";
+  font-size: 1.5em;
+}
+
+.kingthings-wrote {
+  font-family: "kingthings_wroteregular";
+  font-size: 0.9em;
+}
+
+.note-this {
+  font-family: "note_thisregular";
+  font-size: 1.1em;
+}
+
+.vag-handwritten {
+  font-family: "vag-handwrittenvaghandwritten";
+  font-size: 1.2em;
+}
+
+.daniel {
+  font-family: "danielregular";
+}
+
+.daniel-black {
+  font-family: "danielblack";
+}
+
+.handwriting p {
+  text-indent: 2em;
+}
+
+
 
 /* Entire page */
 

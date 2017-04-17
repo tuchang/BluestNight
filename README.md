@@ -31,3 +31,23 @@ See the theme in action with its custom color scheme [here](https://mnbryant.com
 - Custom "Error 404" page
 - Custom robots.txt that prevents taxonomy pages from being indexed (e.g. /tags/my_tag)
 - Check out the [TODO list](https://github.com/Shadow53/BluestNight)
+
+### Shortcodes
+
+##### Footnotes
+
+*Currently working out some kinks*
+
+##### Handwriting styles
+
+The theme comes with a handful of 100% free handwriting fonts from [Font Squirrel](https://www.fontsquirrel.com/). You can choose between them using the `{{% handwriting %}}` shortcode. These are the currently available fonts:
+
+- `"allura"`
+- `"calligraffiti"`
+- `"dancing-script"`
+- `"daniel"`
+- `"euphoria-script"`
+- `"journal"`
+- `"kingthings-wrote"`
+- `"note-this"`
+- `"vag-handwritten"`
