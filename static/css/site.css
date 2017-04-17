@@ -62,6 +62,8 @@ a:hover {
 
 small { font-size: 0.8em;}
 
+sup { position: relative; top: -0.5em; font-size: 80%; }
+
 /* Base classes */
 .row, .menu {
   display: -webkit-flex;
