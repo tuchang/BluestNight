@@ -50,3 +50,11 @@ The theme comes with a handful of 100% free handwriting fonts from [Font Squirre
 - `"kingthings-wrote"`
 - `"note-this"`
 - `"vag-handwritten"`
+
+###### Example:
+
+```
+{{% handwriting "calligraffiti" %}}
+This is some text that will render using the "calligraffiti" font.
+{{% /handwriting %}}
+```
