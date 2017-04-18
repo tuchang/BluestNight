@@ -66,7 +66,7 @@ main a, main a:hover, .pagination .pagination-previous a,
 {{ with .Site.Params.color.header_text }}
   ::-moz-selection { color: {{ . }}; }
   ::selection { color: {{ . }}; }
-  #main-nav .button:hover, a.tag:hover, a.tag:focus, a.tag:active, #main-nav .active > a, table thead th,
+  #main-nav .button:hover, #main-nav .button:hover a, a.tag:hover, a.tag:focus, a.tag:active, #main-nav .active > a, table thead th,
   table thead th a, table thead th a:hover, #main table tbody tr, .pagination:hover,
   .pagination .pagination-previous a:hover, .pagination .pagination-next a:hover,
   #site-title, #site-tagline { color: {{ . }}; }
