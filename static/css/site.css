@@ -6,7 +6,7 @@
 * {
   box-sizing: border-box;
 }
-body { font-family: "Verdana", "Liberation Sans", sans-serif; }
+body { font-family: "Clear Sans", sans-serif; }
 p { margin-bottom: 1rem; }
 p, li { line-height: 1.5; }
 ul {
@@ -39,8 +39,8 @@ table {
 
 code { padding: 0.2rem; display: inline-block;}
 code, pre {
-  width: 100%;
-  font-family: "Courier New", "Liberation Mono", monospace;
+  max-width: 100%;
+  font-family: "Source Code Pro", monospace;
 }
 th, td {
   padding: 0.6rem;
@@ -101,31 +101,37 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
 
 .row-item {
   padding: 0 5px;
+  display: block;
 }
 
 .small-full {
   flex: 0 0 100%;
   width: 100%;
+  max-width: 100%;
 }
 
 .small-half {
   flex: 0 0 50%;
   width: 50%;
+  max-width: 50%;
 }
 
 .small-quarter {
   flex: 0 0 25%;
   width: 25%;
+  max-width: 25%;
 }
 
 .small-third {
   flex: 0 0 33.33333%;
   width: 33.33333%;
+  max-width: 33.33333%;
 }
 
 .small-two-thirds {
   flex: 0 0 66.66667%;
   width: 66.66667%;
+  max-width: 66.66667%;
 }
 
 @media only screen and (max-width: 639px) {
@@ -180,26 +186,31 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
   .medium-full {
     flex: 0 0 100%;
     width: 100%;
+    max-width: 100%;
   }
 
   .medium-half {
     flex: 0 0 50%;
     width: 50%;
+    max-width: 50%;
   }
 
   .medium-quarter {
     flex: 0 0 25%;
     width: 25%;
+    max-width: 25%;
   }
 
   .medium-third {
     flex: 0 0 33.33333%;
     width: 33.33333%:
+    max-width: 33.33333%:
   }
 
   .medium-two-thirds {
     flex: 0 0 66.66667%;
     width: 66.66667%;
+    max-width: 66.66667%;
   }
 
   /* Horizontal menu styling */
@@ -260,22 +271,32 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
 @media only screen and (min-width: 1024px) {
   .large-full {
     flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
   }
 
   .large-half {
     flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
   }
 
   .large-quarter {
     flex: 0 0 25%;
+    width: 25%;
+    max-width: 25%;
   }
 
   .large-third {
     flex:  0 0 33.33333%;
+    width: 33.33333%;
+    max-width: 33.33333%;
   }
 
   .large-two-thirds {
     flex: 0 0 66.66667%;
+    width: 66.66667%;
+    max-width: 66.66667%;
   }
 }
 
@@ -311,47 +332,47 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
 /* Handwriting styles */
 
 .allura {
-  font-family: "alluraregular";
+  font-family: "allura";
   font-size: 1.4em;
 }
 
 .calligraffiti {
-  font-family: "calligraffitiregular";
+  font-family: "calligraffiti";
   font-size: 1.1em;
 }
 
 .dancing-script {
-  font-family: "dancing_script_otregular";
+  font-family: "dancingscript";
   font-size: 1.2em;
 }
 
 .euphoria-script {
-  font-family: "euphoria_scriptregular";
+  font-family: "euphoriascript";
   font-size: 1.4em;
 }
 
 .journal {
-  font-family: "journalregular";
+  font-family: "journal";
   font-size: 1.5em;
 }
 
 .kingthings-wrote {
-  font-family: "kingthings_wroteregular";
+  font-family: "kingthings-wrote";
   font-size: 0.9em;
 }
 
 .note-this {
-  font-family: "note_thisregular";
+  font-family: "note-this";
   font-size: 1.1em;
 }
 
 .vag-handwritten {
-  font-family: "vag-handwrittenvaghandwritten";
+  font-family: "vag-handwritten";
   font-size: 1.2em;
 }
 
 .daniel {
-  font-family: "danielregular";
+  font-family: "daniel";
 }
 
 .daniel-black {
