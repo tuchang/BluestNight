@@ -20,12 +20,17 @@
 
 /* alt_body_text */
 {{ with .Site.Params.color.alt_body_text }}
-  .tag, code, #main table tbody tr:nth-child(even) { color: {{ . }}; }
+  .tag, code, #main table tbody tr:nth-child(even), footer, #main-nav { color: {{ . }}; }
   #hashover .cmtbubble { color: {{ . }} !important; }
 {{ end }}
 
-/* background_color */
-{{ with .Site.Params.color.background_color }}
+/* page_background_color */
+{{ with .Site.Params.color.page_background_color }}
+body { background-color: {{ . }}; }
+{{ end }}
+
+/* main_background_color */
+{{ with .Site.Params.color.main_background_color }}
   #site-header ::-moz-selection, .tag ::-moz-selection { background-color: {{ . }}; }
   #site-header ::selection, .tag ::selection { color: {{ . }}; }
   #site-container, #menu-toggle, #main table tbody tr, #authorbox { background-color: {{ . }}; }
@@ -39,7 +44,7 @@
 
 /* alt_background_color */
 {{ with .Site.Params.color.alt_background_color }}
-code, pre, #main table tbody tr:nth-child(even) { background-color: {{ . }}; }
+code, pre, #main table tbody tr:nth-child(even), footer, #main-nav { background-color: {{ . }}; }
 code { border-color: {{ . }}; }
 #hashover form div.cmtbox, #hashover table tbody tr td,
 #hashover .cmtbubble, #hashover span.options, #hashover span.options hr
