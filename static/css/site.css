@@ -220,6 +220,11 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
     text-decoration: none;
   }
 
+  .menu label a {
+    display: block;
+    width: 100%;
+  }
+
   .menu ul {
     display: none;
     position: absolute;

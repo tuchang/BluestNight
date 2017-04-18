@@ -2,12 +2,12 @@
 {{ $site := .site }}
 {{ range sort .menu }}
   <li{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} class="active"{{end}}>
-    {{ if .HasChildren }}<label class="main-nav button" for="nav-{{ .Name | plainify | urlize }}">{{ else }}
-      <a class="main-nav button" href="{{ .URL }}">{{ end }}
+    {{ if .HasChildren }}<label class="button" for="nav-{{ .Name | plainify | urlize }}">{{ end }}
+      <a class="main-nav{{ if not .HasChildren }} button{{end}}" href="{{ .URL }}">
         {{ .Name | upper }}{{ if .HasChildren }}&nbsp;&nbsp;<span style="float: right">&#9656;</span>{{ end }}
-      {{ if not .HasChildren }}</a>{{ else }}
-    </label>{{ end }}
+      </a>
     {{ if .HasChildren }}
+    </label>
       <input type="checkbox" id="nav-{{ .Name | plainify | urlize }}" class="hide"/>
       <ul>
       {{ partial "nested_menu.html" (dict "menu" .Children "page" $page "site" $site) }}
