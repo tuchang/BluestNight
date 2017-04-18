@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+{{ range $.Site.Data.events }}
+BEGIN:VEVENT
+SUMMARY:Access-A-Ride Pickup
+DTSTART;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .startDate }}
+DTEND;TZID=America/New_York:{{ dateFormat "20060102T150405" .endDate }}
+LOCATION:{{ .location }}
+DESCRIPTION: {{ .description }}
+STATUS:CONFIRMED
+SEQUENCE:3
+BEGIN:VALARM
+TRIGGER:-PT10M
+DESCRIPTION:Reminder
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+{{ end }}
