@@ -7,7 +7,7 @@
 		{{ range first 5 (sort $.Site.Data.events "startDate" "asc") }}
 		<li>
       <h6>{{ .name }}</h6>
-      <time datetime="{{ dateFormat "2006-01-02T15:04:05" .startDate }}">{{ dateFormat "2006/01/02 15:04" .startDate }}</time>
+      <time datetime="{{ dateFormat "2006-01-02T15:04:05" .startDate }}">{{ dateFormat "2006/01/02 @ 15:04" .startDate }}</time>
       <br/>{{ .description }}
     </li>
 		{{ end }}
