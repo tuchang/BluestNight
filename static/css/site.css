@@ -37,8 +37,9 @@ table {
   margin-bottom: 1rem;
 }
 
-code { padding: 0.2rem; }
+code { padding: 0.2rem; display: inline-block;}
 code, pre {
+  width: 100%;
   font-family: "Courier New", "Liberation Mono", monospace;
 }
 th, td {
@@ -494,6 +495,7 @@ code {
   background-color: #222222;
   color: #e2e2e2;
   border-color: #222222;
+  overflow-wrap: break-word;
 }
 
 pre {
