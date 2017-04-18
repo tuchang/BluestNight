@@ -104,22 +104,27 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
 
 .small-full {
   flex: 0 0 100%;
+  width: 100%;
 }
 
 .small-half {
   flex: 0 0 50%;
+  width: 50%;
 }
 
 .small-quarter {
   flex: 0 0 25%;
+  width: 25%;
 }
 
 .small-third {
   flex: 0 0 33.33333%;
+  width: 33.33333%;
 }
 
 .small-two-thirds {
   flex: 0 0 66.66667%;
+  width: 66.66667%;
 }
 
 @media only screen and (max-width: 639px) {
@@ -173,22 +178,27 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
 @media only screen and (min-width: 640px) {
   .medium-full {
     flex: 0 0 100%;
+    width: 100%;
   }
 
   .medium-half {
     flex: 0 0 50%;
+    width: 50%;
   }
 
   .medium-quarter {
     flex: 0 0 25%;
+    width: 25%;
   }
 
   .medium-third {
     flex: 0 0 33.33333%;
+    width: 33.33333%:
   }
 
   .medium-two-thirds {
     flex: 0 0 66.66667%;
+    width: 66.66667%;
   }
 
   /* Horizontal menu styling */
@@ -485,6 +495,7 @@ pre {
   padding: 1.2rem;
   background-color: #222222;
   font-size: 1rem;
+  overflow-x: scroll;
 }
 
 #main-container {
