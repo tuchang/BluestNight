@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 BEGIN:VEVENT
 SUMMARY:{{ .name }}
 DTSTART;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .startDate }}
-DTEND;TZID=America/New_York:{{ dateFormat "20060102T150405" .endDate }}
+DTEND;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .endDate }}
 LOCATION:{{ .location }}
 DESCRIPTION: {{ .description }}
 STATUS:CONFIRMED
