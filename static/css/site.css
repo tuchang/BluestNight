@@ -662,9 +662,9 @@ table tbody tr:nth-child(even) {
   font-size: 1.3rem;
 }
 
-/* Widgets -- Authorbox */
+/* Widgets -- Authorbox/Memberbox */
 
-#authorbox {
+.memberbox {
   background-color: #050505;
   color: #e2e2e2;
   padding: 1rem 0.7rem;
@@ -674,7 +674,7 @@ table tbody tr:nth-child(even) {
   flex-wrap: nowrap;
 }
 
-#authorbox img {
+.memberbox img {
   border: 3px solid #e2e2e2;
 }
 

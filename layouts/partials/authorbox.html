@@ -1,15 +1,19 @@
 {{ if and (.Site.Params.authorbox) (not .Params.hide_authorbox) }}
-<div id="authorbox" class="row vcenter">
-	<div id="author-avatar" class="row-item">
-			<img alt="{{ .Site.Author.name }} avatar" src="{{ .Site.Author.avatar | absURL }}" height="90" width="90">
-	</div>
-	<div id="author-bio" class="row-item">
-		<div>
-			<span class="widget-title">About {{ .Site.Author.name }}</span>
+{{ if (isset .Params "author") }}{{ $name := .Params.author }}{{ else }}{{ $name := .Site.Params.Author }}{{ end }}
+{{ range $.Site.Data.members }}
+	{{ if (eq .Name $name) }}
+	<div id="authorbox" class="row vcenter memberbox">
+		<div class="row-item member-avatar">
+				<img alt="{{ .Name }} avatar" src="{{ .Img | absURL }}" height="90" width="90">
 		</div>
-		<p>
-			{{ .Site.Author.bio }}
-		</p>
+		<div class="row-item member-bio">
+			<div>
+				<span class="widget-title">About {{ .Name }}</span>
+			</div>
+			<p>
+				{{ .Bio }}
+			</p>
+		</div>
 	</div>
-</div>
+	{{ end }}
 {{ end }}
