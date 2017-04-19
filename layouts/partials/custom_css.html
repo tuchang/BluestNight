@@ -6,9 +6,9 @@
   #site-container, header a:hover, header a:active, header a:focus, header a:link,
   header a:visited, #site-header header a:hover, #site-header header a:active,
   #main-nav, #main-nav a, main header a:hover, main header a:active, main header a:focus
-  #post-metadata a, .widget a:link, .widget a:visited, #authorbox { color: {{ . }}; }
+  #post-metadata a, .widget a:link, .widget a:visited, .memberbox { color: {{ . }}; }
   #post-list article, table, table thead th, #main table tbody td, .widget ul li,
-  #authorbox, #authorbox img { border-color: {{ . }}; }
+  .memberbox, .memberbox img { border-color: {{ . }}; }
   #hashover .cmtdiv input.post_cmt:hover, #hashover form input.post_cmt:hover,
   #hashover .cmtnote { color: {{ . }} !important; }
   #hashover form div.cmtbox { border-color: {{ . }} !important; }
@@ -33,7 +33,7 @@ body { background-color: {{ . }}; }
 {{ with .Site.Params.color.main_background_color }}
   #site-header ::-moz-selection, .tag ::-moz-selection { background-color: {{ . }}; }
   #site-header ::selection, .tag ::selection { color: {{ . }}; }
-  #site-container, #menu-toggle, #main table tbody tr, #authorbox { background-color: {{ . }}; }
+  #site-container, #menu-toggle, #main table tbody tr, .memberbox { background-color: {{ . }}; }
   #hashover .cmtdiv input[type="button"], #hashover .cmtdiv input.delete[type="submit"],
   #hashover .cmtdiv .optionbuttons a, #hashover .cmtdiv label, #hashover .cmtdiv input[type="button"],
   #hashover .cmtdiv input.delete[type="submit"], #hashover .cmtdiv .optionbuttons a,
