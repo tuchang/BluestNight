@@ -1,5 +1,6 @@
 {{ if and (.Site.Params.authorbox) (not .Params.hide_authorbox) }}
-{{ if (isset .Params "author") }}{{ $name := .Params.author }}{{ else }}{{ $name := .Site.Params.Author }}{{ end }}
+{{ $name := .Site.Params.Author }}
+{{ if (isset .Params "author") }}{{ $name := .Params.author }}{{ end }}
 {{ range $.Site.Data.members }}
 	{{ if (eq .Name $name) }}
 	<div id="authorbox" class="row vcenter memberbox">

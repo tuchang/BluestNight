@@ -3,7 +3,7 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 {{ range $.Site.Data.events }}
 BEGIN:VEVENT
-UID:{{ md5 (.name + .startDate) }}@{{ .Site.BaseURL }}
+UID:{{  }}{{ md5 (slice .name .startDate) }}@{{ .Site.BaseURL }}
 SUMMARY:{{ .name }}
 DTSTART;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .startDate }}
 DTEND;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .endDate }}
