@@ -1,5 +1,4 @@
 {{ $name := .Get 0 }}
-{{ $name }}
 {{ range $.Site.Data.members }}
 	{{ if (eq $name .Name) }}
 	<div class="row vcenter memberbox">
