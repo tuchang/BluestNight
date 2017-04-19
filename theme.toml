@@ -8,7 +8,7 @@ description = "A dark theme with blue accents for Hugo. Provides multiple config
 homepage = "https://github.com/Shadow53/BluestNight"
 tags = []
 features = []
-min_version = 0.19
+min_version = 0.20
 
 [author]
   name = "Michael Bryant"
