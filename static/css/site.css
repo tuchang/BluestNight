@@ -558,6 +558,10 @@ main header a:hover, main header a:active, main header a:focus {
   margin: 1rem 0.4rem 1rem;
 }
 
+main img {
+  max-width: 100%;
+}
+
 /* Site main - list */
 
 #post-list article {
