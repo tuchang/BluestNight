@@ -142,7 +142,7 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
     cursor: pointer;
   }
 
-  #menu-toggle-box:checked + #main-nav {
+  #menu-toggle-box:checked ~ #main-nav {
     display: block;
   }
 
@@ -164,8 +164,12 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
     text-align: left;
   }
 
-  .menu input[type=checkbox]:checked + ul {
+  .menu input[type=checkbox]:checked ~ ul {
     display: block;
+  }
+
+  .menu input[type=checkbox]:checked ~ label .nav-arrow {
+    transform: rotate(90deg);
   }
 
   .menu ul {
@@ -245,6 +249,11 @@ sup { position: relative; top: -0.5em; font-size: 80%; }
     width: auto;
     max-width: 20rem;
     margin: 0;
+  }
+
+  #main-nav > ul > li > label:hover .nav-arrow {
+    transform: rotate(90deg);
+    transition: transform 0.5s;
   }
 
   .menu li:hover > ul {
