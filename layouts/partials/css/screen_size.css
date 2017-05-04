@@ -152,8 +152,8 @@
 
   .menu li:hover > ul {
     display: block;
-    background: {{ .alt_bg }};
-    border: 1px solid {{ .accent }};
+    background: {{ .Get "alt_bg" }};
+    border: 1px solid {{ .Get "accent" }};
   }
 
   .menu ul li, .menu ul li a, .menu ul li label {

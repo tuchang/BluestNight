@@ -3,24 +3,30 @@
 /* Custom fonts */
 @import url("css/fonts/stylesheet.css");
 
-{{ $page_bg := "#000000" }}{{ $main_bg := "#050505" }}{{ $alt_bg := "#252525" }}{{ $body_text := "#e2e2e2" }}{{ $alt_body_text := "#ffffff" }}{{ $accent := "#2c8cef" }}{{ $header_text := "#000000" }}
-{{ if (isset $.Site.Params "page_background_color") }}{{ $page_bg := $.Site.Params.page_background_color }}{{ end }}
-{{ if (isset $.Site.Params "main_background_color") }}{{ $main_bg := $.Site.Params.main_background_color }}{{ end }}
-{{ if (isset $.Site.Params "alt_background_color") }} {{ $alt_bg := $.Site.Params.alt_background_color }}  {{ end }}
-{{ if (isset $.Site.Params "body_text") }}            {{ $body_text := $.Site.Params.body_text }}          {{ end }}
-{{ if (isset $.Site.Params "alt_body_text") }}        {{ $alt_body_text := $.Site.Params.alt_body_text }}  {{ end }}
-{{ if (isset $.Site.Params "accent_color") }}         {{ $accent := $.Site.Params.accent_color }}          {{ end }}
-{{ if (isset $.Site.Params "header_text") }}          {{ $header_text := $.Site.Params.header_text }}      {{ end }}
-{{ $colors := (dict "page_bg" $page_bg "main_bg" $main_bg "alt_bg" $alt_bg "body_text" $body_text "alt_body_text" $alt_body_text "accent" $accent "header_text" $header_text) }}
+{{ $.Scratch.Set "page_bg" "#000000" }}{{ $.Scratch.Set "main_bg" "#050505" }}{{ $.Scratch.Set "alt_bg" "#252525" }}
+{{ $.Scratch.Set "body_text" "#e2e2e2" }}{{ $.Scratch.Set "alt_body_text" "#ffffff" }}
+{{ $.Scratch.Set "accent" "#2c8cef" }}{{ $.Scratch.Set "header_text" "#e2e2e2" }}
 
-{{ partial "css/reset.css" $colors }}
-{{ partial "css/base_classes.css" $colors }}
-{{ partial "css/screen_size.css" $colors }}
-{{ partial "css/handwriting.css" $colors }}
-{{ partial "css/page.css" $colors }}
-{{ partial "css/navigation.css" $colors }}
-{{ partial "css/single.css" $colors }}
-{{ partial "css/list.css" $colors }}
-{{ partial "css/widgets.css" $colors }}
-{{ if ($.Site.Params.hashover) }}{{ partial "css/hashover.css" $colors }}{{ end }}
-{{ partial "css/print.css" $colors }}
+{{ with $.Site.Params.color.page_background_color }}{{ $.Scratch.Set "page_bg" . }}        {{ end }}
+{{ with $.Site.Params.color.main_background_color }}{{ $.Scratch.Set "main_bg" . }}        {{ end }}
+{{ with $.Site.Params.color.alt_background_color }} {{ $.Scratch.Set "alt_bg" . }}         {{ end }}
+{{ with $.Site.Params.color.body_text }}            {{ $.Scratch.Set "body_text" . }}      {{ end }}
+{{ with $.Site.Params.color.alt_body_text }}        {{ $.Scratch.Set "alt_body_text" . }}  {{ end }}
+{{ with $.Site.Params.color.accent_color }}         {{ $.Scratch.Set "accent" . }}         {{ end }}
+{{ with $.Site.Params.color.header_text }}          {{ $.Scratch.Set "header_text" . }}    {{ end }}
+
+{{ with $.Site.Params.background.src }}{{ $.Scratch.Set "background_src" . }}{{ end }}
+{{ if ($.Site.Params.background.tile) }}{{ $.Scratch.Set "background_tile" "repeat" }}{{ else }}{{ $.Scratch.Set "background_tile" "no-repeat" }}{{ end }}
+{{ if ($.Site.Params.background.fit_width) }}{{ $.Scratch.Set "background_fit" "contain" }}{{ else }}{{ $.Scratch.Set "background_fit" "cover" }}{{ end }}
+
+{{ partial "css/reset.css" $.Scratch }}
+{{ partial "css/base_classes.css" $.Scratch }}
+{{ partial "css/screen_size.css" $.Scratch }}
+{{ partial "css/handwriting.css" $.Scratch }}
+{{ partial "css/page.css" $.Scratch }}
+{{ partial "css/navigation.css" $.Scratch }}
+{{ partial "css/single.css" $.Scratch }}
+{{ partial "css/list.css" $.Scratch }}
+{{ partial "css/widgets.css" $.Scratch }}
+{{ if ($.Site.Params.hashover) }}{{ partial "css/hashover.css" $.Scratch }}{{ end }}
+{{ partial "css/print.css" $.Scratch }}

@@ -1,7 +1,7 @@
 /* Site nav (including tag buttons) */
 
 #main-nav {
-  background-color: {{ .alt_bg }};
+  background-color: {{ .Get "alt_bg" }};
 }
 
 #main-nav .button {
@@ -14,19 +14,19 @@
 }
 
 #main-nav, #main-nav a {
-  color: {{ .body_text }};
+  color: {{ .Get "body_text" }};
 }
 
 #main-nav .button:hover a, #main-nav a:hover,
 #main-nav .button.active a, #main-nav a.active {
-  color: {{ .header_text }};
+  color: {{ .Get "header_text" }};
 }
 
 #main-nav .is-dropdown-submenu {
-   border-color: {{ .accent }};
+   border-color: {{ .Get "accent" }};
 }
 
 #menu-toggle {
   padding-left: 10px;
-  background-color: {{ .main_bg }};
+  background-color: {{ .Get "main_bg" }};
 }

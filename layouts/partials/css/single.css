@@ -1,7 +1,7 @@
 /* Site main - single */
 
 #post-metadata a {
-  color: {{ .body_text }};
+  color: {{ .Get "body_text" }};
 }
 
 #post-tags {
@@ -21,25 +21,25 @@ main img {
 /* Tables */
 
 table, table thead th, table tbody td {
-  border: 1px solid {{ .body_text }};
+  border: 1px solid {{ .Get "body_text" }};
   border-collapse: collapse;
 }
 
 table thead th {
-  background-color: {{ .accent }};
-  color: {{ .header_text }};
+  background-color: {{ .Get "accent" }};
+  color: {{ .Get "header_text" }};
 }
 
 table thead th a, table thead th a:hover {
-  color: {{ .header_text }};
+  color: {{ .Get "header_text" }};
   text-decoration: underline;
 }
 
 table tbody tr {
-  color: {{ .body_text }};
-  background-color: {{ .main_bg }};
+  color: {{ .Get "body_text" }};
+  background-color: {{ .Get "main_bg" }};
 }
 
 table tbody tr:nth-child(even) {
-  background-color: {{ .alt_bg }};
+  background-color: {{ .Get "alt_bg" }};
 }

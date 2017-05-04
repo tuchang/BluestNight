@@ -1,57 +1,59 @@
 /* Entire page */
 
 ::-moz-selection {
-  color: {{ .header_text }};
-  background-color: {{ .accent }};
+  color: {{ .Get "header_text" }};
+  background-color: {{ .Get "accent" }};
 }
 
 ::selection {
-  color: {{ .body_text }};
-  background-color: {{ .accent }};
+  color: {{ .Get "body_text" }};
+  background-color: {{ .Get "accent" }};
 }
 
 #site-container {
   margin: auto;
-  background-color: {{ .main_bg }};
-  color: {{ .body_text }};
+  background-color: {{ .Get "main_bg" }};
+  color: {{ .Get "body_text" }};
   width: 100%;
 	max-width: 1080px;
 	margin: 25px auto;
 }
 
 body {
-  background-color: {{ .page_bg }};
+  background-color: {{ .Get "page_bg" }};
   background-attachment: fixed;
-  background-image: url("{{ .Site.Params.background.src }}");
-  background-repeat: {{ if and ( isset .Site.Params.background "tile") (.Site.Params.background.tile) }}repeat{{ else }}no-repeat{{ end }};
-  background-size: {{ if and (isset .Site.Params.background "fit_width") (.Site.Params.background.fit_width) }}contain{{ else }}cover{{ end }};
+  {{ if (not (eq (.Get "background_src") "")) }}
+  background-image: url("{{ .Get "background_src" }}");
+  background-repeat: {{ .Get "background_tile" }};
+  background-size: {{ .Get "background_fit" }};
+  {{ end }}
 }
 
 /* Site header */
 
 #site-header ::-moz-selection, .tag ::-moz-selection {
-  color: {{ .body_text }};
-  background-color: {{ .main_bg }};
+  color: {{ .Get "body_text" }};
+  background-color: {{ .Get "main_bg" }};
 }
 
 #site-header ::selection, .tag ::selection {
-  color: {{ .body_text }};
-  background-color: {{ .main_bg }};
+  color: {{ .Get "body_text" }};
+  background-color: {{ .Get "main_bg" }};
 }
 
 header a:hover, header a:active, header a:focus {
   text-decoration: underline;
-  color: {{ .body_text }};
+  color: {{ .Get "body_text" }};
 }
 
 header a:link, header a:visited, #site-header header a:hover, #site-header header a:active {
-  color: {{ .body_text }};
+  color: {{ .Get "body_text" }};
   text-decoration: none;
 }
 
 #site-header {
-  background-color: {{ .accent }};
-  color: {{ .header_text }};
+  background-color: {{ .Get "accent" }};
+  color: {{ .Get "header_text" }};
 }
 
 #site-header header {
@@ -62,7 +64,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   text-transform: uppercase;
   font-weight: bold;
   display:inline-block;
-  color: {{ .header_text }};
+  color: {{ .Get "header_text" }};
 }
 
 #site-title {
@@ -73,19 +75,19 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 #site-tagline {
   font-size: 1.2rem;
   padding-top: 0.5rem;
-  border-top: 1px solid {{ .header_text }};
+  border-top: 1px solid {{ .Get "header_text" }};
 }
 
 code {
-  background-color: {{ .alt_bg }};
-  color: {{ .body_text }};
-  border-color: {{ .alt_bg }};
+  background-color: {{ .Get "alt_bg" }};
+  color: {{ .Get "body_text" }};
+  border-color: {{ .Get "alt_bg" }};
   overflow-wrap: break-word;
 }
 
 pre {
   padding: 1.2rem;
-  background-color: {{ .alt_bg }};
+  background-color: {{ .Get "alt_bg" }};
   font-size: 1rem;
   overflow-x: scroll;
 }
@@ -105,11 +107,11 @@ main a:hover, aside a:hover {
 }
 
 main a, main a:hover {
-  color: {{ .accent }};
+  color: {{ .Get "accent" }};
 }
 
 main header a:hover, main header a:active, main header a:focus {
-  color: {{ .body_text }};
+  color: {{ .Get "body_text" }};
 }
 
 /* Sidebar */
@@ -119,7 +121,7 @@ aside {
 }
 
 aside a:link, aside a:visited {
-  color: {{ .body_text }};
+  color: {{ .Get "body_text" }};
   text-decoration: none;
 }
 
@@ -131,7 +133,7 @@ aside a:hover, aside a:active, aside a:focus {
 
 footer {
   padding: 0.5rem 1rem;
-  background-color: {{ .alt_bg }};
+  background-color: {{ .Get "alt_bg" }};
   border-top: 3px solid #999999;
 }
 

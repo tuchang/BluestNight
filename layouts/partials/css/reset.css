@@ -46,7 +46,7 @@ th, td {
 blockquote {
   padding-top: 0.5rem;
   padding-left: 1rem;
-  border-left: 1px solid {{ .body_text }};
+  border-left: 1px solid {{ .Get "body_text" }};
   color: #8a8a8a;
 }
 
