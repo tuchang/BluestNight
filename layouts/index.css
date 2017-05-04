@@ -1,0 +1,26 @@
+/* CSS Reset */
+@import url("css/reset.css");
+/* Custom fonts */
+@import url("css/fonts/stylesheet.css");
+
+{{ $page_bg := "#000000" }}{{ $main_bg := "#050505" }}{{ $alt_bg := "#252525" }}{{ $body_text := "#e2e2e2" }}{{ $alt_body_text := "#ffffff" }}{{ $accent := "#0DC400" }}{{ $header_text := "#000000" }}
+{{ if (isset $.Site.Params "page_background_color") }}{{ $page_bg := $.Site.Params.page_background_color }}{{ end }}
+{{ if (isset $.Site.Params "main_background_color") }}{{ $main_bg := $.Site.Params.main_background_color }}{{ end }}
+{{ if (isset $.Site.Params "alt_background_color") }} {{ $alt_bg := $.Site.Params.alt_background_color }}  {{ end }}
+{{ if (isset $.Site.Params "body_text") }}            {{ $body_text := $.Site.Params.body_text }}          {{ end }}
+{{ if (isset $.Site.Params "alt_body_text") }}        {{ $alt_body_text := $.Site.Params.alt_body_text }}  {{ end }}
+{{ if (isset $.Site.Params "accent_color") }}         {{ $accent := $.Site.Params.accent_color }}          {{ end }}
+{{ if (isset $.Site.Params "header_text") }}          {{ $header_text := $.Site.Params.header_text }}      {{ end }}
+{{ $colors := (dict "page_bg" $page_bg "main_bg" $main_bg "alt_bg" $alt_bg "body_text" $body_text "alt_body_text" $alt_body_text "accent" $accent "header_text" $header_text) }}
+
+{{ partial "css/reset.css" $colors }}
+{{ partial "css/base_classes.css" $colors }}
+{{ partial "css/screen_size.css" $colors }}
+{{ partial "css/handwriting.css" $colors }}
+{{ partial "css/page.css" $colors }}
+{{ partial "css/navigation.css" $colors }}
+{{ partial "css/single.css" $colors }}
+{{ partial "css/list.css" $colors }}
+{{ partial "css/widgets.css" $colors }}
+{{ if ($.Site.Params.hashover) }}{{ partial "css/hashover.css" $colors }}{{ end }}
+{{ partial "css/print.css" $colors }}

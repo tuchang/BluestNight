@@ -1,0 +1,32 @@
+/* Site nav (including tag buttons) */
+
+#main-nav {
+  background-color: {{ .alt_bg }};
+}
+
+#main-nav .button {
+  margin: 0;
+}
+
+  /* Site nav dropdown boxes align left */
+#main-nav .is-dropdown-submenu .button {
+  text-align: left;
+}
+
+#main-nav, #main-nav a {
+  color: {{ .body_text }};
+}
+
+#main-nav .button:hover a, #main-nav a:hover,
+#main-nav .button.active a, #main-nav a.active {
+  color: {{ .header_text }};
+}
+
+#main-nav .is-dropdown-submenu {
+   border-color: {{ .accent }};
+}
+
+#menu-toggle {
+  padding-left: 10px;
+  background-color: {{ .main_bg }};
+}
