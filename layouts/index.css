@@ -3,7 +3,7 @@
 /* Custom fonts */
 @import url("css/fonts/stylesheet.css");
 
-{{ $page_bg := "#000000" }}{{ $main_bg := "#050505" }}{{ $alt_bg := "#252525" }}{{ $body_text := "#e2e2e2" }}{{ $alt_body_text := "#ffffff" }}{{ $accent := "#0DC400" }}{{ $header_text := "#000000" }}
+{{ $page_bg := "#000000" }}{{ $main_bg := "#050505" }}{{ $alt_bg := "#252525" }}{{ $body_text := "#e2e2e2" }}{{ $alt_body_text := "#ffffff" }}{{ $accent := "#2c8cef" }}{{ $header_text := "#000000" }}
 {{ if (isset $.Site.Params "page_background_color") }}{{ $page_bg := $.Site.Params.page_background_color }}{{ end }}
 {{ if (isset $.Site.Params "main_background_color") }}{{ $main_bg := $.Site.Params.main_background_color }}{{ end }}
 {{ if (isset $.Site.Params "alt_background_color") }} {{ $alt_bg := $.Site.Params.alt_background_color }}  {{ end }}
