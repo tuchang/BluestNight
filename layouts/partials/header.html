@@ -4,7 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }}</title>
-    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ $.Scratch.Set "desc" "" }}
+    {{ with $.Site.Params.description }}{{ $.Scratch.Set "desc" . }}{{ end }}
+    {{ with .Summary }}{{ $.Scratch.Set "desc" . }}{{ end }}
+    {{ with $.Params.description }}{{ $.Scratch.Set "desc" . }}{{ end }}
+    {{ if (not (eq ($.Scratch.Get "desc") "")) }}
+    <meta name="description" content="{{ $.Scratch.Get "desc" }}">
+    {{ end }}
     {{ .Hugo.Generator }}
     {{ if .RSSLink }}<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Feed" href="{{ .RSSLink }}">{{ end }}
     {{ if .Params.tags }}
