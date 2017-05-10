@@ -28,7 +28,8 @@
 
 #menu-toggle {
   padding-left: 10px;
-  background-color: {{ .Get "main_bg" }};
+  background-color: {{ .Get "alt_bg" }};
+  color: {{ .Get "alt_body_text" }}
 }
 
 .nav-arrow {
