@@ -30,3 +30,7 @@
   padding-left: 10px;
   background-color: {{ .Get "main_bg" }};
 }
+
+.nav-arrow {
+  float: right;
+}

@@ -5,7 +5,7 @@
       <input type="checkbox" id="nav-{{ .Name | plainify | urlize }}" class="hide"/>
       {{ if .HasChildren }}<label class="button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}" for="nav-{{ .Name | plainify | urlize }}">{{ end }}
         <a class="main-nav{{ if not .HasChildren }} button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}{{end}}" href="{{ .URL }}">
-          {{ .Name | upper }}{{ if .HasChildren }}&nbsp;&nbsp;<span class="nav-arrow" style="float: right">&#9656;</span>{{ end }}
+          {{ .Name | upper }}{{ if .HasChildren }}&nbsp;&nbsp;<span class="nav-arrow">&#9656;</span>{{ end }}
         </a>
       {{ if .HasChildren }}
       </label>
