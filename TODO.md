@@ -26,7 +26,7 @@
 - [x] Allow modification to certain base colors
 - [x] Figure out how to get the nav elements to turn (accent color) on hover
 - [x] Menu items that are also sub menus do not get marked active
-   - [ ] Items in sub menus are not marked active - limitation in Hugo?
+   - [x] Items in sub menus are not marked active - limitation in Hugo?
 - [x] (Optionally?) zebra stripe tables
 - [x] Override the text selection color
 - [x] .tag:active colors are not overridden
@@ -37,14 +37,14 @@
 
 - [ ] Implement [blocks](https://gohugo.io/templates/blocks/)
 - [x] Generate [pages for tags/categories](https://gohugo.io/templates/terms/) (also taxonomy lists on [this page](https://gohugo.io/templates/list/) and [this one](https://gohugo.io/taxonomies/displaying))
-- [ ] Custom [home page](https://gohugo.io/templates/homepage/)?
-  - What would a custom home page include?
+- ~~[ ] Custom [home page](https://gohugo.io/templates/homepage/)?~~
+  - People should be able to use `_index.md` to modify their home page, even hiding the list
 - [x] Templates for list pages containing `{{ .Content }}` for custom content ([Docs](https://gohugo.io/content/using-index-md/))
 
 ## Other
-- [ ] Reduce dependencies on JavaScript as much as possible
-  - [ ] Bonus: remove all dependencies on JavaScript so the theme is only HTML and CSS
-     - [ ] [CSS3 Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) to show/hide menu
+- [x] Reduce dependencies on JavaScript as much as possible
+  - [x] Bonus: remove all dependencies on JavaScript so the theme is only HTML and CSS
+     - [x] [CSS3 Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) to show/hide menu
        - This is made harder by having Foundation as the CSS framework library because it determines how to organize the site based on screen size. I'd have to have a screen size rule matching the small screen detection for hiding the menu and showing the toggle, and another rule for doing the opposite on larger screens.
        - Perhaps I should also remove the dependency on Foundation, since it includes a bunch of styling I don't need anyways?
 - [ ] Card-esque items in post list?
@@ -52,4 +52,5 @@
 - [x] Use CSS3 [@page](https://developer.mozilla.org/en-US/docs/Web/CSS/@page) to modify the look for printing
 - [ ] Use CSS3 [@viewport](https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport) for small screens (Does Foundation already do this?)
 - [ ] Use CSS3 [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) when necessary, e.g. for text select color
-- [ ] Add SASS/LESS support for people to generate their own style sheets instead of using generated <style> tags
+- ~~[ ] Add SASS/LESS support for people to generate their own style sheets instead of using generated <style> tags~~
+  - Implemented Hugo-based CSS generation instead
