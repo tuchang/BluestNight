@@ -10,7 +10,7 @@ See the theme in action with its custom color scheme [here](https://mnbryant.com
 
 You can find more details on certain features by scrolling down past this list
 
-- [Site header with tagline](#site-header-tagline)
+- [Site header with tagline](#site-headertagline)
 - Responsive design using [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 - [Configurable color scheme](#custom-colors)
 - [Custom site wallpaper](#custom-wallpaper)
@@ -32,6 +32,57 @@ You can find more details on certain features by scrolling down past this list
 - Custom "Error 404" page
 - Custom robots.txt that prevents taxonomy pages from being indexed (e.g. /tags/my_tag)
 - Check out the [TODO list](https://github.com/Shadow53/BluestNight)
+
+### Template `config.toml`
+
+```toml
+languageCode = "en-us"
+title = "My Website"
+baseurl = "https://example.com/"
+theme = "BluestNight"
+enableRobotsTXT = true # Use custom robots.txt
+PygmentsCodeFences = true
+PygmentsStyle = "monokai" # Use "igor" for light backgrounds
+
+[Params]
+    tagline = "The wond'ring thoughts of a rambling soul" # Subtitle of your site
+    description = "The wond'ring thoughts of a rambling soul" # Description of your site
+    authorbox = true
+    author = "Michael Bryant"
+    post_navigation = false
+    # HashOver requires PHP running on the server
+    # and cannot be hosted on a different domain
+    hashover = false
+
+# Custom background for the site
+[Params.background]
+    src = "/path/to/background.png"
+    fit_width = true
+    tile = false
+
+[Params.widgets]
+    recent_articles = true # Enable "Recent arcticles" widget
+    categories = true # Enable "Categories" widget
+    tags = true # Enable "Tags" widget
+    patreon = "https://patreon.com/shadow53" # Enable "Patreon" widget
+    tags_counter = true # Enable tag count on tag widgets
+
+# These are the default colors used in the theme
+# Change them to whatever you'd like
+[Params.color]
+    page_background_color = "#000000"
+    main_background_color = "#050505"
+    alt_background_color = "#252525"
+    body_text = "#e2e2e2"
+    alt_body_text = "#e2e2e2"
+    accent_color = "#2c8cef"
+    header_text = "#e2e2e2"
+
+# This is required for CSS to work
+[outputs]
+    home = ["HTML", "CSS"]
+
+```
 
 ### Site Header/Tagline
 
