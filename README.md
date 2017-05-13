@@ -45,10 +45,10 @@ PygmentsCodeFences = true
 PygmentsStyle = "monokai" # Use "igor" for light backgrounds
 
 [Params]
-    tagline = "The wond'ring thoughts of a rambling soul" # Subtitle of your site
-    description = "The wond'ring thoughts of a rambling soul" # Description of your site
+    tagline = "An example tagline for my Hugo site" # Subtitle of your site
+    description = "Here is a description of my site that will appear in search engine results - W00t!" # Description of your site
     authorbox = true
-    author = "Michael Bryant"
+    author = "Some Guy" # Name must exist in an entry in /data/members
     post_navigation = false
     # HashOver requires PHP running on the server
     # and cannot be hosted on a different domain
