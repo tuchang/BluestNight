@@ -14,7 +14,7 @@
   				{{ if .Params.categories }}
   				<span class="row-item">
   					<i class="fi-folder"></i>
-  					{{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "/categories/" | absLangURL }}{{ . | urlize | lower }}" rel="category">{{ . }}</a>{{ end }}
+  					{{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ . | urlize | lower }}" rel="category">{{ . }}</a>{{ end }}
           </span>
   				{{ end }}
           {{ if not .Params.hide_readingtime }}
