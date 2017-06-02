@@ -18,6 +18,29 @@ main img {
   list-style-type: none;
 }
 
+/* Table of Contents */
+#TableOfContents::before {
+  content: "Table of Contents";
+}
+
+#TableOfContents {
+  display: inline-block;
+  background-color: {{ .Get "alt_bg" }};
+  border: 1px solid {{ .Get "accent" }};
+  padding: 5px;
+  margin-bottom: 25px;
+}
+
+#TableOfContents > ul {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+#TableOfContents a {
+  color: {{ .Get "alt_body_text" }};
+}
+
 /* Tables */
 
 table, table thead th, table tbody td {
