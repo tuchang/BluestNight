@@ -90,6 +90,7 @@ pre {
   background-color: {{ .Get "alt_bg" }};
   font-size: 1rem;
   overflow-x: scroll;
+  margin-bottom: 1em;
 }
 
 #main-container {

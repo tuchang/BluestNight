@@ -9,6 +9,7 @@ ul {
   list-style: none;
   margin-bottom: 1rem;
 }
+ul > li > ul { margin-bottom: 0; }
 main ul { list-style: disc outside; }
 
 li > ul {
@@ -26,7 +27,7 @@ h4 { font-size: 1.72rem; }
 h5 { font-size: 1.46rem; }
 h6 { font-size: 1.2rem; }
 h1,h2,h3,h4,h5,h6 {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 table {
