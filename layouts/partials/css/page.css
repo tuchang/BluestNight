@@ -141,3 +141,16 @@ footer {
 footer p {
   margin-bottom: 0;
 }
+
+#social-icons {
+  font-size: 1.5rem;
+}
+
+#social-icons a:link,
+#social-icons a:visited,
+#social-icons a:hover,
+#social-icons a:active,
+#social-icons a:focus {
+  color: {{ .Get "alt_body_text" }};
+  text-decoration: none;
+}

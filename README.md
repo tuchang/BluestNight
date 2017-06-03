@@ -29,6 +29,7 @@ You can find more details on certain features by scrolling down past this list
 - Comments system based on [Hashover](http://tildehash.com/?page=hashover) (requires PHP on the hosting server)
   - Comments can be enabled/disabled on a per-page basis as well as in the site config
 - Dynamic taxonomy pages that look good on all screen sizes
+- Social icons in the page footer
 - Custom "Error 404" page
 - Custom robots.txt that prevents taxonomy pages from being indexed (e.g. /tags/my_tag)
 - Check out the [TODO list](https://github.com/Shadow53/BluestNight)
@@ -59,6 +60,10 @@ PygmentsStyle = "monokai" # Use "igor" for light backgrounds
     src = "/path/to/background.png"
     fit_width = true
     tile = false
+
+[Params.social]
+    github = "username" # Your GitHub username
+    facebook = "your_fb_id" # Your Facebook ID - the part that comes after https://facebook.com/ on your profile page
 
 [Params.widgets]
     recent_articles = true # Enable "Recent arcticles" widget
@@ -205,6 +210,27 @@ BluestNight will place that text before the content list.
 
 Bonus! If you want to hide the list and show only your custom content, just add
 a line setting `hide_list` to `true` in the front matter of `_index.md`.
+
+### Social Icons
+
+BluestNight supports linking to a number of popular social sites from icons in
+the site footer. If the service normally uses usernames prefixed with an "@",
+your username should be entered *without* one. Currently supported are:
+- DeviantArt (`deviantart = "username"`)
+- Facebook (`facebook = "userid"`)
+  - Your Facebook user id is what comes after "https://facebook.com/" on your
+    public profile page
+- GitHub (`github = "username"`)
+- Google Plus (`googleplus = "+Joe-Smith"`)
+- Instagram (`instagram = "username"`)
+- LinkedIn (`linkedin = "userid"`)
+- Pinterest (`pinterest = "username"`)
+  - Your username is whatever follows "https://pinterest.com/" on your profile page
+- Reddit (`reddit = "username"`)
+- Spotify (`spotify = "username"`)
+- Tumblr (`tumblr = "username"`)
+- Twitter (`twitter = "username"`)
+- Steam (`steam = "userid"`)
 
 ### Shortcodes
 
