@@ -51,32 +51,32 @@
     position: relative;
   }
 
-  .menu li {
+  #main-nav .menu li {
     flex: 0 0 auto;
     width: 100%;
   }
 
-  .menu a, .menu label {
+  #main-nav .menu a, #main-nav .menu label {
     text-decoration: none;
     width: 100%;
     text-align: left;
   }
 
-  .menu input[type=checkbox]:checked ~ ul {
+  #main-nav .menu input[type=checkbox]:checked ~ ul {
     display: block;
   }
 
-  .menu input[type=checkbox]:checked ~ label .nav-arrow {
+  #main-nav .menu input[type=checkbox]:checked ~ label .nav-arrow {
     transform: rotate(90deg);
   }
 
-  .menu ul {
+  #main-nav .menu ul {
     position: static;
     display: none;
     margin-left: 1rem;
   }
 
-  .menu ul li, .menu ul li a {
+  #main-nav .menu ul li, #main-nav .menu ul li a {
     text-align: left;
     width: 100%;
     margin: 0;
