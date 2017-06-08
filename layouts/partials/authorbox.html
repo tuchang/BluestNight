@@ -4,7 +4,7 @@
 	{{ if or (and (and (isset $.Site.Params "author") (not (isset $.Params "author"))) (eq .Name $.Site.Params.author )) (and (isset $.Params "author") (eq .Name $.Params.author)) }}
 	<div id="authorbox" class="row vcenter memberbox">
 		<div class="row-item member-avatar">
-				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}" height="90" width="90">
+				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}">
 		</div>
 		<div class="row-item member-bio">
 			<div>

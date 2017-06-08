@@ -30,6 +30,10 @@
 
 .memberbox img {
   border: 3px solid {{ .Get "body_text" }};
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  min-width: 90px; /* Fixes issue where width is not respected */
 }
 
 /* Widgets -- Patreon */
