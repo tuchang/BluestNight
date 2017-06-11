@@ -32,5 +32,5 @@
         </header>
         {{ partial "menu.html" . }}
       </div>
-      <div id="main-container" class="row" role="main" itemprop="mainContentOfPage" itemscope itemtype="WebPageElement">
+      <div id="main-container" class="row" role="main" itemprop="mainContentOfPage">
         {{ if .Site.Params.leftsidebar }}{{ partial "sidebar.html" . }}{{ end }}
