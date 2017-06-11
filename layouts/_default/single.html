@@ -1,14 +1,14 @@
 {{ partial "header.html" . }}
-  <main class="row-item small-full medium-two-thirds">
-    <article id="post-article">
+  <main class="row-item small-full medium-two-thirds" {{ if (eq .Section "post") }}itemscope itemtype="http://schema.org/Blog"{{ end }}>
+    <article id="post-article" {{ if (eq .Section "post") }}itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"{{ else }}itemscope itemtype="http://schema.org/Article"{{ end }}{{ if .Params.tags }} itemref="keywords desc"{{ else }} itemref="desc"{{ end }}>
       <header id="page-header">
-        <h1>{{ .Title }}</h1>
+        <h1 itemprop="headline">{{ .Title }}</h1>
         {{ if or (not .Date.IsZero) (.Params.categories) }}
   			<p id="post-metadata" class="row">
           {{ if not .Date.IsZero }}
           <span class="row-item">
     				<i class="fi-clock"></i>
-    				<time datetime="{{ .Date.Format "2006-01-02" }}">{{.Date.Format "January 02, 2006"}}</time>
+    				<time datetime="{{ .Date.Format "2006-01-02" }}" content="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{.Date.Format "January 02, 2006"}}</time>
           </span>
   				{{ end }}
   				{{ if .Params.categories }}
@@ -18,7 +18,7 @@
           </span>
   				{{ end }}
           {{ if not .Params.hide_readingtime }}
-          <span class="row-item">Estimated reading time: ~{{ .ReadingTime }} minutes</span>
+          <span class="row-item">Estimated reading time: ~<span itemprop="timeRequired">{{ .ReadingTime }} minutes</span></span>
           {{ end }}
   			</p>
   			{{ end }}
@@ -30,11 +30,11 @@
   			</figure>
   			{{ end }}
         {{ if and (isset .Params "enable_toc") (eq .Params.enable_toc true) }}{{ .TableOfContents }}{{ end }}
-  			{{ .Content }}
+  			<span itemprop="articleBody">{{ .Content }}</span>
   		</div>
       {{ partial "post_tags.html" . }}
+      {{ partial "authorbox.html" . }}
     </article>
-    {{ partial "authorbox.html" . }}
   	{{ partial "post_nav.html" . }}
   	{{ partial "comments.html" . }}
   </main>

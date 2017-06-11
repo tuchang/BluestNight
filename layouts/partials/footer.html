@@ -1,7 +1,7 @@
       {{ if not .Site.Params.leftsidebar }}{{ partial "sidebar.html" . }}{{ end }}
     </div>
     <footer class="row">
-      <div class="small-full medium-half row-item small-text-center medium-text-left"><small>&copy; {{now.Format "2006"}} {{ .Site.Title }}.</small></div>
+      <div class="small-full medium-half row-item small-text-center medium-text-left"><small>&copy; {{now.Format "2006"}} <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ .Site.Title }}</span></span>.</small></div>
       <div class="small-full medium-half row-item small-text-center medium-text-right" id="social-icons">
         {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com">
           <i class="fi-social-deviant-art"></i>

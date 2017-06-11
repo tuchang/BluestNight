@@ -2,15 +2,15 @@
 
 {{ range $.Site.Data.members }}
 	{{ if or (and (and (isset $.Site.Params "author") (not (isset $.Params "author"))) (eq .Name $.Site.Params.author )) (and (isset $.Params "author") (eq .Name $.Params.author)) }}
-	<div id="authorbox" class="row vcenter memberbox">
-		<div class="row-item member-avatar">
-				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}">
+	<div id="authorbox" class="row vcenter memberbox" itemprop="author" itemscope itemtype="http://schema.org/Person">
+		<div class="row-item member-avatar" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}" itemprop="contentUrl" />
 		</div>
 		<div class="row-item member-bio">
 			<div>
-				<span class="widget-title">About {{ .Name }}</span>
+				<span class="widget-title">About <span itemprop="name">{{ .Name }}</span></span>
 			</div>
-			<p>
+			<p itemprop="description">
 				{{ .Bio }}
 			</p>
 		</div>
