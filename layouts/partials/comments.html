@@ -1,4 +1,4 @@
-{{ if and (isset .Site.Params "hashover") (or (not (isset .Params "disable_comments")) (not .Params.disable_comments)) }}
+{{ if and (or (isset .Site.Params "hashover") (isset .Site.Params "muut")) (or (not (isset .Params "disable_comments")) (not .Params.disable_comments)) }}
 <div class="post-comments">
   {{ if (.Site.Params.hashover) }}
     <div id="hashover"></div>
@@ -7,7 +7,12 @@
     <script defer type="text/javascript" src="{{ .Site.BaseURL }}js/hashoverride.js"></script>
     <noscript>You must have JavaScript enabled to use the comments.</noscript>
   {{ else }}
-    {{ template "_internal/disqus.html" . }}
+    {{ with .Site.Params.muut }}
+      <a href="https://muut.com/i/{{ . }}/comments" class="muut" type="dynamic">Comments</a>
+      <script src="//cdn.muut.com/1/moot.min.js"></script>
+    {{ else }}
+      {{ template "_internal/disqus.html" . }}
+    {{ end }}
   {{ end }}
 </div>
 {{ end }}
