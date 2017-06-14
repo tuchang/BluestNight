@@ -7,7 +7,9 @@
 	</header>
 	<div>
 		{{ range $key, $val := .Site.Taxonomies.tags.ByCount }}
-			<a class="button" href="{{ $.Site.BaseURL }}tags/{{ $val.Name | urlize | lower  }}" title="{{ $val.Name }}" style="font-size: 12px;">
+		  {{ $.Scratch.Set "link" "tags/" }}
+			{{ $.Scratch.Add "link" $val.Name }}
+			<a class="button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name }}">
 				{{ $val.Name }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $val.Count }}){{ end }}
 			</a>
 		{{ end }}

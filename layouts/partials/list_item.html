@@ -22,9 +22,9 @@
       <p>
         {{ $page := . }}
         {{ with .Description }}
-          {{ . | markdownify }} <a href="{{ $page.RelPermalink }}">[Read more...]</a>
+          {{ . | markdownify }} <a href="{{ $page.Permalink }}">[Read more...]</a>
         {{ else }}
-          {{ .Summary | markdownify }}{{ if .Truncated }} <a href="{{ $page.RelPermalink }}">[Read more...]</a>{{ end }}
+          {{ .Summary | markdownify }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more...]</a>{{ end }}
         {{ end }}
       </p>
     </div>

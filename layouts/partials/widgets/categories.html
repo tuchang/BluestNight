@@ -3,11 +3,13 @@
 {{ if not (eq (len .Site.Taxonomies.categories) 0) }}
 <div class="widget">
 	<header>
-		<h4><i class="fi-folder"></i> <a href="{{ $.Site.BaseURL }}categories/">Categories</a></h4>
+		<h4><i class="fi-folder"></i> <a href="{{ "categories/" | absLangURL }}">Categories</a></h4>
 	</header>
 	<ul>
 		{{ range $key, $val := first 5 .Site.Taxonomies.categories.ByCount }}
-		<li><a href="{{ $.Site.BaseURL }}categories/{{ $val.Name | urlize | lower }}">{{ $val.Name | title }}</a></li>
+		{{ $.Scratch.Set "link" "categories/" }}
+		{{ $.Scratch.Add "link" $val.Name }}
+		<li><a href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}">{{ $val.Name | title }}</a></li>
 		{{ end }}
 	</ul>
 </div>
