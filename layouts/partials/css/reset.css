@@ -34,7 +34,11 @@ table {
   margin-bottom: 1rem;
 }
 
-code { padding: 0.2rem; display: inline-block;}
+code {
+  padding: 0 0.1rem;
+  margin: 0.1rem 0;
+  display: inline-block;
+}
 code, pre {
   max-width: 100%;
   font-family: "Source Code Pro", monospace;
