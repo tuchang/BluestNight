@@ -94,8 +94,6 @@
       {{ with .Site.Params.muut }}
         <a href="https://muut.com/i/{{ . }}/comments" class="muut" type="dynamic">Comments</a>
         <script src="//cdn.muut.com/1/moot.min.js"></script>
-      {{ else }}
-        {{ template "_internal/disqus.html" . }}
       {{ end }}
     {{ end }}
   </div>
