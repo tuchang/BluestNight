@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ define "main_content" }}
   <main id="post-list" class="row-item small-full medium-two-thirds">
     {{ if not .IsHome }}
 		<header id="page-header">
@@ -13,4 +13,4 @@
       {{ partial "pagination.html" . }}
     {{ end }}
   </main>
-{{ partial "footer.html" . }}
+{{ end }}
