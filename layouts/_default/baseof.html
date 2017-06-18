@@ -17,7 +17,7 @@
       <meta name="keywords" itemprop="keywords" content="{{ delimit .Params.tags "," }}" id="keywords">
     {{- end -}}
     <link rel="canonical" href="{{ .URL | absURL }}">
-    <link rel="stylesheet" type="text/css" href="{{ "css/foundation/foundation-icons.css" | absLangURL }}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}">
     <link rel="stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
   </head>
@@ -30,7 +30,7 @@
             {{ with .Site.Params.tagline }}<br/><span id="site-tagline">{{ . }}</span>{{ end }}
           </a>
         </header>
-        <label for="menu-toggle-box"><div id="menu-toggle" class="main-nav no-select"><span><i class="fi-list"></i> MENU</span></div></label>
+        <label for="menu-toggle-box"><div id="menu-toggle" class="main-nav no-select"><span><span class="fa fa-bars"></span> MENU</span></div></label>
         <input type="checkbox" id="menu-toggle-box" class="hide"/>
         <nav id="main-nav">
           <ul class="menu">
@@ -47,43 +47,67 @@
         <div class="small-full medium-half row-item small-text-center medium-text-left"><small>&copy; {{now.Format "2006"}} <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ .Site.Title }}</span></span>.</small></div>
         <div class="small-full medium-half row-item small-text-center medium-text-right" id="social-icons">
           {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com">
-            <i class="fi-social-deviant-art"></i>
+            <span class="fa fa-deviantart"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.facebook }}<a href="https://facebook.com/{{ . }}">
-            <i class="fi-social-facebook"></i>
+            <span class="fa fa-facebook-official"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.github }}<a href="https://github.com/{{ . }}">
-            <i class="fi-social-github"></i>
+            <span class="fa fa-github"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.gitlab }}<a href="https://gitlab.com/{{ . }}">
+            <span class="fa fa-gitlab"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.googleplus }}<a href="https://plus.google.com/{{ . }}">
-            <i class="fi-social-google-plus"></i>
+            <span class="fa fa-google-plus"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.instagram }}<a href="https://instagram.com/{{ . }}">
-            <i class="fi-social-instagram"></i>
+            <span class="fa fa-instagram"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.linkedin }}<a href="https://linkedin.com/in/{{ . }}">
-            <i class="fi-social-linkedin"></i>
+            <span class="fa fa-linkedin"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.medium }}<a href="https://medium.com/@{{ . }}">
+            <span class="fa fa-medium"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.pinterest }}<a href="https://pinterest.com/{{ . }}">
-            <i class="fi-social-pinterest"></i>
+            <span class="fa fa-pinterest"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.quora }}<a href="https://quora.com/profile/{{ . }}">
+            <span class="fa fa-quora"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.reddit }}<a href="https://www.reddit.com/user/{{ . }}">
-            <i class="fi-social-reddit"></i>
+            <span class="fa fa-reddit-alien"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.slack_org }}<a href="https://{{ . }}.slack.com">
+            <span class="fa fa-slack"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.soundcloud }}<a href="https://soundcloud.com/{{ . }}">
+            <span class="fa fa-soundcloud"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.spotify }}<a href="https://open.spotify.com/user/{{ . }}">
-            <i class="fi-social-spotify"></i>
+            <span class="fa fa-spotify"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.steam }}<a href="https://steamcommunity.com/{{ . }}">
-            <i class="fi-social-steam"></i>
+            <span class="fa fa-steam"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.telegram }}<a href="http://t.me/{{ . }}">
+            <span class="fa fa-telegram"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.tumblr }}<a href="https://{{ . }}.tumblr.com/">
-            <i class="fi-social-tumblr"></i>
+            <span class="fa fa-tumblr"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.twitch }}<a href="https://www.twitch.tv/{{ . }}">
+            <span class="fa fa-twitch"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.twitter }}<a href="https://twitter.com/{{ . }}">
-            <i class="fi-social-twitter"></i>
+            <span class="fa fa-twitter"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.vimeo }}<a href="https://vimeo.com/{{ . }}">
+            <span class="fa fa-vimeo"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.youtube }}<a href="https://www.youtube.com/user/{{ . }}">
-            <i class="fi-social-youtube"></i>
+            <span class="fa fa-youtube"></span>
           </a>{{ end }}
         </div>
       </footer>
