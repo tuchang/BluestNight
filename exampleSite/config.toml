@@ -26,12 +26,13 @@ PygmentsStyle = "monokai"
     categories = true # Enable "Categories" widget
     tags = true # Enable "Tags" widget
     tags_counter = true # Enable tag count on tag widgets
+    patreon = "shadow53"
 
 [Params.color]
-    page_background_color = "#000000"
-    main_background_color = "#050505"
-    alt_background_color = "#252525"
-    body_text = "#e2e2e2"
-    alt_body_text = "#e2e2e2"
-    accent_color = "#2c8cef"
-    header_text = "#e2e2e2"
+    page_background = "#000000"
+    main_background = "#050505"
+    alt_background = "#252525"
+    main_text = "#e2e2e2"
+    alt_text = "#e2e2e2"
+    accent = "#2c8cef"
+    accent_text = "#e2e2e2"
