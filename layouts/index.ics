@@ -3,10 +3,10 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 {{ range $.Site.Data.events }}
 BEGIN:VEVENT
-UID:{{ md5 .name }}{{ md5 .startDate }}@{{ .Site.BaseURL }}
+UID:{{ md5 .name }}{{ md5 .startDatetime }}@{{ .Site.BaseURL }}
 SUMMARY:{{ .name }}
-DTSTART;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .startDate }}
-DTEND;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .endDate }}
+DTSTART;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .startDatetime }}
+DTEND;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .endDatetime }}
 LOCATION:{{ .location }}
 DESCRIPTION: {{ .description }}
 STATUS:CONFIRMED
