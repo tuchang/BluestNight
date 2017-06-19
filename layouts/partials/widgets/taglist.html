@@ -9,8 +9,8 @@
 		{{ range $key, $val := .Site.Taxonomies.tags.ByCount }}
 		  {{ $.Scratch.Set "link" "tags/" }}
 			{{ $.Scratch.Add "link" $val.Name }}
-			<a class="button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name }}">
-				{{ $val.Name }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $val.Count }}){{ end }}
+			<a class="button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name | humanize | lower }}">
+				{{ $val.Name | humanize | lower }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $val.Count }}){{ end }}
 			</a>
 		{{ end }}
 	</div>

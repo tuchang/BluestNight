@@ -9,7 +9,7 @@
 		{{ range $key, $val := first 5 .Site.Taxonomies.categories.ByCount }}
 		{{ $.Scratch.Set "link" "categories/" }}
 		{{ $.Scratch.Add "link" $val.Name }}
-		<li><a href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}">{{ $val.Name | title }}</a></li>
+		<li><a href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}">{{ $val.Name | humanize | title }}</a></li>
 		{{ end }}
 	</ul>
 </div>

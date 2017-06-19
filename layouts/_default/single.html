@@ -14,7 +14,7 @@
         {{ if .Params.categories }}
         <span class="row-item">
           <span class="fa fa-folder"></span>
-          {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ . | urlize | lower }}" rel="category">{{ . }}</a>{{ end }}
+          {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ . | urlize | lower }}" rel="category">{{ . | humanize | title }}</a>{{ end }}
         </span>
         {{ end }}
         {{ if not .Params.hide_readingtime }}
@@ -40,7 +40,7 @@
     		<li itemprop="relatedUrl" itemscope itemtype="http://schema.org/URL">
     			{{ $.Scratch.Set "link" "/tags/" }}
     			{{ $.Scratch.Add "link" . }}
-    			<a class="row-item button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" rel="tag" itemprop="url">{{ lower . }}</a>
+    			<a class="row-item button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" rel="tag" itemprop="url">{{ . | humanize | lower }}</a>
     		</li>
     		{{ end }}
     	</ul>
