@@ -1,5 +1,5 @@
 <article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  {{ if .Params.thumbnail }}
+  {{- if .Params.thumbnail -}}
   <div>
     <figure>
       <a href="{{ .Permalink }}">
@@ -7,7 +7,7 @@
       </a>
     </figure>
   </div>
-  {{ end }}
+  {{- end -}}
   <div>
     <header class="post-list-title">
       <a href="{{ .Permalink }}">
@@ -15,17 +15,17 @@
       </a>
       <div class="metadata">
         <span class="fa fa-clock-o"></span>
-        <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{.Date.Format "January 02, 2006"}}</time>
+        <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "January 02, 2006" }}</time>
       </div>
     </header>
     <div class="post-list-summary" itemprop="description">
       <p>
-        {{ $page := . }}
-        {{ with .Description }}
+        {{- $page := . -}}
+        {{- with .Description -}}
           {{ . | markdownify }} <a href="{{ $page.Permalink }}">[Read more...]</a>
-        {{ else }}
+        {{- else -}}
           {{ .Summary | markdownify }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more...]</a>{{ end }}
-        {{ end }}
+        {{- end -}}
       </p>
     </div>
   </div>
