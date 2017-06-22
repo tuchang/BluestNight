@@ -53,11 +53,11 @@ function loadIndex(url) {
 
 function populateSearchbox() {
   // Trailing asterisk wildcards a potentially incomplete word
-  var content = sbox.value + "*";
+  var content = sbox.value;
+  if (content.length > 0 && content[content.length - 1] !== " ")
+    content += "*";
   // Empty previous results
   sresults.innerHTML = "";
-  // Hide if no content (only asterisk, thanks to above line)
-  sresults.setAttribute("class", content === "*" ? "hide" : "");
 
   if (lunrIndex !== undefined) {
     var results = lunrIndex.search(content);
@@ -73,6 +73,9 @@ function populateSearchbox() {
       link.appendChild(result);
       sresults.appendChild(link);
     });
+
+    // Hide if no content (only asterisk, thanks to above line)
+    sresults.setAttribute("class", results.length === 0 ? "hide" : "");
   }
 }
 
