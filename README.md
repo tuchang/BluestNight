@@ -12,9 +12,8 @@ See the theme in action with its custom color scheme [here](https://mnbryant.com
 
 # Features
 
-You can find more details on certain features by scrolling down past this list
-
 - Site header with tagline
+- [Search](https://gitlab.com/Shadow53/BluestNight/wikis/sidebar/search) powered by [Lunr.js](https://lunrjs.com)
 - Responsive design using [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 - [Configurable color scheme](https://gitlab.com/Shadow53/BluestNight/wikis/appearance#custom-colors)
 - [Custom site wallpaper](https://gitlab.com/Shadow53/BluestNight/wikis/appearance#custom-background)

@@ -1,5 +1,6 @@
 <aside class="row-item small-full medium-third{{ if and (isset .Params "leftsidebar") (eq .Params.leftsidebar true) }} left{{ else }} right{{ end }}" itemscope itemtype="http://schema.org/WPSideBar">
   {{ partial "widgets/patreon.html" . }}
+  {{ partial "widgets/search.html" . }}
 	{{ partial "widgets/recent.html" . }}
   {{ partial "widgets/events.html" . }}
 	{{ partial "widgets/categories.html" . }}

@@ -112,5 +112,16 @@
         </div>
       </footer>
     </div>
+    {{- if $.Site.Params.widgets.search -}}
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="{{ "js/search.js" | absLangURL }}" type="text/javascript"></script>
+    <script>
+      var lunrIndex = undefined;
+      loadIndex("{{ "index.json" | absURL }}").then(
+        function(index) { lunrIndex = index; },
+        function(status){}
+      );
+    </script>
+    {{- end -}}
   </body>
 </html>
