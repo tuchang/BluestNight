@@ -20,6 +20,24 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}">
     <link rel="stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
+    {{ if (and (isset $.Site.Params.piwik "host") ($.Site.Params.piwik.enable)) -}}
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="{{ $.Site.Params.piwik.host }}/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    {{ if $.Site.Params.piwik.track_nojs -}}
+    <noscript><p><img src="{{ $.Site.Params.piwik.host }}/piwik.php?idsite=1&rec=1" style="border:0;" alt="" /></p></noscript>
+    {{ end -}}
+    {{- end -}}
   </head>
   <body itemscope itemtype="http://schema.org/WebPage">
     <div id="site-container">
