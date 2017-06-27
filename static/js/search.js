@@ -35,7 +35,7 @@ function loadIndex(url) {
           this.field('description');
           this.field('body');
 
-          for (let i = 0; i < rawIndex.length; i++) {
+          for (var i = 0; i < rawIndex.length; i++) {
             // Adding id allows to access other properties later
             rawIndex[i].id = i;
             this.add(rawIndex[i]);
