@@ -1,7 +1,8 @@
 +++
+title = "{{ replace .TranslationBaseName "-" " " | title }}"
+date = "{{ .Date }}"
 hide_authorbox = false
-description = ""
 disable_comments = false
 draft = true
-thumbnail = ""
+{{ with $.Site.Params.author }}author = "{{ . }}"{{ end }}
 +++
