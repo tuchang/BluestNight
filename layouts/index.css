@@ -1,9 +1,6 @@
-/* CSS Reset */
-@import url("css/reset.css");
-/* Custom fonts */
-@import url("css/fonts/stylesheet.css");
+@import url("css/reset.css"); @import url("css/fonts/stylesheet.css");
 
-{{ $.Scratch.Set "page_bg" "#000000" }}{{- $.Scratch.Set "main_bg" "#050505" -}}{{- $.Scratch.Set "alt_bg" "#252525" -}}
+{{- $.Scratch.Set "page_bg" "#000000" -}}{{- $.Scratch.Set "main_bg" "#050505" -}}{{- $.Scratch.Set "alt_bg" "#252525" -}}
 {{- $.Scratch.Set "body_text" "#e2e2e2" -}}{{- $.Scratch.Set "alt_body_text" "#ffffff" -}}
 {{- $.Scratch.Set "accent" "#2c8cef" -}}{{- $.Scratch.Set "header_text" "#e2e2e2" -}}
 
@@ -19,14 +16,16 @@
 {{- if ($.Site.Params.background.tile) -}}{{- $.Scratch.Set "background_tile" "repeat" -}}{{- else -}}{{- $.Scratch.Set "background_tile" "no-repeat" -}}{{- end -}}
 {{- if ($.Site.Params.background.fit_width) -}}{{- $.Scratch.Set "background_fit" "contain" -}}{{- else -}}{{- $.Scratch.Set "background_fit" "cover" -}}{{- end -}}
 
-{{ partial "css/reset.css" $.Scratch }}
-{{ partial "css/base_classes.css" $.Scratch }}
-{{ partial "css/screen_size.css" $.Scratch }}
-{{ partial "css/handwriting.css" $.Scratch }}
-{{ partial "css/page.css" $.Scratch }}
-{{ partial "css/navigation.css" $.Scratch }}
-{{ partial "css/single.css" $.Scratch }}
-{{ partial "css/list.css" $.Scratch }}
-{{ partial "css/widgets.css" $.Scratch }}
-{{ if ($.Site.Params.hashover) }}{{ partial "css/hashover.css" $.Scratch }}{{ end }}
-{{ partial "css/print.css" $.Scratch }}
+{{- $.Scratch.Set "css" (partial "css/reset.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/base_classes.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/screen_size.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/handwriting.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/page.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/navigation.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/single.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/list.css" $.Scratch) -}}
+{{- $.Scratch.Add "css" (partial "css/widgets.css" $.Scratch) -}}
+{{- if ($.Site.Params.hashover) -}}{{- $.Scratch.Add "css" (partial "css/hashover.css" $.Scratch) -}}{{- end -}}
+{{- $.Scratch.Add "css" (partial "css/print.css" $.Scratch) -}}
+
+{{ $.Scratch.Get "css" | replaceRE "(?m)(\\s+)" " "}}
