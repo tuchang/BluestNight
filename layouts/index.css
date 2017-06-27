@@ -1,5 +1,4 @@
-@import url("css/reset.css"); @import url("css/fonts/stylesheet.css");
-
+@import url("css/reset.css");@import url("css/fonts/stylesheet.css");
 {{- $.Scratch.Set "page_bg" "#000000" -}}{{- $.Scratch.Set "main_bg" "#050505" -}}{{- $.Scratch.Set "alt_bg" "#252525" -}}
 {{- $.Scratch.Set "body_text" "#e2e2e2" -}}{{- $.Scratch.Set "alt_body_text" "#ffffff" -}}
 {{- $.Scratch.Set "accent" "#2c8cef" -}}{{- $.Scratch.Set "header_text" "#e2e2e2" -}}
@@ -28,4 +27,4 @@
 {{- if ($.Site.Params.hashover) -}}{{- $.Scratch.Add "css" (partial "css/hashover.css" $.Scratch) -}}{{- end -}}
 {{- $.Scratch.Add "css" (partial "css/print.css" $.Scratch) -}}
 
-{{ $.Scratch.Get "css" | replaceRE "(?m)(\\s+)" " "}}
+{{ $.Scratch.Get "css" | replaceRE "(?m)(;\\s+)" ";" | replaceRE "(?m)(\\s*{\\s*)" "{" | replaceRE "(?m)(\\s*}\\s*)" "}" | replaceRE "(?m)(\\s*:\\s*)" ":" | replaceRE "(?m)(\\s*,\\s*)" "," | replaceRE "\\/\\*[^*]*\\*+([^/*][^*]*\\*+)*\\/" "" | replaceRE "(?m)(\\s+)" " " }}
