@@ -22,9 +22,9 @@
       <p>
         {{- $page := . -}}
         {{- with .Description -}}
-          {{ . | markdownify }} <a href="{{ $page.Permalink }}">[Read more...]</a>
+          {{ . | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }} <a href="{{ $page.Permalink }}">[Read more...]</a>
         {{- else -}}
-          {{ .Summary | markdownify }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more...]</a>{{ end }}
+          {{ .Summary | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more...]</a>{{ end }}
         {{- end -}}
       </p>
     </div>
