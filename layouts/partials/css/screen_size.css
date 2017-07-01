@@ -166,6 +166,8 @@
     transition: transform 0.5s;
   }
 
+  .menu ul li { display: block; position: relative; }
+
   .menu li:hover > ul {
     display: block;
     background: {{ .Get "alt_bg" }};
