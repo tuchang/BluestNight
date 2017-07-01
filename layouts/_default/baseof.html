@@ -62,8 +62,23 @@
         {{ if (not .Site.Params.leftsidebar) }}{{ partial "sidebar.html" . }}{{ end }}
       </div>
       <footer class="row">
-        <div class="small-full medium-half row-item small-text-center medium-text-left"><small>&copy; {{now.Format "2006"}} <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{ .Site.Title }}</span></span>.</small></div>
-        <div class="small-full medium-half row-item small-text-center medium-text-right" id="social-icons">
+        <div class="small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} row-item small-text-center medium-text-left medium-left">
+          <small>
+            &copy; {{now.Format "2006"}}
+            <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+              <span itemprop="name">{{ .Site.Title }}</span>
+            </span>.
+          </small>
+        </div>
+        {{ if $.Site.Params.piwik.enable_optout -}}
+        {{- with $.Site.Params.piwik.host -}}
+        <div class="small-full medium-third row-item small-text-center medium-text-center small-right">
+          This site uses <a href="http://piwik.org/">Piwik Analytics</a>.<br/>
+          <a href="{{ . }}/index.php?module=CoreAdminHome&action=optOut&language=en">Click here</a> to opt out.
+        </div>
+        {{- end -}}
+        {{- end }}
+        <div class="small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} row-item small-text-center medium-text-right" id="social-icons">
           {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com">
             <span class="fa fa-deviantart"></span>
           </a>{{ end }}
