@@ -27,4 +27,8 @@
 {{- if ($.Site.Params.hashover) -}}{{- $.Scratch.Add "css" (partial "css/hashover.css" $.Scratch) -}}{{- end -}}
 {{- $.Scratch.Add "css" (partial "css/print.css" $.Scratch) -}}
 
+{{ if $.Site.Params.no_minimize }}
+{{ $.Scratch.Get "css" }}
+{{ else }}
 {{ $.Scratch.Get "css" | replaceRE "(?m)(;\\s+)" ";" | replaceRE "(?m)(\\s*{\\s*)" "{" | replaceRE "(?m)(\\s*}\\s*)" "}" | replaceRE "(?m)(\\s*:\\s*)" ":" | replaceRE "(?m)(\\s*,\\s*)" "," | replaceRE "\\/\\*[^*]*\\*+([^/*][^*]*\\*+)*\\/" "" | replaceRE "(?m)(\\s+)" " " }}
+{{ end }}
