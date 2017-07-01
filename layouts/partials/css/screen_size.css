@@ -81,6 +81,10 @@
     width: 100%;
     margin: 0;
   }
+
+  .small-left  { order: -1; }
+  .small-right { order:  1; }
+  .small-hide { display: none; }
 }
 
 /* Medium screens */
@@ -118,6 +122,10 @@
   .medium-text-left { text-align: left; }
   .medium-text-right { text-align: right; }
   .medium-text-center { text-align: center; }
+
+  .medium-left  { order: -1; }
+  .medium-right { order:  1; }
+  .medium-hide { display: none; }
 
   /* Horizontal menu styling */
 
@@ -213,4 +221,8 @@
   .large-text-left { text-align: left; }
   .large-text-right { text-align: right; }
   .large-text-center { text-align: center; }
+
+  .large-left  { order: -1; }
+  .large-right { order:  1; }
+  .large-hide { display: none; }
 }

@@ -37,14 +37,8 @@
   display: block;
 }
 
-.left {
-  order: -1;
-}
-
-.right {
-  order: 1;
-}
-
+.left  { order: -1; }
+.right { order:  1; }
 .hide { display: none; }
 
 .disabled {
