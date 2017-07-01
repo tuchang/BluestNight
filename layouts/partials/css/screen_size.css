@@ -154,6 +154,7 @@
   .menu ul {
     display: none;
     position: absolute;
+    z-index: 1;
     top: 100%;
     min-width: 15rem;
     width: auto;
