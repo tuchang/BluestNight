@@ -67,12 +67,6 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
       parent = "docs"
       identifier = "docs-site"
       url = "#"
-    [[menu.main]]
-      name = "Example Config"
-      weight = 1
-      parent = "docs"
-      identifier = "docs-example-config"
-      url = "/BluestNight/config.toml.example"
   [[menu.main]]
     name = "Tutorials"
     weight = 10
