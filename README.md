@@ -15,8 +15,8 @@ See the theme in action with its custom color scheme [here](https://mnbryant.com
 - Site header with tagline
 - [Search](https://shadow53.gitlab.io/BluestNight/docs/sidebar/search) powered by [Lunr.js](https://lunrjs.com)
 - Responsive design using [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
-- [Configurable color scheme](https://shadow53.gitlab.io/BluestNight/docs/appearance#custom-colors)
-- [Custom site wallpaper](https://shadow53.gitlab.io/BluestNight/docs/appearance#custom-background)
+- [Configurable color scheme](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-colors)
+- [Custom site wallpaper](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-background)
 - Custom CSS that cleans the page up for printing *only* the page content (try visiting one of the example pages and viewing print preview)
 - Custom shortcodes that I find useful
   - [Handwriting fonts](https://shadow53.gitlab.io/BluestNight/docs/shortcodes/handwriting)
