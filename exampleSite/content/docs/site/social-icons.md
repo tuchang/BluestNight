@@ -4,6 +4,9 @@ date = "2017-06-26T23:58:50-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 3
+  parent = "docs-site"
 +++
 
 Social icons are an easy way to link viewers of your site to other parts of your online presence, such as to your Facebook, Twitter, LinkedIn, GitHub, and more. The complete list is below.

@@ -4,6 +4,9 @@ date = "2017-06-26T23:53:44-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 2
+  parent = "docs-shortcodes"
 +++
 
 Looking to put together a nice Members page for your site, but don't want to write a bunch of custom HTML?

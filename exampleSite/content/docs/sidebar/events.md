@@ -4,6 +4,9 @@ date = "2017-06-26T23:55:07-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 2
+  parent = "docs-sidebar"
 +++
 
 You have a list of events you want to share with your reader base - why not display them on your site?

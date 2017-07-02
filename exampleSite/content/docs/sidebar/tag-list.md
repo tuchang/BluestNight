@@ -4,6 +4,9 @@ date = "2017-06-26T23:57:39-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 6
+  parent = "docs-sidebar"
 +++
 
 Show a cloud of the tags you've used on the site in your sidebar.

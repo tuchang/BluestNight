@@ -1,6 +1,5 @@
 +++
 title = "Getting Started with Hugo"
-description = ""
 tags = [
     "go",
     "golang",
@@ -12,8 +11,8 @@ categories = [
     "Development",
     "golang",
 ]
-menu = "main"
-weight = 2
+[menu.main]
+  weight = 2
 +++
 
 ## Step 1. Install Hugo

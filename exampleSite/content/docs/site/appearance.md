@@ -5,6 +5,9 @@ hide_authorbox = true
 disable_comments = true
 description = "Customize the appearance of your Hugo site by adding a custom background image or changing the colors used for the site."
 categories = ["Documentation"]
+[menu.main]
+  weight = 2
+  parent = "docs-site"
 +++
 
 # Custom Background

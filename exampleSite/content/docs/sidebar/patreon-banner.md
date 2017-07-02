@@ -4,6 +4,9 @@ date = "2017-06-26T23:55:31-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 3
+  parent = "docs-sidebar"
 +++
 
 Have a Patreon account? Add a Patreon banner to the sidebar of your site that links to it!

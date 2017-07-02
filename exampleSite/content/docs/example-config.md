@@ -1,3 +1,14 @@
++++
+title = "Example Config"
+date = "2017-06-30T23:49:34-07:00"
+categories = ["Documentation"]
+enable_toc = true
+[menu.main]
+  weight = 1
+  parent = "docs"
++++
+
+```
 languageCode = "en-us"
 title = "My Example Site"
 baseurl = "https://example.com/"
@@ -61,3 +72,4 @@ SectionPagesMenu = "main" # Enable menu system for lazy bloggers
     section = ["HTML", "RSS"]
     # This line needed only to enable per-taxonomy (tags, etc.) RSS feeds
     taxonomy = ["HTML", "RSS"]
+```

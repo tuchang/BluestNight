@@ -5,6 +5,9 @@ hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
 enable_toc = true
+[menu.main]
+  weight = 1
+  parent = "docs-pages"
 +++
 
 Use the authorbox to provide attribution to the author of a post or page.

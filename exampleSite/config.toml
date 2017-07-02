@@ -43,124 +43,39 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     name = "Documentation"
     weight = 1
     identifier = "docs"
-    url = "https://themes.gohugo.io/theme/BluestNight/docs/"
+    url = "#"
     [[menu.main]]
       name = "Pages"
       weight = 1
       parent = "docs"
       identifier = "docs-pages"
       url = "#"
-      [[menu.main]]
-        name = "Authorbox"
-        weight = 1
-        parent = "docs-pages"
-        identifier = "docs-authorbox"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/authorbox/"
-      [[menu.main]]
-        name = "Comments"
-        weight = 2
-        parent = "docs-pages"
-        identifier = "docs-comments"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/comments/"
-      [[menu.main]]
-        name = "Custom List Pages"
-        weight = 3
-        parent = "docs-pages"
-        identifier = "docs-custom-lists"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/custom-list-pages/"
-      [[menu.main]]
-        name = "Page Summary"
-        weight = 4
-        parent = "docs-pages"
-        identifier = "docs-summaries"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/summaries/"
     [[menu.main]]
       name = "Shortcodes"
       weight = 1
       parent = "docs"
       identifier = "docs-shortcodes"
       url = "#"
-      [[menu.main]]
-        name = "Handwriting"
-        weight = 1
-        parent = "docs-shortcodes"
-        identifier = "docs-handwriting"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/shortcodes/handwriting/"
-      [[menu.main]]
-        name = "Members"
-        weight = 2
-        parent = "docs-shortcodes"
-        identifier = "docs-members"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/shortcodes/members/"
     [[menu.main]]
       name = "Sidebar"
       weight = 1
       parent = "docs"
       identifier = "docs-sidebar"
       url = "#"
-      [[menu.main]]
-        name = "Category List"
-        weight = 1
-        parent = "docs-sidebar"
-        identifier = "docs-category-list"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/category-list/"
-      [[menu.main]]
-        name = "Events"
-        weight = 2
-        parent = "docs-sidebar"
-        identifier = "docs-events"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/events/"
-      [[menu.main]]
-        name = "Patreon Banner"
-        weight = 3
-        parent = "docs-sidebar"
-        identifier = "docs-patreon"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/patreon-banner/"
-      [[menu.main]]
-        name = "Recent Posts"
-        weight = 4
-        parent = "docs-sidebar"
-        identifier = "docs-recent-posts"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/recent-posts/"
-      [[menu.main]]
-        name = "Search"
-        weight = 5
-        parent = "docs-sidebar"
-        identifier = "docs-search"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/search/"
-      [[menu.main]]
-        name = "Tag List"
-        weight = 6
-        parent = "docs-sidebar"
-        identifier = "docs-tag-list"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/tag-list/"
     [[menu.main]]
       name = "Site"
       weight = 1
       parent = "docs"
       identifier = "docs-site"
       url = "#"
-      [[menu.main]]
-        name = "Analytics"
-        weight = 1
-        parent = "docs-site"
-        identifier = "docs-analytics"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/site/analytics/"
-      [[menu.main]]
-        name = "Appearance"
-        weight = 2
-        parent = "docs-site"
-        identifier = "docs-appearance"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/site/appearance/"
-      [[menu.main]]
-        name = "Social Icons"
-        weight = 3
-        parent = "docs-site"
-        identifier = "docs-social-icons"
-        url = "https://themes.gohugo.io/theme/BluestNight/docs/site/appearance/"
     [[menu.main]]
       name = "Example Config"
       weight = 1
       parent = "docs"
       identifier = "docs-example-config"
-      url = "https://themes.gohugo.io/theme/BluestNight/config.toml.example"
+      url = "/BluestNight/config.toml.example"
+  [[menu.main]]
+    name = "Tutorials"
+    weight = 10
+    identifier = "tutorials"
+    url = "#"

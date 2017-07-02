@@ -5,6 +5,9 @@ hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
 enable_toc = true
+[menu.main]
+  weight = 4
+  parent = "docs-pages"
 +++
 
 Hugo [provides a mechanism](https://gohugo.io/content/summaries/) for extracting the first part of a page's content to serve as a "summary" of the content. This works if the first bit of content serves as a good summary of the rest of the page. Sometimes, though, it doesn't. There's no built-in method for providing your own text as a "summary" - but there is in BluestNight.

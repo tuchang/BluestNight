@@ -5,6 +5,9 @@ hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
 enable_toc = true
+[menu.main]
+  weight = 2
+  parent = "docs-pages"
 +++
 
 BluestNight currently supports two comment providers:

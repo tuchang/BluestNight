@@ -4,6 +4,9 @@ date = "2017-06-26T23:56:58-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 5
+  parent = "docs-sidebar"
 +++
 
 BluestNight offers client-side searching powered by [Lunr.js](https://lunrjs.com). This searching is powered by a JSON index of your site's content pages - this does not include any list pages, even ones [customized using `_index.md`](pages/customize-list-pages). Results are displayed as you type, allowing users to quickly find what they are looking for.

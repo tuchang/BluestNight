@@ -4,6 +4,9 @@ date = "2017-06-26T23:56:25-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 4
+  parent = "docs-sidebar"
 +++
 
 Display your most recent posts in the sidebar!

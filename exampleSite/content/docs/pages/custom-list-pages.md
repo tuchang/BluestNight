@@ -4,6 +4,9 @@ date = "2017-06-26T23:51:32-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 3
+  parent = "docs-pages"
 +++
 
 BluestNight provides a number of ways for you to customize [list pages](https://gohugo.io/templates/list/) using [`_index.md`](https://gohugo.io/content/using-index-md/) files.

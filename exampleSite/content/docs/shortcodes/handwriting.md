@@ -4,6 +4,9 @@ date = "2017-06-26T23:52:34-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
+[menu.main]
+  weight = 1
+  parent = "docs-shortcodes"
 +++
 
 Sometimes (sans-)serif fonts just don't cut it for what you're writing. You're posting a letter on your website and want it to look handwritten, or at least have the signature look handwritten. The `handwriting` shortcode provides you with a number of available handwriting fonts to achieve this effect.
