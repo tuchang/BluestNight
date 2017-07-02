@@ -1,7 +1,6 @@
-baseurl = "http://hugo.spf13.com/"
+baseurl = "https://shadow53.gitlab.io/BluestNight/"
 title = "BluestNight"
 author = "Michael Bryant"
-canonifyurls = true
 paginate = 3
 theme = "BluestNight"
 PygmentsCodeFences = true
