@@ -5,7 +5,7 @@ This theme is a complete recreation of my previous theming attempt [Darkroad](ht
 
 # Documentation
 
-You can find documentation on how to use the theme, as well as a `config.toml` [template](https://shadow53.gitlab.io/BluestNight/config.toml.example), on the [example site](https://shadow53.gitlab.io/BluestNight/)
+You can find documentation on how to use the theme, as well as a `config.toml` [template](https://shadow53.gitlab.io/BluestNight/docs/example-config), on the [example site](https://shadow53.gitlab.io/BluestNight/)
 
 # Example sites
 See the theme in action with its custom color scheme [here](https://mnbryant.com) or with an override [here](https://shadow53.com)
