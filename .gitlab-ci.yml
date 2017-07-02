@@ -9,7 +9,7 @@ pages:
   - hugo
   artifacts:
     paths:
-    - public
+    - exampleSite/public
   only:
   - master
   
