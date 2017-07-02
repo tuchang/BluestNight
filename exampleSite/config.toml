@@ -1,31 +1,29 @@
 baseurl = "http://hugo.spf13.com/"
-title = "Hugo Themes"
-author = "Steve Francia"
-copyright = "Copyright (c) 2008 - 2014, Steve Francia; all rights reserved."
+title = "BluestNight"
+author = "Michael Bryant"
 canonifyurls = true
 paginate = 3
 theme = "BluestNight"
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
+enableRobotsTXT = true # Suggested, enable robots.txt file
 
 [outputs]
-    home = ["HTML", "CSS"]
+    home = ["HTML", "CSS", "JSON", "RSS"]
 
 [Params]
-    tagline = "An example tagline for my Hugo site" # Subtitle of your site
+    tagline = "A configurable dark theme with blue accents for Hugo"
     description = "Here is a description of my site that will appear in search engine results - W00t!" # Description of your site
     authorbox = true
-    author = "Some Guy" # Name must exist in an entry in /data/members
+    author = "Some Guy"
     post_navigation = false
-    # HashOver requires PHP running on the server
-    # and cannot be hosted on a different domain
-    hashover = false
 
 [Params.widgets]
-    recent_articles = true # Enable "Recent arcticles" widget
-    categories = true # Enable "Categories" widget
-    tags = true # Enable "Tags" widget
-    tags_counter = true # Enable tag count on tag widgets
+    search = true
+    recent_articles = true
+    categories = true
+    tags = true
+    tags_counter = true
     patreon = "shadow53"
 
 [Params.color]
@@ -36,3 +34,133 @@ PygmentsStyle = "monokai"
     alt_text = "#e2e2e2"
     accent = "#2c8cef"
     accent_text = "#e2e2e2"
+
+[Params.social]
+    gitlab = "Shadow53/BluestNight"
+
+[menu]
+  [[menu.main]]
+    name = "Documentation"
+    weight = 1
+    identifier = "docs"
+    url = "https://themes.gohugo.io/theme/BluestNight/docs/"
+    [[menu.main]]
+      name = "Pages"
+      weight = 1
+      parent = "docs"
+      identifier = "docs-pages"
+      url = "#"
+      [[menu.main]]
+        name = "Authorbox"
+        weight = 1
+        parent = "docs-pages"
+        identifier = "docs-authorbox"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/authorbox/"
+      [[menu.main]]
+        name = "Comments"
+        weight = 2
+        parent = "docs-pages"
+        identifier = "docs-comments"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/comments/"
+      [[menu.main]]
+        name = "Custom List Pages"
+        weight = 3
+        parent = "docs-pages"
+        identifier = "docs-custom-lists"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/custom-list-pages/"
+      [[menu.main]]
+        name = "Page Summary"
+        weight = 4
+        parent = "docs-pages"
+        identifier = "docs-summaries"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/pages/summaries/"
+    [[menu.main]]
+      name = "Shortcodes"
+      weight = 1
+      parent = "docs"
+      identifier = "docs-shortcodes"
+      url = "#"
+      [[menu.main]]
+        name = "Handwriting"
+        weight = 1
+        parent = "docs-shortcodes"
+        identifier = "docs-handwriting"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/shortcodes/handwriting/"
+      [[menu.main]]
+        name = "Members"
+        weight = 2
+        parent = "docs-shortcodes"
+        identifier = "docs-members"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/shortcodes/members/"
+    [[menu.main]]
+      name = "Sidebar"
+      weight = 1
+      parent = "docs"
+      identifier = "docs-sidebar"
+      url = "#"
+      [[menu.main]]
+        name = "Category List"
+        weight = 1
+        parent = "docs-sidebar"
+        identifier = "docs-category-list"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/category-list/"
+      [[menu.main]]
+        name = "Events"
+        weight = 2
+        parent = "docs-sidebar"
+        identifier = "docs-events"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/events/"
+      [[menu.main]]
+        name = "Patreon Banner"
+        weight = 3
+        parent = "docs-sidebar"
+        identifier = "docs-patreon"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/patreon-banner/"
+      [[menu.main]]
+        name = "Recent Posts"
+        weight = 4
+        parent = "docs-sidebar"
+        identifier = "docs-recent-posts"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/recent-posts/"
+      [[menu.main]]
+        name = "Search"
+        weight = 5
+        parent = "docs-sidebar"
+        identifier = "docs-search"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/search/"
+      [[menu.main]]
+        name = "Tag List"
+        weight = 6
+        parent = "docs-sidebar"
+        identifier = "docs-tag-list"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/sidebar/tag-list/"
+    [[menu.main]]
+      name = "Site"
+      weight = 1
+      parent = "docs"
+      identifier = "docs-site"
+      url = "#"
+      [[menu.main]]
+        name = "Analytics"
+        weight = 1
+        parent = "docs-site"
+        identifier = "docs-analytics"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/site/analytics/"
+      [[menu.main]]
+        name = "Appearance"
+        weight = 2
+        parent = "docs-site"
+        identifier = "docs-appearance"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/site/appearance/"
+      [[menu.main]]
+        name = "Social Icons"
+        weight = 3
+        parent = "docs-site"
+        identifier = "docs-social-icons"
+        url = "https://themes.gohugo.io/theme/BluestNight/docs/site/appearance/"
+    [[menu.main]]
+      name = "Example Config"
+      weight = 1
+      parent = "docs"
+      identifier = "docs-example-config"
+      url = "https://themes.gohugo.io/theme/BluestNight/config.toml.example"
