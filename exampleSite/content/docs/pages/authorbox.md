@@ -14,6 +14,8 @@ Use the authorbox to provide attribution to the author of a post or page.
 
 The authorbox feature is based on the [`member` shortcode](shortcodes/members) and requires the same [setup](shortcodes/members#setup) in order to work.
 
+**Note:** if the `URL` key is set in the author's data file, the `<a>` tag linking to the URL will have the `rel="author"` attribute set on it.
+
 <!--more-->
 
 # Usage

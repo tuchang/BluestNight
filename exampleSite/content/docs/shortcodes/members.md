@@ -17,7 +17,9 @@ Just use the `{{< member >}}` shortcode!
 
 **This setup is necessary for both the `member` shortcode *and* the `authorbox` feature!**
 
-Create a data file for each member in your site's `data/members` directory with keys `Name`, `Img` (optional), `Position`, and `Bio`.
+Create a data file for each member in your site's `data/members` directory with keys `Name`, `Img` (optional), `URL` (optional), `Position`, and `Bio`.
+
+The `URL` field should indicate that particular member's home page, either on the same site (if they have a profile page) or on a separate site.
 
 If a user doesn't have an `Img` key, the [default photo](https://gitlab.com/Shadow53/BluestNight/blob/master/static/images/profile.jpg) will be used instead.
 
@@ -30,6 +32,7 @@ An example data file, to be found under `data/members/shadow53.yml`:
 Name     : "Michael Bryant"
 Img      : "/path/to/picture/of/michael.jpg"
 Position : "Awesome Theme Designer"
+URL      : https://mnbryant.com
 Bio      : |
   I'm Michael, also known as Shadow53. This bio section
   is intended to have a small paragraph's worth of text
