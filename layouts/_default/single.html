@@ -55,7 +55,7 @@
     		</div>
     		<div class="row-item member-bio">
     			<div>
-    				<span class="widget-title">About <span itemprop="name">{{ .Name }}</span></span>
+    				<span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" rel="author">{{ end }}<span itemprop="name">{{ .Name }}</span>{{ with .URL }}</a>{{ end }}</span>
     			</div>
     			<p itemprop="description">
     				{{- .Bio -}}

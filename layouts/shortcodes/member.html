@@ -7,7 +7,7 @@
 		</div>
 		<div class="row-item member-bio">
 			<div>
-				<span class="widget-title">{{ .Name }} | {{ .Position }}</span>
+				<span class="widget-title">{{ with .URL }}<a href="{{ . }}">{{ end }}{{ .Name }}{{ with .URL }}</a>{{ end }} | {{ .Position }}</span>
 			</div>
 			<p>
 				{{ .Bio }}
