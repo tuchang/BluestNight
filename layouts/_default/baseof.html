@@ -4,6 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{- .Title -}}</title>
+
+    <!-- Prematurely connect to the servers to save some milliseconds -->
+    <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
+    <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
+    {{ if (and (isset $.Site.Params.piwik "host") ($.Site.Params.piwik.enable)) -}}
+    <link rel="dns-prefetch" href="{{ $.Site.Params.piwik.host }}" />
+    <link rel="preconnect" href="{{ $.Site.Params.piwik.host }}" />
+    {{- end -}}
+    {{- if $.Site.Params.widgets.search -}}
+    <link rel="dns-prefetch" href="https://unpkg.com/" />
+    <link rel="preconnect" href="https://unpkg.com/" />
+    <!-- Cache the scripts and JSON index -->
+    <link rel="prefetch" href="https://unpkg.com/lunr/lunr.js" />
+    <link rel="prefetch" href="{{ "js/search.min.js" | absLangURL }}" />
+    <link rel="prefetch" href="{{ "index.json" | absLangURL }}" />
+    {{ end -}}
+    {{ with $.Site.Params.background.src -}}
+    <link rel="prefetch" href="{{ . | absLangURL }}" />
+    {{- end -}}
+
     {{- $.Scratch.Set "desc" "" -}}
     {{- with $.Site.Params.description -}}{{- $.Scratch.Set "desc" . -}}{{- end -}}
     {{- with .Summary -}}{{- $.Scratch.Set "desc" . -}}{{- end -}}
@@ -11,15 +31,22 @@
     {{- if (not (eq ($.Scratch.Get "desc") "")) -}}
     <meta name="description" itemprop="description" content="{{ replace ($.Scratch.Get "desc") "\n" " " }}" id="desc">
     {{- end -}}
+
     {{ .Hugo.Generator }}
+
     {{- if .RSSLink -}}<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }} Feed" href="{{ .RSSLink }}">{{ end }}
+
     {{- if .Params.tags -}}
       <meta name="keywords" itemprop="keywords" content="{{ delimit .Params.tags "," }}" id="keywords">
     {{- end -}}
+
     <link rel="canonical" href="{{ .URL | absURL }}">
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="prefetch stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     {{ if $.Site.Params.hashover }}<link rel="prefetch stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}">{{ end }}
     <link rel="prefetch stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
+
     {{ if (and (isset $.Site.Params.piwik "host") ($.Site.Params.piwik.enable)) -}}
     <script type="text/javascript">
       var _paq = _paq || [];
@@ -73,73 +100,73 @@
         {{ if $.Site.Params.piwik.enable_optout -}}
         {{- with $.Site.Params.piwik.host -}}
         <div class="small-full medium-third row-item small-text-center medium-text-center small-right">
-          This site uses <a href="http://piwik.org/">Piwik Analytics</a>.<br/>
+          This site uses <a href="http://piwik.org/" rel="nofollow noreferrer">Piwik Analytics</a>.<br/>
           <a href="{{ . }}/index.php?module=CoreAdminHome&action=optOut&language=en">Click here</a> to opt out.
         </div>
         {{- end -}}
         {{- end }}
         <div class="small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} row-item small-text-center medium-text-right" id="social-icons">
-          {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com">
+          {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com" rel="author">
             <span class="fa fa-deviantart"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.facebook }}<a href="https://facebook.com/{{ . }}">
+          {{ with .Site.Params.social.facebook }}<a href="https://facebook.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-facebook-official"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.github }}<a href="https://github.com/{{ . }}">
+          {{ with .Site.Params.social.github }}<a href="https://github.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-github"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.gitlab }}<a href="https://gitlab.com/{{ . }}">
+          {{ with .Site.Params.social.gitlab }}<a href="https://gitlab.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-gitlab"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.googleplus }}<a href="https://plus.google.com/{{ . }}">
+          {{ with .Site.Params.social.googleplus }}<a href="https://plus.google.com/{{ . }}"  rel="me nofollow">
             <span class="fa fa-google-plus"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.instagram }}<a href="https://instagram.com/{{ . }}">
+          {{ with .Site.Params.social.instagram }}<a href="https://instagram.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-instagram"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.linkedin }}<a href="https://linkedin.com/in/{{ . }}">
+          {{ with .Site.Params.social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" rel="me nofollow">
             <span class="fa fa-linkedin"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.medium }}<a href="https://medium.com/@{{ . }}">
+          {{ with .Site.Params.social.medium }}<a href="https://medium.com/@{{ . }}" rel="me nofollow">
             <span class="fa fa-medium"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.pinterest }}<a href="https://pinterest.com/{{ . }}">
+          {{ with .Site.Params.social.pinterest }}<a href="https://pinterest.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-pinterest"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.quora }}<a href="https://quora.com/profile/{{ . }}">
+          {{ with .Site.Params.social.quora }}<a href="https://quora.com/profile/{{ . }}" rel="me nofollow">
             <span class="fa fa-quora"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.reddit }}<a href="https://www.reddit.com/user/{{ . }}">
+          {{ with .Site.Params.social.reddit }}<a href="https://www.reddit.com/user/{{ . }}" rel="me nofollow">
             <span class="fa fa-reddit-alien"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.slack_org }}<a href="https://{{ . }}.slack.com">
+          {{ with .Site.Params.social.slack_org }}<a href="https://{{ . }}.slack.com" rel="me nofollow">
             <span class="fa fa-slack"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.soundcloud }}<a href="https://soundcloud.com/{{ . }}">
+          {{ with .Site.Params.social.soundcloud }}<a href="https://soundcloud.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-soundcloud"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.spotify }}<a href="https://open.spotify.com/user/{{ . }}">
+          {{ with .Site.Params.social.spotify }}<a href="https://open.spotify.com/user/{{ . }}" rel="me nofollow">
             <span class="fa fa-spotify"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.steam }}<a href="https://steamcommunity.com/{{ . }}">
+          {{ with .Site.Params.social.steam }}<a href="https://steamcommunity.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-steam"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.telegram }}<a href="http://t.me/{{ . }}">
+          {{ with .Site.Params.social.telegram }}<a href="http://t.me/{{ . }}" rel="me nofollow">
             <span class="fa fa-telegram"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.tumblr }}<a href="https://{{ . }}.tumblr.com/">
+          {{ with .Site.Params.social.tumblr }}<a href="https://{{ . }}.tumblr.com/" rel="me nofollow">
             <span class="fa fa-tumblr"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.twitch }}<a href="https://www.twitch.tv/{{ . }}">
+          {{ with .Site.Params.social.twitch }}<a href="https://www.twitch.tv/{{ . }}" rel="me nofollow">
             <span class="fa fa-twitch"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.twitter }}<a href="https://twitter.com/{{ . }}">
+          {{ with .Site.Params.social.twitter }}<a href="https://twitter.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-twitter"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.vimeo }}<a href="https://vimeo.com/{{ . }}">
+          {{ with .Site.Params.social.vimeo }}<a href="https://vimeo.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-vimeo"></span>
           </a>{{ end }}
-          {{ with .Site.Params.social.youtube }}<a href="https://www.youtube.com/user/{{ . }}">
+          {{ with .Site.Params.social.youtube }}<a href="https://www.youtube.com/user/{{ . }}" rel="me nofollow">
             <span class="fa fa-youtube"></span>
           </a>{{ end }}
         </div>
