@@ -18,6 +18,7 @@ See the theme in action with its custom color scheme [here](https://mnbryant.com
 - [Configurable color scheme](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-colors)
 - [Custom site wallpaper](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-background)
 - Custom CSS that cleans the page up for printing *only* the page content (try visiting one of the example pages and viewing print preview)
+- Custom or in-section [next/previous links](https://shadow53.gitlab.io/BluestNight/docs/pages/next-prev-page/) for content pages
 - Custom shortcodes that I find useful
   - [Handwriting fonts](https://shadow53.gitlab.io/BluestNight/docs/shortcodes/handwriting)
   - [Member boxes](https://shadow53.gitlab.io/BluestNight/docs/shortcodes/members)
@@ -37,3 +38,4 @@ See the theme in action with its custom color scheme [here](https://mnbryant.com
 - [Social icons](https://shadow53.gitlab.io/BluestNight/docs/site/social-icons) in the page footer
 - Custom "Error 404" page
 - Custom robots.txt that prevents taxonomy pages from being indexed (e.g. /tags/my_tag)
+- Custom RSS generator that includes only content pages with dates

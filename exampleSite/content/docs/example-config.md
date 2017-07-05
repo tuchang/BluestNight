@@ -25,7 +25,7 @@ SectionPagesMenu = "main" # Enable menu system for lazy bloggers
     # https://themes.gohugo.io/theme/BluestNight/docs/pages/authorbox/
     authorbox = true                               # Show the Authorbox by default
     author = "Michael Bryant"                      # The name of the person to serve as default author (optional)
-    post_navigation = false                        # Enable "Next/Previous in Section" links
+    post_navigation = true                         # Enable custom or in-section "Next/Previous" links
     # See the documentation on commenting for how to set up HashOver or Muut commenting
     # https://themes.gohugo.io/theme/BluestNight/docs/pages/comments/
     #hashover = true                               # Enable HashOver comments
