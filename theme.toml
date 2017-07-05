@@ -4,7 +4,7 @@ licenselink = "https://gitlab.com/Shadow53/BluestNight/blob/master/LICENSE.md"
 description = "A dark theme with blue accents for Hugo. Provides multiple configuration options and overrides."
 homepage = "https://gitlab.com/Shadow53/BluestNight"
 tags = ["Blog", "Dark", "Responsive", "Syntax Highlighting", "Search", "Writing"]
-min_version = 0.20
+min_version = 0.24
 
 [author]
   name = "Michael Bryant"
