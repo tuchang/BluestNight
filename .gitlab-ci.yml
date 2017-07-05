@@ -4,6 +4,9 @@ image: publysher/hugo
 
 pages:
   script:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-64bit.deb
+  - dpkg -i hugo_0.24.1_Linux-64bit.deb
+  - rm hugo_0.24.1_Linux-64bit.deb
   - cd exampleSite
   - git clone .. themes/BluestNight
   - hugo -b https://shadow53.gitlab.io/BluestNight/
