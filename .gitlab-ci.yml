@@ -1,13 +1,34 @@
-# This file is a template, and might need editing before it works on your project.
-# Full project: https://gitlab.com/pages/hugo
-image: publysher/hugo
+image: alpine:3.5
+
+before_script:
+  - apk update && apk add openssl
+  # * Install Pygments for syntax highlighting
+  # https://gitlab.com/gitlab-com/support-forum/issues/1150#note_16763556
+  # https://gitlab.com/therockmandolinist/blog/blob/master/.gitlab-ci.yml
+  # - apk add py-pygments
+  # As per https://gitlab.com/gitlab-com/support-forum/issues/1150#note_23190742,
+  # doing "pip install Pygments" installs a newer version of pygmentize than
+  # "apk add py-pygments".
+  - apk add python
+  - apk add py-pip
+  - pip install Pygments
+  - pygmentize -V
+  # * Install hugo
+  # - tar xf hugo_0.18.1_Linux-64bit.tar.gz && cp ./hugo_0.18.1_linux_amd64/hugo_0.18.1_linux_amd64 /usr/bin/hugo
+  - apk add wget
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-64bit.tar.gz
+  - tar xf hugo_0.24.1_Linux-64bit.tar.gz && cp hugo /usr/bin/hugo
+  - hugo version
+  - apk add git
+
+test:
+  script:
+  - hugo
+  except:
+  - master
 
 pages:
   script:
-  - apt-get install wget
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-64bit.deb
-  - dpkg -i hugo_0.24.1_Linux-64bit.deb
-  - rm hugo_0.24.1_Linux-64bit.deb
   - cd exampleSite
   - git clone .. themes/BluestNight
   - hugo -b https://shadow53.gitlab.io/BluestNight/
@@ -16,10 +37,4 @@ pages:
     paths:
     - public
   only:
-  - master
-  
-test:
-  script:
-  - hugo
-  except:
   - master
