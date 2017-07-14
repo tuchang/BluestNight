@@ -101,7 +101,7 @@
         {{- with $.Site.Params.piwik.host -}}
         <div class="small-full medium-third row-item small-text-center medium-text-center small-right">
           This site uses <a href="http://piwik.org/" rel="nofollow noreferrer">Piwik Analytics</a>.<br/>
-          <a href="{{ . }}/index.php?module=CoreAdminHome&action=optOut&language=en">Click here</a> to opt out.
+          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out</span>.
         </div>
         {{- end -}}
         {{- end }}
@@ -181,6 +181,83 @@
         function(index) { lunrIndex = index; },
         function(status){}
       );
+    </script>
+    {{- end -}}
+    {{- if and ($.Site.Params.piwik.enable) ($.Site.Params.piwik.enable_ajax) -}}
+    <script>
+    /*function ajax(url, callbackName) {
+      // Remove previous request, if any
+      var prev = document.getElementById("piwik-ajax");
+      if (prev) prev.parentNode.removeChild(prev);
+      // New request
+      var req = document.createElement("script");
+      req.setAttribute("id", "piwik-ajax");
+      req.setAttribute("type", "text/javascript");
+      req.setAttribute("src", url + (url.indexOf("?") > -1 ? "&" : "?") + "callback=" + callbackName);
+      document.getElementsByTagName("head")[0].appendChild(req);
+    }
+
+    function checkTracked(callbackName) {
+      ajax('{{ $.Site.Params.piwik.host | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked', callbackName);
+    }
+
+    function updateAnalyticsText() { checkTracked("setAnalyticsText"); }
+
+    function setAnalyticsText(isTracked) {
+      document.getElementById("toggle-tracking-text").innerText = isTracked ? "out" : "in";
+    }
+
+    function toggleTracking(isTracked) {
+      ajax('{{ $.Site.Params.piwik.host }}/index.php?module=API&method=AjaxOptOut.doIgnore', "updateAnalyticsText");
+    }
+
+    function toggleHandler(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      checkTracked("toggleTracking");
+    }*/
+
+    function ajax(url) {
+      return new Promise(function(resolve, reject){
+        var req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.withCredentials = true;
+        req.onload = function() {
+          var status = req.status;
+          if (status === 200)
+            resolve(req.response);
+          else
+            reject(status);
+        };
+        req.send(null);
+      });
+    }
+
+    function isTracked(data) {
+      var dom = (new DOMParser()).parseFromString(data, "application/xml");
+      return dom.getElementsByTagName("result")[0].innerHTML === "1"
+    }
+
+    function updateAnalyticsText() {
+      ajax('{{ $.Site.Params.piwik.host | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked')
+      .then(function(data){
+        console.log("Update: " + isTracked(data));
+        document.getElementById("toggle-tracking-text").innerText = isTracked(data) ? "out" : "in";
+      });
+    }
+
+    function toggleHandler(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      ajax("{{ $.Site.Params.piwik.host | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked")
+      .then(function(data) {
+        console.log("Toggle: " + isTracked(data));
+        ajax('{{ $.Site.Params.piwik.host }}/index.php?module=API&method=AjaxOptOut.do' + (isTracked(data) ? 'Ignore' : 'Track')).then(updateAnalyticsText);
+      });
+    }
+
+    document.getElementById("toggle-tracking").addEventListener("click", toggleHandler);
+    window.addEventListener("load", updateAnalyticsText);
     </script>
     {{- end -}}
   </body>
