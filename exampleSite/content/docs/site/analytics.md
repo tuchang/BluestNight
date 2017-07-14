@@ -50,3 +50,17 @@ I recommend you install the above plugin and enable support for one-click opting
     # Enable ajax "one-click"
     enable_ajax = true
 ```
+
+**Note:** You will need to [enable cross-domain requests](https://piwik.org/faq/how-to/faq_18694/) in your Piwik installation and set the `Access-Control-Allow-Credentials` header to `true` on the server hosting Piwik.
+
+Nginx: In the Piwik `server {}` block, add the line `add_header Access-Control-Allow-Credentials "true" always;`
+
+Apache (including `.htaccess` files):
+Add the following to your server's `<VirtualHost>` block or to a `.htaccess` file at the root of your Piwik installation.
+```
+<IfModule mod_headers.c>
+    SetEnvIf Origin (.*) AccessControlAllowOrigin=$1
+    Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+    Header set Access-Control-Allow-Credentials true
+</IfModule>
+```
