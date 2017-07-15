@@ -15,7 +15,7 @@ BluestNight comes with support for [Piwik](https://piwik.org/) as an site analyt
 
 # Setup
 
-Set `enable` to `true` and `host` to the root URL of the Piwik installation under `[Params.piwik]` in your site's configuration file.
+Set `enable` to `true` and `host` to the root URL of the Piwik installation under `[Params.piwik]` in your site's configuration file. If your Piwik installation tracks multiple websites, add the site ID number in `site_id`.
 
 ```
 # In config.toml
@@ -24,6 +24,8 @@ Set `enable` to `true` and `host` to the root URL of the Piwik installation unde
     # URL to the root of the piwik installation.
     # Can include paths after the TLD (e.g https://example.com/piwik/)
     host = "https://piwik.example.com"
+    # ID number of this site. Defaults to 1 if not included
+    site_id = 2
     # Include <noscript> tags to track users with javascript disabled
     track_nojs = true
     # Include a link in the site footer to allow users to opt out of analytics
