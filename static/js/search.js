@@ -70,6 +70,19 @@ function populateSearchbox() {
       result.innerHTML = rawIndex[data.ref].name;
       var link = document.createElement("a");
       link.setAttribute("href", rawIndex[data.ref].url);
+      // Add event handler to results to log search if using piwik
+      if (_paq !== undefined) {
+        link.addEventListener("click", function() {
+          _paq.push(['trackSiteSearch',
+              // Search keyword searched for
+              sbox.value,
+              // Search category selected in your search engine. If you do not need this, set to false
+              false,
+              // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
+              results.length
+          ]);
+        });
+      }
       link.appendChild(result);
       sresults.appendChild(link);
     });
