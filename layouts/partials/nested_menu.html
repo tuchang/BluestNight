@@ -2,18 +2,19 @@
 {{- $site := .site -}}
 {{- range sort .menu -}}
   <li class="no-select" itemscope itemtype="http://schema.org/SiteNavigationElement">
-      <input type="checkbox" id="nav-{{ .Name | plainify | urlize }}" class="hide"/>
+    <input type="checkbox" id="nav-{{ .Name | plainify | urlize }}" class="hide"/>
+    <a class="main-nav button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}" tabindex="0" href="{{ .URL | absLangURL }}" >
+      <span>{{ .Name | upper }}</span>
       {{- if .HasChildren -}}
-      <label class="button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}" for="nav-{{ .Name | plainify | urlize }}">
-      {{- end -}}
-        <a class="main-nav{{ if not .HasChildren }} button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}{{end}}" href="{{ .URL | absLangURL }}" >
-          {{ .Name | upper }}{{ if .HasChildren }}&nbsp;&nbsp;<span class="nav-arrow">&#9656;</span>{{ end }}
-        </a>
-      {{- if .HasChildren -}}
+      <label for="nav-{{ .Name | plainify | urlize }}">
+        &nbsp;&nbsp;<span class="nav-arrow">&#9656;</span>
       </label>
-      <ul>
-      {{ partial "nested_menu.html" (dict "menu" .Children "page" $page "site" $site) }}
-      </ul>
+      {{- end -}}
+    </a>
+    {{- if .HasChildren -}}
+    <ul>
+    {{ partial "nested_menu.html" (dict "menu" .Children "page" $page "site" $site) }}
+    </ul>
     {{- end -}}
   </li>
 {{- end -}}

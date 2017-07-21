@@ -71,6 +71,6 @@
 
 .button:hover, .button:focus, .button:active, .button.active {
   background-color: {{ .Get "accent" }};
-  color: {{ .Get "header_text" }};
+  color: {{ .Get "header_text" }} !important;
   cursor: pointer;
 }
