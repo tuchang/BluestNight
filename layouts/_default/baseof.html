@@ -44,7 +44,7 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="prefetch stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    {{ if $.Site.Params.hashover }}<link rel="prefetch stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}">{{ end }}
+    {{ if $.Site.Params.hashover }}<link rel="prefetch stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}" integrity="sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6">{{ end }}
     <link rel="prefetch stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
 
     {{ if (and (isset $.Site.Params.piwik "host") ($.Site.Params.piwik.enable)) -}}
@@ -175,7 +175,7 @@
     </div>
     {{- if $.Site.Params.widgets.search -}}
     <script src="https://unpkg.com/lunr/lunr.js"></script>
-    <script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript"></script>
+    <script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-RrCV5yTzyOwFSV9SUPMkwEPHdMgbQUNZ2VVRk5BhgMfQAqUlhMds2rDIEcK1J80C"></script>
     <script>
       var lunrIndex = undefined;
       loadIndex("{{ "index.json" | absURL }}").then(
