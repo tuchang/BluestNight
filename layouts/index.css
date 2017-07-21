@@ -11,7 +11,18 @@
 {{- with $.Site.Params.color.accent -}}         {{- $.Scratch.Set "accent" . -}}         {{- end -}}
 {{- with $.Site.Params.color.accent_text -}}    {{- $.Scratch.Set "header_text" . -}}    {{- end -}}
 
-{{- with $.Site.Params.background.src -}}{{- $.Scratch.Set "background_src" . -}}{{- end -}}
+{{- with $.Site.Params.background.src -}}
+  {{- $.Scratch.Set "background_src" . -}}
+  {{- $.Scratch.Set "background_src_medium" . -}}
+  {{- $.Scratch.Set "background_src_small" . -}}
+{{- end -}}
+{{- with $.Site.Params.background.medium_src -}}
+  {{- $.Scratch.Set "background_src_medium" . -}}
+  {{- $.Scratch.Set "background_src_small" . -}}
+{{- end -}}
+{{- with $.Site.Params.background.small_src -}}
+  {{- $.Scratch.Set "background_src_small" . -}}
+{{- end -}}
 {{- if ($.Site.Params.background.tile) -}}{{- $.Scratch.Set "background_tile" "repeat" -}}{{- else -}}{{- $.Scratch.Set "background_tile" "no-repeat" -}}{{- end -}}
 {{- if ($.Site.Params.background.fit_width) -}}{{- $.Scratch.Set "background_fit" "contain" -}}{{- else -}}{{- $.Scratch.Set "background_fit" "cover" -}}{{- end -}}
 

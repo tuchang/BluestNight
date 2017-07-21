@@ -24,7 +24,7 @@ SectionPagesMenu = "main" # Enable menu system for lazy bloggers
     # See the documentation on the Authorbox for more on setting it up
     # https://themes.gohugo.io/theme/BluestNight/docs/pages/authorbox/
     authorbox = true                               # Show the Authorbox by default
-    author = "Michael Bryant"                      # The name of the person to serve as default author (optional)
+    author = "Some Person"                      # The name of the person to serve as default author (optional)
     post_navigation = true                         # Enable custom or in-section "Next/Previous" links
     # See the documentation on commenting for how to set up HashOver or Muut commenting
     # https://themes.gohugo.io/theme/BluestNight/docs/pages/comments/
@@ -33,8 +33,11 @@ SectionPagesMenu = "main" # Enable menu system for lazy bloggers
 
 # Uncomment this section to use a background image on your site
 # https://themes.gohugo.io/theme/BluestNight/docs/site/appearance/
+# medium_src and small_src are optional
 #[Params.background]
 #    src = "/images/background.png"
+     #medium_src = "/images/background_med.png"
+     #small_src = "/images/background_sm.png"
 #    fit_width = true
 #    tile = false
 
@@ -52,13 +55,13 @@ SectionPagesMenu = "main" # Enable menu system for lazy bloggers
 
 # See the documentation for social icons for more services to link to
 # https://themes.gohugo.io/theme/BluestNight/docs/site/social-icons/
-[Params.social]
-    linkedin = "mylinkedinusername"
-    github = "mygithubusername"
+#[Params.social]
+#    linkedin = "mylinkedinusername"
+#    github = "mygithubusername"
 
 [Params.widgets]
     search = true                 # Enable a search bar widget
-    recent_articles = true        # Enable "Recent arcticles" widget
+    recent_articles = true        # Enable "Recent articles" widget
     categories = true             # Enable "Categories" widget
     tags = true                   # Enable "Tags" widget
     patreon = "mypatreonusername" # Enable "Patreon" widget

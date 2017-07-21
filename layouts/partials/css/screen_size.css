@@ -34,6 +34,10 @@
 
 @media only screen and (max-width: 639px) {
 
+  {{ if (not (eq (.Get "background_src_small") "")) }}
+  body { background-image: url("{{ .Get "background_src_small" }}"); }
+  {{ end }}
+
   #main-nav { display: none; }
 
   #menu-toggle {
@@ -100,6 +104,10 @@
 
 /* Medium screens */
 @media only screen and (min-width: 640px) {
+  {{ if (not (eq (.Get "background_src_medium") "")) }}
+  body { background-image: url("{{ .Get "background_src_medium" }}"); }
+  {{ end }}
+
   .medium-full {
     flex: 0 0 100%;
     width: 100%;
@@ -180,7 +188,7 @@
 
   .menu ul li { display: block; position: relative; }
 
-  .menu li:hover > ul, .menu li a:focus + ul{
+  .menu li:hover > ul, .menu li  a:focus + ul{
     display: block;
     background: {{ .Get "alt_bg" }};
     border: 1px solid {{ .Get "accent" }};
@@ -204,6 +212,10 @@
 
 /* Large screens */
 @media only screen and (min-width: 1024px) {
+  {{ if (not (eq (.Get "background_src") "")) }}
+  body { background-image: url("{{ .Get "background_src" }}"); }
+  {{ end }}
+
   .large-full {
     flex: 0 0 100%;
     width: 100%;

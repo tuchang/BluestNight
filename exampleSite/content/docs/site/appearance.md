@@ -16,12 +16,15 @@ Add the following to your site's `config.toml` file:
 
 ```
 [Params.background]
-    src = "images/background.png"
+    src = "images/background_lg.png"
+    #medium_src = "images/background_med.png"
+    #small_src = "images/background_sm.png"
     fit_width = true
     tile = false
 ```
 
 - Change `src` to the relative path from the site's baseURL where the background image can be found. In the above example, the file would be found at `{site root}/static/images/background.png`.
+- Optionally set `medium_src` and `small_src` to smaller images to use on screens that are at most 1024px and 640px, respectively. If either of these are omitted, the next largest image source will be used.
 - Set `fit_width` to `true` if you want the behavior of CSS [`background-size: contain`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size?v=example#contain) and `false` if you want the behavior of [`background-size: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size?v=example#cover)
 
 # Custom Colors
