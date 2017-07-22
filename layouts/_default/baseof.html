@@ -175,7 +175,7 @@
     </div>
     {{- if $.Site.Params.widgets.search -}}
     <script src="https://unpkg.com/lunr/lunr.js"></script>
-    <script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-RrCV5yTzyOwFSV9SUPMkwEPHdMgbQUNZ2VVRk5BhgMfQAqUlhMds2rDIEcK1J80C"></script>
+    <script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-3O8/rcbIvsAkiy9B4PJh3RiLw+neIYzvPiqJk0Cf5OyGN23v+gQ+5oin/FseItbL"></script>
     <script>
       var lunrIndex = undefined;
       loadIndex("{{ "index.json" | absURL }}").then(
