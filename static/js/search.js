@@ -4,6 +4,7 @@ var lunrIndex = undefined;
 var rawIndex = [];
 var sbox = document.getElementById("searchbox");
 var sresults = document.getElementById("search-results");
+var searchAnalytics = undefined;
 
 function getJSON(url) {
   return new Promise(function(resolve, reject) {
@@ -73,14 +74,10 @@ function populateSearchbox() {
       // Add event handler to results to log search if using piwik
       if (_paq !== undefined) {
         link.addEventListener("click", function() {
-          _paq.push(['trackSiteSearch',
-              // Search keyword searched for
-              sbox.value,
-              // Search category selected in your search engine. If you do not need this, set to false
-              false,
-              // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
-              results.length
-          ]);
+          searchAnalytics = {
+            keyword: sbox.value,
+            numResults: results.length
+          };
         });
       }
       link.appendChild(result);
@@ -93,3 +90,15 @@ function populateSearchbox() {
 }
 
 sbox.addEventListener("keyup", populateSearchbox);
+window.addEventListener("beforeunload", function(){
+  if (searchAnalytics !== undefined) {
+    _paq.push(['trackSiteSearch',
+        // Search keyword searched for
+        searchAnalytics.keyword,
+        // Search category selected in your search engine. If you do not need this, set to false
+        false,
+        // Number of results on the Search results page. Zero indicates a 'No Result Search Keyword'. Set to false if you don't know
+        searchAnalytics.numResults
+    ]);
+  }
+});
