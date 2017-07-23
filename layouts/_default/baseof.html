@@ -65,6 +65,8 @@
     {{ if $.Site.Params.piwik.track_nojs -}}
     <noscript><p><img src="{{ $.Site.Params.piwik.host }}/piwik.php?idsite={{ index $.Site.Params.piwik "site_id" | default 1 }}&rec=1" style="border:0;" alt="" /></p></noscript>
     {{ end -}}
+    {{- else -}}
+    <script>var _paq = undefined;</script>
     {{- end -}}
   </head>
   <body itemscope itemtype="http://schema.org/WebPage">
@@ -95,7 +97,7 @@
             &copy; {{now.Format "2006"}}
             <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
               <span itemprop="name">{{ .Site.Title }}</span>
-            </span>.
+            </span>
           </small>
         </div>
         {{ if $.Site.Params.piwik.enable_optout -}}
@@ -175,7 +177,8 @@
     </div>
     {{- if $.Site.Params.widgets.search -}}
     <script src="https://unpkg.com/lunr/lunr.js"></script>
-    <script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-3O8/rcbIvsAkiy9B4PJh3RiLw+neIYzvPiqJk0Cf5OyGN23v+gQ+5oin/FseItbL"></script>
+    <script src="{{ "js/search.js" | absLangURL }}" type="text/javascript"></script>
+    <!--script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-BWCGLBKRFvQSIGRnqOb8zW0+fYDIflgWpakpQSvIr9ahUILOaidTxlqnLEybgAZ+"></script-->
     <script>
       var lunrIndex = undefined;
       loadIndex("{{ "index.json" | absURL }}").then(
