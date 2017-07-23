@@ -6,6 +6,13 @@
   border-bottom: 3px solid {{ .Get "accent" }};
 }
 
+.widget-header {
+  display: block;
+  font-size: 1.72rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
 .widget ul li {
   border-bottom: 1px dotted {{ .Get "body_text" }};
   padding: 0.2rem;
