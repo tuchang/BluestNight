@@ -20,7 +20,7 @@ BluestNight provides both a sidebar widget to display the 5 earliest occurring e
 Place a data file for each event in the `data/events/` directory for your site. You will need to create the `events` subdirectory. The data files should have the following key/value pairs:
 
 - `name`: The name of the event.
-- `startDatetime`: The date and time that the event starts, in a [time format](https://golang.org/pkg/time/) that Hugo recognizes.
+- `startDatetime`: The date and time that the event starts, in a [time format](https://golang.org/pkg/time/#pkg-constants) that Hugo recognizes.
 - `endDatetime`: The date and time that the event ends, in a time format that Hugo recognizes.
 - `location`: Where the event is taking place.
 - `description`: A short description of the event.
@@ -36,5 +36,5 @@ To enable events on your site, set `upcoming_events` to `true` under `Params.wid
 
 # Limitations
 
-- Events have to be removed from `data/events/` in order to disappear from the sidebar.
-  - This is due to the fact that Hugo does not provide a method of determining the time at site compilation. The closest thing is the `.Site.LastChange` variable, which indicates the most recent `date` in the front matter of all pages on the site. Since the site would need to be recompiled anyways to remove old events, site authors may as well keep their `data/events/` folder clean.
+- Items do not automatically disappear from the sidebar
+  - BluestNight automatically filters out events that have already passed when adding events to the sidebar, but it cannot dynamically remove them as they pass, due to it being a static site. It is on the site administrator to at least rebuild the site after an event has passed, though I suggest considering removing the data file as well.
