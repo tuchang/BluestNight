@@ -11,6 +11,9 @@
 {{- with $.Site.Params.color.accent -}}         {{- $.Scratch.Set "accent" . -}}         {{- end -}}
 {{- with $.Site.Params.color.accent_text -}}    {{- $.Scratch.Set "header_text" . -}}    {{- end -}}
 
+{{- $.Scratch.Set "background_src" "" -}}
+{{- $.Scratch.Set "background_src_medium" "" -}}
+{{- $.Scratch.Set "background_src_small" "" -}}
 {{- with $.Site.Params.background.src -}}
   {{- $.Scratch.Set "background_src" . -}}
   {{- $.Scratch.Set "background_src_medium" . -}}
