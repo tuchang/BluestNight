@@ -92,6 +92,12 @@ code {
   overflow-wrap: break-word;
 }
 
+a code, code a {
+  color: {{ .Get "accent" }};
+}
+
+a:hover code, code a:hover { text-decoration: underline; }
+
 pre {
   padding: 1.2rem;
   background-color: {{ .Get "alt_bg" }};
