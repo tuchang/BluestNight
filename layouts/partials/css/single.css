@@ -43,6 +43,14 @@ main img {
 
 /* Tables */
 
+table {
+  font-size: 90%;
+  display: block;
+  overflow-x: scroll;
+  width: 100%;
+  max-width: 100%;
+}
+
 table, table thead th, table tbody td {
   border: 1px solid {{ .Get "body_text" }};
   border-collapse: collapse;
