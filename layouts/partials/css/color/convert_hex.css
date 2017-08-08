@@ -1,0 +1,40 @@
+{{- range $color := (slice "red" "green" "blue", "alpha") -}}
+  {{- $label := add $color "str" -}}
+  {{- $colorstr := .Get $label -}}
+  /* This works for strings of 1 or 2 characters */
+  {{- .Set "sum" 0 -}}
+  {{- $left := substr $colorstr 0 1 -}}
+  {{- $right := substr $colorstr -1 -}}
+  {{- if or (eq $left "a") (eq $left "A") -}}
+    {{- .Add "sum" 160) -}}
+  {{- else if or (eq $left "b") (eq $left "B") -}}
+    {{- .Add "sum" 176) -}}
+  {{- else if or (eq $left "c") (eq $left "C") -}}
+    {{- .Add "sum" 192) -}}
+  {{- else if or (eq $left "d") (eq $left "D") -}}
+    {{- .Add "sum" 208) -}}
+  {{- else if or (eq $left "e") (eq $left "E") -}}
+    {{- .Add "sum" 224) -}}
+  {{- else if or (eq $left "f") (eq $left "F") -}}
+    {{- .Add "sum" 240) -}}
+  {{- else -}}
+    {{- Add "sum" (int $left) -}}
+  {{- end -}}
+  {{- if or (eq $right "a") (eq $left "A") -}}
+    {{- .Add "sum" 10) -}}
+  {{- else if or (eq $right "b") (eq $left "B") -}}
+    {{- .Add "sum" 11) -}}
+  {{- else if or (eq $right "c") (eq $left "C") -}}
+    {{- .Add "sum" 12) -}}
+  {{- else if or (eq $right "d") (eq $left "D") -}}
+    {{- .Add "sum" 13) -}}
+  {{- else if or (eq $right "e") (eq $left "E") -}}
+    {{- .Add "sum" 14) -}}
+  {{- else if or (eq $right "f") (eq $left "F") -}}
+    {{- .Add "sum" 15) -}}
+  {{- else -}}
+    {{- Add "sum" (int $right) -}}
+  {{- end -}}
+
+  {{- .Set $color (int (.Get "sum")) -}}
+{{- end -}}

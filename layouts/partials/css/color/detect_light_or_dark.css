@@ -1,0 +1,30 @@
+{{- if (hasPrefix (.Get "main_bg") "#") -}}
+  {{- if lt (len (.Get "main_bg")) 7 -}}
+    {{- .Set "redstr" (substr (.Get "main_bg") 1 1) -}}
+    {{- .Set "greenstr" (substr (.Get "main_bg") 2 1) -}}
+    {{- .Set "bluestr" (substr (.Get "main_bg") 3 1) -}}
+    /* If has alpha */
+    {{- if eq (len (.Get "main_bg")) 5 -}}
+      {{- .Set "alphastr" (substr (.Get "main_bg") 4 1) -}}
+    {{- else -}}
+      {{- .Set "alphastr" "f" -}}
+    {{- end -}}
+  {{- else -}}
+    {{- .Set "redstr" (substr (.Get "main_bg") 1 2) -}}
+    {{- .Set "greenstr" (substr (.Get "main_bg") 3 2) -}}
+    {{- .Set "bluestr"(substr (.Get "main_bg") 5 2) -}}
+    /* If has alpha */
+    {{- if eq (len (.Get "main_bg")) 9 -}}
+      {{- .Set "alphastr" (substr (.Get "main_bg") 7 2) -}}
+    {{- else -}}
+      {{- .Set "alphastr" "ff" -}}
+    {{- end -}}
+  {{- end -}}
+  {{- partial "css/color/convert_hex.css" -}}
+{{- else if (hasPrefix (.Get "main_bg") "rgba") -}}
+
+{{- else if (hasPrefix (.Get "main_bg") "rgba") -}}
+
+{{- else -}}
+
+{{- end -}}

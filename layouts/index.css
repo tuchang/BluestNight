@@ -29,6 +29,7 @@
 {{- if ($.Site.Params.background.tile) -}}{{- $.Scratch.Set "background_tile" "repeat" -}}{{- else -}}{{- $.Scratch.Set "background_tile" "no-repeat" -}}{{- end -}}
 {{- if ($.Site.Params.background.fit_width) -}}{{- $.Scratch.Set "background_fit" "contain" -}}{{- else -}}{{- $.Scratch.Set "background_fit" "cover" -}}{{- end -}}
 
+{{- partial "css/color/detect_light_or_dark.css" $.Scratch -}}
 {{- $.Scratch.Set "css" (partial "css/reset.css" $.Scratch) -}}
 {{- $.Scratch.Add "css" (partial "css/base_classes.css" $.Scratch) -}}
 {{- $.Scratch.Add "css" (partial "css/screen_size.css" $.Scratch) -}}
