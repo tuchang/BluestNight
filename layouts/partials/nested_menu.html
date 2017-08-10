@@ -3,7 +3,7 @@
 {{- range sort .menu -}}
   <li class="no-select" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <input type="checkbox" id="nav-{{ .Name | plainify | urlize }}" class="hide"/>
-    <a class="main-nav button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}" tabindex="0" href="{{ .URL | absLangURL }}" >
+    <a class="main-nav button{{if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} active{{end}}" tabindex="0" href="{{ .URL | absLangURL }}{{ index (findRE "\\#.*" .URL 1) 0 }}" >
       <span>{{ .Name | upper }}</span>
       {{- if .HasChildren -}}
       <label for="nav-{{ .Name | plainify | urlize }}">

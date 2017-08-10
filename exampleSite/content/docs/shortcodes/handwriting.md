@@ -1,5 +1,5 @@
 +++
-title = "Handwriting Shortcode"
+title = "Handwriting Fonts"
 date = "2017-06-26T23:52:34-07:00"
 hide_authorbox = true
 disable_comments = true

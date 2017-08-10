@@ -23,6 +23,11 @@
       </p>
       {{ end }}
     </header>
+    {{ with .Params.alert -}}
+      <div class="alert small-full">
+        <p>{{ . | markdownify }}</p>
+      </div>
+    {{- end }}
     <div id="post-content">
       {{- if .Params.thumbnail -}}
       <figure class="thumbnail">

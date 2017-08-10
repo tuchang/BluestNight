@@ -5,6 +5,11 @@
 		<h1 id="page-title">{{ .Title }}</h1>
 	</header>
 	{{- end -}}
+  {{ with .Params.alert -}}
+    <div class="alert small-full">
+      <p>{{ . | markdownify }}</p>
+    </div>
+  {{- end }}
   {{ .Content }}
   {{- if (or (not (isset .Params "hide_list")) (not .Params.hide_list)) -}}
     {{- if .IsHome -}}

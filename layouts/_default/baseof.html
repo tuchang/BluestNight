@@ -87,6 +87,11 @@
         </nav>
       </div>
       <div id="main-container" class="row" role="main" itemprop="mainContentOfPage">
+        {{ with $.Site.Params.alert }}
+          <div class="alert small-full">
+            <p>{{ . | markdownify }}</p>
+          </div>
+        {{ end }}
         {{ if .Site.Params.leftsidebar }}{{ partial "sidebar.html" . }}{{ end }}
         {{ block "main_content" . }}{{ end }}
         {{ if (not .Site.Params.leftsidebar) }}{{ partial "sidebar.html" . }}{{ end }}

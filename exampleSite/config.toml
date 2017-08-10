@@ -16,6 +16,7 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     authorbox = true
     author = "Some Guy"
     post_navigation = false
+    alert = "Subscribe to my [programming blog's](https://shadow53.com) RSS feed to be notified of updates to this theme."
 
 [Params.widgets]
     search = true
@@ -24,15 +25,6 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     tags = true
     tags_counter = true
     patreon = "shadow53"
-
-[Params.color]
-    page_background = "#000000"
-    main_background = "#050505"
-    alt_background = "#252525"
-    main_text = "#e2e2e2"
-    alt_text = "#e2e2e2"
-    accent = "#2c8cef"
-    accent_text = "#e2e2e2"
 
 [Params.social]
     gitlab = "Shadow53/BluestNight"
@@ -55,6 +47,12 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
       parent = "docs"
       identifier = "docs-shortcodes"
       url = "#"
+      [[menu.main]]
+        name = "Alert"
+        weight = 1
+        parent = "docs-shortcodes"
+        identifier = "alert-shortcode"
+        url = "docs/site/alert/#shortcode"
     [[menu.main]]
       name = "Sidebar"
       weight = 1
