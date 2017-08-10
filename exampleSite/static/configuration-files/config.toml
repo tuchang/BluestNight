@@ -39,7 +39,7 @@ SectionPagesMenu = "main" # Enable menu system for lazy bloggers
     alt_background  = "#252525"
     main_text       = "#e2e2e2"
     alt_text        = "#ffffff"
-    accent          = "#2c8cef"
+    accent          = "#2073c9"
     accent_text     = "#000000"
 
 # See the documentation for social icons for more services to link to

@@ -3,7 +3,7 @@
 
 {{- $scr.Set "page_bg" "#000000" -}}{{- $scr.Set "main_bg" "#050505" -}}{{- $scr.Set "alt_bg" "#252525" -}}
 {{- $scr.Set "body_text" "#e2e2e2" -}}{{- $scr.Set "alt_body_text" "#ffffff" -}}
-{{- $scr.Set "accent" "#2c8cef" -}}{{- $scr.Set "header_text" "#e2e2e2" -}}
+{{- $scr.Set "accent" "#2073c9" -}}{{- $scr.Set "header_text" "#e2e2e2" -}}
 
 {{- with $site.Params.color.page_background -}}{{- $scr.Set "page_bg" . -}}        {{- end -}}
 {{- with $site.Params.color.main_background -}}{{- $scr.Set "main_bg" . -}}        {{- end -}}
