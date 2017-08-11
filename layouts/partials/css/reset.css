@@ -4,7 +4,7 @@
 }
 body { font-family: "Clear Sans", sans-serif; }
 p { margin-bottom: 1rem; }
-p, li { line-height: 1.5; }
+p, li, pre { line-height: 1.5; }
 ul {
   list-style: none;
   margin-bottom: 1rem;
