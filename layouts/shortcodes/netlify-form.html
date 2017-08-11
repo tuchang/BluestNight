@@ -1,0 +1,11 @@
+<form class="form-container" name="{{ .Get "name" }}" action="{{ .Get "action" | default "thank-you" }}" netlify>
+  {{ .Inner }}
+  <div class="row">
+    <button class="row-item small-full medium-third large-quarter left button" type="reset">
+      Reset
+    </button>
+    <button class="row-item small-full medium-third large-quarter right button" type="submit">
+      Submit
+    </button>
+  </div>
+</form>

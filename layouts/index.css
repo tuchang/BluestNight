@@ -33,6 +33,7 @@
 {{- .Scratch.Add "css" (partial "css/page.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/navigation.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/single.css" .Scratch) -}}
+{{- .Scratch.Add "css" (partial "css/forms.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/list.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/widgets.css" .Scratch) -}}
 {{- if ($.Site.Params.hashover) -}}{{- .Scratch.Add "css" (partial "css/hashover.css" .Scratch) -}}{{- end -}}

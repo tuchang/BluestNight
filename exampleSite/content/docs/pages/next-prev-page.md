@@ -6,7 +6,7 @@ disable_comments = true
 categories = ["Documentation"]
 enable_toc = true
 [menu.main]
-  weight = 4
+  weight = 5
   parent = "docs-pages"
 +++
 
