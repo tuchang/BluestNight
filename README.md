@@ -1,7 +1,8 @@
 # BluestNight
-A dark theme with blue accents for Hugo. Provides multiple configuration options and overrides.
 
-This theme is a complete recreation of my previous theming attempt [Darkroad](https://github.com/Shadow53/Darkroad) based on [Mainroad by Vimux](https://github.com/vimux/mainroad). The theme is similar only in basic structure and has been recreated from scratch.
+A featureful, configurable, yet sleek dark theme for Hugo.
+
+This theme is a complete recreation of my previous theming attempt [Darkroad](https://github.com/Shadow53/Darkroad) based on [Mainroad by Vimux](https://github.com/vimux/mainroad). The theme is similar only in basic structure and has been recreated from scratch with many improvements
 
 # Supported browsers
 
@@ -25,6 +26,9 @@ See the theme in action with its default color scheme [here](https://mnbryant.co
 - Responsive design
 - Customizable [color scheme](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-colors) and [background](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-background)
 - Print-friendly CSS
+- Powerful custom shortcodes
+- [Netlify compatible forms](https://shadow53.gitlab.io/BluestNight/docs/pages/netlify-forms/)
+- [Responsive tables](https://shadow53.gitlab.io/BluestNight/docs/pages/responsive-tables/)
 - Sidebar widgets, including search powered by [Lunr.js](https://lunrjs.com)
 - Comments powered by [Hashover](https://shadow53.gitlab.io/BluestNight/docs/pages/comments#hashover) or [Muut](https://shadow53.gitlab.io/BluestNight/docs/pages/comments#muut)
 - [Syntax highlighting](https://gohugo.io/tools/syntax-highlighting/#server-side) powered by Pygments
