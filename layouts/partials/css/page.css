@@ -21,7 +21,6 @@
 #site-container {
   margin: auto;
   background-color: {{ .Get "main_bg" }};
-  color: {{ .Get "body_text" }};
   width: 100%;
 	max-width: 1080px;
 	margin: 25px auto;
@@ -29,6 +28,7 @@
 
 body {
   background-color: {{ .Get "page_bg" }};
+  color: {{ .Get "body_text" }};
   background-attachment: fixed;
   {{ if (not (eq (.Get "background_src") "")) -}}
   background-repeat: {{ .Get "background_tile" }};
@@ -85,10 +85,16 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   border-top: 1px solid {{ .Get "header_text" }};
 }
 
-code {
+:not(pre) > code {
   {{ .Set "label" "accent" -}}
   background-color: {{ trim (partial "css/color/semi_transparent.css" .) " \n" }};
+  color: {{ .Get "accent" }};
   overflow-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+  display: inline-block;
+  padding: 0.2rem;
+  font-size: 0.9rem;
 }
 
 a code, code a {
@@ -104,7 +110,7 @@ pre, pre code {
 
 pre {
   padding: 1.2rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-bottom: 1em;
 }
 

@@ -5,7 +5,7 @@ hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
 [menu.main]
-  weight = 3
+  weight = 2
   parent = "docs-shortcodes"
 +++
 

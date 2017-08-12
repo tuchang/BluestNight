@@ -41,6 +41,12 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
       parent = "docs"
       identifier = "docs-pages"
       url = "#"
+      [[menu.main]]
+        name = "Alert"
+        weight = 1
+        parent = "docs-pages"
+        identifier = "alert-for-pages"
+        url = "docs/site/alert/#page-specific-alerts"
     [[menu.main]]
       name = "Shortcodes"
       weight = 1
@@ -53,6 +59,12 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
         parent = "docs-shortcodes"
         identifier = "alert-shortcode"
         url = "docs/site/alert/#shortcode"
+      [[menu.main]]
+        name = "Responsive Tables"
+        weight = 4
+        parent = "docs-shortcodes"
+        identifier = "table-shortcode"
+        url = "docs/pages/responsive-tables/"
     [[menu.main]]
       name = "Sidebar"
       weight = 1
