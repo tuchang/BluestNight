@@ -90,7 +90,6 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   background-color: {{ trim (partial "css/color/semi_transparent.css" .) " \n" }};
   color: {{ .Get "accent" }};
   overflow-wrap: break-word;
-  word-break: break-all;
   white-space: pre-wrap;
   display: inline-block;
   padding: 0.2rem;
