@@ -1,6 +1,5 @@
 +++
 title = "Responsive Tables"
-date = "2017-08-11T23:49:34-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

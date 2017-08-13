@@ -1,6 +1,5 @@
 +++
 title = "Members"
-date = "2017-06-26T23:53:44-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

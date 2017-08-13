@@ -1,6 +1,5 @@
 +++
 title = "Alert"
-date = "2017-08-09T13:57:18-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

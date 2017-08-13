@@ -1,6 +1,5 @@
 +++
 title = "Netlify Forms"
-date = "2017-08-10T23:49:34-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]
@@ -22,8 +21,13 @@ This shortcode requires you to use the `{{</* shortcode */>}}` method of calling
 
 The `netlify-form` shortcode serves as a wrapper to the rest of the shortcodes on this page. Without it you may be able to use the other shortcodes to make form elements, but they won't submit anywhere. The other shortcodes are designed to be used as inner content to `netlify-form`.
 
-Required Parameters:
+**Required Parameters:**
+
 - `name`: Equivalent to the [`name` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-name) on an HTML `<form>`. Must be unique among forms on the page.
+
+**Optional Parameters:**
+
+- `action`: The page to take the user to after they submit the form. Ideally should thank them for their submission. Defaults to a page from Netlify that redirects back to the page they left.
 
 Example "Contact" form:
 
@@ -82,6 +86,7 @@ Required parameters:
 
 - `type`: `radio` or `select` for when only one selection can be made and `checkbox` for multiple selections.
 - `name`: A unique identifier for the input field. Must be unique across input elements in ***all*** forms on the page.
+- `label`: A label for the group of `radio` buttons or `checkboxes`
 
 Optional parameters:
 

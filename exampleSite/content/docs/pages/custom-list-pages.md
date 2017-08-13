@@ -1,6 +1,5 @@
 +++
 title = "Customize List Pages"
-date = "2017-06-26T23:51:32-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

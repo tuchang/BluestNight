@@ -1,6 +1,5 @@
 +++
 title = "Events"
-date = "2017-06-26T23:55:07-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

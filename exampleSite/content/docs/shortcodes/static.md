@@ -1,6 +1,5 @@
 +++
 title = "Link To Static Files"
-date = "2017-07-23T19:06:44-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

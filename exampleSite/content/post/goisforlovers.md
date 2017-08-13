@@ -12,8 +12,6 @@ categories = [
     "Development",
     "golang",
 ]
-[menu.main]
-  weight = 3
 +++
 
 Hugo uses the excellent [go][] [html/template][gohtmltemplate] library for

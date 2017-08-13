@@ -3,7 +3,7 @@ title = "About Hugo"
 date = "2014-04-09"
 menu = "main"
 hide_authorbox = true
-weight = 1
+weight = 11
 +++
 
 Hugo is a static site engine written in Go.

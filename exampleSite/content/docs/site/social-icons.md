@@ -1,6 +1,5 @@
 +++
 title = "Social Icons"
-date = "2017-06-26T23:58:50-07:00"
 hide_authorbox = true
 disable_comments = true
 categories = ["Documentation"]

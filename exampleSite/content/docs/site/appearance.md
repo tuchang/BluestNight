@@ -1,6 +1,5 @@
 +++
 title = "Appearance"
-date = "2017-06-26T23:58:18-07:00"
 hide_authorbox = true
 disable_comments = true
 description = "Customize the appearance of your Hugo site by adding a custom background image or changing the colors used for the site."
