@@ -4,14 +4,14 @@
   # $base gets appended to the end and screws up the path
   #base    = "shadow53.com"
   publish = "public"
-  command = "ls && pwd && cd exampleSite && pwd && hugo -t ../.."
+  command = "cd exampleSite && hugo -t ../.."
   [build.environment]
     HUGO_VERSION = "0.25.1"
 
 # Production context: All deploys to the main
 # repository branch will inherit these settings.
 [context.production]
-  command = "hugo"
+  command = "ls && pwd && cd exampleSite && pwd && hugo -t ../.."
   #[context.production.environment]
   #  ACCESS_TOKEN = "super secret"
 
