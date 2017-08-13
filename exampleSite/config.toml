@@ -11,8 +11,8 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     home = ["HTML", "CSS", "JSON", "RSS"]
 
 [Params]
-    tagline = "A configurable dark theme with blue accents for Hugo"
-    description = "Here is a description of my site that will appear in search engine results - W00t!" # Description of your site
+    tagline = "A featureful, configurable, yet sleek dark theme for Hugo."
+    description = "The official example website for the BluestNight Hugo theme. Comes with documentation." # Description of your site
     authorbox = true
     author = "Some Guy"
     post_navigation = false
