@@ -3,7 +3,7 @@
   # Repo gets cloned to /opt/build/repo
   # $base gets appended to the end and screws up the path
   #base    = "shadow53.com"
-  publish = "public"
+  publish = "exampleSite/public"
   command = "cd exampleSite && hugo -t ../.."
   [build.environment]
     HUGO_VERSION = "0.25.1"
@@ -11,7 +11,7 @@
 # Production context: All deploys to the main
 # repository branch will inherit these settings.
 [context.production]
-  command = "ls && pwd && cd exampleSite && pwd && hugo -t ../.."
+  command = "cd exampleSite && hugo -t ../.. -d ../public"
   #[context.production.environment]
   #  ACCESS_TOKEN = "super secret"
 
@@ -23,7 +23,7 @@
 # Branch Deploy context: All deploys that are not in
 # an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
-  command = "cd exampleSite && hugo -t ../.. -b $DEPLOY_URL --buildDrafts"
+  command = "cd exampleSite && hugo -t ../.. -b $DEPLOY_PRIME_URL -d ../public --buildDrafts"
 
 # Specific branch context: Deploys from this branch
 # will take these settings and override their
