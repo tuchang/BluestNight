@@ -1,4 +1,6 @@
-<form class="form-container" name="{{ .Get "name" }}" action="{{ .Get "action" | default "thank-you" }}" netlify>
+{{ $action := .Get "action" | default "thank-you" -}}
+{{- if ne $action "thank-you" -}}{{- $action := ($action | absLangURL) -}}{{- end -}}
+<form class="form-container" name="{{ .Get "name" }}" action="{{ $action }}" netlify>
   {{ .Inner }}
   <div class="row">
     <button class="row-item small-full medium-third large-quarter left button" type="reset">
