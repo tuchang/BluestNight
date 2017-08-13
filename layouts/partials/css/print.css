@@ -13,6 +13,7 @@
   a:link:after, a:visited:after {
     content: "";
   }
+  code { color: #222222 !important; }
   main, p, header, a, th, td { color: #000000 !important; }
   a { text-decoration: none; }
   #site-container {
@@ -27,6 +28,7 @@
     background-color: #ffffff;
     color: #000000;
   }
+  .alert { border-color: #000000; }
   #TableOfContents {
     background-color: none;
     border: 1px solid black;
