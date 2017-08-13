@@ -4,7 +4,7 @@
   # $base gets appended to the end and screws up the path
   #base    = "shadow53.com"
   publish = "public"
-  command = "cd exampleSite; ls; hugo -t ../.."
+  command = "cd exampleSite && ls && hugo -t ../.."
   [build.environment]
     HUGO_VERSION = "0.25.1"
 
@@ -23,7 +23,7 @@
 # Branch Deploy context: All deploys that are not in
 # an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
-  command = "cd exampleSite; hugo -t ../.. -b $DEPLOY_URL --buildDrafts"
+  command = "cd exampleSite && hugo -t ../.. -b $DEPLOY_URL --buildDrafts"
 
 # Specific branch context: Deploys from this branch
 # will take these settings and override their
