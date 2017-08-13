@@ -3,8 +3,8 @@
   # Repo gets cloned to /opt/build/repo
   # $base gets appended to the end and screws up the path
   #base    = "shadow53.com"
-  publish = "exampleSite/public"
-  command = "cd exampleSite && hugo -t ../.."
+  publish = "public"
+  command = "cd exampleSite && hugo -t ../.. -d ../public"
   [build.environment]
     HUGO_VERSION = "0.25.1"
 

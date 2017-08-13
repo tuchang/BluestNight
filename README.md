@@ -16,7 +16,7 @@ The following are the earliest versions of each browser compatible with this the
 
 # Documentation
 
-You can find documentation on how to use the theme, as well as a `config.toml` [template](https://shadow53.gitlab.io/BluestNight/docs/example-config), on the [example site](https://shadow53.gitlab.io/BluestNight/)
+You can find documentation on how to use the theme, as well as a `config.toml` [template](https://bluestnight.shadow53.com/docs/example-config), on the [example site](https://bluestnight.shadow53.com/)
 
 # Live sites
 See the theme in action with its default color scheme [here](https://mnbryant.com) or with an override [here](https://shadow53.com)
@@ -24,13 +24,13 @@ See the theme in action with its default color scheme [here](https://mnbryant.co
 # Feature overview
 
 - Responsive design
-- Customizable [color scheme](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-colors) and [background](https://shadow53.gitlab.io/BluestNight/docs/site/appearance#custom-background)
+- Customizable [color scheme](https://bluestnight.shadow53.com/docs/site/appearance#custom-colors) and [background](https://bluestnight.shadow53.com/docs/site/appearance#custom-background)
 - Print-friendly CSS
 - Powerful custom shortcodes
-- [Netlify compatible forms](https://shadow53.gitlab.io/BluestNight/docs/pages/netlify-forms/)
-- [Responsive tables](https://shadow53.gitlab.io/BluestNight/docs/pages/responsive-tables/)
+- [Netlify compatible forms](https://bluestnight.shadow53.com/docs/pages/netlify-forms/)
+- [Responsive tables](https://bluestnight.shadow53.com/docs/pages/responsive-tables/)
 - Sidebar widgets, including search powered by [Lunr.js](https://lunrjs.com)
-- Comments powered by [Hashover](https://shadow53.gitlab.io/BluestNight/docs/pages/comments#hashover) or [Muut](https://shadow53.gitlab.io/BluestNight/docs/pages/comments#muut)
+- Comments powered by [Hashover](https://bluestnight.shadow53.com/docs/pages/comments#hashover) or [Muut](https://bluestnight.shadow53.com/docs/pages/comments#muut)
 - [Syntax highlighting](https://gohugo.io/tools/syntax-highlighting/#server-side) powered by Pygments
 - [Custom index pages](https://gohugo.io/content-management/organization/#index-pages-index-md) (`_index.md`) with custom content and the ability to hide the list of pages.
 - Custom `robots.txt`, 404 page, and rss feeds
