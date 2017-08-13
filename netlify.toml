@@ -4,7 +4,7 @@
   # $base gets appended to the end and screws up the path
   #base    = "shadow53.com"
   publish = "public"
-  command = "cd exampleSite && ls && hugo -t ../.."
+  command = "ls && pwd && cd exampleSite && pwd && hugo -t ../.."
   [build.environment]
     HUGO_VERSION = "0.25.1"
 
