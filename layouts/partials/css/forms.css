@@ -36,3 +36,8 @@ input:focus, textarea:focus, select:focus {
     margin-left: auto;
   }
 }
+
+input[type="checkbox"][value="other"]:checked ~ input.hide,
+input[type="radio"][value="other"]:checked ~ input.hide {
+  display: inline;
+}

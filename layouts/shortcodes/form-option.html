@@ -8,8 +8,8 @@
 <option value="{{ $value }}"{{ if $selected }} selected{{ end }}>{{ $label }}</option>
 {{- else -}}
 <li>
-  <label>
-    <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}"{{ if $required }} required{{ end }}{{ if $selected }} checked{{ end }}>
+  <input id="{{ $name }}-{{ $value }}" type="{{ $type }}" name="{{ $name }}" value="{{ $value }}"{{ if $required }} required{{ end }}{{ if $selected }} checked{{ end }}>
+  <label for="{{ $name }}-{{ $value }}">
     {{ $label }}
   </label>
 </li>

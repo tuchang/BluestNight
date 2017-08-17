@@ -28,17 +28,18 @@
     {{ .Inner | safeHTML }}
     {{ if $has_other }}
       <li>
-        <label>
-          <input type="{{ $type }}" name="{{ $name }}" value="other">
+        <input id="{{ $name }}-other" type="{{ $type }}" name="{{ $name }}" value="other">
+        <label for="{{ $name }}-other">
           Other
         </label>
+        <input class="hide" type="text" name="{{ $name }}-other-value"/>
       </li>
     {{ end }}
     </ul>
     {{ end }}
   </div>
 </div>
-{{ if $has_other }}
+{{ if and (eq $type "select") $has_other }}
 <div class="row">
   <div class="row-item small-full small-text-center medium-third medium-text-right">
     <label for="{{ $name }}_other_value">
