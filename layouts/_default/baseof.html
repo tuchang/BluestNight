@@ -8,11 +8,11 @@
     <!-- Prematurely connect to the servers to save some milliseconds -->
     <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
     <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
-    {{ if (and (isset $.Site.Params.piwik "host") ($.Site.Params.piwik.enable)) -}}
+    {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
     <link rel="dns-prefetch" href="{{ $.Site.Params.piwik.host }}" />
     <link rel="preconnect" href="{{ $.Site.Params.piwik.host }}" />
     {{- end -}}
-    {{- if $.Site.Params.widgets.search -}}
+    {{- if and $.Site.Params.widgets $.Site.Params.widgets.search -}}
     <link rel="dns-prefetch" href="https://unpkg.com/" />
     <link rel="preconnect" href="https://unpkg.com/" />
     <!-- Cache the scripts and JSON index -->
@@ -20,8 +20,10 @@
     <link rel="prefetch" href="{{ "js/search.min.js" | absLangURL }}" />
     <link rel="prefetch" href="{{ "index.json" | absLangURL }}" />
     {{ end -}}
+    {{- if $.Site.Params.background -}}
     {{ with $.Site.Params.background.src -}}
     <link rel="prefetch" href="{{ . | absLangURL }}" />
+    {{- end -}}
     {{- end -}}
 
     {{- $.Scratch.Set "desc" "" -}}
@@ -47,7 +49,7 @@
     {{ if $.Site.Params.hashover }}<link rel="prefetch stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}" integrity="sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6">{{ end }}
     <link rel="prefetch stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
 
-    {{ if (and (isset $.Site.Params.piwik "host") ($.Site.Params.piwik.enable)) -}}
+    {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
     <script type="text/javascript">
       var _paq = _paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -105,7 +107,7 @@
             </span>
           </small>
         </div>
-        {{ if $.Site.Params.piwik.enable_optout -}}
+        {{ if and $.Site.Params.piwik $.Site.Params.piwik.enable_optout -}}
         {{- with $.Site.Params.piwik.host -}}
         <div class="small-full medium-third row-item small-text-center medium-text-center small-right">
           This site uses <a href="http://piwik.org/" rel="nofollow noreferrer">Piwik Analytics</a>.<br/>
@@ -192,7 +194,7 @@
       );
     </script>
     {{- end -}}
-    {{- if and ($.Site.Params.piwik.enable) ($.Site.Params.piwik.enable_ajax) -}}
+    {{- if and $.Site.Params.piwik (and $.Site.Params.piwik.enable $.Site.Params.piwik.enable_ajax) -}}
     <script>
 
     function ajax(url) {

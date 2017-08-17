@@ -1,9 +1,9 @@
 {{ define "main_content" }}
-<main class="row-item small-full medium-two-thirds" {{ if (eq .Section "post") }}itemscope itemtype="http://schema.org/Blog"{{ end }}>
-  <article id="post-article" {{ if (eq .Section "post") }}itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"{{ else }}itemscope itemtype="http://schema.org/Article"{{ end }}{{ if .Params.tags }} itemref="keywords desc"{{ else }} itemref="desc"{{ end }}>
+<main class="row-item small-full medium-two-thirds" {{ if eq .Section "post" }}itemscope itemtype="http://schema.org/Blog"{{ end }}>
+  <article id="post-article" {{ if eq .Section "post" }}itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"{{ else }}itemscope itemtype="http://schema.org/Article"{{ end }}{{ if .Params.tags }} itemref="keywords desc"{{ else }} itemref="desc"{{ end }}>
     <header id="page-header">
       <h1 itemprop="headline">{{ .Title }}</h1>
-      {{- if or (not .Date.IsZero) (.Params.categories) -}}
+      {{- if or (not .Date.IsZero) .Params.categories -}}
       <p id="post-metadata" class="row">
         {{- if not .Date.IsZero -}}
         <span class="row-item">
@@ -14,7 +14,7 @@
         {{- if .Params.categories -}}
         <span class="row-item">
           <span class="fa fa-folder"></span>
-          {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ . | urlize | lower }}" rel="category">{{ . | humanize | title }}</a>{{ end }}
+          {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . | humanize | title }}</a>{{ end }}
         </span>
         {{- end -}}
         {{- if not .Params.hide_readingtime -}}
@@ -34,13 +34,13 @@
         <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}">
       </figure>
       {{- end -}}
-      {{ if and (isset .Params "enable_toc") (eq .Params.enable_toc true) }}{{ .TableOfContents }}{{ end }}
+      {{ if and .Params.enable_toc (eq .Params.enable_toc true) }}{{ .TableOfContents }}{{ end }}
       <span itemprop="articleBody">{{ .Content }}</span>
     </div>
     {{- if .Params.tags -}}
     <div id="post-tags">
     	<ul class="menu">
-        <li class="row-item">{{if (eq (len .Site.Taxonomies.tags) 1) }}<i class="fa fa-tag"></i>{{ else }}<i class="fa fa-tags"></i>{{ end }}&nbsp;&nbsp;</li>
+        <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<i class="fa fa-tag"></i>{{ else }}<i class="fa fa-tags"></i>{{ end }}&nbsp;&nbsp;</li>
     		{{- range .Params.tags -}}
     		<li itemprop="relatedUrl" itemscope itemtype="http://schema.org/URL">
     			{{- $.Scratch.Set "link" "/tags/" -}}
@@ -52,15 +52,19 @@
     </div>
     {{- end -}}
     {{- if and (.Site.Params.authorbox) (not .Params.hide_authorbox) -}}
+    {{- with $.Site.Params.author -}}{{- $.Scratch.Set "author" . -}}{{- end -}}
+    {{- with .Params.author -}}{{- $.Scratch.Set "author" . -}}{{- end -}}
+    {{- $author := $.Scratch.Get "author" | default "" -}}
+    {{- if ne $author "" -}}
     {{- range $.Site.Data.members -}}
-    	{{- if or (and (and (isset $.Site.Params "author") (not (isset $.Params "author"))) (eq .Name $.Site.Params.author )) (and (isset $.Params "author") (eq .Name $.Params.author)) -}}
+    	{{- if eq .Name $author -}}
     	<div id="authorbox" class="row vcenter memberbox" itemprop="author" itemscope itemtype="http://schema.org/Person">
     		<div class="row-item member-avatar" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
     				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}" itemprop="contentUrl" />
     		</div>
     		<div class="row-item member-bio">
     			<div>
-    				<span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" rel="author">{{ end }}<span itemprop="name">{{ .Name }}</span>{{ with .URL }}</a>{{ end }}</span>
+    				<span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" rel="author">{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
     			</div>
     			<p itemprop="description">
     				{{- .Bio -}}
@@ -68,6 +72,7 @@
     		</div>
     	</div>
     	{{- end -}}
+    {{- end -}}
     {{- end -}}
     {{- end -}}
   </article>
@@ -78,13 +83,13 @@
   {{- $.Scratch.Set "next_link" "" -}}
   {{- $.Scratch.Set "next_title" "" -}}
 
-  {{- with .Params.custom_prev -}}
-    {{ if not (eq . "none") }}
-    {{- $.Scratch.Set "file_path" . -}}
-    {{ range $.Site.Pages }}
-      {{ if eq .File.Path ($.Scratch.Get "file_path") }}
-      {{- $.Scratch.Set "prev_link" .Permalink -}}
-      {{- $.Scratch.Set "prev_title" .LinkTitle -}}
+  {{- if .Params.custom_prev -}}
+    {{ if not (eq .Params.custom_prev "none") }}
+    {{- $.Scratch.Set "file_path" .Params.custom_prev -}}
+    {{ range $page := $.Site.Pages }}
+      {{ if eq $page.File.Path ($.Scratch.Get "file_path") }}
+      {{- $.Scratch.Set "prev_link" $page.Permalink -}}
+      {{- $.Scratch.Set "prev_title" $page.LinkTitle -}}
       {{ end }}
     {{ end }}
     {{ end }}
@@ -95,13 +100,13 @@
     {{- end -}}
   {{- end -}}
 
-  {{- with .Params.custom_next -}}
-    {{ if not (eq . "none") }}
-    {{- $.Scratch.Set "file_path" . -}}
-    {{ range $.Site.Pages }}
-      {{ if eq .File.Path ($.Scratch.Get "file_path") }}
-      {{- $.Scratch.Set "next_link" .Permalink -}}
-      {{- $.Scratch.Set "next_title" .LinkTitle -}}
+  {{- if .Params.custom_next -}}
+    {{ if not (eq .Params.custom_next "none") }}
+    {{- $.Scratch.Set "file_path" .Params.custom_next -}}
+    {{ range $page := $.Site.Pages }}
+      {{ if eq $page.File.Path ($.Scratch.Get "file_path") }}
+      {{- $.Scratch.Set "next_link" $page.Permalink -}}
+      {{- $.Scratch.Set "next_title" $page.LinkTitle -}}
       {{ end }}
     {{ end }}
     {{ end }}
@@ -126,13 +131,13 @@
   {{- end -}}
   {{- end -}}
 
-  {{- if and (or (isset .Site.Params "hashover") (isset .Site.Params "muut")) (or (not (isset .Params "disable_comments")) (not .Params.disable_comments)) -}}
+  {{- if and (or $.Site.Params.hashover $.Site.Params.muut) (not .Params.disable_comments) -}}
   <div class="post-comments">
     {{- if (.Site.Params.hashover) -}}
       <div id="hashover"></div>
       <script>var canon_url = (document.querySelector('link[rel="canonical"]') != null) ? '?canon_url=' + encodeURIComponent(document.querySelector('link[rel="canonical"]').getAttribute('href')) : ''; document.write('<script src="/hashover.php' + canon_url + '"><\/script>');</script>
-      <script defer type="text/javascript" src="{{ .Site.BaseURL }}hashover.php"></script>
-      <script defer type="text/javascript" src="{{ .Site.BaseURL }}js/hashoverride.js"></script>
+      <script defer type="text/javascript" src="{{ $.Site.BaseURL }}hashover.php"></script>
+      <script defer type="text/javascript" src="{{ $.Site.BaseURL }}js/hashoverride.js"></script>
       <noscript>You must have JavaScript enabled to use the comments.</noscript>
     {{- else -}}
       {{- with .Site.Params.muut -}}
@@ -143,4 +148,4 @@
   </div>
   {{- end -}}
 </main>
-{{- end -}}
+{{ end }}
