@@ -5,7 +5,7 @@
     {{- .Set "redstr" (substr $color 1 1) -}}
     {{- .Set "greenstr" (substr $color 2 1) -}}
     {{- .Set "bluestr" (substr $color 3 1) -}}
-    {{/* If has alpha */}}
+    {{- /* If has alpha */ -}}
     {{- if eq (len $color) 5 -}}
       {{- .Set "alphastr" (substr $color 4 1) -}}
     {{- else -}}
@@ -15,7 +15,7 @@
     {{- .Set "redstr" (substr $color 1 2) -}}
     {{- .Set "greenstr" (substr $color 3 2) -}}
     {{- .Set "bluestr" (substr $color 5 2) -}}
-    {{/* If has alpha */}}
+    {{- /* If has alpha */ -}}
     {{- if eq (len $color) 9 -}}
       {{- .Set "alphastr" (substr $color 7 2) -}}
     {{- else -}}

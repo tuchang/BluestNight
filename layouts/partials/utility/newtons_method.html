@@ -5,9 +5,9 @@
 {{- else if eq $val 1.0 -}}
   {{- .Set "guess" 1 -}}
 {{- else -}}
-  {{/* Have to multiply to get an integer with correct precision */}}
+  {{- /* Have to multiply to get an integer with correct precision */ -}}
   {{- $guess := mul (.Get "guess" | default 1.5) 1.0 -}}
-  {{/* Using Newton's method with equation f(x) = x^5 - $val to find the 5th root of the number, with starting "guess" 8 */}}
+  {{- /* Using Newton's method with equation f(x) = x^5 - $val to find the 5th root of the number, with starting "guess" 8 */ -}}
   {{- $guess_to_2 := mul $guess $guess -}}
   {{- $guess_to_4 := mul $guess_to_2 $guess_to_2 -}}
   {{- $guess_to_5 := mul $guess_to_4 $guess -}}

@@ -2,7 +2,7 @@
 {{- range $color := (slice "red" "green" "blue" "alpha") -}}
   {{- $label := add $color "str" -}}
   {{- $colorstr := $scr.Get $label -}}
-  {{/* This works for strings of 1 or 2 characters */}}
+  {{- /* This works for strings of 1 or 2 characters */ -}}
   {{- $scr.Set "sum" 0 -}}
   {{- $left := substr $colorstr 0 1 -}}
   {{- $right := substr $colorstr -1 1 -}}
@@ -41,4 +41,4 @@
   {{- $scr.Set $color (int ($scr.Get "sum")) -}}
 {{- end -}}
 
-{{ .Set "alpha" (div (.Get "alpha") 255.0) }}
+{{- .Set "alpha" (div (.Get "alpha") 255.0) -}}
