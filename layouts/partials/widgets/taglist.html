@@ -3,7 +3,7 @@
 {{- if not (eq (len .Site.Taxonomies.tags) 0) -}}
 <div class="widget">
 	<header>
-		<span class="widget-header"><span class="fa fa-tags"></span> <a href="{{ $.Site.BaseURL }}tags/">Tags</a></span>
+		<span class="widget-header"><span class="fa fa-tags"></span> <a href="{{ "tags/" | absLangURL }}">Tags</a></span>
 	</header>
 	<div>
 		{{- range $key, $val := .Site.Taxonomies.tags.ByCount -}}
