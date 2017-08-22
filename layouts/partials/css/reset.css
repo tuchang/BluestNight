@@ -12,6 +12,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
   box-sizing: border-box;
 }
 body { font-family: "Clear Sans", sans-serif; }
+hr { width: 25%; margin: auto; }
 p { margin-bottom: 1rem; }
 p, li, pre { line-height: 1.5; }
 ul {

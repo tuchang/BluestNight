@@ -10,6 +10,8 @@ categories = ["Documentation"]
 
 BluestNight provides a number of ways for you to customize [list pages](https://gohugo.io/templates/list/) using [`_index.md`](https://gohugo.io/content/using-index-md/) files.
 
+<!--more-->
+
 # Custom content
 
 If you create an `_index.md` file for a list page and put content in it, that content will appear above the list on the generated page.
@@ -18,7 +20,34 @@ If you create an `_index.md` file for a list page and put content in it, that co
 
 Maybe you don't want to display the list of pages, just your custom content. Set `hide_list` to `true` in the front matter of the `_index.md` file and BluestNight will only generate the custom content on that page.
 
-<!--more-->
+# Show nested sections
+
+**Sections only**
+
+If you want to display the nested sections under the one a list page represents, set `list_subsections` to `true` in the page's front matter. The list will not be displayed if `hide_list` is set to `true`.
+
+# Sort/filter listed pages
+
+By default, BluestNight (and Hugo) sort the pages under a section or taxonomy by date, with the newest page first. You have the ability to choose what page field to sort by and in ascending or descending order. You also have the ability to filter only pages with the file name `index.md`.
+
+## Custom sort field
+
+To sort the entries in the list, set the values of `sort_field` and/or `sort_order` in the list page's front matter. The default values of these parameters are:
+
+- `sort_field`: `"Date"`
+- `sort_order`: `"desc"`
+
+Valid values for `sort_field` are any [page variable](http://gohugo.io/variables/page/) without the leading dot. Valid values for `sort_order` are `"asc"` and `"desc"`.
+
+## Filter only index.md
+
+To display only those pages with the file name `index.md`, set `index_only` to `true` in the list page's front matter. You may want to use this if a section contains folders of content that are *not* subsections of this one (i.e. have a file `_index.md`), but only want to list the entry pages of those folders.
+
+```
++++
+index_only = true
++++
+```
 
 # Examples
 

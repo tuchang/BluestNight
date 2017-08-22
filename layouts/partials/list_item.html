@@ -13,10 +13,12 @@
       <a href="{{ .Permalink }}">
         <h4 itemprop="headline">{{ .Title }}</h4>
       </a>
+      {{- if not .Date.IsZero -}}
       <div class="metadata">
         <span class="fa fa-clock-o"></span>
         <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "January 02, 2006" }}</time>
       </div>
+      {{- end -}}
     </header>
     <div class="post-list-summary" itemprop="description">
       <p>
