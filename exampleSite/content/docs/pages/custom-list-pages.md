@@ -37,7 +37,31 @@ To sort the entries in the list, set the values of `sort_field` and/or `sort_ord
 - `sort_field`: `"Date"`
 - `sort_order`: `"desc"`
 
-Valid values for `sort_field` are any [page variable](http://gohugo.io/variables/page/) without the leading dot. Valid values for `sort_order` are `"asc"` and `"desc"`.
+Valid values for `sort_field` are any [page variable](http://gohugo.io/variables/page/) without the leading dot. This includes any custom front matter variable accessible under `.Params`. Fields starting with `Params` are only sorted in descending order, ignoring the `sort_order` parameter.
+
+Valid values for `sort_order` are `"asc"` and `"desc"`.
+
+To sort the pages in a custom order, you can set a variable in the front matter, for example `sort_weight`, and number the pages in the order you want them to appear in.
+
+```
++++
+# file name: _index.md
+title = "List page"
+sort_field = "Params.sort_weight"
++++
+
++++
+# file name: first.md
+title = "First article"
+sort_weight = 1
++++
+
++++
+# file name: second.md
+title = "Second article"
+sort_weight = 2
++++
+```
 
 ## Filter only index.md
 
