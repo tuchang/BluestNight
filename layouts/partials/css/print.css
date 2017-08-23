@@ -2,11 +2,28 @@
 @media print {
   body {
     font-size: 12pt;
-    font-family: "Georgia", "Liberation Serif", serif;
     background-image: none !important;
     background-color: #ffffff !important;
     color: #000000 !important;
   }
+
+  {{ if eq (.Get "sitevar").Params.fonts.print_body_style (.Get "sitevar").Params.fonts.print_header_style -}}
+  body, {{ end -}}article, article #post-metadata, article .metadata {
+    {{- if eq (.Get "sitevar").Params.fonts.print_body_style "sans-serif" -}}
+    font-family: "Clear Sans", sans-serif;
+    {{- else -}}
+    font-family: "Zilla Slab", "Georgia", "Liberation Serif", serif;
+    {{- end -}}
+  }
+
+  header:not(.fa), h1, h2, h3, h4, h5, h6 {
+    {{- if eq (.Get "sitevar").Params.fonts.print_header_style "serif" -}}
+    font-family: "Zilla Slab", "Georgia", "Liberation Serif", serif;
+    {{- else -}}
+    font-family: "Clear Sans", sans-serif;
+    {{- end -}}
+  }
+
   .post-comments, aside, #site-header, footer, #authorbox, #post-tags, #post-nav {
     display: none !important;
   }

@@ -10,8 +10,11 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 /* Fix some of the resets */
 * {
   box-sizing: border-box;
+  font-size-adjust: 0.5;
 }
-body { font-family: "Clear Sans", sans-serif; }
+body {
+  font-size: 16px;
+}
 hr { width: 25%; margin: auto; }
 p { margin-bottom: 1rem; }
 p, li, pre { line-height: 1.5; }
@@ -30,14 +33,15 @@ div, article {
   margin: 0.5rem 0;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2.24rem; }
-h3 { font-size: 1.98rem; }
-h4 { font-size: 1.72rem; }
-h5 { font-size: 1.46rem; }
-h6 { font-size: 1.2rem; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.414rem; }
+h3 { font-size: 1.115rem; }
+h4 { font-size: 1rem; }
+h5 { font-size: 0.894rem; }
+h6 { font-size: 0.816rem; }
 h1,h2,h3,h4,h5,h6 {
   margin: 1rem 0;
+  border-bottom: 2px solid {{ .Get "body_color" }};
 }
 
 table {
