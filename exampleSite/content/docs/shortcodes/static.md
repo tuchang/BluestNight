@@ -1,6 +1,7 @@
 +++
 title = "Link To Static Files"
 hide_authorbox = true
+description = "There's a limitation with the way links are created in markdown. Sites whose BaseURL is in a subdirectory of a site (i.e. https://example.com/subdir/) may not link correctly using existing methods. This shortcode helps circumvent this limitation."
 disable_comments = true
 categories = ["Documentation"]
 [menu.main]

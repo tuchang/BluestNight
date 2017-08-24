@@ -13,6 +13,8 @@ BluestNight supports using the Hugo built-in `NextInSection` and `PrevInSection`
 
 Sometimes you want a specific order to your pages, though, and that's not the one that Hugo gives you. So, BluestNight also gives you the option to specify a custom content file to use as the "next" or "previous" page, as well as the ability to not show one or both buttons, even if there is a valid "next" or "previous" page.
 
+<!--more-->
+
 # Setup
 
 Set `post_navigation` to `true` under `[Params]` in your site's configuration file **OR** a particular page's front matter

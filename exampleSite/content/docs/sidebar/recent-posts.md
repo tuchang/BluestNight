@@ -12,6 +12,8 @@ Display your most recent posts in the sidebar!
 
 The recent article sidebar widget displays the ten most recent pages under the `post` [section](http://gohugo.io/content/sections/), as well as buttons to subscribe to the RSS feeds of the whole site and the current section or taxonomy (tag/category).
 
+<!--more-->
+
 {{% alert %}}
 Hugo considers a content folder a "section" if it is a direct child of the `content/` folder (e.g. `content/post/`) or if it contains an `_index.md` file. The section that BluestNight matches is the closest valid section to the current page.
 {{% /alert %}}

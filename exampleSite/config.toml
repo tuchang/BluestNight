@@ -1,7 +1,7 @@
 baseurl = "https://bluestnight.shadow53.com"
 title = "BluestNight"
 author = "Michael Bryant"
-paginate = 3
+paginate = 10
 theme = "BluestNight"
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
@@ -30,29 +30,12 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     gitlab = "Shadow53/BluestNight"
 
 [menu]
-  [[menu.main]]
-    name = "Documentation"
-    weight = 1
-    identifier = "docs"
-    url = "#"
-    [[menu.main]]
-      name = "Pages"
-      weight = 1
-      parent = "docs"
-      identifier = "docs-pages"
-      url = "#"
       [[menu.main]]
         name = "Alert"
         weight = 1
         parent = "docs-pages"
         identifier = "alert-for-pages"
         url = "docs/site/alert/#page-specific-alerts"
-    [[menu.main]]
-      name = "Shortcodes"
-      weight = 1
-      parent = "docs"
-      identifier = "docs-shortcodes"
-      url = "#"
       [[menu.main]]
         name = "Alert"
         weight = 1
@@ -65,18 +48,6 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
         parent = "docs-shortcodes"
         identifier = "table-shortcode"
         url = "docs/pages/responsive-tables/"
-    [[menu.main]]
-      name = "Sidebar"
-      weight = 1
-      parent = "docs"
-      identifier = "docs-sidebar"
-      url = "#"
-    [[menu.main]]
-      name = "Site"
-      weight = 1
-      parent = "docs"
-      identifier = "docs-site"
-      url = "#"
   [[menu.main]]
     name = "Tutorials"
     weight = 10

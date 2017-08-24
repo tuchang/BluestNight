@@ -8,9 +8,11 @@ categories = ["Documentation"]
   parent = "docs-shortcodes"
 +++
 
-Looking to put together a nice Members page for your site, but don't want to write a bunch of custom HTML?
+Looking to put together a nice Members page for your site, but don't want to write a bunch of custom HTML to make it look good?
 
-Just use the `{{< member >}}` shortcode!
+Just use the `{{</* member */>}}` shortcode!
+
+<!--more-->
 
 # Setup
 

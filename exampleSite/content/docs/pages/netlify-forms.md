@@ -11,6 +11,8 @@ enable_toc = true
 
 If you are using [Netlify](https://netlify.com) to host your Hugo site, BluestNight supports creating [Netlify-compatible](https://www.netlify.com/docs/form-handling/) forms in your content files through the use of a few shortcodes.
 
+<!--more-->
+
 Note that all parameters to these shortcodes are [named parameters](https://gohugo.io/templates/shortcode-templates/#positional-vs-named-parameters).
 
 {{% alert %}}

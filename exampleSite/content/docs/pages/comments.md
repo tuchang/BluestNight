@@ -16,12 +16,11 @@ BluestNight currently supports two comment providers:
 
 This page details options that apply regardless of which service you are using.
 
+<!--more-->
 
 # Enable/disable comments site-wide
 
-If you have the option to enable a certain comment provider present in your site configuration file, that comment provider is enabled across the whole site (though it can be disabled on a per-page basis). To disable comments across the whole site, just remove or comment out the option in the configuration file.
-
-<!--more-->
+If you have enabled a certain comment provider in your site configuration file, that comment provider is enabled across the whole site (though it can be disabled on a per-page basis). To disable comments across the whole site, just remove or comment out the option in the configuration file.
 
 # Disable comments on a specific page
 
