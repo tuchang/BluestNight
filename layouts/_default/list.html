@@ -37,13 +37,14 @@
       {{ end }}
     {{ end }}
 
-    {{ range ($.Scratch.Get "pages") }}
+    {{ $paginator := .Paginate ($.Scratch.Get "pages") }}
+    {{ range $paginator.Pages }}
       {{ if or (not $index_only) (in .File.Path "index.md") }}
         {{ partial "list_item.html" . }}
       {{ end }}
     {{ end }}
 
-    {{ partial "pagination.html" . }}
+    {{ partial "pagination.html" $paginator }}
   {{ end }}
 </main>
 {{ end }}
