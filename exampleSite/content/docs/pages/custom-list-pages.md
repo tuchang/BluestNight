@@ -32,14 +32,18 @@ By default, BluestNight (and Hugo) sort the pages under a section or taxonomy by
 
 ## Custom sort field
 
-To sort the entries in the list, set the values of `sort_field` and/or `sort_order` in the list page's front matter. The default values of these parameters are:
+To sort the entries in the list, set the values of `sort_field` and (optionally) `sort_order` in the list page's front matter. Valid values for `sort_field` are any [ordering page variable](https://gohugo.io/templates/lists/#order-content) without the leading `By` **OR** any front matter variable with the prefix `Params`.
 
-- `sort_field`: `"Date"`
-- `sort_order`: `"desc"`
+- If the template sorting method you want to use in the Hugo docs is `ByDate`, `sort_field` should be `"Date"`.
+- If sorting by the custom front matter parameter `sorting_weight`, `sort_field` should be `"Params.sorting_weight"` (note the lack of a leading `.` on `Params`).
 
-Valid values for `sort_field` are any [page variable](http://gohugo.io/variables/page/) without the leading dot. This includes any custom front matter variable accessible under `.Params`. Fields starting with `Params` are only sorted in descending order, ignoring the `sort_order` parameter.
+## Custom sort order
 
-Valid values for `sort_order` are `"asc"` and `"desc"`.
+Valid values for `sort_order` are `"asc"` and `"desc"`. If `sort_order` is not specified, the order will depend on what makes the most sense for that field. `sort_order` is ignored if `sort_field` is not specified.
+
+- `Date` fields are descending (new first) by default.
+- `Title` and `Weight` fields are ascending (A-Z and 1-9) by default.
+- Sort fields beginning with `Params` are also ascending by default and **cannot currently be changed**.
 
 To sort the pages in a custom order, you can set a variable in the front matter, for example `sort_weight`, and number the pages in the order you want them to appear in.
 

@@ -29,11 +29,64 @@
     {{ if .IsHome }}
       {{ $.Scratch.Set "pages" (where .Pages "Section" "post") }}
     {{ end }}
-    {{ if or (.Params.sort_field) (or (eq .Params.sort_order "asc") (eq .Params.sort_order "desc")) }}
+    {{ if or .Params.sort_field .Params.sort_order }}
       {{ if in .Params.sort_field "Params." }}
         {{ $.Scratch.Set "pages" (($.Scratch.Get "pages").ByParam (replace .Params.sort_field "Params." "")) }}
       {{ else }}
-        {{ $.Scratch.Set "pages" (sort ($.Scratch.Get "pages") (default "Date" .Params.sort_field) (default "desc" .Params.sort_order)) }}
+        {{/* This long if-chain is necessary because Paginate wants type Pages, not []*Page */}}
+        {{ $order := lower (default "" .Params.sort_order) }}
+        {{ $field := lower (default "" .Params.sort_field) }}
+        {{ if ne $field "" }}
+          {{ if eq $field "weight" }}
+            {{ if eq $order "desc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByWeight.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByWeight }}
+            {{ end }}
+          {{ else if eq $field "date" }}
+            {{ if eq $order "asc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByDate.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByDate }}
+            {{ end }}
+          {{ else if eq $field "publishdate" }}
+            {{ if eq $order "asc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByPublishDate.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByPublishDate }}
+            {{ end }}
+          {{ else if eq $field "expirydate" }}
+            {{ if eq $order "asc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByExpiryDate.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByExpiryDate }}
+            {{ end }}
+          {{ else if eq $field "lastmod" }}
+            {{ if eq $order "asc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByLastmod.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByLastmod }}
+            {{ end }}
+          {{ else if eq $field "length" }}
+            {{ if eq $order "desc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByLength.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByLength }}
+            {{ end }}
+          {{ else if eq $field "title" }}
+            {{ if eq $order "desc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByTitle.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByTitle }}
+            {{ end }}
+          {{ else if eq $field "linktitle" }}
+            {{ if eq $order "desc" }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByLinkTitle.Reverse }}
+            {{ else }}
+              {{ $.Scratch.Set "pages" ($.Scratch.Get "pages").ByLinkTitle }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
       {{ end }}
     {{ end }}
 
