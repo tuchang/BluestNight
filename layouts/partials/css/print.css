@@ -24,7 +24,7 @@
     {{- end -}}
   }
 
-  .post-comments, aside, #site-header, footer, #authorbox, #post-tags, #post-nav {
+  .post-comments, aside, #site-header, footer, #authorbox, #post-tags, #post-nav, #main-container > .alert {
     display: none !important;
   }
   a:link:after, a:visited:after {
