@@ -299,22 +299,26 @@
   font-style: normal;
 }
 
-{{ if eq (.Get "sitevar").Params.fonts.body_style (.Get "sitevar").Params.fonts.header_style -}}
-body, {{ end -}}article, article #post-metadata, article .metadata {
-  {{- if eq (.Get "sitevar").Params.fonts.body_style "serif" -}}
+{{- $body_style := lower (default "sans-serif" (.Get "sitevar").Params.fonts.body_style) -}}
+{{- $header_style := lower (default "sans-serif" (.Get "sitevar").Params.fonts.header_style) -}}
+
+body {
+  {{- if eq $body_style "serif" -}}
   font-family: "Zilla Slab", serif;
   {{- else -}}
   font-family: "Clear Sans", sans-serif;
   {{- end -}}
 }
 
-header:not(.fa), h1, h2, h3, h4, h5, h6, .widget-header:not(.fa) {
-  {{- if eq (.Get "sitevar").Params.fonts.header_style "serif" -}}
+{{- if ne $body_style $header_style -}}
+header:not(.fa), h1, h2, h3, h4, h5, h6, .widget-header:not(.fa), .button {
+  {{- if eq $header_style "serif" -}}
   font-family: "Zilla Slab", serif;
   {{- else -}}
   font-family: "Clear Sans", sans-serif;
   {{- end -}}
 }
+{{- end -}}
 
 .serif {
   font-family: "Zilla Slab", serif !important;
