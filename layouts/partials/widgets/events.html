@@ -3,7 +3,7 @@
 	<header>
 		<span class="widget-header"><span class="fa fa-calendar"></span> Upcoming Events</span>
 	</header>
-	<a class="widget-header-small button" href="webcal://{{ replace (replace $.Site.BaseURL "https://" "") "http://" ""}}index.ics"><span class="fa fa-calendar-plus-o"></span> Subscribe with iCal</a>
+	<a class="widget-header-small button" href="webcal://{{ replace (replace ("index.ics" | absLangURL) "https://" "") "http://" ""}}"><span class="fa fa-calendar-plus-o"></span> Subscribe with iCal</a>
 	<ul>
 		{{ $withDay := "01/02/2006 at 3:04 PM" }}
 		{{ $timeOnly := "3:04 PM" }}

@@ -1,12 +1,14 @@
 BEGIN:VCALENDAR
 VERSION:2.0
+PRODID:-//Shadow53/BluestNight//NONSGML {{ $.Site.Title }}//EN
 CALSCALE:GREGORIAN
-{{ range $.Site.Data.events }}
+{{- range $.Site.Data.events }}
 BEGIN:VEVENT
-UID:{{ md5 .name }}{{ md5 .startDatetime }}@{{ .Site.BaseURL }}
+UID:{{ md5 (add (md5 .name) (md5 .startDatetime)) }}@{{ $.Site.BaseURL }}
+DTSTAMP:{{ dateFormat "20060102T150405Z" now.UTC }}
 SUMMARY:{{ .name }}
-DTSTART;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .startDatetime }}
-DTEND;TZID=America/Los_Angeles:{{ dateFormat "20060102T150405" .endDatetime }}
+DTSTART:{{ dateFormat "20060102T150405Z" .startDatetime.UTC }}
+DTEND:{{ dateFormat "20060102T150405Z" .endDatetime.UTC }}
 LOCATION:{{ .location }}
 DESCRIPTION: {{ .description }}
 STATUS:CONFIRMED
