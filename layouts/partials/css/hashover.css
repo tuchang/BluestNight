@@ -1,6 +1,7 @@
 /* Hashover override (hashoverride?) */
 #hashover form div.cmtbox {
   background-color: {{ .Get "alt_bg" }} !important;
+  color: {{ .Get "alt_body_text" }} !important;
   border-color: {{ .Get "body_text" }} !important;
   border-width: 0 !important;
   border-radius: 0 !important;
@@ -8,6 +9,7 @@
 
 #hashover table tbody tr td {
   background-color: {{ .Get "alt_bg" }} !important;
+  color: {{ .Get "alt_body_text" }} !important;
 }
 
 #hashover table,
@@ -39,6 +41,7 @@
 }
 
 #hashover .cmtnote {
+  background-color: {{ .Get "main_bg" }} !important;
   color: {{ .Get "body_text" }} !important;
 }
 
@@ -50,6 +53,7 @@
 }
 
 #hashover span.cmtnumber {
+  background-color: {{ .Get "alt_body_text" }} !important;
   color: {{ .Get "alt_bg" }} !important;
 }
 
@@ -69,6 +73,7 @@
 #hashover span.options,
 #hashover span.options hr {
   background-color: {{ .Get "alt_bg" }} !important;
+  color: {{ .Get "alt_body_text" }} !important;
 }
 
 #hashover a, #hashover a:link {

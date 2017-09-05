@@ -3,8 +3,8 @@
   body {
     font-size: 12pt;
     background-image: none !important;
-    background-color: #ffffff !important;
-    color: #000000 !important;
+    background-color: inherit !important;
+    color: inherit !important;
   }
 
   {{ if eq (.Get "sitevar").Params.fonts.print_body_style (.Get "sitevar").Params.fonts.print_header_style -}}
@@ -30,20 +30,23 @@
   a:link:after, a:visited:after {
     content: "";
   }
-  code { color: #222222 !important; }
-  main, p, header, a, th, td { color: #000000 !important; }
+  code {
+    background-color: inherit !important;
+    color: inherit !important;
+  }
+  main, p, header, a, th, td { color: inherit !important; }
   a { text-decoration: none; }
   #site-container {
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: inherit;
     padding-left: 0.5in;
   }
   #main-container { display: block; padding: 0; }
   #main-container main {
     width: 100%;
     max-width: 100%;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: inherit;
+    color: inherit;
   }
   .alert { border-color: #000000; }
   #TableOfContents {

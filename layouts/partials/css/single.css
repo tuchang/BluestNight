@@ -26,6 +26,7 @@ main img {
 #TableOfContents {
   display: inline-block;
   background-color: {{ .Get "alt_bg" }};
+  color: {{ .Get "alt_body_text" }};
   border: 1px solid {{ .Get "accent" }};
   padding: 5px;
   margin-bottom: 25px;
