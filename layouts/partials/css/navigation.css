@@ -14,7 +14,7 @@
 }
 
 #main-nav, #main-nav a {
-  color: {{ .Get "body_text" }};
+  color: {{ .Get "alt_body_text" }};
 }
 
 #main-nav .button:hover a, #main-nav a:hover,

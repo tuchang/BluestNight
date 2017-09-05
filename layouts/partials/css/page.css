@@ -152,7 +152,7 @@ aside {
   padding-bottom: 20px;
 }
 
-aside a:link, aside a:visited {
+aside a:link:not(.button), aside a:visited:not(.button) {
   color: {{ .Get "body_text" }};
   text-decoration: none;
 }
@@ -166,6 +166,7 @@ aside a:hover, aside a:active, aside a:focus {
 footer {
   padding: 0.5rem 1rem;
   background-color: {{ .Get "alt_bg" }};
+  color: {{ .Get "alt_body_text" }};
   border-top: 3px solid #999999;
 }
 
