@@ -18,6 +18,13 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     post_navigation = false
     alert = "Subscribe to my [programming blog's](https://shadow53.com) RSS feed to be notified of updates to this theme."
 
+[Params.background]
+    src = "images/background_lg.png"
+    medium_src = "images/background_med.png"
+    small_src = "images/background_sm.png"
+    fit_width = false
+    tile = false
+
 [Params.widgets]
     search = true
     recent_articles = true
