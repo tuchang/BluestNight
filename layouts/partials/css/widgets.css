@@ -17,7 +17,9 @@
   display: block;
   font-size: 1rem;
   font-weight: bold;
-  /*margin: 1rem 0;*/
+}
+
+.widget-header-small.button {
   text-align: center;
 }
 
