@@ -105,6 +105,15 @@
             <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
               <span itemprop="name">{{ .Site.Title }}</span>
             </span>
+            {{ if or ($.Site.GetPage "page" "privacy-policy.md") ($.Site.GetPage "page" "terms-of-use.md") -}}
+            <br/>
+              {{ with $.Site.GetPage "page" "privacy-policy.md" }}
+                <a href="{{- ref . "privacy-policy.md" -}}">Privacy Policy</a>
+              {{ end }}
+              {{ with $.Site.GetPage "page" "terms-of-use.md" -}}
+                <a href="{{- ref . "terms-of-use.md" -}}">Terms of Use</a>
+              {{ end }}
+            {{- end -}}
           </small>
         </div>
         {{ if and $.Site.Params.piwik $.Site.Params.piwik.enable_optout -}}
