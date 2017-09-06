@@ -6,7 +6,7 @@
 }
 
 ::selection {
-  color: {{ .Get "body_text" }};
+  color: {{ .Get "header_text" }};
   background-color: {{ .Get "accent" }};
 }
 
