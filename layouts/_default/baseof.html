@@ -125,8 +125,11 @@
         {{- end -}}
         {{- end }}
         <div class="small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} row-item small-text-center medium-text-right" id="social-icons">
-          {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com" rel="author">
+          {{ with .Site.Params.social.deviantart }}<a href="https://{{ . }}.deviantart.com" rel="me nofollow">
             <span class="fa fa-deviantart"></span>
+          </a>{{ end }}
+          {{ with .Site.Params.social.email }}<a href="mailto:{{ . }}" rel="me nofollow">
+            <span class="fa fa-envelope"></span>
           </a>{{ end }}
           {{ with .Site.Params.social.facebook }}<a href="https://facebook.com/{{ . }}" rel="me nofollow">
             <span class="fa fa-facebook-official"></span>
