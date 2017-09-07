@@ -29,7 +29,7 @@ Full list of social links and how to link to them:
 
 - DeviantArt (`deviantart = "username"`)
 - Facebook (`facebook = "userid"`)
-    - Your Facebook user id is what comes after "https://facebook.com/" on your public profile page
+    - Your Facebook user id is what comes after "<https://facebook.com/>" on your public profile page
 - GitHub (`github = "username"` or `github = "username/project-name")
 - GitLab (`gitlab = "username"` or `gitlab = "username/project-name")
 - Google Plus (`googleplus = "+Joe-Smith"`)
@@ -37,14 +37,14 @@ Full list of social links and how to link to them:
 - LinkedIn (`linkedin = "userid"`)
 - Medium (`medium = "username"`)
 - Pinterest (`pinterest = "username"`)
-    - Your username is whatever follows "https://pinterest.com/" on your profile page
+    - Your username is whatever follows "<https://pinterest.com/>" on your profile page
 - Quora (`quora = "userid")
-    - Your userid is whatever follows "https://quora.com/profile/" on your profile page
+    - Your userid is whatever follows "<https://quora.com/profile/>" on your profile page
 - Reddit (`reddit = "username"`)
 - Slack Organization (`slack_org = "subdomain"`)
     - Your subdomain is whatever comes after "https://" and before ".slack.com"
 - Soundcloud (`soundcloud = "userid"`)
-    - Your userid is whatever comes after "https://soundcloud.com/" on your profile page
+    - Your userid is whatever comes after "<https://soundcloud.com/>" on your profile page
 - Spotify (`spotify = "username"`)
 - Steam (`steam = "id/username" OR "profiles/48624573984729386"`)
   - If you have a custom profile link set up, it will be `id/your-login-username`
@@ -54,4 +54,4 @@ Full list of social links and how to link to them:
 - Twitch (`twitch = "username"`)
 - Twitter (`twitter = "username"`)
 - Vimeo (`vimeo = "userid"`)
-  - It seems some users have custom URLs and some are identified as "user1234567". Use whatever comes after "https://vimeo.com/" on your profile page.
+  - It seems some users have custom URLs and some are identified as "user1234567". Use whatever comes after "<https://vimeo.com/>" on your profile page.
