@@ -1,5 +1,6 @@
 {{- $label := .Get "label" -}}
 {{- $color := .Get $label -}}
+{{- $rgbRegExp := "[0-9]{1,3}(?:(,|\\)))" -}}
 {{- if (hasPrefix $color "#") -}}
   {{- if lt (len $color) 7 -}}
     {{- .Set "redstr" (substr $color 1 1) -}}
@@ -23,30 +24,28 @@
     {{- end -}}
   {{- end -}}
   {{- partial "css/color/convert_hex.css" . -}}
-{{- else if (hasPrefix $color "rgba") -}}
-  {{- $str := .Get $label -}}
-  {{- $str := trim (replace $str "rgba(" "") " \n" -}}
-  {{- $scr := . -}}
-  {{- .Set "str" $str -}}
-  {{- range $looplabel := slice "red" "green" "blue" -}}
-    {{- $substr := substr (index (findRE "[0-9]{1,3}\\," ($scr.Get "str") 1) 0) 0 -1 -}}
-    {{- $scr.Set $looplabel (int $substr) -}}
-    {{- $scr.Set "str" (trim (substr ($scr.Get "str") (add (countrunes $substr) 1)) ", ") -}}
-  {{- end -}}
-  {{- $str := substr (.Get "str") 0 -1 -}}
-  {{- .Set "floatstr" $str -}}
-  {{- partial "utility/float.html" . -}}
-  {{- .Set "alpha" (.Get "floatval") -}}
 {{- else if (hasPrefix $color "rgb") -}}
   {{- $str := .Get $label -}}
-  {{- $str := trim (replace $str "rgb(" "") -}}
+  {{- $str := trim (replace (replace $str "rgba(" "") "rgb(" "") " \n" -}}
+  {{- $nums := findRE $rgbRegExp $str -}}
   {{- $scr := . -}}
-  {{- range $looplabel := slice "red" "green" -}}
-    {{- $substr := findRE "$[0-9]{1,3}\\," $str 1 -}}
-    {{- $scr.Set $looplabel (int $substr) -}}
-    {{- $str := substr $str (add (countrunes $substr) 1) -}}
+  {{- range $i, $looplabel := slice "red" "green" "blue" -}}
+    {{- $val := index $nums $i -}}
+    {{- $scr.Set $looplabel (int (trim $val ",)")) -}}
   {{- end -}}
-  {{- $str := substr $str 0 -1 -}}
-  {{- .Set "blue" (int $str) -}}
+  {{- .Set "alpha" 1.0 -}}
+  {{- if eq 4 (len $nums) -}}
+    {{- $floatstr := last 1 (findRE "[0-1](\\.[0-9]+)?\\)" $str 1) -}}
+    {{- $floatstr := trim (index $floatstr 0) ")" -}}
+    {{- .Set "floatstr" $floatstr -}}
+    {{- partial "utility/float.html" . -}}
+    {{- .Set "alpha" (.Get "floatval") -}}
+  {{- end -}}
 {{- else -}}
+  {{- $keywords := getJSON "https://raw.githubusercontent.com/corysimmons/colors.json/master/colors.json" -}}
+  {{- $arr := index $keywords $color -}}
+  {{- .Set "red" (index $arr 0) -}}
+  {{- .Set "green" (index $arr 1) -}}
+  {{- .Set "blue" (index $arr 2) -}}
+  {{- .Set "alpha" (index $arr 3) -}}
 {{- end -}}

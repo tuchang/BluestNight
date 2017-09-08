@@ -1,6 +1,5 @@
 {{- $floatstr := .Get "floatstr" -}}
-{{- $beforestr :=  index (findRE "[0-9]*\\." $floatstr 1) 0 -}}
-{{- $beforestr := replace $beforestr "." "" -}}
+{{- $beforestr :=  trim (index (findRE "[0-9]*(?:\\.)" $floatstr 1) 0) "." -}}
 {{- $blen := countrunes $beforestr -}}
 {{- .Set "floatbefore" 0.0 -}}
 {{- if gt $blen 0 -}}{{- .Set "floatbefore" (mul (int $beforestr) 1.0) -}}{{- end -}}
