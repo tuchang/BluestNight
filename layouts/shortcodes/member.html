@@ -10,7 +10,7 @@
 				<span class="widget-title">{{ with .URL }}<a href="{{ . }}">{{ end }}{{ .Name }}{{ with .URL }}</a>{{ end }} | {{ .Position }}</span>
 			</div>
 			<p>
-				{{ .Bio }}
+				{{ .Bio | markdownify }}
 			</p>
 		</div>
 	</div>

@@ -77,7 +77,7 @@
     				<span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" rel="author">{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
     			</div>
     			<p itemprop="description">
-    				{{- .Bio -}}
+    				{{- .Bio | markdownify -}}
     			</p>
     		</div>
     	</div>
