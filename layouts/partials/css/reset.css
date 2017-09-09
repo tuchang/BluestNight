@@ -65,8 +65,24 @@ th, td {
 blockquote {
   padding-top: 0.5rem;
   padding-left: 1rem;
-  border-left: 1px solid {{ .Get "body_text" }};
-  color: #8a8a8a;
+  border-left: 2px solid {{ .Get "body_text" }};
+  {{ .Set "label" "body_text" }}
+  {{- partial "css/color/get_rgb_numbers.css" . }}
+  {{- partial "css/color/rgb_to_hsl.css" . }}
+
+  {{- if .Get "main_bg_is_dark" }}
+    {{- .Set "lightness" (sub (.Get "lightness") 15.0) }}
+    {{- if gt (.Get "lightness") 100.0 }}
+      {{- .Set "lightness" 100.0 }}
+    {{- end }}
+  {{- else }}
+    {{- .Set "lightness" (add (.Get "lightness") 15.0)  }}
+    {{- if lt (.Get "lightness") 0.0 }}
+      {{- .Set "lightness" 0.0 }}
+    {{- end }}
+  {{- end }}
+  {{- partial "css/color/hsl_to_rgb.css" . -}}
+  color: rgb({{ .Get "red" }}, {{ .Get "green" }}, {{ .Get "blue" }});
 }
 
 a { text-decoration: none; }
