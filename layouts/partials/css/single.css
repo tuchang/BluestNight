@@ -39,5 +39,6 @@ main img {
 }
 
 #TableOfContents a {
+  font-weight: normal;
   color: {{ .Get "alt_body_text" }};
 }

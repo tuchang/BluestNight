@@ -132,6 +132,10 @@ main a, main a:hover, .alert a, .alert a:hover {
   color: {{ .Get "accent" }};
 }
 
+main a, .alert a {
+  font-weight: bold;
+}
+
 main header a:hover, main header a:active, main header a:focus {
   color: {{ .Get "body_text" }};
 }
@@ -149,7 +153,7 @@ main header a:hover, main header a:active, main header a:focus {
   {{- .Set "label" "accent" }}
   {{- partial "css/color/get_rgb_numbers.css" . }}
   {{- partial "css/color/rgb_to_hsl.css" . }}
-  
+
   {{- if .Get "main_bg_is_dark" }}
     {{- .Set "lightness" (add (.Get "lightness") 15.0) }}
     {{- if gt (.Get "lightness") 100.0 }}
