@@ -49,12 +49,6 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
         parent = "docs-shortcodes"
         identifier = "alert-shortcode"
         url = "docs/site/alert/#shortcode"
-      [[menu.main]]
-        name = "Responsive Tables"
-        weight = 4
-        parent = "docs-shortcodes"
-        identifier = "table-shortcode"
-        url = "docs/pages/responsive-tables/"
   [[menu.main]]
     name = "Tutorials"
     weight = 10

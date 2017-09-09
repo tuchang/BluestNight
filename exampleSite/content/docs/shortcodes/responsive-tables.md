@@ -5,8 +5,8 @@ disable_comments = true
 categories = ["Documentation"]
 alert = "Make sure to read the [known limitations](#known-limitations) section below."
 [menu.main]
-  weight = 6
-  parent = "docs-pages"
+  weight = 5
+  parent = "docs-shortcodes"
 +++
 
 The markdown processor bundled with Hugo has the ability to parse [markdown tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables), but these tables are not mobile-friendly (like most tables).
@@ -77,5 +77,5 @@ The responsive table is made up of three shortcodes.
 
 - `{{</* table */>}}` and `{{</* table-row */>}}` ***must*** use the `{{</**/>}}` syntax for shortcodes. Using `{{%/**/%}}` will cause the inner HTML to display inside a code block instead or rendering on the page. `{{%/* table-row */%}}` can use either, though `{{%/**/%}}` is recommended so you can use markdown inside of the cell.
 - `{{%/* table-cell */%}}` tags must be on the same line as content, or else an issue occurs similar to the one above.
-- Reference style markdown links cannot be used inside of `{{%/* table-cell */%}}` tags. Inline link syntax (`[link text](url)`) works fine.
+- Reference style markdown links (via `ref`, `relref`, and `static` shortcodes) cannot be used inside of `{{%/* table-cell */%}}` tags. Inline link syntax (`[link text](url)`) works fine.
 - The shortcodes do not support `colspan`, `rowspan`, `<caption>`, or table footers. Then again, neither do markdown tables...

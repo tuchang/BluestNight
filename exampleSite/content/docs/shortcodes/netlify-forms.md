@@ -6,7 +6,7 @@ categories = ["Documentation"]
 enable_toc = true
 [menu.main]
   weight = 4
-  parent = "docs-pages"
+  parent = "docs-shortcodes"
 +++
 
 If you are using [Netlify](https://netlify.com) to host your Hugo site, BluestNight supports creating [Netlify-compatible](https://www.netlify.com/docs/form-handling/) forms in your content files through the use of a few shortcodes.

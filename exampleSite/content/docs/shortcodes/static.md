@@ -5,7 +5,7 @@ description = "There's a limitation with the way links are created in markdown. 
 disable_comments = true
 categories = ["Documentation"]
 [menu.main]
-  weight = 2
+  weight = 6
   parent = "docs-shortcodes"
 +++
 
