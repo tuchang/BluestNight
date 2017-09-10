@@ -92,7 +92,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   overflow-wrap: break-word;
   white-space: pre-wrap;
   display: inline-block;
-  padding: 0.2rem;
+  padding: 0 0.2rem;
   font-size: 0.9rem;
 }
 
