@@ -2,6 +2,7 @@
 title = "Responsive Tables"
 hide_authorbox = true
 disable_comments = true
+enable_toc = true
 categories = ["Documentation"]
 alert = "Make sure to read the [known limitations](#known-limitations) section below."
 [menu.main]

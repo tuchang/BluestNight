@@ -2,6 +2,7 @@
 title = "Customize List Pages"
 hide_authorbox = true
 disable_comments = true
+enable_toc = true
 categories = ["Documentation"]
 [menu.main]
   weight = 3

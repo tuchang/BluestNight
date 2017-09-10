@@ -2,6 +2,7 @@
 title = "Alert"
 hide_authorbox = true
 disable_comments = true
+enable_toc = true
 categories = ["Documentation"]
 alert = "This is an example of a page-specific alert box. Important information, perhaps about how an article was updated or how the content is not suitable for young readers, should go here. It *can* contain **Markdown**."
 [menu.main]

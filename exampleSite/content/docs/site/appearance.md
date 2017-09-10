@@ -2,6 +2,7 @@
 title = "Appearance"
 hide_authorbox = true
 disable_comments = true
+enable_toc = true
 description = "Customize the appearance of your Hugo site by adding a custom background image, changing the colors used for the site, or modifying the default choice of whether to use serif or sans-serif fonts."
 categories = ["Documentation"]
 [menu.main]
