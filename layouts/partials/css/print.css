@@ -30,12 +30,13 @@
   a:link:after, a:visited:after {
     content: "";
   }
-  code {
-    background-color: inherit !important;
-    color: inherit !important;
+  pre, code, pre span, code span {
+    border-color: #000000 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
   }
   main, p, header, a, th, td { color: inherit !important; }
-  a { text-decoration: none; }
+  a { text-decoration: none; font-weight: normal !important; }
   #site-container {
     margin: 0 auto;
     background-color: inherit;
@@ -48,10 +49,15 @@
     background-color: inherit;
     color: inherit;
   }
-  .alert { border-color: #000000; }
+  .alert {
+    border-color: #000000;
+    background: inherit;
+    color: inherit;
+  }
   #TableOfContents {
-    background-color: none;
+    background: inherit !important;
     border: 1px solid black;
+    color: inherit !important;
   }
   @page {
     margin: 0.75in 0.5in 0.75in 0;
