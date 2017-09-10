@@ -4,9 +4,19 @@
 		<span class="widget-header"><span class="fa fa-pencil"></span> <a href="{{ "post/" | absLangURL }}">Recent Posts</a></span>
 	</header>
 	{{ $url := .URL }}
-	<a class="widget-header-small button" href="{{ "index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to the Site</a>
+	{{- range $format := (.Site.GetPage "home").OutputFormats -}}
+		{{ if eq $format.Name "RSS" }}
+			<a class="widget-header-small button" href="{{ "index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to the Site</a>
+		{{ end }}
+	{{- end -}}
+
 	{{ if or (eq .Kind "section") (eq .Kind "taxonomy") -}}
-	<a class="widget-header-small button" href="{{ add .URL "/index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to {{ .LinkTitle }}</a>
+		{{- $this := . -}}
+		{{- range $format := .OutputFormats -}}
+			{{- if eq $format.Name "RSS" -}}
+				<a class="widget-header-small button" href="{{ add $this.URL "/index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to {{ $this.LinkTitle }}</a>
+			{{- end -}}
+		{{- end -}}
 	{{- else if .IsPage -}}
 	{{- $sectionstr := trim (replaceRE "[^/]+$" "" (trim .URL "/")) "/" -}}
 
@@ -28,7 +38,11 @@
 
 	{{- $section := (.Site.GetPage "section" ($.Scratch.Get "section")) -}}
 	{{- if ne (trim $section.URL "/") "" -}}
-	<a class="widget-header-small button" href="{{ add $section.URL "/index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to {{ $section.LinkTitle }}</a>
+		{{- range $format := $section.OutputFormats -}}
+		{{- if eq $format.Name "RSS" -}}
+		<a class="widget-header-small button" href="{{ add $section.URL "/index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to {{ $section.LinkTitle }}</a>
+		{{- end -}}
+		{{- end -}}
 	{{- end -}}
 	{{- end -}}
 	<ul>
