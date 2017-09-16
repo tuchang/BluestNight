@@ -109,7 +109,7 @@
             </small>
           </div>
           <div class="small-full">
-            {{ if $.Site.Params.iubenda }}
+            {{ if $.Site.Params.iubenda.id }}
               {{ partial "iubenda.html" . }}
             {{ else }}
               {{ if or ($.Site.GetPage "page" "privacy-policy.md") ($.Site.GetPage "page" "terms-of-use.md") }}
