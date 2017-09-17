@@ -42,8 +42,8 @@ See the theme in action with its default color scheme [here](https://mnbryant.co
   - Ten most [recent posts](https://bluestnight.shadow53.com/docs/sidebar/recent-posts/) with a link to subscribe via RSS.
 - Comments powered by [Hashover](https://bluestnight.shadow53.com/docs/pages/comments#hashover) or [Muut](https://bluestnight.shadow53.com/docs/pages/comments#muut)
 - [Analytics](https://bluestnight.shadow53.com/docs/site/analytics/) powered by [Piwik](https://piwik.org/).
-- [Social icons](https://bluestnight.shadow53.com/docs/site/social-icons/) linking to your social media pages and more. Supports 19 websites as of 08/15/2017.
+- [Social icons](https://bluestnight.shadow53.com/docs/site/social-icons/) linking to your social media pages and more. Supports 22 websites as of 09/14/2017.
 - [Syntax highlighting](https://gohugo.io/tools/syntax-highlighting/#server-side) powered by Pygments
-- [Custom index pages](https://gohugo.io/content-management/organization/#index-pages-index-md) (`_index.md`) with custom content and the ability to hide the list of pages.
+- [Custom index pages](https://gohugo.io/content-management/organization/#index-pages-index-md) (`_index.md`) with [custom content](https://bluestnight.shadow53.com/docs/pages/custom-list-pages/#custom-content), [sorting](https://bluestnight.shadow53.com/docs/pages/custom-list-pages/#sort-filter-listed-pages), and [more](https://bluestnight.shadow53.com/docs/pages/custom-list-pages/).
 - Custom `robots.txt`, 404 page, and rss feeds
-- And more!
+- [And more](https://bluestnight.shadow53.com/docs/)!
