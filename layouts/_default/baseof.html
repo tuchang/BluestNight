@@ -109,7 +109,7 @@
             </small>
           </div>
           <div class="small-full">
-            {{ if $.Site.Params.iubenda.id }}
+            {{ if and $.Site.Params.iubenda.id (and $.Site.Params.iubenda.pro.enable_pro (not $.Site.Params.iubenda.pro.disable_footer_link)) }}
               {{ partial "iubenda.html" . }}
             {{ else }}
               {{ if or ($.Site.GetPage "page" "privacy-policy.md") ($.Site.GetPage "page" "terms-of-use.md") }}
@@ -260,6 +260,25 @@
     document.getElementById("toggle-tracking").addEventListener("click", toggleHandler);
     window.addEventListener("load", updateAnalyticsText);
     </script>
+    {{- end -}}
+    {{- if and $.Site.Params.iubenda.pro.enable_cookie_policy (and $.Site.Params.iubenda.id $.Site.Params.iubenda.pro.site_id) -}}
+    <script type="text/javascript">
+      var _iub = _iub || [];
+      _iub.csConfiguration = {
+        cookiePolicyId: {{ $.Site.Params.iubenda.id }},
+        siteId: {{ $.Site.Params.iubenda.pro.site_id }},
+        lang: "en",
+        consentOnScroll: false
+        {{- if not $.Site.Params.iubenda.pro.prior_consent }},
+        priorConsent: false
+        {{- end }},
+        banner: {
+          slideDown: false,
+          applyStyles: false
+        }
+      };
+    </script>
+    <script type="text/javascript" src= "//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js" charset="UTF-8" async></script>
     {{- end -}}
   </body>
 </html>

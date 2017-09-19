@@ -39,6 +39,7 @@
 {{- if ($.Site.Params.hashover) -}}{{- .Scratch.Add "css" (partial "css/hashover.css" .Scratch) -}}{{- end -}}
 {{- .Scratch.Add "css" (partial "css/print.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/figure.css" .Scratch) -}}
+{{- .Scratch.Add "css" (partial "css/iubenda_cookies.css" .Scratch) -}}
 
 {{- if $.Site.Params.no_minimize -}}
 {{- .Scratch.Get "css" -}}
