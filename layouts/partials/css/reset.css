@@ -18,14 +18,15 @@ body {
 hr { width: 25%; margin: auto; }
 p { margin-bottom: 1rem; }
 p, li, pre { line-height: 1.5; }
-ul {
+ul, ol {
   list-style: none;
   margin-bottom: 1rem;
 }
-ul > li > ul { margin-bottom: 0; }
+ul > li > ul, ol > li > ol { margin-bottom: 0; }
 main ul { list-style: disc outside; }
+main ol { list-style: decimal; }
 
-li > ul {
+li > ul, li > ol {
   margin-left: 2rem;
 }
 
