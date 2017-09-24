@@ -43,7 +43,7 @@
     font-size: 1rem;
     {{ .Set "label" "alt_bg" -}}
     {{- partial "css/color/get_rgb_numbers.css" . -}}
-    background: rgb({{.Get "red"}}, {{.Get "green"}}, {{.Get "blue"}}, {{mul (.Get "alpha") 0.9}});
+    background: rgba({{.Get "red"}}, {{.Get "green"}}, {{.Get "blue"}}, {{mul (.Get "alpha") 0.9}});
     color: {{ .Get "alt_body_text" }};
 }
 /*.iubenda-banner-content{
