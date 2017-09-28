@@ -6,24 +6,30 @@
     <title>{{- .Title -}}</title>
 
     <!-- Prematurely connect to the servers to save some milliseconds -->
+    <!-- <link rel="preload"> is only in recent browser versions, so we keep "dns-prefetch" and "preconnect" -->
+    <!-- <link rel="prefetch" is loads content the user may request *after* the page loads -->
+    <link rel="preload" href="{{ "styles.css" | absLangURL }}" as="style" />
+
     <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
     <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
+    <link rel="preload" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style">
+
     {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
     <link rel="dns-prefetch" href="{{ $.Site.Params.piwik.host }}" />
     <link rel="preconnect" href="{{ $.Site.Params.piwik.host }}" />
     {{- end -}}
+
     {{- if and $.Site.Params.widgets $.Site.Params.widgets.search -}}
-    <link rel="dns-prefetch" href="https://unpkg.com/" />
-    <link rel="preconnect" href="https://unpkg.com/" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
     <!-- Cache the scripts and JSON index -->
-    <link rel="prefetch" href="https://unpkg.com/lunr/lunr.js" />
-    <link rel="prefetch" href="{{ "js/search.min.js" | absLangURL }}" />
-    <link rel="prefetch" href="{{ "index.json" | absLangURL }}" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js" as="script" />
+    <link rel="preload" href="{{ "js/search.min.js" | absLangURL }}" as="script" />
+    <link rel="preload" href="{{ "index.json" | absLangURL }}" as="fetch" />
     {{ end -}}
-    {{- if $.Site.Params.background -}}
-    {{ with $.Site.Params.background.src -}}
-    <link rel="prefetch" href="{{ . | absLangURL }}" />
-    {{- end -}}
+
+    {{- if $.Site.Params.iubenda.enable_cookie_policy -}}
+    <link rel="preload" href="//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js" as="script" />
     {{- end -}}
 
     {{- $.Scratch.Set "desc" "" -}}
@@ -44,10 +50,19 @@
 
     <link rel="canonical" href="{{ .URL | absURL }}">
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="prefetch stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    {{ if $.Site.Params.hashover }}<link rel="prefetch stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}" integrity="sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6">{{ end }}
-    <link rel="prefetch stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
+    {{ if $.Site.Params.hashover }}<link rel="stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}" integrity="sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6">{{ end }}
+    <link rel="stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
+
+    {{ if .Content -}}
+    {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
+    {{ range $url := $urls -}}
+      {{ $url := (strings.TrimPrefix "<img src=\"" $url) -}}
+      {{ $url := strings.TrimSuffix "\"" $url -}}
+      <link rel="preload" href="{{ $url | htmlUnescape | safeHTML }}" as="image" />
+    {{ end -}}
+    {{ end -}}
 
     {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
     <script type="text/javascript">
@@ -204,7 +219,7 @@
       </footer>
     </div>
     {{- if $.Site.Params.widgets.search -}}
-    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js"></script>
     <script src="{{ "js/search.js" | absLangURL }}" type="text/javascript"></script>
     <!--script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-BWCGLBKRFvQSIGRnqOb8zW0+fYDIflgWpakpQSvIr9ahUILOaidTxlqnLEybgAZ+"></script-->
     <script>
