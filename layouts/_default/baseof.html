@@ -94,9 +94,9 @@
             <p>{{ . | markdownify }}</p>
           </div>
         {{ end }}
-        {{ if .Site.Params.leftsidebar }}{{ partial "sidebar.html" . }}{{ end }}
+        {{ if .Site.Params.leftsidebar }}{{ partialCached "sidebar.html" . }}{{ end }}
         {{ block "main_content" . }}{{ end }}
-        {{ if (not .Site.Params.leftsidebar) }}{{ partial "sidebar.html" . }}{{ end }}
+        {{ if (not .Site.Params.leftsidebar) }}{{ partialCached "sidebar.html" . }}{{ end }}
       </div>
       <footer class="row">
         <div class="small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} small-text-center medium-text-left medium-left row">
