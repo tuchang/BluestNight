@@ -13,10 +13,10 @@
     <link rel="preconnect" href="{{ $.Site.Params.piwik.host }}" />
     {{- end -}}
     {{- if and $.Site.Params.widgets $.Site.Params.widgets.search -}}
-    <link rel="dns-prefetch" href="https://unpkg.com/" />
-    <link rel="preconnect" href="https://unpkg.com/" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
     <!-- Cache the scripts and JSON index -->
-    <link rel="prefetch" href="https://unpkg.com/lunr/lunr.js" />
+    <link rel="prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js" />
     <link rel="prefetch" href="{{ "js/search.min.js" | absLangURL }}" />
     <link rel="prefetch" href="{{ "index.json" | absLangURL }}" />
     {{ end -}}
@@ -204,7 +204,7 @@
       </footer>
     </div>
     {{- if $.Site.Params.widgets.search -}}
-    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js"></script>
     <script src="{{ "js/search.js" | absLangURL }}" type="text/javascript"></script>
     <!--script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-BWCGLBKRFvQSIGRnqOb8zW0+fYDIflgWpakpQSvIr9ahUILOaidTxlqnLEybgAZ+"></script-->
     <script>
