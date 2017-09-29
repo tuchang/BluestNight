@@ -59,6 +59,11 @@
     border: 1px solid black;
     color: inherit !important;
   }
+  img {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
   @page {
     margin: 0.75in 0.5in 0.75in 0;
   }
