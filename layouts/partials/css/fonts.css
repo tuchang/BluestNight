@@ -223,6 +223,13 @@
 }
 
 @font-face {
+  font-family: "Secret Typewriter";
+  src: url('css/fonts/secret-typewriter/secret-typewriter.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family:'allura';
   src: url('css/fonts/allura/allura-regular.woff2') format('woff2'), url('css/fonts/allura/allura-regular.woff') format('woff');
   font-weight: normal;
@@ -326,4 +333,8 @@ header:not(.fa), h1, h2, h3, h4, h5, h6, .widget-header:not(.fa), .button {
 
 .sans-serif {
   font-family: "Clear Sans", sans-serif !important;
+}
+
+.typewriter {
+  font-family: "Secret Typewriter", monospace !important;
 }
