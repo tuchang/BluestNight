@@ -60,6 +60,7 @@
 .iubenda-banner-content > p {
     /*font-family: Helvetica,Arial,FreeSans,sans-serif;*/
     line-height: 1.5;
+    margin: 0 0.5rem;
 }
 
 /*  CLOSE BUTTON. NOTICE: IMAGE FOR BUTTON NOT IMPLEMENTED YET */
