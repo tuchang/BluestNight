@@ -1,5 +1,5 @@
 {{- .Scratch.Set "sitevar" $.Site -}}
-{{- partial "css/color/parse_color.css" . -}}
+{{- partial "css/color/parse_color.css" .Scratch -}}
 {{- .Scratch.Set "label" "main_bg" -}}
 {{- partial "css/color/detect_light_or_dark.css" .Scratch -}}
 {{ $scr := .Scratch }}

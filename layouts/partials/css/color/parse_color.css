@@ -1,4 +1,4 @@
-{{- $scr := .Scratch -}}
+{{- $scr := . -}}
 {{- $site := $scr.Get "sitevar" -}}
 
 {{- $scr.Set "page_bg" "#000000" -}}{{- $scr.Set "main_bg" "#050505" -}}{{- $scr.Set "alt_bg" "#252525" -}}

@@ -1,3 +1,42 @@
+{{- if (.Get "sitevar").Params.iubenda.id -}}
+{{ partial "iubenda/color.html" . }}
+.iubenda-compat {
+  display: flex;
+  align-items: flex-start;
+}
+
+.iubenda-compat > a {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 3px;
+  /* Below colors copied straight from the Iubenda CSS */
+  {{ if eq (.Get "iub_color") "black" }}
+  background-color: rgb(56, 56, 56);
+  color: #fff;
+  {{ else }}
+  background-color: rgb(255, 255, 255);
+  color: rgb(89, 99, 109);
+  border-top-color: #d0d0d0;
+  border-left-color: #c3c3c3;
+  border-right-color: #c3c3c3;
+  border-bottom-color: #b8b9ba;
+  {{ end }}
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  height: 20px;
+}
+
+.iubenda-compat > a:hover, .iubenda-compat > a:active, .iubenda-compat > a:focus {
+  text-decoration: none !important;
+  /* Below colors copied straight from the Iubenda CSS */
+  {{ if eq (.Get "iub_color") "black" }}
+  color: #eee;
+  {{ else }}
+  color: rgb(51, 51, 51);
+  {{ end }}
+}
+
 {{- if (.Get "sitevar").Params.iubenda.pro.enable_cookie_policy -}}
 /* cookie banner related styles below */
 
@@ -82,4 +121,5 @@
     font-size: 1rem;
     font-weight: bold;
 }
+{{- end -}}
 {{- end -}}
