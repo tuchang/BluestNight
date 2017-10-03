@@ -126,7 +126,7 @@
           <div class="small-full row">
             {{ $iubenda := and $.Site.Params.iubenda.id (or (not $.Site.Params.iubenda.pro.enable_pro) (not $.Site.Params.iubenda.pro.disable_footer_link)) }}
             {{ if or ($.Site.GetPage "page" "privacy-policy.md") $iubenda }}
-            <div class="row-item">
+            <div class="row-item small-only-full">
               {{ if $iubenda }}
                 {{ partial "iubenda/button.html" . }}
               {{ else }}
@@ -139,7 +139,7 @@
             </div>
             {{ end }}
             {{ if ($.Site.GetPage "page" "terms-of-use.md") }}
-            <div class="row-item{{ if $iubenda }} iubenda-compat{{ end }}">
+            <div class="row-item small-only-full{{ if $iubenda }} iubenda-compat{{ end }}">
               {{ with $.Site.GetPage "page" "terms-of-use.md" -}}
               {{ if not $iubenda }}
               <small>

@@ -40,6 +40,46 @@
 
 @media only screen and (max-width: 639px) {
 
+  .small-only-full {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .small-only-half {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+  }
+
+  .small-only-quarter {
+    flex: 0 0 25%;
+    width: 25%;
+    max-width: 25%;
+  }
+
+  .small-only-third {
+    flex: 0 0 33.33333%;
+    width: 33.33333%;
+    max-width: 33.33333%;
+  }
+
+  .small-only-two-thirds {
+    flex: 0 0 66.66667%;
+    width: 66.66667%;
+    max-width: 66.66667%;
+  }
+
+  .small-only-three-quarters {
+    flex: 0 0 75%;
+    width: 75%;
+    max-width: 75%;
+  }
+
+  .small-only-text-left { text-align: left !important; }
+  .small-only-text-right { text-align: right !important; }
+  .small-only-text-center { text-align: center !important; }
+
   {{ if (not (eq (.Get "background_src_small") "")) }}
   body { background-image: url("{{ .Get "background_src_small" }}"); }
   {{ end }}
