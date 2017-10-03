@@ -29,7 +29,7 @@
     {{ end -}}
 
     {{- if $.Site.Params.iubenda.enable_cookie_policy -}}
-    <link rel="preload" href="//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js" as="script" />
+    <link rel="preload" href="https://cdn.iubenda.com/cookie_solution/safemode/iubenda_cs/core-b3e9d51a79c47aa32aa85d13fedea7be" as="script" />
     {{- end -}}
 
     {{- $.Scratch.Set "desc" "" -}}
@@ -65,7 +65,7 @@
     {{ end -}}
 
     {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
-    <script type="text/javascript">
+    <script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
       var _paq = _paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(['trackPageView']);
@@ -232,10 +232,10 @@
       </footer>
     </div>
     {{- if $.Site.Params.widgets.search -}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js"></script>
-    <script src="{{ "js/search.js" | absLangURL }}" type="text/javascript"></script>
-    <!--script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript" integrity="sha384-BWCGLBKRFvQSIGRnqOb8zW0+fYDIflgWpakpQSvIr9ahUILOaidTxlqnLEybgAZ+"></script-->
-    <script>
+    <script class="_iub_cs_activate" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js"></script>
+    <script src="{{ "js/search.js" | absLangURL }}" class="_iub_cs_activate" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}"></script>
+    <!--script src="{{ "js/search.min.js" | absLangURL }}" class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}" integrity="sha384-BWCGLBKRFvQSIGRnqOb8zW0+fYDIflgWpakpQSvIr9ahUILOaidTxlqnLEybgAZ+"></script-->
+    <script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
       var lunrIndex = undefined;
       loadIndex("{{ "index.json" | absURL }}").then(
         function(index) { lunrIndex = index; },
@@ -244,7 +244,7 @@
     </script>
     {{- end -}}
     {{- if and $.Site.Params.piwik (and $.Site.Params.piwik.enable $.Site.Params.piwik.enable_ajax) -}}
-    <script>
+    <script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
 
     function ajax(url) {
       return new Promise(function(resolve, reject){
