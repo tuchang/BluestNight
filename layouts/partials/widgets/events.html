@@ -19,17 +19,27 @@
 				<li itemscope itemtype="http://schema.org/Event">
 		      <span class="widget-header-small text-left" itemprop="name">{{ .name }}</span>
 					{{- if $sameDay -}}
+						<span class="fa fa-calendar"></span>
 						{{ dateFormat "01/02/2006" .startDatetime }} from
 						{{- $.Scratch.Set "dateFormat" $timeOnly -}}
 					{{- end -}}
-					{{- if not $sameDay -}}<strong>Start:</strong>{{- end -}}
+					{{- if not $sameDay -}}
+					<span class="fa fa-calendar"></span>
+					<strong>Start:</strong>
+					{{- end -}}
 					<time datetime="{{ dateFormat "2006-01-02T15:04:05" .startDatetime }}" content="{{ dateFormat "2006-01-02T15:04:05" .startDatetime }}" itemprop="startDate">
 						{{ dateFormat ($.Scratch.Get "dateFormat") .startDatetime }}
 					</time>
-					{{ if $sameDay }}to{{ else }}<br/><strong>End:</strong>{{ end }}
+					{{ if $sameDay }}to{{ else }}
+					<br/><span class="fa fa-calendar"></span><strong>End:</strong>
+					{{ end }}
 					<time datetime="{{ dateFormat "2006-01-02T15:04:05" .endDatetime }}" content="{{ dateFormat "2006-01-02T15:04:05" .endDatetime }}" itemprop="endDate">
 						{{ dateFormat ($.Scratch.Get "dateFormat") .endDatetime }}
 					</time>
+					{{ with .location -}}
+					<br/><span class="fa fa-map-marker"></span>
+					<span itemprop="location">Location: {{ . }}</span>
+					{{- end }}
 		      <br/><span itemprop="about">{{ .description }}</span>
 		    </li>
 			{{- end -}}
