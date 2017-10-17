@@ -1,7 +1,13 @@
 {{- if and $.Site.Params.widgets $.Site.Params.widgets.recent_articles -}}
 <div class="widget">
+	{{ if ($.Site.GetPage "section" "posts") }}
+		{{ $.Scratch.Set "posts_name" "posts" }}
+	{{ else if ($.Site.GetPage "section" "post") }}
+		{{ $.Scratch.Set "posts_name" "post" }}
+	{{ end }}
+	{{ $posts := string ($.Scratch.Get "posts_name") }}
 	<header>
-		<span class="widget-header"><span class="fa fa-pencil"></span> <a href="{{ "post/" | absLangURL }}">Recent Posts</a></span>
+		<span class="widget-header"><span class="fa fa-pencil"></span> <a href="{{ (add $posts "/") | absLangURL }}">Recent Posts</a></span>
 	</header>
 	{{ $url := .URL }}
 	{{- range $format := (.Site.GetPage "home").OutputFormats -}}
@@ -46,8 +52,8 @@
 	{{- end -}}
 	{{- end -}}
 	<ul>
-		{{- range first 10 (where .Site.Pages "Section" "post") -}}
-		{{ if not (eq .URL "/post/") }}<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>{{ end }}
+		{{- range first 10 (where .Site.Pages "Section" $posts) -}}
+		{{ if .IsPage }}<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>{{ end }}
 		{{- end -}}
 	</ul>
 </div>

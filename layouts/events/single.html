@@ -1,22 +1,15 @@
 {{ define "main_content" }}
-<main class="row-item small-full medium-two-thirds" {{ if eq .Section "post" }}itemscope itemtype="http://schema.org/Blog"{{ end }}>
-  <article id="post-article" {{ if eq .Section "post" }}itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"{{ else }}itemscope itemtype="http://schema.org/Article"{{ end }}{{ if .Params.tags }} itemref="keywords desc"{{ else }} itemref="desc"{{ end }}>
+<main class="row-item small-full medium-two-thirds" {{ if eq .Section "post" }}itemscope itemtype="http://schema.org/Event"{{ end }}>
+  <article id="post-article">
     <header id="page-header">
-      <h1 itemprop="headline">{{ .Title }}</h1>
+      <h1 itemprop="name">{{ .Title }}</h1>
       {{- if or (or (not .Lastmod.IsZero) (not .Date.IsZero)) .Params.categories -}}
       <p id="post-metadata" class="row">
-        {{- if not .Date.IsZero -}}
-        <span class="row-item">
-          <span class="fa fa-clock-o"></span>
-          <strong>Published:</strong>
-          <time datetime="{{ .Date.Format "2006-01-02" }}" content="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "January 02, 2006" }}</time>
-        </span>
-        {{- end -}}
+        {{ partial "events/metadata.html" . -}}
         {{- if not .Lastmod.IsZero -}}
-        <span class="row-item">
+        <span class="row-item small-full">
           <span class="fa fa-clock-o"></span>
-          <strong>Last Updated:</strong>
-          <time datetime="{{ .Lastmod.Format "2006-01-02" }}" content="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified">{{ .Lastmod.Format "January 02, 2006" }}</time>
+          <time datetime="{{ .Lastmod.Format "2006-01-02" }}" content="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified"><strong>Last Updated:</strong> {{ .Lastmod.Format "January 02, 2006" }}</time>
         </span>
         {{- end -}}
         {{- if .Params.categories -}}
@@ -24,9 +17,6 @@
           <span class="fa fa-folder"></span>
           {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . | humanize | title }}</a>{{ end }}
         </span>
-        {{- end -}}
-        {{- if not .Params.hide_readingtime -}}
-        <span class="row-item"><span class="fa fa-book"></span> <strong>Estimated reading time:</strong> ~<span itemprop="timeRequired">{{ .ReadingTime }} minutes</span></span>
         {{- end -}}
       </p>
       {{ end }}
@@ -43,7 +33,7 @@
       </figure>
       {{- end -}}
       {{ if and .Params.enable_toc (eq .Params.enable_toc true) }}{{ .TableOfContents }}{{ end }}
-      <span itemprop="articleBody">{{ .Content }}</span>
+      <span itemprop="description">{{ .Content }}</span>
     </div>
     {{- if .Params.tags -}}
     <div id="post-tags">
@@ -66,7 +56,7 @@
     {{- if ne $author "" -}}
     {{- range $.Site.Data.members -}}
     	{{- if eq .Name $author -}}
-    	<div id="authorbox" class="row vcenter memberbox" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    	<div id="authorbox" class="row vcenter memberbox" itemprop="organizer" itemscope itemtype="http://schema.org/Person">
     		<div class="row-item member-avatar" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
     				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}" itemprop="contentUrl" />
     		</div>

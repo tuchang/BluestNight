@@ -1,15 +1,15 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Shadow53/BluestNight//NONSGML {{ $.Site.Title }}//EN
-{{- range $.Site.Data.events }}
+{{- range (where (where .Pages "Section" "events") "IsPage" true).ByParam "start_date" }}
 BEGIN:VEVENT
-UID:{{ md5 (add (md5 .name) (md5 .startDatetime)) }}@{{ $.Site.BaseURL }}
+UID:{{ md5 (add (md5 .Title) (md5 .Params.start_date)) }}@{{ $.Site.BaseURL }}
 DTSTAMP:{{ dateFormat "20060102T150405Z" now.UTC }}
-SUMMARY:{{ .name }}
-DTSTART:{{ dateFormat "20060102T150405Z" .startDatetime.UTC }}
-DTEND:{{ dateFormat "20060102T150405Z" .endDatetime.UTC }}
-LOCATION:{{ .location }}
-DESCRIPTION: {{ .description }}
+SUMMARY:{{ .Title }}
+DTSTART:{{ dateFormat "20060102T150405Z" .Params.start_date }}
+DTEND:{{ dateFormat "20060102T150405Z" .Params.end_date }}
+LOCATION:{{ .Params.location }}
+DESCRIPTION: {{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}
 STATUS:CONFIRMED
 SEQUENCE:0
 BEGIN:VALARM
