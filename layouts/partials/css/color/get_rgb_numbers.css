@@ -36,10 +36,7 @@
   {{- .Set "alpha" 1.0 -}}
   {{- if eq 4 (len $nums) -}}
     {{- $floatstr := last 1 (findRE "[0-1](\\.[0-9]+)?\\)" $str 1) -}}
-    {{- $floatstr := trim (index $floatstr 0) ")" -}}
-    {{- .Set "floatstr" $floatstr -}}
-    {{- partial "utility/float.html" . -}}
-    {{- .Set "alpha" (.Get "floatval") -}}
+    {{- .Set "alpha" (float (trim (index $floatstr 0) ")")) -}}
   {{- end -}}
 {{- else -}}
   {{- $keywords := getJSON "https://raw.githubusercontent.com/corysimmons/colors.json/master/colors.json" -}}
