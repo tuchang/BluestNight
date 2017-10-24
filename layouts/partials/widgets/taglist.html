@@ -1,6 +1,7 @@
 {{- if .Site.Params.widgets.tags -}}
-{{- if isset .Site.Taxonomies "tags" -}}
-{{- if not (eq (len .Site.Taxonomies.tags) 0) -}}
+{{- if or (not (isset .Site.Taxonomies "tags")) (eq (len .Site.Taxonomies.tags) 0) -}}
+	{{- errorf "The Tag List widget is enabled, but no tags have been created!" -}}
+{{- end -}}
 <div class="widget">
 	<header>
 		<span class="widget-header"><span class="fa fa-tags"></span> <a href="{{ "tags/" | absLangURL }}">Tags</a></span>
@@ -15,6 +16,4 @@
 		{{- end -}}
 	</div>
 </div>
-{{- end -}}
-{{- end -}}
 {{- end -}}

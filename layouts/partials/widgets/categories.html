@@ -1,6 +1,7 @@
 {{- if .Site.Params.widgets.categories -}}
-{{- if isset .Site.Taxonomies "categories" -}}
-{{- if not (eq (len .Site.Taxonomies.categories) 0) -}}
+{{- if or (not (isset .Site.Taxonomies "categories")) (eq (len .Site.Taxonomies.categories) 0) -}}
+	{{- errorf "The categories widget is enabled, but no categories have been created!" -}}
+{{- end -}}
 <div class="widget">
 	<header>
 		<span class="widget-header"><span class="fa fa-folder"></span> <a href="{{ "categories/" | absLangURL }}">Categories</a></span>
@@ -13,6 +14,4 @@
 		{{ end }}
 	</ul>
 </div>
-{{- end -}}
-{{- end -}}
 {{- end -}}
