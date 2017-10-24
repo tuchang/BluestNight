@@ -6,13 +6,13 @@
 
 {{- if .Params.custom_prev -}}
   {{- if not (eq .Params.custom_prev "none") -}}
-  {{- $.Scratch.Set "file_path" .Params.custom_prev -}}
-  {{- range $page := $.Site.Pages -}}
-    {{- if eq $page.File.Path ($.Scratch.Get "file_path") -}}
-    {{- $.Scratch.Set "prev_link" $page.Permalink -}}
-    {{- $.Scratch.Set "prev_title" $page.LinkTitle -}}
+    {{- if (fileExists (add "content/" .Params.custom_prev)) -}}
+      {{- $page := ($.Site.GetPage "page" .Params.custom_prev) -}}
+      {{- $.Scratch.Set "prev_link" $page.Permalink -}}
+      {{- $.Scratch.Set "prev_title" $page.LinkTitle -}}
+    {{- else -}}
+      {{- errorf "Could not find the file at \"%s\" linked from \"%s\"" .Params.custom_prev .File.Path -}}
     {{- end -}}
-  {{- end -}}
   {{- end -}}
 {{- else -}}
   {{- with .PrevInSection -}}
@@ -23,13 +23,13 @@
 
 {{- if .Params.custom_next -}}
   {{- if not (eq .Params.custom_next "none") -}}
-  {{- $.Scratch.Set "file_path" .Params.custom_next -}}
-  {{- range $page := $.Site.Pages -}}
-    {{- if eq $page.File.Path ($.Scratch.Get "file_path") -}}
-    {{- $.Scratch.Set "next_link" $page.Permalink -}}
-    {{- $.Scratch.Set "next_title" $page.LinkTitle -}}
+    {{- if (fileExists (add "content/" .Params.custom_next)) -}}
+      {{- $page := ($.Site.GetPage "page" .Params.custom_next) -}}
+      {{- $.Scratch.Set "next_link" $page.Permalink -}}
+      {{- $.Scratch.Set "next_title" $page.LinkTitle -}}
+    {{- else -}}
+      {{- errorf "Could not find the file at \"%s\" linked from \"%s\"" .Params.custom_next .File.Path -}}
     {{- end -}}
-  {{- end -}}
   {{- end -}}
 {{- else -}}
   {{- with .NextInSection -}}
