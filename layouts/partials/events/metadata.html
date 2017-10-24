@@ -1,3 +1,9 @@
+{{ if not .Params.start_date }}
+  {{ errorf "Start datetime for an event must be set" "" }}
+{{ else if not .Params.end_date }}
+  {{ errorf "End datetime for an event must be set" "" }}
+{{ end }}
+
 {{ if (eq (dateFormat "2006-01-02" .Params.start_date) (dateFormat "2006-01-02" .Params.end_date)) }}
   {{ if .Params.start_date }}
   <span class="row-item small-full">
