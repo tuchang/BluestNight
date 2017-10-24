@@ -3,5 +3,5 @@
 {{- else if in (string .Inner) "<p" -}}
   {{ replace .Inner "<p" (add (add "<p class=\"" .Class) "\"") | safeHTML }}
 {{- else -}}
-<span class="typewriter">{{ .Inner }}</span>
+<span class="{{ .Class }}">{{ .Inner }}</span>
 {{- end -}}
