@@ -53,6 +53,15 @@
   min-width: 90px; /* Fixes issue where width is not respected */
 }
 
+.memberbox .social a {
+  font-size: 1.5rem;
+  color: {{ .Get "body_text" }};
+}
+
+.memberbox .social a:hover {
+  color: {{ .Get "accent" }}
+}
+
 /* Widgets -- Patreon */
   /* Contain the banner within the sidebar */
 #patreon-banner {

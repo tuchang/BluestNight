@@ -7,12 +7,16 @@
     </div>
     <div class="row-item member-bio">
       <div>
-        <span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" {{ if $.Author }}rel="author"{{ end }}>{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
+        <span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" {{ if $.IsAuthor }}rel="author"{{ end }}>{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
       </div>
       <p itemprop="description">
         {{- .Bio | markdownify -}}
       </p>
+      <div class="social row">
+        {{ partialCached "social-icons.html" (dict "Scratch" $.Scratch "Social" .social "IsMember" true) .Name }}
+      </div>
     </div>
+
   </div>
   {{- end -}}
 {{- end -}}
