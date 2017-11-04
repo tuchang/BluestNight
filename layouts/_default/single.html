@@ -1,6 +1,6 @@
 {{ define "main_content" }}
-<main class="row-item small-full medium-two-thirds" {{ if eq .Section "post" }}itemscope itemtype="http://schema.org/Blog"{{ end }}>
-  <article id="post-article" {{ if eq .Section "post" }}itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"{{ else }}itemscope itemtype="http://schema.org/Article"{{ end }}{{ if .Params.tags }} itemref="keywords desc"{{ else }} itemref="desc"{{ end }}>
+<main class="row-item small-full medium-two-thirds" {{ if eq .Section "posts" }}itemscope itemtype="http://schema.org/Blog"{{ end }}>
+  <article id="post-article" {{ if eq .Section "posts" }}itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"{{ else }}itemscope itemtype="http://schema.org/Article"{{ end }}{{ if .Params.tags }} itemref="keywords desc"{{ else }} itemref="desc"{{ end }}>
     <header id="page-header">
       <h1 itemprop="headline">{{ .Title }}</h1>
       {{- if or (or (not .Lastmod.IsZero) (not .Date.IsZero)) .Params.categories -}}
@@ -59,30 +59,7 @@
     	</ul>
     </div>
     {{- end -}}
-    {{- if and (.Site.Params.authorbox) (not .Params.hide_authorbox) -}}
-    {{- with $.Site.Params.author -}}{{- $.Scratch.Set "author" . -}}{{- end -}}
-    {{- with .Params.author -}}{{- $.Scratch.Set "author" . -}}{{- end -}}
-    {{- $author := $.Scratch.Get "author" | default "" -}}
-    {{- if ne $author "" -}}
-    {{- range $.Site.Data.members -}}
-    	{{- if eq .Name $author -}}
-    	<div id="authorbox" class="row vcenter memberbox" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    		<div class="row-item member-avatar" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-    				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}" itemprop="contentUrl" />
-    		</div>
-    		<div class="row-item member-bio">
-    			<div>
-    				<span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" rel="author">{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
-    			</div>
-    			<p itemprop="description">
-    				{{- .Bio | markdownify -}}
-    			</p>
-    		</div>
-    	</div>
-    	{{- end -}}
-    {{- end -}}
-    {{- end -}}
-    {{- end -}}
+    {{- partial "authorbox.html" . -}}
   </article>
 
   {{ partial "next_prev_post.html" . }}

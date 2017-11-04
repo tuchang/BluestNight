@@ -49,30 +49,7 @@
     	</ul>
     </div>
     {{- end -}}
-    {{- if and (.Site.Params.authorbox) (not .Params.hide_authorbox) -}}
-    {{- with $.Site.Params.author -}}{{- $.Scratch.Set "author" . -}}{{- end -}}
-    {{- with .Params.author -}}{{- $.Scratch.Set "author" . -}}{{- end -}}
-    {{- $author := $.Scratch.Get "author" | default "" -}}
-    {{- if ne $author "" -}}
-    {{- range $.Site.Data.members -}}
-    	{{- if eq .Name $author -}}
-    	<div id="authorbox" class="row vcenter memberbox" itemprop="organizer" itemscope itemtype="http://schema.org/Person">
-    		<div class="row-item member-avatar" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-    				<img alt="{{ .Name }} avatar" src="{{ with .Img }}{{ . | absURL }}{{ else }}{{ "images/profile.jpg" | absURL }}{{ end }}" itemprop="contentUrl" />
-    		</div>
-    		<div class="row-item member-bio">
-    			<div>
-    				<span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" rel="author">{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
-    			</div>
-    			<p itemprop="description">
-    				{{- .Bio | markdownify -}}
-    			</p>
-    		</div>
-    	</div>
-    	{{- end -}}
-    {{- end -}}
-    {{- end -}}
-    {{- end -}}
+    {{- partial "authorbox.html" . -}}
   </article>
 
   {{ partial "next_prev_post.html" . }}
