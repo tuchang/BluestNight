@@ -156,8 +156,8 @@
         {{ if and $.Site.Params.piwik $.Site.Params.piwik.enable_optout -}}
         {{- with $.Site.Params.piwik.host -}}
         <div class="small-full medium-third small-text-center medium-text-center small-right">
-          This site uses <a href="http://piwik.org/" rel="nofollow noreferrer">Piwik Analytics</a>.<br/>
-          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out</span>.
+          <small>This site uses <a href="http://piwik.org/" rel="nofollow noreferrer">Piwik Analytics</a>.<br/>
+          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out</span></small>.
         </div>
         {{- end -}}
         {{- end }}
