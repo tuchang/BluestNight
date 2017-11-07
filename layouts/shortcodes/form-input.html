@@ -3,6 +3,7 @@
     <label for="{{- .Get "id" -}}">{{- .Get "label" -}}</label>
   </div>
   <div class="row-item small-full small-text-center medium-two-thirds medium-text-left">
+    {{- $types := slice "color" "date" "datetime-local" "email" "file" "hidden" "month" "number" "password" "range" "tel" "text" "time" "url" "week" "textarea" -}}
     {{- $type := .Get "type" -}}
     {{- $id := .Get "id" -}}
     {{- $name := (.Get "name" | default $id) -}}
@@ -11,6 +12,20 @@
     {{- $maxlen := (.Get "maxlength" | default "") -}}
     {{- $regex := (.Get "regex" | default "") -}}
     {{- $value := (.Get "value" | default "") -}}
+
+    {{- if gt (len (findRE "([^a-zA-Z0-9_\\-\\.])+" $id 1)) 0 -}}
+      {{- errorf "ID \"%s\" should not contains characters other than ASCII letters, digits, '_', '-', and '.'" $id -}}
+    {{- else if not (in $types $type) -}}
+      {{- if or (eq $type "checkbox") (eq $type "radio") -}}
+        {{- errorf "To use input type \"%s\", use the mult-input shortcode instead." $type -}}
+      {{- else -}}
+        {{- errorf "Input type \"%s\" for ID \"%s\" is invalid/not allowed.\nValid values are: " $type $id (delimit $types ", ") -}}
+      {{- end -}}
+    {{- else if ne (len (findRE "^(\\d)*$" $minlen)) 1 -}}
+      {{- errorf "Minimum length \"%s\" must be a whole number!" $minlen -}}
+    {{- else if ne (len (findRE "^(\\d)*$" $maxlen)) 1 -}}
+      {{- errorf "Maximum length \"%s\" must be a whole number!" $maxlen -}}
+    {{- end -}}
 
     {{- $.Scratch.Set "optional-tags" "" -}}
     {{- with $placeholder -}}{{- $.Scratch.Add "optional-tags" (add (add " placeholder=\"" .) "\"") -}}{{- end -}}
@@ -41,11 +56,10 @@
 
     {{- if eq $type "textarea" -}}
       <textarea id="{{ $id }}" name="{{ $id }}" rows="10"{{ ($.Scratch.Get "optional-tags" | safeHTMLAttr) }}></textarea>
-    {{- else if (and (and (and (ne $type "button") (ne $type "image")) (and (ne $type "submit") (ne $type "reset"))) (and (ne $type "checkbox") (ne $type "radio"))) -}}
-      <!-- Don't allow button types in this form -->
+    {{- else if (in $types $type) -}}
       <input type="{{ $type }}" id="{{ $id }}" name="{{ $id }}"{{ ($.Scratch.Get "optional-tags" | safeHTMLAttr) }} />
     {{- else -}}
-      <p>Invalid or unknown input type "{{ $type }}"</p>
+      {{ errorf "If you are seeing this, please let the developer know at https://gitlab.com/BluestNight/BluestNight/issues\nInvalid input type \"%s\"" $type }}
     {{- end -}}
   </div>
 </div>

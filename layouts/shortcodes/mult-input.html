@@ -3,6 +3,9 @@
   {{ $name := .Get "name" }}
   {{ $has_other := (eq (.Get "add_other") "true") }}
   {{ $.Scratch.Set "form-input-type" $type }}
+  {{- if not (in (slice "checkbox" "radio" "select") $type) -}}
+    {{- errorf "Invalid multiple-choice input type \"%s\" - valid options are \"checkbox\", \"radio\", and \"select\"" -}}
+  {{- end -}}
   <div class="row-item small-full small-text-center medium-third medium-text-right">
     {{ if eq $type "select" }}
     <label for="{{ $name }}">
@@ -13,9 +16,7 @@
     {{ end }}
   </div>
   <div class="row-item small-full small-text-left medium-two-thirds medium-text-left">
-    {{ if and (and (ne $type "radio") (ne $type "checkbox")) (ne $type "select") }}
-    <p>Unknown multiple-choice input type "{{ $type }}"</p>
-    {{ else if eq $type "select" }}
+    {{ if eq $type "select" }}
     <select name="{{ $name }}"{{ if eq (.Get "required") "true" }} required{{ end }}>
       <option value="">[Choose one]</option>
       {{ .Inner | safeHTML }}
