@@ -1,6 +1,6 @@
 {{ define "main_content" }}
 <main id="post-list" class="row-item small-full medium-two-thirds">
-  {{ if not .IsHome }}
+  {{ if or (not .IsHome) (ne .Title .Site.Title) }}
 	<header id="page-header">
 		<h1 id="page-title">{{ .Title }}</h1>
 	</header>
@@ -101,7 +101,7 @@
     {{ $paginator := .Paginate ($.Scratch.Get "pages") }}
     {{ range $paginator.Pages }}
       {{ if or (not $index_only) (in .File.Path "index.md") }}
-        {{ if eq (string .Section) "events" }}
+        {{ if eq .Section "events" }}
         {{ partial "events/list_item.html" . }}
         {{ else }}
         {{ partial "list_item.html" . }}
