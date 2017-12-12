@@ -77,4 +77,5 @@
   background-color: {{ .Get "accent" }};
   color: {{ .Get "header_text" }} !important;
   cursor: pointer;
+  text-decoration: none !important;
 }

@@ -45,6 +45,11 @@ table tbody tr:nth-child(even) {
   color: {{ .Get "alt_body_text" }};
 }
 
+table tbody tr:nth-child(even) .button:not(:hover):not(:focus):not(:active) {
+  background-color: {{ .Get "main_bg" }};
+  color: {{ .Get "body_text" }};
+}
+
 /* Responsive tables */
 
 @media only screen and (max-width: 720px) {
