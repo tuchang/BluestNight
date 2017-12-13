@@ -43,7 +43,7 @@
 
 .left  { order: -1; }
 .right { order:  1; }
-.hide { display: none; }
+.hide { display: none !important; }
 
 .disabled {
    pointer-events: none;
