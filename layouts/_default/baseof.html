@@ -89,8 +89,11 @@
   <body itemscope itemtype="http://schema.org/WebPage">
     <div id="site-container">
       <div id="site-header">
-        <header class="small-text-center medium-text-left">
-          <a href="{{ .Site.BaseURL }}">
+        <header class="small-text-center medium-text-left row">
+          {{ with $.Site.Params.thumbnail -}}
+            <img id="site-thumbnail" class="row-item" src="{{ . | absLangURL }}">
+          {{ end -}}
+          <a class="row-item" href="{{ .Site.BaseURL }}">
             <span id="site-title" itemprop="name">{{ .Site.Title }}</span>
             {{ with .Site.Params.tagline }}<br/><span id="site-tagline">{{ . }}</span>{{ end }}
           </a>

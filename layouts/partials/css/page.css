@@ -64,7 +64,20 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 }
 
 #site-header header {
+  align-items: center;
+  {{ if (.Get "sitevar").Params.thumbnail -}}
+  padding: 1rem;
+  {{ else }}
   padding: 1rem 2rem;
+  {{ end }}
+}
+
+#site-thumbnail {
+  display: block;
+  max-height: 8rem;
+  {{ with (.Get "sitevar").Params.thumbnail_radius -}}
+  border-radius: {{ . }};
+  {{- end }}
 }
 
 #site-title, #site-tagline {
