@@ -29,7 +29,7 @@
     {{ end -}}
 
     {{- if $.Site.Params.iubenda.enable_cookie_policy -}}
-    <link rel="preload" href="https://cdn.iubenda.com/cookie_solution/safemode/iubenda_cs/core-b3e9d51a79c47aa32aa85d13fedea7be" as="script" />
+    <link rel="preload" href="https://cdn.iubenda.com/cookie_solution/iubenda_cs/core-6f17ecca6b9b620e0bbb837c5c1409ab.js" as="script" />
     {{- end -}}
 
     {{- $.Scratch.Set "desc" "" -}}
@@ -250,7 +250,7 @@
         }
       };
     </script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js" charset="UTF-8" async></script>
+    <script type="text/javascript" src="https://cdn.iubenda.com/cookie_solution/iubenda_cs/core-6f17ecca6b9b620e0bbb837c5c1409ab.js" charset="UTF-8" async></script>
     {{- end }}
     {{ if $.Site.Params.thumbnail -}}
       {{- if $.Site.Params.no_minimize -}}
