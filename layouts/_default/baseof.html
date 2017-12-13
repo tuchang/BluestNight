@@ -173,8 +173,11 @@
     </div>
     {{- if $.Site.Params.widgets.search -}}
     <script class="_iub_cs_activate" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js"></script>
+    {{ if $.Site.Params.no_minimize }}
     <script src="{{ "js/search.js" | absLangURL }}" class="_iub_cs_activate" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}"></script>
-    <!--script src="{{ "js/search.min.js" | absLangURL }}" class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}" integrity="sha384-BWCGLBKRFvQSIGRnqOb8zW0+fYDIflgWpakpQSvIr9ahUILOaidTxlqnLEybgAZ+"></script-->
+    {{ else }}
+    <script src="{{ "js/search.min.js" | absLangURL }}" class="_iub_cs_activate" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}"></script>
+    {{ end }}
     <script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
       var lunrIndex = undefined;
       loadIndex("{{ "index.json" | absURL }}").then(
@@ -250,7 +253,11 @@
     <script type="text/javascript" src="//cdn.iubenda.com/cookie_solution/safemode/iubenda_cs.js" charset="UTF-8" async></script>
     {{- end }}
     {{ if $.Site.Params.thumbnail -}}
-    <script type="text/javascript" src="{{ "js/thumbnail.min.js" | absLangURL | safeHTMLAttr }}"></script>
+      {{- if $.Site.Params.no_minimize -}}
+      <script type="text/javascript" src="{{ "js/thumbnail.js" | absLangURL | safeHTMLAttr }}"></script>
+      {{ else }}
+      <script type="text/javascript" src="{{ "js/thumbnail.min.js" | absLangURL | safeHTMLAttr }}"></script>
+      {{ end }}
     {{- end -}}
   </body>
 </html>
