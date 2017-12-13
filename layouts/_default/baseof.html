@@ -95,6 +95,7 @@
             {{ with .Site.Params.tagline }}<br/><span id="site-tagline">{{ . }}</span>{{ end }}
           </a>
         </header>
+        {{ if (.Site.Menus.main) -}}
         <label for="menu-toggle-box"><div id="menu-toggle" class="main-nav no-select"><span><span class="fa fa-bars"></span> MENU</span></div></label>
         <input type="checkbox" id="menu-toggle-box" class="hide"/>
         <nav id="main-nav">
@@ -102,6 +103,7 @@
           {{- partial "nested_menu.html" (dict "menu" .Site.Menus.main "page" . "site" .Site) . -}}
           </ul>
         </nav>
+        {{ end -}}
       </div>
       <div id="main-container" class="row" role="main" itemprop="mainContentOfPage">
         {{ with $.Site.Params.alert }}
