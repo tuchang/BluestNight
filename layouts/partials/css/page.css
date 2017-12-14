@@ -116,7 +116,7 @@ a code, code a {
 a:hover code, code a:hover { text-decoration: underline; }
 
 pre, pre code {
-  background-color: {{ .Get "alt_bg" }};
+  background-color: {{ .Get "alt_bg" }} !important;
   color: {{ .Get "alt_body_text" }};
   font-size: 0.9rem;
 }
