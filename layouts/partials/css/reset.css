@@ -23,8 +23,8 @@ ul, ol {
   margin-bottom: 1rem;
 }
 ul > li > ul, ol > li > ol { margin-bottom: 0; }
-main ul { list-style: disc outside; }
-main ol { list-style: decimal; }
+main ul { list-style: disc inside; }
+main ol { list-style: decimal inside; }
 
 li > ul, li > ol {
   margin-left: 2rem;
