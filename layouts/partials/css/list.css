@@ -12,15 +12,32 @@
 
 /* Site main - pagination */
 
-.pagination .pagination-previous a,
-.pagination .pagination-next a {
-  color: {{ .Get "accent" }};
+.paginate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.pagination .pagination-previous a:hover,
-.pagination .pagination-next a:hover {
-  color: {{ .Get "header_text" }};
-  background-color: {{ .Get "accent" }};
+.paginate .button {
+  width: 100%;
+  max-width: 100%;
+}
+
+.paginate .pagination-previous {
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+.paginate .pagination-next {
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
+.paginate .pagination-page-number {
+  align-self: center;
+  text-align: center;
+  flex-shrink: 2;
+  font-weight: bold;
 }
 
 .metadata {

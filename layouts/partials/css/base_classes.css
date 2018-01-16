@@ -73,6 +73,13 @@
   color: {{ .Get "alt_body_text" }};
 }
 
+.button.disabled, .button:disabled {
+  {{ .Set "label" "alt_bg" }}
+  background-color: {{ trim (partial "css/color/semi_transparent.css" .) " \n" }};
+  {{ .Set "label" "alt_body_text" }}
+  color: {{ trim (partial "css/color/semi_transparent.css" .) " \n" }};
+}
+
 .button:hover, .button:focus, .button:active, .button.active {
   background-color: {{ .Get "accent" }};
   color: {{ .Get "header_text" }} !important;
