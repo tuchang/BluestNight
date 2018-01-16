@@ -1,6 +1,8 @@
 /* Site nav (including tag buttons) */
 
 #main-nav {
+  text-transform: uppercase;
+  border-bottom: 3px solid {{ .Get "accent" }};
   background-color: {{ .Get "alt_bg" }};
 }
 
