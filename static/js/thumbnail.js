@@ -1,5 +1,5 @@
 var header = document.getElementById("site-header").getElementsByTagName("header")[0];
-var title = header.getElementsByTagName("a")[0];
+var title = header.getElementsByTagName("div")[0];
 var thumbnail = document.getElementById("site-thumbnail");
 // Make constant because it is 0 when hidden
 const THUMB_WIDTH = thumbnail.scrollWidth + parseInt(window.getComputedStyle(thumbnail).getPropertyValue("padding-left"), 10) + parseInt(window.getComputedStyle(thumbnail).getPropertyValue("padding-right"), 10) + +  parseInt(window.getComputedStyle(thumbnail).getPropertyValue("margin-left"), 10) + parseInt(window.getComputedStyle(thumbnail).getPropertyValue("margin-right"), 10);

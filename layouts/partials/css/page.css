@@ -65,20 +65,26 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 
 #site-header header {
   align-items: center;
-  {{ if (.Get "sitevar").Params.thumbnail -}}
   padding: 1rem;
-  {{ else }}
-  padding: 1rem 2rem;
-  {{ end }}
 }
 
+{{ if (.Get "sitevar").Params.thumbnail }}
 #site-thumbnail {
   display: block;
-  max-height: 8rem;
+  /* Tested working with multiple sites -
+  no vertical shift when thumbnail loads */
+  max-height: 5.8rem;
+  padding-left: 0;
   {{ with (.Get "sitevar").Params.thumbnail_radius -}}
   border-radius: {{ . }};
   {{- end }}
 }
+{{ else }}
+/* Make title text line up with first menu item if no thumbnail */
+#site-header header div {
+  padding: 0;
+}
+{{ end }}
 
 #site-title, #site-tagline {
   text-transform: uppercase;
@@ -88,8 +94,12 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 }
 
 #site-title {
-  font-size: 3rem;
+  {{- if (.Get "sitevar").Params.tagline }}
   padding-bottom: 0.5rem;
+  font-size: 3rem;
+  {{- else -}}
+  font-size: 4rem;
+  {{- end }}
 }
 
 #site-tagline {
