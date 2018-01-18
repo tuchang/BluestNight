@@ -14,6 +14,17 @@
     <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
     <link rel="preload" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style">
 
+    {{ if (in (string .Content) "class=\"katex-container\"") }}
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js" as="script" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js" as="script" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" as="style" />
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />  
+    {{ end }}
+
     {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
     <link rel="dns-prefetch" href="{{ $.Site.Params.piwik.host }}" />
     <link rel="preconnect" href="{{ $.Site.Params.piwik.host }}" />
@@ -271,5 +282,23 @@
       <script type="text/javascript" src="{{ "js/thumbnail.min.js" | absLangURL | safeHTMLAttr }}"></script>
       {{ end }}
     {{- end -}}
+    {{ if (in (string .Content) "class=\"katex-container\"") }}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script>
+    <script>
+    var elems = document.getElementsByClassName('katex-container');
+    for (var i = 0; i < elems.length; i++) {
+      renderMathInElement(
+        elems[i],
+        { delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]}
+      );
+    }
+    </script>
+    {{ end }}
   </body>
 </html>
