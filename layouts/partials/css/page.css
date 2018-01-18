@@ -98,7 +98,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
   padding-bottom: 0.5rem;
   font-size: 3rem;
   {{- else -}}
-  font-size: 4rem;
+  font-size: 5rem;
   {{- end }}
 }
 
