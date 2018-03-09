@@ -11,8 +11,7 @@
       {{ range $key, $val := .Data.Terms.Alphabetical }}
       <div class="row-item small-full medium-half large-third">
         <li class="taxonomy-item">
-          {{- $.Scratch.Set "link" "/" -}}
-          {{- $.Scratch.Add "link" $data.Plural -}}
+          {{- $.Scratch.Set "link" $data.Plural -}}
           {{- $.Scratch.Add "link" "/" -}}
           {{- ($.Scratch.Add "link" $val.Name) -}}
           <a href="{{ $.Scratch.Get "link" | urlize | absLangURL }}">{{ $val.Name }}</a> ({{ $val.Count }})
