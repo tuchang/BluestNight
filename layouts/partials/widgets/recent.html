@@ -24,7 +24,7 @@
 			{{- end -}}
 		{{- end -}}
 	{{- else if .IsPage -}}
-	{{- $sectionstr := trim (replaceRE "[^/]+$" "" (trim .URL "/")) "/" -}}
+	{{- $sectionstr := trim (replaceRE "[^/]+$" "" (trim (replace (.URL | absURL) .Site.BaseURL "") "/")) "/" -}}
 
 	{{- $.Scratch.Set "section" "" -}}
 	{{- $.Scratch.Set "sectionok" true -}}

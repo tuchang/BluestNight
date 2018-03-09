@@ -51,7 +51,7 @@
         <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<i class="fa fa-tag"></i>{{ else }}<i class="fa fa-tags"></i>{{ end }}&nbsp;&nbsp;</li>
     		{{- range .Params.tags -}}
     		<li itemprop="relatedUrl" itemscope itemtype="http://schema.org/URL">
-    			{{- $.Scratch.Set "link" "/tags/" -}}
+    			{{- $.Scratch.Set "link" "tags/" -}}
     			{{- $.Scratch.Add "link" . -}}
     			<a class="row-item button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" rel="tag" itemprop="url">{{ . | humanize | lower }}</a>
     		</li>
