@@ -11,13 +11,17 @@
   body, {{ end -}}article, article #post-metadata, article .metadata {
     {{- if eq (.Get "sitevar").Params.fonts.print_body_style "sans-serif" -}}
     font-family: "Clear Sans", sans-serif;
-    {{- else -}}
+    {{- else if eq (.Get "sitevar").Params.fonts.print_body_style "slab-serif" -}}
     font-family: "Zilla Slab", "Georgia", "Liberation Serif", serif;
+    {{- else -}}
+    font-family: "Alegreya", "Georgia", "Liberation Serif", serif;
     {{- end -}}
   }
 
   header:not(.fa), h1, h2, h3, h4, h5, h6 {
     {{- if eq (.Get "sitevar").Params.fonts.print_header_style "serif" -}}
+    font-family: "Alegreya", "Georgia", "Liberation Serif", serif;
+    {{- else if eq (.Get "sitevar").Params.fonts.print_header_style "slab-serif" -}}
     font-family: "Zilla Slab", "Georgia", "Liberation Serif", serif;
     {{- else -}}
     font-family: "Clear Sans", sans-serif;
