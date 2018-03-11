@@ -147,7 +147,7 @@
             <small>
               &copy; {{now.Format "2006"}}
               <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-                <span itemprop="name">{{ with $.Site.Author}}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</span>
+                <span itemprop="name">{{ with $.Site.Copyright }}{{ . }}{{ else }}{{ with $.Site.Author}}{{ . }}{{ else }}{{ with $.Site.Params.Author}}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}{{ end }}</span>
               </span>
             </small>
           </div>
