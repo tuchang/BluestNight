@@ -16,7 +16,7 @@
 		{{ end }}
 	{{- end -}}
 
-	{{ if or (eq .Kind "section") (eq .Kind "taxonomy") -}}
+	{{ if or (or (eq .Kind "section") (eq .Kind "taxonomy")) (eq .Kind "taxonomyTerm") -}}
 		{{- $this := . -}}
 		{{- range $format := .OutputFormats -}}
 			{{- if eq $format.Name "RSS" -}}
