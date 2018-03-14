@@ -157,7 +157,7 @@
         <a href="{{ .Site.BaseURL }}">
           <header class="small-text-center medium-text-left row">
             {{ with $.Site.Params.thumbnail -}}
-              <img id="site-thumbnail" class="row-item hide" src="{{ . | absLangURL }}">
+              <img id="site-thumbnail" class="row-item" src="{{ . | absLangURL }}">
             {{ end -}}
             <div class="row-item">
               <span id="site-title" itemprop="name">{{ .Site.Title }}</span>
