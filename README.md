@@ -19,7 +19,7 @@ The following are the earliest versions of each browser compatible with this the
 You can find documentation on how to use the theme, as well as a `config.toml` [template](https://bluestnight.shadow53.com/docs/example-config), on the [example site](https://bluestnight.shadow53.com/)
 
 # Live sites
-See the theme in action with its default color scheme [here](https://mnbryant.com) or with an override [here](https://shadow53.com)
+See the theme in action with different fonts [here](https://mnbryant.com) or with different colors [here](https://shadow53.com)
 
 # Feature overview
 
@@ -27,8 +27,9 @@ See the theme in action with its default color scheme [here](https://mnbryant.co
 - Customizable [color scheme](https://bluestnight.shadow53.com/docs/site/appearance#custom-colors) and [background](https://bluestnight.shadow53.com/docs/site/appearance#custom-background)
 - Print-friendly CSS
 - Powerful custom shortcodes:
-  - [Netlify compatible forms](https://bluestnight.shadow53.com/docs/pages/netlify-forms/)
-  - [Responsive tables](https://bluestnight.shadow53.com/docs/pages/responsive-tables/)
+  - [Reminders](https://bluestnight.shadow53.com/docs/shortcodes/reminder/) that throw errors so you don't forget to do something before publishing.
+  - [Netlify compatible forms](https://bluestnight.shadow53.com/docs/shortcodes/netlify-forms/)
+  - [Responsive tables](https://bluestnight.shadow53.com/docs/shortcodes/responsive-tables/)
   - [Smart links](https://bluestnight.shadow53.com/docs/shortcodes/static/) to static files
   - [Member boxes](https://bluestnight.shadow53.com/docs/shortcodes/members/) - like author boxes that can be put anywhere on a page.
   - Royalty-free [handwriting fonts](https://bluestnight.shadow53.com/docs/shortcodes/handwriting/)
