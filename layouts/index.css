@@ -16,8 +16,29 @@
 {{- with $.Site.Params.background.small_src -}}
   {{- $scr.Set "background_src_small" . -}}
 {{- end -}}
-{{- if ($.Site.Params.background.tile) -}}{{- .Scratch.Set "background_tile" "repeat" -}}{{- else -}}{{- .Scratch.Set "background_tile" "no-repeat" -}}{{- end -}}
-{{- if ($.Site.Params.background.fit_width) -}}{{- .Scratch.Set "background_fit" "contain" -}}{{- else -}}{{- .Scratch.Set "background_fit" "cover" -}}{{- end -}}
+{{- if ($.Site.Params.background.tile) -}}
+  {{- .Scratch.Set "background_tile" "repeat" -}}
+{{- else -}}
+  {{- .Scratch.Set "background_tile" "no-repeat" -}}
+{{- end -}}
+{{- if ($.Site.Params.background.fit_width) -}}
+  {{- .Scratch.Set "background_fit" "contain" -}}
+{{- else -}}
+  {{- if $.Site.Params.background.tile -}}
+    {{- .Scratch.Set "background_fit" "auto" -}}
+  {{- else -}}
+    {{- .Scratch.Set "background_fit" "cover" -}}
+  {{- end -}}
+{{- end -}}
+{{- if ($.Site.Params.background.fit) -}}
+  {{- if eq $.Site.Params.background.fit "cover" -}}
+    {{- .Scratch.Set "background_fit" "cover" -}}
+  {{- else if eq $.Site.Params.background.fit "contain" -}}
+    {{- .Scratch.Set "background_fit" "contain" -}}
+  {{- else -}}
+    {{- .Scratch.Set "background_fit" "auto" -}}
+  {{- end -}}
+{{- end -}}
 {{- $scr := .Scratch -}}
 {{- range $label := (slice "main_bg" "alt_bg" "accent") -}}
   {{- $scr.Set "label" $label -}}
