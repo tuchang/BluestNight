@@ -16,7 +16,7 @@ The following are the earliest versions of each browser compatible with this the
 
 # Documentation
 
-You can find documentation on how to use the theme, as well as a `config.toml` [template](https://bluestnight.shadow53.com/docs/example-config), on the [example site](https://bluestnight.shadow53.com/)
+You can find documentation on how to use the theme, as well as a [setup guide](https://bluestnight.shadow53.com/setup-guide/), on the [official site](https://bluestnight.shadow53.com/)
 
 # Live sites
 See the theme in action with different fonts [here](https://mnbryant.com) or with different colors [here](https://shadow53.com)
