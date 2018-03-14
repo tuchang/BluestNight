@@ -25,9 +25,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />  
     {{ end }}
 
-    {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
-    <link rel="dns-prefetch" href="{{ $.Site.Params.piwik.host }}" />
-    <link rel="preconnect" href="{{ $.Site.Params.piwik.host }}" />
+    {{- if $.Site.Params.matomo -}}
+      {{- if $.Site.Params.matomo.host -}}
+        {{- .Scratch.Set "matomo_host" $.Site.Params.matomo.host -}}
+      {{- end -}}
+      {{- if $.Site.Params.matomo.enable -}}
+        {{- .Scratch.Set "matomo_enable" $.Site.Params.matomo.enable -}}
+      {{- end -}}
+      {{- if $.Site.Params.matomo.track_nojs -}}
+        {{- .Scratch.Set "matomo_track_nojs" $.Site.Params.matomo.track_nojs -}}
+      {{- end -}}
+      {{- if $.Site.Params.matomo.enable_optout -}}
+        {{- .Scratch.Set "matomo_enable_optout" $.Site.Params.matomo.enable_optout -}}
+      {{- end -}}
+      {{- if $.Site.Params.matomo.enable_ajax -}}
+        {{- .Scratch.Set "matomo_enable_ajax" $.Site.Params.matomo.enable_ajax -}}
+      {{- end -}}
+      {{- if $.Site.Params.matomo.site_id -}}
+        {{- .Scratch.Set "matomo_site_id" $.Site.Params.matomo.site_id -}}
+      {{- else -}}
+        {{- .Scratch.Set "matomo_site_id" 1 -}}
+      {{- end -}}
+    {{- else if $.Site.Params.piwik -}}
+      {{- if $.Site.Params.piwik.host -}}
+        {{- .Scratch.Set "matomo_host" $.Site.Params.piwik.host -}}
+      {{- end -}}
+      {{- if $.Site.Params.piwik.enable -}}
+        {{- .Scratch.Set "matomo_enable" $.Site.Params.piwik.enable -}}
+      {{- end -}}
+      {{- if $.Site.Params.piwik.track_nojs -}}
+        {{- .Scratch.Set "matomo_track_nojs" $.Site.Params.piwik.track_nojs -}}
+      {{- end -}}
+      {{- if $.Site.Params.piwik.enable_optout -}}
+        {{- .Scratch.Set "matomo_enable_optout" $.Site.Params.piwik.enable_optout -}}
+      {{- end -}}
+      {{- if $.Site.Params.piwik.enable_ajax -}}
+        {{- .Scratch.Set "matomo_enable_ajax" $.Site.Params.piwik.enable_ajax -}}
+      {{- end -}}
+      {{- if $.Site.Params.piwik.site_id -}}
+        {{- .Scratch.Set "matomo_site_id" $.Site.Params.piwik.site_id -}}
+      {{- else -}}
+        {{- .Scratch.Set "matomo_site_id" 1 -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_host") -}}
+    <link rel="dns-prefetch" href="{{ .Scratch.Get "matomo_host" }}" />
+    <link rel="preconnect" href="{{ .Scratch.Get "matomo_host" }}" />
     {{- end -}}
 
     {{- if and $.Site.Params.widgets $.Site.Params.widgets.search -}}
@@ -85,23 +129,23 @@
     {{ end -}}
     {{ end -}}
 
-    {{ if and $.Site.Params.piwik (and $.Site.Params.piwik.host $.Site.Params.piwik.enable) -}}
+    {{ if (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_host") -}}
     <script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
       var _paq = _paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
-        var u="{{ $.Site.Params.piwik.host }}/";
+        var u="{{ (.Scratch.Get "matomo_host") }}}/";
         _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', '{{ index $.Site.Params.piwik "site_id" | default 1 }}']);
+        _paq.push(['setSiteId', '{{ .Scratch.Get "matomo_site_id" }}']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
 
     </script>
-    {{ if $.Site.Params.piwik.track_nojs -}}
-    <noscript><p><img src="{{ $.Site.Params.piwik.host }}/piwik.php?idsite={{ index $.Site.Params.piwik "site_id" | default 1 }}&rec=1" style="border:0;" alt="" /></p></noscript>
+    {{ if (.Scratch.Get "matomo_track_nojs") -}}
+    <noscript><p><img src="{{ (.Scratch.Get "matomo_host") }}/piwik.php?idsite={{ .Scratch.Get "matomo_site_id" }}&rec=1" style="border:0;" alt="" /></p></noscript>
     {{ end -}}
     {{- else -}}
     <script>var _paq = undefined;</script>
@@ -142,7 +186,7 @@
         {{ if (not .Site.Params.leftsidebar) }}{{ partial "sidebar.html" . }}{{ end }}
       </div>
       <footer class="row">
-        <div class="small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} small-text-center medium-text-left medium-left row">
+        <div class="small-full medium-{{ if .Scratch.Get "matomo_enable_optout" -}}third{{ else }}half{{ end }} small-text-center medium-text-left medium-left row">
           <div class="small-full">
             <small>
               &copy; {{now.Format "2006"}}
@@ -181,15 +225,15 @@
             {{ end }}
           </div>
         </div>
-        {{ if and $.Site.Params.piwik $.Site.Params.piwik.enable_optout -}}
-        {{- with $.Site.Params.piwik.host -}}
+        {{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}
+        {{- with (.Scratch.Get "matomo_host") -}}
         <div class="small-full medium-third small-text-center medium-text-center small-right">
-          <small>This site uses <a href="http://piwik.org/" rel="nofollow noreferrer">Piwik Analytics</a>.<br/>
+          <small>This site uses <a href="http://matomo.org/" rel="nofollow noreferrer">Matomo Analytics</a>.<br/>
           <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out</span></small>.
         </div>
         {{- end -}}
         {{- end }}
-        <div id="social-icons" class="row small-full medium-{{ if $.Site.Params.piwik.enable_optout -}}third{{ else }}half{{ end }} small-text-center medium-text-right" style="align-self: center;">
+        <div id="social-icons" class="row small-full medium-{{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}third{{ else }}half{{ end }} small-text-center medium-text-right" style="align-self: center;">
           {{- partial "social-icons.html" (dict "Scratch" .Scratch "Social" .Site.Params.social "IsMember" false) .Site.Params.social -}}
         </div>
       </footer>
@@ -209,7 +253,7 @@
       );
     </script>
     {{- end -}}
-    {{- if and $.Site.Params.piwik (and $.Site.Params.piwik.enable $.Site.Params.piwik.enable_ajax) -}}
+    {{- if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_ajax") -}}
     <script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
 
     function ajax(url) {
@@ -234,7 +278,7 @@
     }
 
     function updateAnalyticsText() {
-      ajax('{{ $.Site.Params.piwik.host | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked')
+      ajax('{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked')
       .then(function(data){
         console.log("Update: " + isTracked(data));
         document.getElementById("toggle-tracking-text").innerText = isTracked(data) ? "out" : "in";
@@ -244,10 +288,10 @@
     function toggleHandler(event) {
       event.preventDefault();
       event.stopPropagation();
-      ajax("{{ $.Site.Params.piwik.host | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked")
+      ajax("{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked")
       .then(function(data) {
         console.log("Toggle: " + isTracked(data));
-        ajax('{{ $.Site.Params.piwik.host }}/index.php?module=API&method=AjaxOptOut.do' + (isTracked(data) ? 'Ignore' : 'Track')).then(updateAnalyticsText);
+        ajax('{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.do' + (isTracked(data) ? 'Ignore' : 'Track')).then(updateAnalyticsText);
       });
     }
 
