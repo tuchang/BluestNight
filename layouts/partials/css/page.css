@@ -123,6 +123,10 @@ a code, code a {
   color: {{ .Get "accent" }};
 }
 
+del code {
+  text-decoration: line-through;
+}
+
 a:hover code, code a:hover { text-decoration: underline; }
 
 pre, pre code {
