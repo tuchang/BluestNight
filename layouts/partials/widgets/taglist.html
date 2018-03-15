@@ -6,11 +6,11 @@
 	<header>
 		<span class="widget-header"><span class="fa fa-tags"></span> <a href="{{ "tags/" | absLangURL }}">Tags</a></span>
 	</header>
-	<div>
+	<div class="row" id="sidebar-tags">
 		{{- range $key, $val := .Site.Taxonomies.tags.ByCount -}}
 		  {{- $.Scratch.Set "link" "tags/" -}}
 			{{- $.Scratch.Add "link" $val.Name -}}
-			<a class="button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name | humanize | lower }}">
+			<a class="button row-item" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name | humanize | lower }}">
 				{{ $val.Name | humanize | lower }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $val.Count }}){{ end }}
 			</a>
 		{{- end -}}
