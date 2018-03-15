@@ -34,9 +34,9 @@
   max-width: 75%;
 }
 
-.small-text-left { text-align: left !important; }
-.small-text-right { text-align: right !important; }
-.small-text-center { text-align: center !important; }
+.small-text-left { text-align: left !important; justify-content: left; }
+.small-text-right { text-align: right !important; justify-content: right; }
+.small-text-center { text-align: center !important; justify-content: center; }
 
 @media only screen and (max-width: 639px) {
 
@@ -76,9 +76,9 @@
     max-width: 75%;
   }
 
-  .small-only-text-left { text-align: left !important; }
-  .small-only-text-right { text-align: right !important; }
-  .small-only-text-center { text-align: center !important; }
+  .small-only-text-left { text-align: left !important; justify-content: left !important; }
+  .small-only-text-right { text-align: right !important; justify-content: right !important; }
+  .small-only-text-center { text-align: center !important; justify-content: center !important; }
 
   {{ if (not (eq (.Get "background_src_small") "")) }}
   body { background-image: url("{{ .Get "background_src_small" }}"); }
@@ -142,6 +142,10 @@
     margin: 0;
   }
 
+  #social-icons {
+    justify-content: center;
+  }
+
   .small-left  { order: -1; }
   .small-right { order:  1; }
   .small-hide { display: none; }
@@ -189,9 +193,9 @@
     max-width: 75%;
   }
 
-  .medium-text-left { text-align: left !important; }
-  .medium-text-right { text-align: right !important; }
-  .medium-text-center { text-align: center !important; }
+  .medium-text-left { text-align: left !important; justify-content: left !important; }
+  .medium-text-right { text-align: right !important; justify-content: right !important; }
+  .medium-text-center { text-align: center !important; justify-content: center !important; }
 
   .medium-left  { order: -1; }
   .medium-right { order:  1; }
@@ -259,6 +263,8 @@
   }
 
   #main-nav > ul label { display: none; }
+
+  #social-icons { justify-content: flex-end; }
 }
 
 /* Large screens */
@@ -303,9 +309,9 @@
     max-width: 75%;
   }
 
-  .large-text-left { text-align: left !important; }
-  .large-text-right { text-align: right !important; }
-  .large-text-center { text-align: center !important; }
+  .large-text-left { text-align: left !important; justify-content: left !important; }
+  .large-text-right { text-align: right !important; justify-content: right !important; }
+  .large-text-center { text-align: center !important; justify-content: center !important; }
 
   .large-left  { order: -1; }
   .large-right { order:  1; }

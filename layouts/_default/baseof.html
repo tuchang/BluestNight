@@ -155,7 +155,7 @@
     <div id="site-container">
       <div id="site-header">
         <a href="{{ .Site.BaseURL }}">
-          <header class="small-text-center medium-text-left row">
+          <header class="small-text-left medium-text-left row">
             {{ with $.Site.Params.thumbnail -}}
               <img id="site-thumbnail" class="row-item" src="{{ . | absLangURL }}">
             {{ end -}}
@@ -233,7 +233,7 @@
         </div>
         {{- end -}}
         {{- end }}
-        <div id="social-icons" class="row small-full medium-{{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}third{{ else }}half{{ end }} small-text-center medium-text-right" style="align-self: center;">
+        <div id="social-icons" class="row small-full medium-{{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}third{{ else }}half{{ end }} small-text-center medium-text-right">
           {{- partial "social-icons.html" (dict "Scratch" .Scratch "Social" .Site.Params.social "IsMember" false) .Site.Params.social -}}
         </div>
       </footer>

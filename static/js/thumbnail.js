@@ -14,9 +14,13 @@ function showHideThumbnail() {
       if (contentWidth > header.scrollWidth) {
         if (!thumbnail.classList.contains("hide")) {
           thumbnail.classList.add("hide");
+          header.classList.add("small-text-center")
+          header.classList.remove("small-text-left")
         }
       } else {
         if (thumbnail.classList.contains("hide")) {
+          header.classList.add("small-text-left")
+          header.classList.remove("small-text-center")
           thumbnail.classList.remove("hide");
         }
       }
