@@ -12,7 +12,7 @@
 
     <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
     <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
-    {{ partial "async/css.html" (dict "URL" "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" "Integrity" "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN") }}
+    {{ partial "async/css.html" (dict "URL" "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") }}
 
     {{ if (in (string .Content) "class=\"katex-container\"") }}
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
