@@ -1,2 +1,2 @@
-<link rel="preload" {{ printf "href=\"%v\"" .URL | absLangURL | safeHTMLAttr }} as="style" {{ with .Integrity }}{{ printf "integrity=\"%v\"" . | safeHTMLAttr }}{{ end }} onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" {{ printf "href=\"%v\"" .URL | absLangURL | safeHTMLAttr }} {{ with .Integrity }}{{ printf "integrity=\"%v\"" . | safeHTMLAttr }}{{ end }}></noscript>
+<link rel="preload" {{ printf "href=\"%v\"" (.URL | absLangURL) | safeHTMLAttr }} as="style" {{ with .Integrity }}{{ printf "integrity=\"%v\"" . | safeHTMLAttr }}{{ end }} onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" {{ printf "href=\"%v\"" (.URL | absLangURL) | safeHTMLAttr }} {{ with .Integrity }}{{ printf "integrity=\"%v\"" . | safeHTMLAttr }}{{ end }}></noscript>
