@@ -146,6 +146,8 @@
     justify-content: center;
   }
 
+  #sidebar-tags { justify-content: center; }
+  
   .small-left  { order: -1; }
   .small-right { order:  1; }
   .small-hide { display: none; }
@@ -265,6 +267,7 @@
   #main-nav > ul label { display: none; }
 
   #social-icons { justify-content: flex-end; }
+  #sidebar-tags { justify-content: flex-start; }
 }
 
 /* Large screens */
