@@ -116,7 +116,7 @@
     {{- if ($.Scratch.Get "alt_bg_is_dark") -}}
       <link rel="stylesheet" type="text/css" href="{{ (add (add "css/dark" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") | absLangURL }}">
     {{- else -}}
-      <link rel="stylesheet" type="text/css" href="{{ (add (add "css/dark" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") | absLangURL }}">
+      <link rel="stylesheet" type="text/css" href="{{ (add (add "css/light" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") | absLangURL }}">
     {{- end -}}
     <link rel="stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
 
