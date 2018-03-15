@@ -118,7 +118,8 @@
     {{- end -}}
     {{ partial "async/css.html" (dict "URL" (.Scratch.Get "code_css")) }}
 
-    <link rel="stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
+    {{ partial "async/css.html" (dict "URL" "styles.css") }}
+    
     {{ partial "async/cssrelpreload.js.html" }}
 
     {{ if .Content -}}
