@@ -12,7 +12,7 @@
 
     <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
     <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
-    <link rel="preload" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style">
+    {{ partial "async/css.html" (dict "URL" "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" "Integrity" "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN") }}
 
     {{ if (in (string .Content) "class=\"katex-container\"") }}
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
@@ -20,9 +20,7 @@
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js" as="script" />
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js" as="script" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" as="style" />
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />  
+    {{ partial "async/css.html" (dict "URL" "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css") }}
     {{ end }}
 
     {{- if $.Site.Params.matomo -}}
@@ -105,20 +103,23 @@
 
     <link rel="canonical" href="{{ .URL | absURL }}">
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    {{ if $.Site.Params.hashover }}<link rel="stylesheet" type="text/css" href="{{ "hashover/comments.css" | absLangURL }}" integrity="sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6">{{ end }}
+    {{ if $.Site.Params.hashover }}
+    {{ partial "async/css.html" (dict "URL" "hashover/comments.css" "Integrity" "sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6") }}
+    {{ end }}
 
     {{- .Scratch.Set "sitevar" $.Site -}}
     {{- partial "css/color/parse_color.css" .Scratch -}}
     {{- .Scratch.Set "label" "alt_bg" -}}
     {{- partial "css/color/detect_light_or_dark.css" .Scratch -}}
     {{- if ($.Scratch.Get "alt_bg_is_dark") -}}
-      <link rel="stylesheet" type="text/css" href="{{ (add (add "css/dark" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") | absLangURL }}">
+      {{- .Scratch.Set "code_css" (add (add "css/dark" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") }}
     {{- else -}}
-      <link rel="stylesheet" type="text/css" href="{{ (add (add "css/light" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") | absLangURL }}">
+      {{- .Scratch.Set "code_css" (add (add "css/light" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") }}
     {{- end -}}
+    {{ partial "async/css.html" (dict "URL" (.Scratch.Get "code_css")) }}
+
     <link rel="stylesheet" type="text/css" href="{{ "styles.css" | absLangURL }}">
+    {{ partial "async/cssrelpreload.js.html" }}
 
     {{ if .Content -}}
     {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
