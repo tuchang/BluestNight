@@ -26,6 +26,7 @@
   font-style: italic;
 }
 
+{{ if (.Get "sitevar").Params.extra_font_weights -}}
 @font-face {
   font-family: "Clear Sans";
   src: url('css/fonts/clear-sans/ClearSans-Medium.woff') format('woff');
@@ -53,6 +54,7 @@
   font-weight: 200;
   font-style: normal;
 }
+{{- end }}
 
 @font-face {
   font-family: "Alegreya";
@@ -82,6 +84,7 @@
   font-style: italic;
 }
 
+{{ if (.Get "sitevar").Params.extra_font_weights -}}
 @font-face {
   font-family: "Alegreya";
   src: url('css/fonts/alegreya/Alegreya-Medium.woff2') format('woff2'), url('css/fonts/alegreya/Alegreya-Medium.woff') format('woff');
@@ -123,6 +126,7 @@
   font-weight: 900;
   font-style: italic;
 }
+{{- end }}
 
 @font-face {
   font-family: "Zilla Slab";
@@ -138,6 +142,21 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('css/fonts/zilla-slab/ZillaSlab-Bold.woff2') format('woff2'), url('css/fonts/zilla-slab/ZillaSlab-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Zilla Slab";
+  src: url('css/fonts/zilla-slab/ZillaSlab-BoldItalic.woff2') format('woff2'), url('css/fonts/zilla-slab/ZillaSlab-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+{{ if (.Get "sitevar").Params.extra_font_weights -}}
 @font-face {
   font-family: "Zilla Slab";
   src: url('css/fonts/zilla-slab/ZillaSlab-Light.woff2') format('woff2'), url('css/fonts/zilla-slab/ZillaSlab-Light.woff') format('woff');
@@ -179,20 +198,7 @@
   font-weight: 600;
   font-style: italic;
 }
-
-@font-face {
-  font-family: "Zilla Slab";
-  src: url('css/fonts/zilla-slab/ZillaSlab-Bold.woff2') format('woff2'), url('css/fonts/zilla-slab/ZillaSlab-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Zilla Slab";
-  src: url('css/fonts/zilla-slab/ZillaSlab-BoldItalic.woff2') format('woff2'), url('css/fonts/zilla-slab/ZillaSlab-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-}
+{{- end }}
 
 @font-face {
   font-family: "Source Code Pro";
@@ -222,6 +228,7 @@
   font-style: italic;
 }
 
+{{ if (.Get "sitevar").Params.extra_font_weights -}}
 @font-face {
   font-family: "Source Code Pro";
   src: url('css/fonts/sourcecodepro/SourceCodePro-Light.woff2') format('woff2'), url('css/fonts/sourcecodepro/SourceCodePro-Light.woff') format('woff');
@@ -291,6 +298,7 @@
   font-weight: 900;
   font-style: italic;
 }
+{{- end }}
 
 @font-face {
   font-family: "Secret Typewriter";
@@ -356,8 +364,8 @@
 }
 
 @font-face {
-  font-family:'danielblack';
-  src: url('css/fonts/daniel/daniel-black-webfont.woff2') format('woff2'), url('css/fonts/daniel/daniel-black-webfont.woff') format('woff');
+  font-family:'daniel';
+  src: url('css/fonts/daniel/daniel-regular.woff2') format('woff2'), url('css/fonts/daniel/daniel-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -369,12 +377,14 @@
   font-style: normal;
 }
 
+{{ if (.Get "sitevar").Params.extra_font_weights -}}
 @font-face {
-  font-family:'daniel';
-  src: url('css/fonts/daniel/daniel-regular.woff2') format('woff2'), url('css/fonts/daniel/daniel-regular.woff') format('woff');
-  font-weight: normal;
+  font-family:'danielblack';
+  src: url('css/fonts/daniel/daniel-black-webfont.woff2') format('woff2'), url('css/fonts/daniel/daniel-black-webfont.woff') format('woff');
+  font-weight: 900;
   font-style: normal;
 }
+{{- end }}
 
 {{- $body_style := lower (default "sans-serif" (.Get "sitevar").Params.fonts.body_style) -}}
 {{- $header_style := lower (default "sans-serif" (.Get "sitevar").Params.fonts.header_style) -}}
