@@ -45,6 +45,9 @@ h1,h2,h3,h4,h5,h6 {
   border-bottom: 2px solid {{ .Get "body_color" }};
 }
 
+/* Fix <li><p> having extra newline */
+li > p { display: inline; }
+
 table {
   margin-bottom: 1rem;
 }
