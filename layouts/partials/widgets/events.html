@@ -1,11 +1,11 @@
 {{- if .Site.Params.widgets.upcoming_events -}}
 <div class="widget">
 	<header>
-		<span class="widget-header"><span class="fa fa-calendar"></span> Upcoming Events</span>
+		<span class="widget-header"><span class="fas fa-calendar fa-xs" aria-hidden></span> Upcoming Events</span>
 	</header>
 	{{- range $format := (.Site.GetPage "home").OutputFormats -}}
 		{{ if eq $format.Name "Calendar" }}
-		<a class="widget-header-small button" href="webcal://{{ replace (replace ("index.ics" | absLangURL) "https://" "") "http://" ""}}"><span class="fa fa-calendar-plus-o"></span> Subscribe with iCal</a>
+		<a class="widget-header-small button" href="webcal://{{ replace (replace ("index.ics" | absLangURL) "https://" "") "http://" ""}}"><span class="far fa-calendar-plus fa-xs" aria-hidden></span> Subscribe with iCal</a>
 		{{ end }}
 	{{- end -}}
 	{{ $events := (where (where .Pages "Section" "events") "IsPage" true) }}
@@ -20,30 +20,30 @@
 				<li itemscope itemtype="http://schema.org/Event">
 		      <span class="widget-header-small text-left" itemprop="name"><a href="{{ .URL }}">{{ .Title }}</a></span>
 					{{- if $sameDay -}}
-						<span class="fa fa-calendar"></span>
+						<span class="far fa-calendar fa-xs" aria-hidden></span>
 						<strong>Date:</strong>
 						{{ dateFormat "01/02/2006" .Params.start_date }}
 						<br/>
-						<span class="fa fa-clock-o"></span>
+						<span class="far fa-clock fa-xs" aria-hidden></span>
 						<strong>Time:</strong>
 						{{- $.Scratch.Set "dateFormat" $timeOnly -}}
 					{{- end -}}
 					{{- if not $sameDay -}}
-					<span class="fa fa-calendar"></span>
+					<span class="far fa-calendar fa-xs" aria-hidden></span>
 					<strong>Start:</strong>
 					{{- end -}}
 					<time datetime="{{ dateFormat "2006-01-02T15:04:05" .Params.start_date }}" content="{{ dateFormat "2006-01-02T15:04:05" .Params.start_date }}" itemprop="startDate">
 						{{ dateFormat ($.Scratch.Get "dateFormat") .Params.start_date }}
 					</time>
 					{{ if $sameDay }}to{{ else }}
-					<br/><span class="fa fa-calendar"></span>
+					<br/><span class="far fa-calendar fa-xs" aria-hidden></span>
 					<strong>End:</strong>
 					{{ end }}
 					<time datetime="{{ dateFormat "2006-01-02T15:04:05" .Params.end_date }}" content="{{ dateFormat "2006-01-02T15:04:05" .Params.end_date }}" itemprop="endDate">
 						{{ dateFormat ($.Scratch.Get "dateFormat") .Params.end_date }}
 					</time>
 					{{ with .Params.location -}}
-					<br/><span class="fa fa-map-marker"></span>
+					<br/><span class="fas fa-map-marker-alt fa-xs" aria-hidden></span>
 					<span itemprop="location"><strong>Location:</strong> {{ . }}</span>
 					{{- end }}
 		      <br/>

@@ -400,7 +400,7 @@ body {
 }
 
 {{- if ne $body_style $header_style -}}
-header:not(.fa), h1, h2, h3, h4, h5, h6, .widget-header:not(.fa), .button {
+header:not(.fa), h1, h2, h3, h4, h5, h6, .widget-header:not(.fas):not(.far):not(.fab), .button, #menu-toggle {
   {{- if eq $header_style "serif" -}}
   font-family: "Alegreya", serif;
   {{- else if eq $header_style "slab-serif" -}}

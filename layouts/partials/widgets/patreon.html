@@ -6,10 +6,7 @@
 {{- with .Site.Params.widgets.patreon -}}
 <div class="widget">
 	<header>
-		{{- range $.Site.Data.members -}}
-      {{- $scr.Add "membercount" 1 -}}
-		{{- end -}}
-		<span class="widget-header"><span class="fa fa-credit-card"></span> Support {{ if gt ($scr.Get "membercount") 1 }}Us{{ else }}Me{{ end }} On</span>
+		<span class="widget-header"><span class="fab fa-patreon fa-xs" aria-hidden></span> Support {{ partialCached "utility/me_us.html" (dict "Members" $.Site.Data.members "Scratch" $scr) | title }} On</span>
 	</header>
 	<a href="https://patreon.com/{{ . }}">
 		{{- if ($scr.Get "main_bg_is_dark") -}}

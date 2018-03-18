@@ -4,7 +4,7 @@
 {{- end -}}
 <div class="widget">
 	<header>
-		<span class="widget-header"><span class="fa fa-tags"></span> <a href="{{ "tags/" | absLangURL }}">Tags</a></span>
+		<span class="widget-header"><span class="fas fa-tags fa-xs" aria-hidden></span> <a href="{{ "tags/" | absLangURL }}">Tags</a></span>
 	</header>
 	<div class="row" id="sidebar-tags">
 		{{- range $key, $val := .Site.Taxonomies.tags.ByCount -}}

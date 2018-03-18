@@ -1,75 +1,152 @@
+{{ if ne .Social nil }}
 {{- if .IsMember -}}
   {{- .Scratch.Set "attrs" "itemprop=\"sameAs\"" -}}
 {{- else -}}
   {{- .Scratch.Set "attrs" "rel=\"me nofollow\"" -}}
 {{- end -}}
-{{ $attrs := .Scratch.Get "attrs" }}
+{{- $attrs := .Scratch.Get "attrs" -}}
+{{- $scr := .Scratch -}}
 
-{{ if ne .Social nil }}
-{{ with .Social.deviantart }}<a href="https://{{ . }}.deviantart.com" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-deviantart"></span>
+{{- .Scratch.Set "style" "square" -}}
+{{- with (default "" .Social.icon_style) -}}
+  {{- if (and (ne (lower .) "circle") (ne (lower .) "square")) -}}
+    {{- $scr.Set "style" "square" -}}
+  {{- end -}}
+{{- end -}}
+{{ $style := .Scratch.Get "style" }}
+
+{{ $members := $.Site.Data.members }}
+
+{{ with .Social.deviantart }}<a href="https://{{ . }}.deviantart.com" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on DeviantArt!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-deviantart fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.email }}<a href="mailto:{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-envelope"></span>
+{{ with .Social.email }}<a href="mailto:{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Send {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} an email!">
+  <span class="fa-stack fa-xs">
+      <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+      <span class="fas fa-envelope fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.facebook }}<a href="https://facebook.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-facebook-official"></span>
+{{ with .Social.facebook }}<a href="https://facebook.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Facebook!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-facebook fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.github }}<a href="https://github.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-github"></span>
+{{ with .Social.github }}<a href="https://github.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Fork {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on GitHub!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-github fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.gitlab }}<a href="https://gitlab.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-gitlab"></span>
+{{ with .Social.gitlab }}<a href="https://gitlab.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Fork {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on GitLab!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-gitlab fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.googleplus }}<a href="https://plus.google.com/{{ . }}"  class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-google-plus"></span>
+{{ with .Social.googleplus }}<a href="https://plus.google.com/{{ . }}"  class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Google Plus!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-google-plus-g fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.instagram }}<a href="https://instagram.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-instagram"></span>
+{{ with .Social.instagram }}<a href="https://instagram.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Instagram!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-instagram fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-linkedin"></span>
+{{ with .Social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on LinkedIn!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.medium }}<a href="https://medium.com/@{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-medium"></span>
+{{ with .Social.medium }}<a href="https://medium.com/@{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Medium!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-medium-m fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.pinterest }}<a href="https://pinterest.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-pinterest"></span>
+{{ with .Social.pinterest }}<a href="https://pinterest.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Pinterest!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-pinterest-p fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.quora }}<a href="https://quora.com/profile/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-quora"></span>
+{{ with .Social.quora }}<a href="https://quora.com/profile/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Quora!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-quora fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.reddit }}<a href="https://www.reddit.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-reddit-alien"></span>
+{{ with .Social.reddit }}<a href="https://www.reddit.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Reddit!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-reddit-alien fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.slack_org }}<a href="https://{{ . }}.slack.com" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-slack"></span>
+{{ with .Social.slack_org }}<a href="https://{{ . }}.slack.com" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Slack!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-slack-hash fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.soundcloud }}<a href="https://soundcloud.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-soundcloud"></span>
+{{ with .Social.soundcloud }}<a href="https://soundcloud.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Listen to {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Soundcloud!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-soundcloud fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.spotify }}<a href="https://open.spotify.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-spotify"></span>
+{{ with .Social.spotify }}<a href="https://open.spotify.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Spotify!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-spotify fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.steam }}<a href="https://steamcommunity.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-steam"></span>
+{{ with .Social.steam }}<a href="https://steamcommunity.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Steam!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-steam-symbol fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.telegram }}<a href="http://t.me/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-telegram"></span>
+{{ with .Social.telegram }}<a href="http://t.me/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Telegram!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-telegram-plane fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.tumblr }}<a href="https://{{ . }}.tumblr.com/" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-tumblr"></span>
+{{ with .Social.tumblr }}<a href="https://{{ . }}.tumblr.com/" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Tumblr!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-tumblr fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.twitch }}<a href="https://www.twitch.tv/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-twitch"></span>
+{{ with .Social.twitch }}<a href="https://www.twitch.tv/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Twitch!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-twitch fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.twitter }}<a href="https://twitter.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-twitter"></span>
+{{ with .Social.twitter }}<a href="https://twitter.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Twitter!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.vimeo }}<a href="https://vimeo.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-vimeo"></span>
+{{ with .Social.vimeo }}<a href="https://vimeo.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Vimeo!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-vimeo-v fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
-{{ with .Social.youtube }}<a href="https://www.youtube.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }}>
-  <span class="fa fa-youtube"></span>
+{{ with .Social.youtube }}<a href="https://www.youtube.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on YouTube!">
+  <span class="fa-stack fa-xs">
+    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
+    <span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
+  </span>
 </a>{{ end }}
 {{ end }}

@@ -7,12 +7,12 @@
 	{{ end }}
 	{{ $posts := string ($.Scratch.Get "posts_name") }}
 	<header>
-		<span class="widget-header"><span class="fa fa-pencil"></span> <a href="{{ (add $posts "/") | absLangURL }}">Recent Posts</a></span>
+		<span class="widget-header"><span class="fas fa-pencil-alt fa-xs" aria-hidden></span> <a href="{{ (add $posts "/") | absLangURL }}">Recent Posts</a></span>
 	</header>
 	{{ $url := .URL }}
 	{{- range $format := (.Site.GetPage "home").OutputFormats -}}
 		{{ if eq $format.Name "RSS" }}
-			<a class="widget-header-small button" href="{{ "index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to the Site</a>
+			<a class="widget-header-small button" href="{{ "index.xml" | absLangURL }}"><span class="fas fa-rss fa-xs" aria-hidden></span> Subscribe to the Site</a>
 		{{ end }}
 	{{- end -}}
 
@@ -20,7 +20,7 @@
 		{{- $this := . -}}
 		{{- range $format := .OutputFormats -}}
 			{{- if eq $format.Name "RSS" -}}
-				<a class="widget-header-small button" href="{{ add $this.URL "/index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to {{ $this.LinkTitle }}</a>
+				<a class="widget-header-small button" href="{{ add $this.URL "/index.xml" | absLangURL }}"><span class="fas fa-rss fa-xs" aria-hidden></span> Subscribe to {{ $this.LinkTitle }}</a>
 			{{- end -}}
 		{{- end -}}
 	{{- else if .IsPage -}}
@@ -46,7 +46,7 @@
 	{{- if ne (trim $section.URL "/") "" -}}
 		{{- range $format := $section.OutputFormats -}}
 			{{- if eq $format.Name "RSS" -}}
-			<a class="widget-header-small button" href="{{ add $section.URL "/index.xml" | absLangURL }}"><span class="fa fa-rss"></span> Subscribe to {{ $section.LinkTitle }}</a>
+			<a class="widget-header-small button" href="{{ add $section.URL "/index.xml" | absLangURL }}"><span class="fas fa-rss fa-xs" aria-hidden></span> Subscribe to {{ $section.LinkTitle }}</a>
 			{{- end -}}
 		{{- end -}}
 	{{- end -}}
