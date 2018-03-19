@@ -84,6 +84,10 @@
   {{- partial "social-icon.html" (dict "Icon" "fab fa-pinterest-p" "User" . "URL" "https://pinterest.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Pinterest") -}}
 {{- end }}
 
+{{- with .Social.playstation -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-playstation" "User" . "URL" "https://my.playstation.com/profile/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Play with %PRONOUN% on PlayStation!" "Pronoun" $pronoun "Title" "PlayStation (requires login)") -}}
+{{- end -}}
+
 {{ with .Social.quora -}}
   {{- partial "social-icon.html" (dict "Icon" "fab fa-quora" "User" . "URL" "https://quora.com/profile/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Quora") -}}
 {{- end }}
