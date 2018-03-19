@@ -27,7 +27,6 @@
         {{- with .Description -}}
           {{ . | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }} <a href="{{ $page.Permalink }}">[Read more<span class="sr-text"> from {{ $page.Title }}</span>...]</a>
         {{- else -}}
-        <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<span class="fas fa-tag fa-lg" aria-hidden></span><span class="sr-text">Tag:</span>{{ else }}<span class="fas fa-tags fa-lg" aria-hidden></span><span class="sr-text">Tags:</span>{{ end }}&nbsp;&nbsp;</li>
           {{ .Summary | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more<span class="sr-text"> from {{ $page.Title }}</span>...]</a>{{ end }}
         {{- end -}}
       </p>
