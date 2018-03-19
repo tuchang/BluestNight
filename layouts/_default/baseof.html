@@ -164,7 +164,7 @@
     <div id="site-container">
       <div id="site-header">
         <a href="{{ .Site.BaseURL }}">
-          <header class="small-text-left medium-text-left row">
+          <header class="small-text-{{ if $.Site.Params.thumbnail }}left{{ else }}center{{ end }} medium-text-left row">
             {{ with $.Site.Params.thumbnail -}}
               <img id="site-thumbnail" class="row-item" src="{{ . | absLangURL }}">
             {{ end -}}
