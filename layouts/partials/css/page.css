@@ -10,14 +10,6 @@
   background-color: {{ .Get "accent" }};
 }
 
-/* Apply hover animation on anything that changes text or background color */
-:hover, :focus, :active, .active {
-  -o-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-  -webkit-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-  -moz-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-  transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-}
-
 #site-container {
   margin: auto;
   background-color: {{ .Get "main_bg" }};
