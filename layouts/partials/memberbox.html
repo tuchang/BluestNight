@@ -13,7 +13,7 @@
         {{- .Bio | markdownify -}}
       </p>
       <div class="social row">
-        {{ partialCached "social-icons.html" (dict "Scratch" $.Scratch "Social" .social "IsMember" true) .Name }}
+        {{ partialCached "social-icons.html" (dict "Scratch" $.Scratch "Social" .social "IsMember" true "Name" .Name) .Name }}
       </div>
     </div>
 

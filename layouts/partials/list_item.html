@@ -15,7 +15,8 @@
       </a>
       {{- if not .Date.IsZero -}}
       <div class="metadata">
-        <span class="fa fa-clock-o"></span>
+        <span class="far fa-clock" aria-hidden></span>
+        <span class="sr-text">Date Published: </span>
         <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "January 02, 2006" }}</time>
       </div>
       {{- end -}}
@@ -24,9 +25,9 @@
       <p>
         {{- $page := . -}}
         {{- with .Description -}}
-          {{ . | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }} <a href="{{ $page.Permalink }}">[Read more...]</a>
+          {{ . | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }} <a href="{{ $page.Permalink }}">[Read more<span class="sr-text"> from {{ $page.Title }}</span>...]</a>
         {{- else -}}
-          {{ .Summary | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more...]</a>{{ end }}
+          {{ .Summary | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more<span class="sr-text"> from {{ $page.Title }}</span>...]</a>{{ end }}
         {{- end -}}
       </p>
     </div>

@@ -6,7 +6,7 @@
     {{else}}
     <span class="pagination button disabled">
     {{end}}
-      <span class="fa fa-chevron-circle-left"></span> Previous
+      <span class="fas fa-chevron-circle-left" aria-hidden></span> Previous <span class="sr-text">Page</span>
     {{ if .HasPrev }}</a>{{else}}</span>{{end}}
   </li>
   <li class="pagination-page-number small-left small-full medium-third">
@@ -18,7 +18,7 @@
     {{else}}
     <span class="pagination button disabled">
     {{end}}
-      Next <span class="fa fa-chevron-circle-right"></span>
+      Next <span class="sr-text">Page</span><span class="fas fa-chevron-circle-right" aria-hidden></span>
     {{ if .HasNext }}</a>{{ else }}</span>{{end}}
   </li>
 </ul>

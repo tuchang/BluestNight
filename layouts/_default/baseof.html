@@ -10,9 +10,12 @@
     <!-- <link rel="prefetch" is loads content the user may request *after* the page loads -->
     <link rel="preload" href="{{ "styles.css" | absLangURL }}" as="style" />
 
-    <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/" />
-    <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com/" />
-    {{ partial "async/css.html" (dict "URL" "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") }}
+    <link rel="dns-prefetch" href="https://use.fontawesome.com/" />
+    <link rel="preconnect" href="https://use.fontawesome.com/" />
+    {{ partial "async/css.html" (dict "URL" "https://use.fontawesome.com/releases/v5.0.8/css/solid.css" "Integrity" "sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" "CrossOrigin" "anonymous") }}
+    {{ partial "async/css.html" (dict "URL" "https://use.fontawesome.com/releases/v5.0.8/css/regular.css" "Integrity" "sha384-A/oR8MwZKeyJS+Y0tLZ16QIyje/AmPduwrvjeH6NLiLsp4cdE4uRJl8zobWXBm4u" "CrossOrigin" "anonymous") }}
+    {{ partial "async/css.html" (dict "URL" "https://use.fontawesome.com/releases/v5.0.8/css/brands.css" "Integrity" "sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" "CrossOrigin" "anonymous") }}
+    {{ partial "async/css.html" (dict "URL" "https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" "Integrity" "sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" "CrossOrigin" "anonymous") }}
 
     {{ if (in (string .Content) "class=\"katex-container\"") }}
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
@@ -152,6 +155,8 @@
     {{- else -}}
     <script>var _paq = undefined;</script>
     {{- end -}}
+
+    {{- partial "favicons.html" . -}}
   </head>
   <body itemscope itemtype="http://schema.org/WebPage">
     <div id="site-container">
@@ -168,7 +173,7 @@
           </header>
         </a>
         {{ if (.Site.Menus.main) -}}
-        <label for="menu-toggle-box"><div id="menu-toggle" class="main-nav no-select"><span><span class="fa fa-bars"></span> MENU</span></div></label>
+        <label for="menu-toggle-box"><div id="menu-toggle" class="main-nav no-select"><span><span class="fas fa-bars fa-fw" aria-hidden></span> MENU</span></div></label>
         <input type="checkbox" id="menu-toggle-box" class="hide"/>
         <nav id="main-nav">
           <ul class="menu">
@@ -229,9 +234,9 @@
         </div>
         {{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}
         {{- with (.Scratch.Get "matomo_host") -}}
-        <div class="small-full medium-third small-text-center medium-text-center small-right">
+        <div class="small-full medium-third small-text-center medium-text-center small-right row">
           <small>This site uses <a href="http://matomo.org/" rel="nofollow noreferrer">Matomo Analytics</a>.<br/>
-          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out</span></small>.
+          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out.</span></small>
         </div>
         {{- end -}}
         {{- end }}

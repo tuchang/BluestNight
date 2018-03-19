@@ -1,0 +1,12 @@
+{{- $scr := .Scratch -}}
+{{- range .Members -}}
+    {{- $scr.Add "membercount" 1 -}}
+{{- end -}}
+
+{{- if gt (.Scratch.Get "membercount") 1 -}}
+    {{- .Scratch.Set "word" "us" -}}
+{{- else -}}
+    {{- .Scratch.Set "word" "me" -}}
+{{- end -}}
+
+{{- (print (.Scratch.Get "word")) -}}
