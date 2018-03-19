@@ -9,144 +9,135 @@
 
 {{- .Scratch.Set "style" "square" -}}
 {{- with (default "" .Social.icon_style) -}}
-  {{- if (and (ne (lower .) "circle") (ne (lower .) "square")) -}}
-    {{- $scr.Set "style" "square" -}}
+  {{- if (or (eq (lower .) "circle") (eq (lower .) "square")) -}}
+    {{- $scr.Set "style" (lower .) -}}
   {{- end -}}
 {{- end -}}
-{{ $style := .Scratch.Get "style" }}
+{{- $style := .Scratch.Get "style" -}}
 
-{{ $members := $.Site.Data.members }}
+{{- $members := $.Site.Data.members -}}
+{{- if .IsMember -}}
+  {{- .Scratch.Set "pronoun" .Name -}}
+{{- else -}}
+  {{- $members := $.Site.Data.members -}}
+  {{- .Scratch.Set "pronoun" (partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr)) -}}
+{{- end -}}
+{{- $pronoun := .Scratch.Get "pronoun" -}}
 
-{{ with .Social.deviantart }}<a href="https://{{ . }}.deviantart.com" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on DeviantArt!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-deviantart fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.email }}<a href="mailto:{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Send {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} an email!">
-  <span class="fa-stack fa-xs">
-      <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-      <span class="fas fa-envelope fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.facebook }}<a href="https://facebook.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Facebook!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-facebook fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.github }}<a href="https://github.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Fork {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on GitHub!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-github fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.gitlab }}<a href="https://gitlab.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Fork {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on GitLab!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-gitlab fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.googleplus }}<a href="https://plus.google.com/{{ . }}"  class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Google Plus!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-google-plus-g fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.instagram }}<a href="https://instagram.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Instagram!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-instagram fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.linkedin }}<a href="https://linkedin.com/in/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on LinkedIn!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-linkedin-in fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.medium }}<a href="https://medium.com/@{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Medium!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-medium-m fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.pinterest }}<a href="https://pinterest.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Pinterest!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-pinterest-p fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.quora }}<a href="https://quora.com/profile/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Quora!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-quora fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.reddit }}<a href="https://www.reddit.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Reddit!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-reddit-alien fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.slack_org }}<a href="https://{{ . }}.slack.com" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Slack!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-slack-hash fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.soundcloud }}<a href="https://soundcloud.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Listen to {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Soundcloud!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-soundcloud fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.spotify }}<a href="https://open.spotify.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Spotify!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-spotify fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.steam }}<a href="https://steamcommunity.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Steam!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-steam-symbol fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.telegram }}<a href="http://t.me/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Telegram!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-telegram-plane fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.tumblr }}<a href="https://{{ . }}.tumblr.com/" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Tumblr!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-tumblr fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.twitch }}<a href="https://www.twitch.tv/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Twitch!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-twitch fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.twitter }}<a href="https://twitter.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Twitter!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-twitter fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.vimeo }}<a href="https://vimeo.com/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on Vimeo!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-vimeo-v fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
-{{ with .Social.youtube }}<a href="https://www.youtube.com/user/{{ . }}" class="row-item" {{ $attrs | safeHTMLAttr }} aria-title="Find {{ partialCached "utility/me_us.html" (dict "Members" $members  "Scratch" $scr) }} on YouTube!">
-  <span class="fa-stack fa-xs">
-    <span class="fas fa-{{ $style }} fa-stack-2x"></span>
-    <span class="fab fa-youtube fa-stack-1x fa-inverse"></span>
-  </span>
-</a>{{ end }}
+{{ with .Social.bitbucket -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-bitbucket" "User" . "URL" "https://bitbucket.org/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Fork %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "BitBucket") -}}
+{{- end }}
+
+{{ with .Social.deviantart -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-deviantart" "User" . "URL" "https://%USER%.deviantart.com/" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "DeviantArt") -}}
+{{- end }}
+
+{{ with .Social.email -}}
+  {{- partial "social-icon.html" (dict "Icon" "fas fa-envelope" "User" . "URL" "mailto:%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Send %PRONOUN% an email!" "Pronoun" $pronoun "Title" "Email") -}}
+{{- end }}
+
+{{ with .Social.etsy -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-etsy" "User" . "URL" "https://www.etsy.com/shop/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Etsy") -}}
+{{- end }}
+
+{{ with .Social.facebook -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-facebook-f" "User" . "URL" "https://facebook.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Facebook") -}}
+{{- end }}
+
+{{ with .Social.flickr -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-flickr" "User" . "URL" "https://www.flickr.com/photos/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Flickr") -}}
+{{- end }}
+
+{{ with .Social.github -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-github" "User" . "URL" "https://github.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Fork %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "GitHub") -}}
+{{- end }}
+
+{{ with .Social.gitlab -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-gitlab" "User" . "URL" "https://gitlab.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Fork %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "GitLab") -}}
+{{- end }}
+
+{{ with .Social.gitter -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-gitter" "User" . "URL" "https://gitter.im/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Chat with %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Gitter") -}}
+{{- end }}
+
+{{ with .Social.googleplus -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-google-plus-g" "User" . "URL" "https://plus.google.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Google Plus") -}}
+{{- end }}
+
+{{ with .Social.instagram -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-instagram" "User" . "URL" "https://instagram.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Instagram") -}}
+{{- end }}
+
+{{ with .Social.linkedin -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-linkedin-in" "User" . "URL" "https://linkedin.com/in/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "LinkedIn") -}}
+{{- end }}
+
+{{ with .Social.medium -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-medium-m" "User" . "URL" "https://medium.com/@%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Medium") -}}
+{{- end }}
+
+{{ with .Social.patreon -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-patreon" "User" . "URL" "https://patreon.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Support %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Patreon") -}}
+{{- end }}
+
+{{ with .Social.pinterest -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-pinterest-p" "User" . "URL" "https://pinterest.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Pinterest") -}}
+{{- end }}
+
+{{ with .Social.quora -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-quora" "User" . "URL" "https://quora.com/profile/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Quora") -}}
+{{- end }}
+
+{{ with .Social.reddit -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-reddit-alien" "User" . "URL" "https://www.reddit.com/user/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Reddit") -}}
+{{- end }}
+
+{{ with .Social.slack_org -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-slack-hash" "User" . "URL" "https://%USER%.slack.com" "Attrs" $attrs "Style" $style "ReaderText" "Join %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Slack") -}}
+{{- end }}
+
+{{ with .Social.snapchat -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-snapchat-ghost" "User" . "URL" "https://www.snapchat.com/add/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Join %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Snapchat") -}}
+{{- end }}
+
+{{ with .Social.soundcloud -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-soundcloud" "User" . "URL" "https://soundcloud.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Listen to %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "SoundCloud") -}}
+{{- end }}
+
+{{ with .Social.spotify -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-spotify" "User" . "URL" "https://open.spotify.com/user/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Spotify") -}}
+{{- end }}
+
+{{ with .Social.steam -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-steam-symbol" "User" . "URL" "https://steamcommunity.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Steam") -}}
+{{- end }}
+
+{{ with .Social.telegram -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-telegram-plane" "User" . "URL" "http://t.me/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Telegram") -}}
+{{- end }}
+
+{{ with .Social.tumblr -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-tumblr" "User" . "URL" "https://%USER%.tumblr.com/" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Tumblr") -}}
+{{- end }}
+
+{{ with .Social.twitch -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-twitch" "User" . "URL" "https://www.twitch.tv/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Twitch") -}}
+{{- end }}
+
+{{ with .Social.twitter -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-twitter" "User" . "URL" "https://twitter.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Twitter") -}}
+{{- end }}
+
+{{ with .Social.vimeo -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-vimeo-v" "User" . "URL" "https://vimeo.com/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Vimeo") -}}
+{{- end }}
+
+{{ with .Social.xbox -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-xbox" "User" . "URL" "https://account.xbox.com/en-us/Profile?GamerTag=%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Play with %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "Xbox") -}}
+{{- end }}
+
+
+{{ with .Social.youtube -}}
+  {{- partial "social-icon.html" (dict "Icon" "fab fa-youtube" "User" . "URL" "https://www.youtube.com/user/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Find %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "YouTube") -}}
+{{- end }}
 {{ end }}

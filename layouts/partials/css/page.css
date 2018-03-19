@@ -252,3 +252,9 @@ footer a {
 #social-icons .far:not(.fa-square):not(.fa-circle)::before {
   color: {{ .Get "alt_bg" }};
 }
+
+#social-icons .fab:not(.fa-square):not(.fa-circle):hover::before,
+#social-icons .fas:not(.fa-square):not(.fa-circle):hover::before,
+#social-icons .far:not(.fa-square):not(.fa-circle):hover::before {
+  color: {{ .Get "header_text" }};
+}
