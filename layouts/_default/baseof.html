@@ -125,6 +125,8 @@
     
     {{ partial "async/cssrelpreload.js.html" }}
 
+    {{ partial "inline_css.html" . }}
+
     {{ if .Content -}}
     {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
     {{ range $url := $urls -}}
