@@ -196,52 +196,63 @@
       </div>
       <footer class="row">
         <div class="small-full medium-{{ if .Scratch.Get "matomo_enable_optout" -}}third{{ else }}half{{ end }} small-text-center medium-text-left medium-left row">
-          <div class="small-full">
+          <div class="row-item small-full">
             <small>
               &copy; {{now.Format "2006"}}
               <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-                <span itemprop="name">{{ with $.Site.Copyright }}{{ . }}{{ else }}{{ with $.Site.Author}}{{ . }}{{ else }}{{ with $.Site.Params.Author}}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}{{ end }}</span>
+                <span itemprop="name">{{ with $.Site.Copyright }}{{ . }}{{ else }}{{ with $.Site.Author}}{{ . }}{{ else }}{{ with $.Site.Params.Author}}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}{{ end }}.</span>
               </span>
             </small>
           </div>
-          <div class="small-full row">
-            {{ $iubenda := and $.Site.Params.iubenda.id (or (not $.Site.Params.iubenda.pro.enable_pro) (not $.Site.Params.iubenda.pro.disable_footer_link)) }}
-            {{ if or ($.Site.GetPage "page" "privacy-policy.md") $iubenda }}
-            <div class="row-item small-only-full">
-              {{ if $iubenda }}
-                {{ partial "iubenda/button.html" . }}
-              {{ else }}
-                {{ with $.Site.GetPage "page" "privacy-policy.md" }}
+          {{ if not $.Site.Params.hide_attribution -}}
+          <div class="row-item small-full">
+            <small>
+              Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://bluestnight.shadow53.com">BluestNight</a>.
+            </small>
+          </div>
+          {{ end }}
+        </div>
+        <div class="small-full medium-third small-text-center medium-text-center small-right row">
+          {{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}
+          {{- with (.Scratch.Get "matomo_host") -}}
+          <div class="small-full small-text-center row">
+            <small>
+              <p>This site uses <a href="http://matomo.org/" rel="nofollow noreferrer">Matomo Analytics</a>.
+              <a href="#" id="toggle-tracking">Opt <span id="toggle-tracking-text">out</span>?</a></p>
+            </small>
+          </div>
+          {{- end -}}
+          {{- end }}
+          <div class="small-full small-text-center row">
+              {{ $iubenda := and $.Site.Params.iubenda.id (or (not $.Site.Params.iubenda.pro.enable_pro) (not $.Site.Params.iubenda.pro.disable_footer_link)) }}
+              {{ if or ($.Site.GetPage "page" "privacy-policy.md") $iubenda }}
+              <div class="row-item small-only-full">
+                {{ if $iubenda }}
+                  {{ partial "iubenda/button.html" . }}
+                {{ else }}
+                  {{ with $.Site.GetPage "page" "privacy-policy.md" }}
+                  <small>
+                    <a href="{{- ref . "privacy-policy.md" -}}">Privacy Policy</a>
+                  </small>
+                  {{ end }}
+                {{ end }}
+              </div>
+              {{ end }}
+              {{ if ($.Site.GetPage "page" "terms-of-use.md") }}
+              <div class="row-item small-only-full{{ if $iubenda }} iubenda-compat{{ end }}">
+                {{ with $.Site.GetPage "page" "terms-of-use.md" -}}
+                {{ if not $iubenda }}
                 <small>
-                  <a href="{{- ref . "privacy-policy.md" -}}">Privacy Policy</a>
+                {{ end }}
+                  <a href="{{- ref . "terms-of-use.md" -}}">Terms of Use</a>
+                {{ if not $iubenda }}
                 </small>
                 {{ end }}
+                {{ end }}
+              </div>
               {{ end }}
             </div>
-            {{ end }}
-            {{ if ($.Site.GetPage "page" "terms-of-use.md") }}
-            <div class="row-item small-only-full{{ if $iubenda }} iubenda-compat{{ end }}">
-              {{ with $.Site.GetPage "page" "terms-of-use.md" -}}
-              {{ if not $iubenda }}
-              <small>
-              {{ end }}
-                <a href="{{- ref . "terms-of-use.md" -}}">Terms of Use</a>
-              {{ if not $iubenda }}
-              </small>
-              {{ end }}
-              {{ end }}
-            </div>
-            {{ end }}
-          </div>
         </div>
-        {{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}
-        {{- with (.Scratch.Get "matomo_host") -}}
-        <div class="small-full medium-third small-text-center medium-text-center small-right row">
-          <small>This site uses <a href="http://matomo.org/" rel="nofollow noreferrer">Matomo Analytics</a>.<br/>
-          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out.</span></small>
-        </div>
-        {{- end -}}
-        {{- end }}
         <div id="social-icons" class="row small-full medium-{{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}third{{ else }}half{{ end }} small-text-center medium-text-right">
           {{- partial "social-icons.html" (dict "Scratch" .Scratch "Social" .Site.Params.social "IsMember" false) .Site.Params.social -}}
         </div>
