@@ -233,9 +233,9 @@
         </div>
         {{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}
         {{- with (.Scratch.Get "matomo_host") -}}
-        <div class="small-full medium-third small-text-center medium-text-center small-right">
+        <div class="small-full medium-third small-text-center medium-text-center small-right row">
           <small>This site uses <a href="http://matomo.org/" rel="nofollow noreferrer">Matomo Analytics</a>.<br/>
-          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out</span></small>.
+          <a href="#" id="toggle-tracking">Click here</a> to opt <span id="toggle-tracking-text">out.</span></small>
         </div>
         {{- end -}}
         {{- end }}
