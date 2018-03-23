@@ -8,26 +8,26 @@
         {{- if not .Date.IsZero -}}
         <span class="row-item">
           <span class="far fa-clock fa-sm fa-fw" aria-hidden></span>
-          <strong>Published:</strong>
+          <strong>{{ i18n "publishedLabel" | title }}:</strong>
           <time datetime="{{ .Date.Format "2006-01-02" }}" content="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "January 02, 2006" }}</time>
         </span>
         {{- end -}}
         {{- if and (not .Lastmod.IsZero) (ne .Lastmod .Date) -}}
         <span class="row-item">
           <span class="far fa-clock fa-sm fa-fw" aria-hidden></span>
-          <strong>Last Updated:</strong>
+          <strong>{{ (i18n "lastUpdatedLabel") | title }}:</strong>
           <time datetime="{{ .Lastmod.Format "2006-01-02" }}" content="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified">{{ .Lastmod.Format "January 02, 2006" }}</time>
         </span>
         {{- end -}}
         {{- if .Params.categories -}}
         <span class="row-item">
           <span class="fas fa-folder fa-sm fa-fw" aria-hidden></span>
-          <span class="sr-text">Categories: </span>
+          <span class="sr-text">{{ i18n "categoryLabel" (len .Params.categories) | title }}: </span>
           {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . | humanize | title }}</a>{{ end }}
         </span>
         {{- end -}}
         {{- if not .Params.hide_readingtime -}}
-        <span class="row-item"><span class="fas fa-book fa-sm fa-fw" aria-hidden></span> <strong>Estimated reading time:</strong> ~<span itemprop="timeRequired">{{ .ReadingTime }} minutes</span></span>
+        <span class="row-item"><span class="fas fa-book fa-sm fa-fw" aria-hidden></span> <strong>{{ i18n "estimatedTimeLabel" | title }}:</strong> ~<span itemprop="timeRequired">{{ i18n "estimatedTime" .ReadingTime }}</span></span>
         {{- end -}}
       </p>
       {{ end }}
@@ -49,7 +49,7 @@
     {{- if .Params.tags -}}
     <div id="post-tags">
     	<ul class="menu">
-        <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<span class="fas fa-tag fa-lg" aria-hidden></span><span class="sr-text">Tag:</span>{{ else }}<span class="fas fa-tags fa-lg" aria-hidden></span><span class="sr-text">Tags:</span>{{ end }}&nbsp;&nbsp;</li>
+        <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<span class="fas fa-tag fa-lg" aria-hidden></span><span class="sr-text">{{ i18n "tagLabel" (len $.Site.Taxonomies.tags) | title }}:</span>{{ else }}<span class="fas fa-tags fa-lg" aria-hidden></span><span class="sr-text">{{ i18n "tagLabel" (len $.Site.Taxonomies.tags) | title }}:</span>{{ end }}&nbsp;&nbsp;</li>
     		{{- range .Params.tags -}}
     		<li itemprop="relatedUrl" itemscope itemtype="http://schema.org/URL">
     			{{- $.Scratch.Set "link" "tags/" -}}

@@ -42,14 +42,14 @@
   <nav id="post-nav" class="row">
     {{- if ($.Scratch.Get "prev_link") -}}
     <a href="{{- $.Scratch.Get "prev_link" -}}" rel="prev" class="small-full medium-half pagination small-text-center medium-text-left">
-      <span class="fas fa-chevron-circle-left" aria-hidden></span><span class="sr-text">Previous Page:</span> {{ $.Scratch.Get "prev_title" -}}
+      <span class="fas fa-chevron-circle-left" aria-hidden></span><span class="sr-text">{{ i18n "previousPage" | title }}:</span> {{ $.Scratch.Get "prev_title" -}}
     </a>
     {{- else -}}
     <div class="small-hide medium-half"></div>
     {{- end -}}
     {{- if ($.Scratch.Get "next_link") -}}
     <a href="{{- $.Scratch.Get "next_link" -}}" rel="next" class="small-full medium-half pagination small-text-center medium-text-right">
-      <span class="sr-text">Next Page:</span>
+      <span class="sr-text">{{ i18n "nextPage" | title }}:</span>
       {{- $.Scratch.Get "next_title" }} <span class="fa fa-chevron-circle-right" aria-hidden></span>
     </a>
     {{- end -}}

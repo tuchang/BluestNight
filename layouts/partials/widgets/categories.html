@@ -4,7 +4,7 @@
 {{- end -}}
 <div class="widget">
 	<header>
-		<span class="widget-header"><span class="fas fa-folder fa-xs" aria-hidden></span> <a href="{{ "categories/" | absLangURL }}">Categories</a></span>
+		<span class="widget-header"><span class="fas fa-folder fa-xs" aria-hidden></span> <a href="{{ "categories/" | absLangURL }}">{{ i18n "categoryLabel" (len .Site.Taxonomies.categories) | title }}</a></span>
 	</header>
 	<ul>
 		{{- range $key, $val := first 5 .Site.Taxonomies.categories.ByCount -}}

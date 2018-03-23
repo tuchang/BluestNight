@@ -21,9 +21,9 @@
       <p>
         {{- $page := . -}}
         {{- with .Description -}}
-          {{ . | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }} <a href="{{ $page.Permalink }}">[Read more...]</a>
+          {{ . | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }} <a href="{{ $page.Permalink }}">[{{ i18n "readMore" ($page.Title | title) | safeHTML }}...]</a>
         {{- else -}}
-          {{ .Summary | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[Read more...]</a>{{ end }}
+          {{ .Summary | plainify | htmlUnescape | replaceRE "(?m)(\\s+)" " " }}{{ if .Truncated }} <a href="{{ $page.Permalink }}">[{{ i18n "readMore" ($page.Title | title) | safeHTML }}...]</a>{{ end }}
         {{- end -}}
       </p>
     </div>

@@ -9,13 +9,13 @@
         {{- if not .Lastmod.IsZero -}}
         <span class="row-item small-full">
           <span class="far fa-clock fa-sm fa-fw" aria-hidden></span>
-          <time datetime="{{ .Lastmod.Format "2006-01-02" }}" content="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified"><strong>Last Updated:</strong> {{ .Lastmod.Format "January 02, 2006" }}</time>
+          <time datetime="{{ .Lastmod.Format "2006-01-02" }}" content="{{ .Lastmod.Format "2006-01-02" }}" itemprop="dateModified"><strong>{{ i18n "lastUpdatedLabel" | title }}:</strong> {{ .Lastmod.Format "January 02, 2006" }}</time>
         </span>
         {{- end -}}
         {{- if .Params.categories -}}
         <span class="row-item">
           <span class="fas fa-folder fa-sm fa-fw" aria-hidden></span>
-          <span class="sr-test">Categories: </span>
+          <span class="sr-test">{{ i18n "categoryLabel" (len .Params.categories) | title }}: </span>
           {{ range $index, $category := .Params.categories }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categories/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . | humanize | title }}</a>{{ end }}
         </span>
         {{- end -}}
@@ -39,7 +39,7 @@
     {{- if .Params.tags -}}
     <div id="post-tags">
     	<ul class="menu">
-        <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<span class="fas fa-tag fa-lg" aria-hidden></span><span class="sr-text">Tag:</span>{{ else }}<span class="fas fa-tags fa-lg" aria-hidden></span><span class="sr-text">Tags:</span>{{ end }}&nbsp;&nbsp;</li>
+        <li class="row-item">{{if (eq (len $.Site.Taxonomies.tags) 1) }}<span class="fas fa-tag fa-lg" aria-hidden></span><span class="sr-text">{{ i18n "tagLabel" (len $.Site.Taxonomies.tags) | title }}:</span>{{ else }}<span class="fas fa-tags fa-lg" aria-hidden></span><span class="sr-text">{{ i18n "tagLabel" (len $.Site.Taxonomies.tags) | title }}:</span>{{ end }}&nbsp;&nbsp;</li>
     		{{- range .Params.tags -}}
     		<li itemprop="relatedUrl" itemscope itemtype="http://schema.org/URL">
     			{{- $.Scratch.Set "link" "/tags/" -}}

@@ -6,7 +6,7 @@
 {{- with .Site.Params.widgets.patreon -}}
 <div class="widget">
 	<header>
-		<span class="widget-header"><span class="fab fa-patreon fa-xs" aria-hidden></span> Support {{ partialCached "utility/me_us.html" (dict "Members" $.Site.Data.members "Scratch" $scr) | title }} On</span>
+		<span class="widget-header"><span class="fab fa-patreon fa-xs" aria-hidden></span> Support {{ i18n "ownerPronoun" (len ($scr.Get "sitevar").Data.members) | title }} On</span>
 	</header>
 	<a href="https://patreon.com/{{ . }}">
 		{{- if ($scr.Get "main_bg_is_dark") -}}

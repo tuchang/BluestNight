@@ -195,7 +195,7 @@
         {{ if (not .Site.Params.leftsidebar) }}{{ partial "sidebar.html" . }}{{ end }}
       </div>
       <footer class="row">
-        <div class="small-full medium-{{ if .Scratch.Get "matomo_enable_optout" -}}third{{ else }}half{{ end }} small-text-center medium-text-left medium-left row">
+        <div class="small-full medium-third small-text-center medium-text-left medium-left row">
           <div class="row-item small-full">
             <small>
               &copy; {{now.Format "2006"}}
@@ -207,7 +207,7 @@
           {{ if not $.Site.Params.hide_attribution -}}
           <div class="row-item small-full">
             <small>
-              Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://bluestnight.shadow53.com">BluestNight</a>.
+              {{ i18n "attribution" (dict "Hugo" "<a href=\"https://gohugo.io\">Hugo</a>" "BluestNight" "<a href=\"https://bluestnight.shadow53.com\">BluestNight</a>") | safeHTML }}
             </small>
           </div>
           {{ end }}
@@ -217,8 +217,7 @@
           {{- with (.Scratch.Get "matomo_host") -}}
           <div class="small-full small-text-center row">
             <small>
-              <p>This site uses <a href="http://matomo.org/" rel="nofollow noreferrer">Matomo Analytics</a>.
-              <a href="#" id="toggle-tracking">Opt <span id="toggle-tracking-text">out</span>?</a></p>
+              {{ i18n "matomoFooter" | safeHTML }}
             </small>
           </div>
           {{- end -}}
@@ -232,7 +231,7 @@
                 {{ else }}
                   {{ with $.Site.GetPage "page" "privacy-policy.md" }}
                   <small>
-                    <a href="{{- ref . "privacy-policy.md" -}}">Privacy Policy</a>
+                    <a href="{{- ref . "privacy-policy.md" -}}">{{ i18n "privacyPolicyLabel" | title }}</a>
                   </small>
                   {{ end }}
                 {{ end }}
@@ -244,7 +243,7 @@
                 {{ if not $iubenda }}
                 <small>
                 {{ end }}
-                  <a href="{{- ref . "terms-of-use.md" -}}">Terms of Use</a>
+                  <a href="{{- ref . "terms-of-use.md" -}}">{{ i18n "termsOfUseLabel" | title }}</a>
                 {{ if not $iubenda }}
                 </small>
                 {{ end }}
@@ -253,7 +252,7 @@
               {{ end }}
             </div>
         </div>
-        <div id="social-icons" class="row small-full medium-{{ if and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_optout") -}}third{{ else }}half{{ end }} small-text-center medium-text-right">
+        <div id="social-icons" class="row small-full medium-third small-text-center medium-text-right">
           {{- partial "social-icons.html" (dict "Scratch" .Scratch "Social" .Site.Params.social "IsMember" false) .Site.Params.social -}}
         </div>
       </footer>
@@ -301,7 +300,7 @@
       ajax('{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked')
       .then(function(data){
         console.log("Update: " + isTracked(data));
-        document.getElementById("toggle-tracking-text").innerText = isTracked(data) ? "out" : "in";
+        document.getElementById("toggle-tracking").innerText = isTracked(data) ? "{{ i18n "optOut" | title }}" : "{{ i18n "optIn" | title }}";
       });
     }
 
@@ -333,7 +332,7 @@
         banner: {
           slideDown: false,
           applyStyles: false,
-          content: "<p>This website or its third party tools use cookies, which are necessary to its functioning and required to achieve the purposes illustrated in the %{cookie_policy_link}. If you want to know more or withdraw your consent to all or some of the cookies, please refer to the cookie policy. By closing this banner, scrolling this page, clicking a link, or continuing to browse otherwise, you agree to the use of cookies.</p>"
+          content: "<p>{{ i18n "cookie_banner" }}</p>"
         }
       };
     </script>

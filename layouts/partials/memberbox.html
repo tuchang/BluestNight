@@ -7,7 +7,7 @@
     </div>
     <div class="row-item member-bio">
       <div>
-        <span class="widget-title">About {{ with .URL }}<a href="{{ . | absLangURL }}" {{ if $.IsAuthor }}rel="author"{{ end }}>{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
+        <span class="widget-title">{{ i18n "aboutLabel" | title }} {{ with .URL }}<a href="{{ . | absLangURL }}" {{ if $.IsAuthor }}rel="author"{{ end }}>{{ end }}<span itemprop="name">{{ .Name }}</span>{{ if .URL }}</a>{{ end }}</span>
       </div>
       <p itemprop="description">
         {{- .Bio | markdownify -}}
