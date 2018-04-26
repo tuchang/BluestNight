@@ -1,3 +1,24 @@
+PygmentsUseClasses = true
+enableRobotsTXT = true
+
+[params]
+
+[params.color]
+    page_background = "#000000"
+    main_background = "#050505"
+    alt_background = "#252525"
+    main_text = "#e2e2e2"
+    alt_text = "#e2e2e2"
+    accent = "#2c8cef"
+    accent_text = "#e2e2e2"
+
+[params.fonts]
+    header_style = "sans-serif"
+    body_style = "sans-serif"
+    print_header_style = "sans-serif"
+    print_body_style = "serif"
+
+
 [mediaTypes]
     [mediaTypes."netlify/headers"]
         suffix = ""
@@ -8,3 +29,6 @@
         basename = "_headers"
         mediaType = "netlify/headers"
         notAlternative = true
+
+[outputs]
+    home = ["HTML", "CSS"]
