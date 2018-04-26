@@ -1,6 +1,3 @@
-PygmentsUseClasses = true
-enableRobotsTXT = true
-
 [params]
 
 [params.color]
@@ -18,6 +15,24 @@ enableRobotsTXT = true
     print_header_style = "sans-serif"
     print_body_style = "serif"
 
+[params.sidebar]
+    [params.sidebar.patreon]
+        path = "widgets/patreon.html"
+        cache = true
+    [params.sidebar.search]
+        path = "widgets/search.html"
+        cache = true
+    [params.sidebar.recent]
+        path = "widgets/recent.html"
+    [params.sidebar.events]
+        path = "widgets/events.html"
+        cache = true
+    [params.sidebar.categories]
+        path = "widgets/categories.html"
+        cache = true
+    [params.sidebar.taglist]
+        path = "widgets/taglist.html"
+        cache = true
 
 [mediaTypes]
     [mediaTypes."netlify/headers"]
@@ -29,6 +44,3 @@ enableRobotsTXT = true
         basename = "_headers"
         mediaType = "netlify/headers"
         notAlternative = true
-
-[outputs]
-    home = ["HTML", "CSS"]

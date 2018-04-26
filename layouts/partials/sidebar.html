@@ -1,8 +1,54 @@
 <aside class="row-item small-full medium-third{{ if and (isset .Params "leftsidebar") (eq .Params.leftsidebar true) }} left{{ else }} right{{ end }}" itemscope itemtype="http://schema.org/WPSideBar">
-  {{ partialCached "widgets/patreon.html" . }}
-  {{ partialCached "widgets/search.html" . }}
-	{{ partial "widgets/recent.html" . }}
-  {{ partialCached "widgets/events.html" . }}
-	{{ partialCached "widgets/categories.html" . }}
-	{{ partialCached "widgets/taglist.html" . }}
+    {{- if $.Site.Params.sidebar.order -}}
+        {{- $.Scratch.Set "sidebar" (delimit $.Site.Params.sidebar.order ",") -}}
+    {{- else -}}
+        {{- $.Scratch.Set "sidebar" "" -}}
+        {{- if $.Site.Params.widgets.patreon -}}
+            {{- $.Scratch.Add "sidebar" "patreon," -}}
+        {{- end -}}
+        {{- if $.Site.Params.widgets.search -}}
+            {{- $.Scratch.Add "sidebar" "search," -}}
+        {{- end -}}
+        {{- if $.Site.Params.widgets.recent_articles -}}
+            {{- $.Scratch.Add "sidebar" "recent," -}}
+        {{- end -}}
+        {{- if $.Site.Params.widgets.upcoming_events -}}
+            {{- $.Scratch.Add "sidebar" "events," -}}
+        {{- end -}}
+        {{- if $.Site.Params.widgets.categories -}}
+            {{- $.Scratch.Add "sidebar" "categories," -}}
+        {{- end -}}
+        {{- if $.Site.Params.widgets.taglist -}}
+            {{- $.Scratch.Add "sidebar" "taglist," -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $widgets := (split (strings.TrimRight "," ($.Scratch.Get "sidebar")) ",") -}}
+
+    {{- $sidebar := $.Site.Params.sidebar -}}
+    {{- $bnsidebar := $.Site.Params.BluestNight.sidebar -}}
+    
+    {{- errorf "\n\n%#v\n\n%#v\n\n" $sidebar $.Site.Params.BluestNight -}}
+    
+    {{- $scope := . -}}
+    {{- range $name := $widgets -}}
+        {{- $sb := cond (or (eq nil $sidebar) (eq nil (index $sidebar $name))) $bnsidebar $sidebar -}}
+        {{- if eq nil $sb -}}
+            {{- errorf "Sidebar widget definitions are nil: %#v" $sb -}}
+        {{- else if eq nil (index $sb $name) -}}
+            {{- errorf "Could not find definition for widget: %s" $name -}}
+        {{- end -}}
+        
+        {{- $widget := index $sb $name -}}
+        {{- if $widget.cache -}}
+            {{- partialCached (string $widget.path) $scope -}}
+        {{- else -}}
+            {{- partial (string $widget.path) $scope -}}
+        {{- end -}}
+    {{- end -}}
+    {{/* partialCached "widgets/patreon.html" . */}}
+    {{/* partialCached "widgets/search.html" . */}}
+	{{/* partial "widgets/recent.html" . */}}
+    {{/* partialCached "widgets/events.html" . */}}
+	{{/* partialCached "widgets/categories.html" . */}}
+	{{/* partialCached "widgets/taglist.html" . */}}
 </aside>
