@@ -1,0 +1,8 @@
+{{- if and $.Site.Params.widgets $.Site.Params.widgets.search -}}
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
+<!-- Cache the scripts and JSON index -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js" as="script" />
+<link rel="preload" href="{{ "js/search.min.js" | absLangURL }}" as="script" />
+<link rel="preload" href="{{ "index.json" | absLangURL }}" as="fetch" />
+{{ end -}}

@@ -1,0 +1,8 @@
+{{ if (in (string .Content) "class=\"katex-container\"") }}
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
+
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js" as="script" />
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js" as="script" />
+{{ partial "async/css.html" (dict "URL" "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css") }}
+{{ end }}

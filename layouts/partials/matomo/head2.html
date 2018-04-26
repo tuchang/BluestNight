@@ -1,0 +1,21 @@
+{{ if and (not $.Site.IsServer) (and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_host")) -}}
+<script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="{{ (.Scratch.Get "matomo_host") }}/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '{{ .Scratch.Get "matomo_site_id" }}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+</script>
+{{ if (.Scratch.Get "matomo_track_nojs") -}}
+<noscript><p><img src="{{ (.Scratch.Get "matomo_host") }}/piwik.php?idsite={{ .Scratch.Get "matomo_site_id" }}&rec=1" style="border:0;" alt="" /></p></noscript>
+{{ end -}}
+{{- else -}}
+<script>var _paq = undefined;</script>
+{{- end -}}

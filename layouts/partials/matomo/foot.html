@@ -1,0 +1,47 @@
+{{- if and (not $.Site.IsServer) (and (.Scratch.Get "matomo_enable") (.Scratch.Get "matomo_enable_ajax")) -}}
+<script class="_iub_cs_activate-inline" type="text/{{ if $.Site.Params.iubenda.pro.prior_consent }}plain{{ else }}javascript{{ end }}">
+
+function ajax(url) {
+  return new Promise(function(resolve, reject){
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.withCredentials = true;
+    req.onload = function() {
+      var status = req.status;
+      if (status === 200)
+        resolve(req.response);
+      else
+        reject(status);
+    };
+    req.send(null);
+  });
+}
+
+function isTracked(data) {
+  var dom = (new DOMParser()).parseFromString(data, "application/xml");
+  return dom.getElementsByTagName("result")[0].innerHTML === "1"
+}
+
+function updateAnalyticsText() {
+  ajax('{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked')
+  .then(function(data){
+    console.log("Update: " + isTracked(data));
+    document.getElementById("toggle-tracking").innerText = isTracked(data) ? "{{ i18n "optOut" | title }}" : "{{ i18n "optIn" | title }}";
+  });
+}
+
+function toggleHandler(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  ajax("{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.isTracked")
+  .then(function(data) {
+    console.log("Toggle: " + isTracked(data));
+    ajax('{{ (.Scratch.Get "matomo_host") | safeJS }}/index.php?module=API&method=AjaxOptOut.do' + (isTracked(data) ? 'Ignore' : 'Track')).then(updateAnalyticsText);
+  });
+}
+
+document.getElementById("toggle-tracking").addEventListener("click", toggleHandler);
+window.addEventListener("load", updateAnalyticsText);
+</script>
+{{- end -}}
+
