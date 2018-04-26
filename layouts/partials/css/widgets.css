@@ -92,6 +92,8 @@
   background-color: {{ .Get "alt_bg" }};
   color: {{ .Get "alt_body_text" }};
   border: none;
+  /* Fixes Safari not applying styles */
+  -webkit-appearance: textfield;
 }
 
 #search-results {

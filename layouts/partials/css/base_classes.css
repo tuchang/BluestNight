@@ -71,6 +71,7 @@
   display: inline-block;
   background-color: {{ .Get "alt_bg" }};
   color: {{ .Get "alt_body_text" }};
+  outline-style: none;
 }
 
 .button.disabled, .button:disabled {
