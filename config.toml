@@ -1,0 +1,10 @@
+[mediaTypes]
+    [mediaTypes."netlify/headers"]
+        suffix = ""
+
+[outputFormats]
+    [outputFormats.NetlifyHeaders]
+        isPlainText = true
+        basename = "_headers"
+        mediaType = "netlify/headers"
+        notAlternative = true

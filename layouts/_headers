@@ -1,0 +1,36 @@
+{{- range $page := $.Site.AllPages -}}
+    {{- if and (not ($.Scratch.Get "katex")) (in (string $page.Content) "class=\"katex-container\"") -}}
+        {{- $.Scratch.Set "katex" true -}}
+    {{- end -}}
+    {{- if add (not ($.Scratch.Get "recaptcha")) (in (string $page.Content) "<div netlify-recaptcha>") -}}
+        {{- $.Scratch.Set "recaptcha" true -}}
+    {{- end -}}
+{{- end -}}
+{{- $muut := $.Site.Params.muut -}}
+{{- $lunr := $.Site.Params.widgets.search -}}
+{{- $katex := $.Scratch.Get "katex" -}}
+{{- $iubenda := $.Site.Params.iubenda.id -}}
+{{- $recaptcha := $.Scratch.Get "recaptcha" -}}
+{{- $matomo := cond $.Site.Params.matomo.enable $.Site.Params.matomo.host "" -}}
+{{- $matomo := cond (and (not $matomo) $.Site.Params.piwik.enable) $.Site.Params.piwik.host "" -}}
+
+/*
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+
+Content-Security-Policy: default-src 'self'; connect-src https:; style-src 'self' https://use.fontawesome.com/
+{{- if $muut }} https://cdn.muut.com/{{ end }} 'unsafe-inline'; font-src 'self'
+{{- if $muut }} https://cdn.muut.com/{{ end }} https://use.fontawesome.com/; img-src https:; script-src 'self' 'unsafe-inline'
+{{- if or $lunr $katex }} https://cdnjs.cloudflare.com{{ end }}
+{{- with $matomo }} {{ . }}{{ end }}
+{{- if $muut }} https://cdn.muut.com https://code.jquery.com{{ end }}
+{{- if $iubenda }} https://cdn.iubenda.com https://www.iubenda.com{{ end }}
+{{- if $recaptcha }} https://www.google.com/ https://www.gstatic.com/{{ end }} 'unsafe-eval'; child-src
+{{- if $iubenda }} https://cdn.iubenda.com{{ end }}
+{{- if $recaptcha }} https://www.google.com/{{ end }}
+
+/*.html
+Expires: 0
+
+/*.css /*.js /*.woff /*.woff2 /*.json /*.png /*.jpg /*.jpeg /*.gif
+Expires: max
