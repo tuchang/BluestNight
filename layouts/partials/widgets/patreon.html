@@ -2,8 +2,14 @@
 {{- partial "css/color/parse_color.css" .Scratch -}}
 {{- .Scratch.Set "label" "main_bg" -}}
 {{- partial "css/color/detect_light_or_dark.css" .Scratch -}}
-{{ $scr := .Scratch }}
-{{- with .Site.Params.widgets.patreon -}}
+{{- $scr := .Scratch -}}
+{{- with $.Site.Params.widgets.patreon -}}
+    {{- $scr.Set "patreon" . -}}
+{{- end -}}
+{{- with $.Site.Params.sidebar.patreon.username -}}
+    {{ $scr.Set "patreon" . }}
+{{- end -}}
+{{- with ($scr.Get "patreon") -}}
 <div class="widget">
 	<header>
 		<span class="widget-header"><span class="fab fa-patreon fa-xs" aria-hidden></span> Support {{ i18n "ownerPronoun" (len ($scr.Get "sitevar").Data.members) | title }} On</span>

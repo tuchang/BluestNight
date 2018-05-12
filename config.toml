@@ -1,6 +1,6 @@
 [params]
-
-[params.color]
+[params.BluestNight]
+[params.BluestNight.color]
     page_background = "#000000"
     main_background = "#050505"
     alt_background = "#252525"
@@ -9,28 +9,28 @@
     accent = "#2c8cef"
     accent_text = "#e2e2e2"
 
-[params.fonts]
+[params.BluestNight.fonts]
     header_style = "sans-serif"
     body_style = "sans-serif"
     print_header_style = "sans-serif"
     print_body_style = "serif"
 
-[params.sidebar]
-    [params.sidebar.patreon]
+[params.BluestNight.sidebar]
+    [params.BluestNight.sidebar.patreon]
         path = "widgets/patreon.html"
         cache = true
-    [params.sidebar.search]
+    [params.BluestNight.sidebar.search]
         path = "widgets/search.html"
         cache = true
-    [params.sidebar.recent]
+    [params.BluestNight.sidebar.recent]
         path = "widgets/recent.html"
-    [params.sidebar.events]
+    [params.BluestNight.sidebar.events]
         path = "widgets/events.html"
         cache = true
-    [params.sidebar.categories]
+    [params.BluestNight.sidebar.categories]
         path = "widgets/categories.html"
         cache = true
-    [params.sidebar.taglist]
+    [params.BluestNight.sidebar.taglist]
         path = "widgets/taglist.html"
         cache = true
 

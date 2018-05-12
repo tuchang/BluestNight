@@ -1,5 +1,5 @@
 <aside class="row-item small-full medium-third{{ if and (isset .Params "leftsidebar") (eq .Params.leftsidebar true) }} left{{ else }} right{{ end }}" itemscope itemtype="http://schema.org/WPSideBar">
-    {{- if $.Site.Params.sidebar.order -}}
+    {{- if and $.Site.Params.sidebar $.Site.Params.sidebar.order -}}
         {{- $.Scratch.Set "sidebar" (delimit $.Site.Params.sidebar.order ",") -}}
     {{- else -}}
         {{- $.Scratch.Set "sidebar" "" -}}
@@ -27,11 +27,18 @@
     {{- $sidebar := $.Site.Params.sidebar -}}
     {{- $bnsidebar := $.Site.Params.BluestNight.sidebar -}}
     
-    {{- errorf "\n\n%#v\n\n%#v\n\n" $sidebar $.Site.Params.BluestNight -}}
-    
     {{- $scope := . -}}
     {{- range $name := $widgets -}}
-        {{- $sb := cond (or (eq nil $sidebar) (eq nil (index $sidebar $name))) $bnsidebar $sidebar -}}
+        {{- if (not (isset $.Site.Params "sidebar")) -}}
+            {{- $.Scratch.Set "sidebar" $bnsidebar -}}
+        {{- else if (not (isset $.Site.Params.sidebar $name)) -}}
+            {{- $.Scratch.Set "sidebar" $bnsidebar -}}
+        {{- else if (not (isset (index $.Site.Params.sidebar $name) "path")) -}}
+            {{- $.Scratch.Set "sidebar" $bnsidebar -}}
+        {{- else -}}
+            {{- $.Scratch.Set "sidebar" $sidebar -}}
+        {{- end -}}
+        {{- $sb := ($.Scratch.Get "sidebar") -}}
         {{- if eq nil $sb -}}
             {{- errorf "Sidebar widget definitions are nil: %#v" $sb -}}
         {{- else if eq nil (index $sb $name) -}}
@@ -45,10 +52,4 @@
             {{- partial (string $widget.path) $scope -}}
         {{- end -}}
     {{- end -}}
-    {{/* partialCached "widgets/patreon.html" . */}}
-    {{/* partialCached "widgets/search.html" . */}}
-	{{/* partial "widgets/recent.html" . */}}
-    {{/* partialCached "widgets/events.html" . */}}
-	{{/* partialCached "widgets/categories.html" . */}}
-	{{/* partialCached "widgets/taglist.html" . */}}
 </aside>
