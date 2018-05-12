@@ -60,6 +60,17 @@
   color: {{ .Get "header_text" }};
 }
 
+/* Non-button elements that can be clicked for behavior */
+{{ .Set "label" "accent" -}}
+.clickable {
+  color: {{ partial "css/color/semi_transparent.css" . -}}
+}
+
+.clickable:hover {
+  color: {{ .Get "accent" }};
+  cursor: pointer;
+}
+
 .button {
   font-size: 0.8rem;
   margin: 0.2rem;
@@ -72,6 +83,7 @@
   background-color: {{ .Get "alt_bg" }};
   color: {{ .Get "alt_body_text" }};
   outline-style: none;
+  border: none;
 }
 
 .button.disabled, .button:disabled {
