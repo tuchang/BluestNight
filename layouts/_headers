@@ -25,8 +25,8 @@ Content-Security-Policy: default-src 'self'; connect-src https:; style-src 'self
 {{- with $matomo }} {{ . }}{{ end }}
 {{- if $muut }} https://cdn.muut.com https://code.jquery.com{{ end }}
 {{- if $iubenda }} https://cdn.iubenda.com https://www.iubenda.com{{ end }}
-{{- if $recaptcha }} https://www.google.com/ https://www.gstatic.com/{{ end }} 'unsafe-eval'; child-src
-{{- if $iubenda }} https://cdn.iubenda.com{{ end }}
+{{- if $recaptcha }} https://www.google.com/ https://www.gstatic.com/{{ end }} 'unsafe-eval'; frame-src
+{{- if $iubenda }} https://cdn.iubenda.com https://www.iubenda.com{{ end }}
 {{- if $recaptcha }} https://www.google.com/{{ end }}
 
 /*.html
