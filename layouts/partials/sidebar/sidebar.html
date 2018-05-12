@@ -1,0 +1,15 @@
+<aside class="row-item small-full medium-third{{ if and (isset .Params "leftsidebar") (eq .Params.leftsidebar true) }} left{{ else }} right{{ end }}" itemscope itemtype="http://schema.org/WPSideBar">
+    {{- partial "sidebar/widget_list.html" . -}}
+    {{- $sidebar := $.Site.Params.sidebar -}}
+    {{- $bnsidebar := $.Site.Params.BluestNight.sidebar -}}
+    {{- range $name := $.Scratch.Get "widget_list" -}}
+        {{- $.Scratch.Set "widget_name" $name -}}
+        {{- partial "sidebar/widget_definition.html" $ -}}
+        {{- $widget := $.Scratch.Get "widget" -}}
+        {{- if $widget.cache -}}
+            {{- partialCached (index $widget "path") $ -}}
+        {{- else -}}
+            {{- partial (index $widget "path") $ -}}
+        {{- end -}}
+    {{- end -}}
+</aside>

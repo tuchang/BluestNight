@@ -1,0 +1,23 @@
+{{ partial "matomo/foot.html" . }}
+{{ partial "iubenda/foot.html" . }}
+
+{{ if $.Site.Params.thumbnail -}}
+  {{- if $.Site.Params.no_minimize -}}
+  <script type="text/javascript" src="{{ "js/thumbnail.js" | absLangURL | safeHTMLAttr }}"></script>
+  {{ else }}
+  <script type="text/javascript" src="{{ "js/thumbnail.min.js" | absLangURL | safeHTMLAttr }}"></script>
+  {{ end }}
+{{- end -}}
+
+{{ partial "katex/foot.html" . }}
+
+{{- /* Include any code from sidebar widgets */ -}}
+{{- partial "sidebar/widget_list.html" . -}}
+{{- range $name := $.Scratch.Get "widget_list" -}}
+    {{- $.Scratch.Set "widget_name" $name -}}
+    {{- partial "sidebar/widget_definition.html" $ -}}
+    {{- $widget := $.Scratch.Get "widget" -}}
+    {{ with (index $widget "js") }}
+        {{- partial . $ -}}
+    {{- end -}}
+{{- end -}}

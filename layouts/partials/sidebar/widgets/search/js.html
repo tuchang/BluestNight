@@ -1,0 +1,15 @@
+{{- if $.Site.Params.widgets.search -}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.3/lunr.min.js"></script>
+{{ if $.Site.Params.no_minimize }}
+<script src="{{ "js/search.js" | absLangURL }}" type="text/javascript"></script>
+{{ else }}
+<script src="{{ "js/search.min.js" | absLangURL }}" type="text/javascript"></script>
+{{ end }}
+<script type="text/javascript">
+  var lunrIndex = undefined;
+  loadIndex("{{ "index.json" | absURL }}").then(
+    function(index) { lunrIndex = index; },
+    function(status){}
+  );
+</script>
+{{- end -}}

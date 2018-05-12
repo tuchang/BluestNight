@@ -1,4 +1,3 @@
-{{- if $.Site.Params.widgets.search -}}
 {{- range $format := (.Site.GetPage "home").OutputFormats -}}
   {{ if eq $format.Name "JSON" }}
     {{- $.Scratch.Set "found" true -}}
@@ -14,4 +13,3 @@
 	<input type="search" name="search" id="searchbox" placeholder="{{ i18n "searchLabel" | title }}..." autocomplete="off"/>
   <div id="search-results" class="hide"></div>
 </div>
-{{- end -}}

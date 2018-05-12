@@ -1,0 +1,59 @@
+<!-- Prematurely connect to the servers to save some milliseconds -->
+<!-- <link rel="preload"> is only in recent browser versions, so we keep "dns-prefetch" and "preconnect" -->
+<!-- <link rel="prefetch" is loads content the user may request *after* the page loads -->
+<link rel="preload" href="{{ "styles.css" | absLangURL }}" as="style" />
+
+{{ partial "fontawesome/head.html" . }}
+
+{{ partial "katex/head.html" . }}
+
+{{ partial "matomo/head.html" . }}
+
+{{ partial "iubenda/head.html" . }}
+
+{{ if $.Site.Params.hashover }}
+    {{ partial "async/css.html" (dict "URL" "hashover/comments.css" "Integrity" "sha384-Ef/dA/KgOCpRpXdcwlTPVy3C83rE6PlHVZqLyDYDPnegQm7qtWkEG5aTRGGaizd6") }}
+{{ end }}
+
+{{- .Scratch.Set "sitevar" $.Site -}}
+{{- partial "css/color/parse_color.css" .Scratch -}}
+{{- .Scratch.Set "label" "alt_bg" -}}
+{{- partial "css/color/detect_light_or_dark.css" .Scratch -}}
+
+{{- if ($.Scratch.Get "alt_bg_is_dark") -}}
+    {{- .Scratch.Set "code_css" (add (add "css/dark" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") }}
+{{- else -}}
+    {{- .Scratch.Set "code_css" (add (add "css/light" (cond ($.Site.Params.no_minimize | default false) "" ".min")) ".css") }}
+{{- end -}}
+
+{{ partial "async/css.html" (dict "URL" (.Scratch.Get "code_css")) }}
+
+{{ partial "async/css.html" (dict "URL" "styles.css") }}
+
+{{ partial "async/cssrelpreload.js.html" }}
+
+{{ partial "inline_css.html" . }}
+
+{{ if .Content -}}
+    {{ $urls := findRE "<img src=\"[^\"|\\\"]*\"" .Content -}}
+    {{ range $url := $urls -}}
+      {{ $url := (strings.TrimPrefix "<img src=\"" $url) -}}
+      {{ $url := strings.TrimSuffix "\"" $url -}}
+      <link rel="preload" href="{{ $url | htmlUnescape | safeHTML }}" as="image" />
+    {{ end -}}
+{{ end -}}
+
+{{ partial "matomo/head2.html" . }}
+
+{{- partial "favicons.html" . -}}
+
+{{- /* Include any code from sidebar widgets */ -}}
+{{- partial "sidebar/widget_list.html" . -}}
+{{- range $name := $.Scratch.Get "widget_list" -}}
+    {{- $.Scratch.Set "widget_name" $name -}}
+    {{- partial "sidebar/widget_definition.html" $ -}}
+    {{- $widget := $.Scratch.Get "widget" -}}
+    {{ with (index $widget "css") }}
+        {{- partial . $ -}}
+    {{- end -}}
+{{- end -}}
