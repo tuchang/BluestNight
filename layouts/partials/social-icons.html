@@ -15,8 +15,12 @@
 {{- end -}}
 {{- $style := .Scratch.Get "style" -}}
 
-
-{{- $pronoun := (i18n "ownerPronoun" (len ($scr.Get "sitevar").Data.members)) -}}
+{{- if .IsMember -}}
+    {{- .Scratch.Set "pronoun" .Name -}}
+{{- else -}}
+    {{- .Scratch.Set "pronoun" (i18n "ownerPronoun" (len ($scr.Get "sitevar").Data.members)) -}}
+{{- end -}}
+{{- $pronoun := .Scratch.Get "pronoun" -}}
 
 {{ with .Social.bitbucket -}}
   {{- partial "social-icon.html" (dict "Icon" "fab fa-bitbucket" "User" . "URL" "https://bitbucket.org/%USER%" "Attrs" $attrs "Style" $style "ReaderText" "Fork %PRONOUN% on %TITLE%!" "Pronoun" $pronoun "Title" "BitBucket") -}}
