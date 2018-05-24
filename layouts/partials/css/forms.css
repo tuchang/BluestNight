@@ -4,7 +4,7 @@
   max-width: 100%;
 }
 
-.form-container input:not([type="radio"]):not([type="checkbox"]), .form-container textarea, .form-container select {
+input:not([type="radio"]):not([type="checkbox"]), textarea, select {
   width: 100%;
   min-width: 100%;
   max-width: 100%;

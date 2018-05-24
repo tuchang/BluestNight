@@ -1,37 +1,43 @@
 .small-full {
   flex: 0 0 100%;
-  width: 100%;
-  max-width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
 }
 
 .small-half {
   flex: 0 0 50%;
-  width: 50%;
-  max-width: 50%;
+  width: 50% !important;
+  max-width: 50% !important;
+  min-width: 50% !important;
 }
 
 .small-quarter {
   flex: 0 0 25%;
-  width: 25%;
-  max-width: 25%;
+  width: 25% !important;
+  max-width: 25% !important;
+  min-width: 25% !important;
 }
 
 .small-third {
   flex: 0 0 33.33333%;
-  width: 33.33333%;
-  max-width: 33.33333%;
+  width: 33.33333% !important;
+  max-width: 33.33333% !important;
+  min-width: 33.33333% !important;
 }
 
 .small-two-thirds {
   flex: 0 0 66.66667%;
-  width: 66.66667%;
-  max-width: 66.66667%;
+  width: 66.66667% !important;
+  max-width: 66.66667% !important;
+  min-width: 66.66667% !important;
 }
 
 .small-three-quarters {
   flex: 0 0 75%;
-  width: 75%;
-  max-width: 75%;
+  width: 75% !important;
+  max-width: 75% !important;
+  min-width: 75% !important;
 }
 
 .small-text-left { text-align: left !important; justify-content: left; }
@@ -42,38 +48,44 @@
 
   .small-only-full {
     flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
   }
 
   .small-only-half {
     flex: 0 0 50%;
-    width: 50%;
-    max-width: 50%;
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 50% !important;
   }
 
   .small-only-quarter {
     flex: 0 0 25%;
-    width: 25%;
-    max-width: 25%;
+    width: 25% !important;
+    max-width: 25% !important;
+    min-width: 25% !important;
   }
 
   .small-only-third {
     flex: 0 0 33.33333%;
-    width: 33.33333%;
-    max-width: 33.33333%;
+    width: 33.33333% !important;
+    max-width: 33.33333% !important;
+    min-width: 33.33333% !important;
   }
 
   .small-only-two-thirds {
     flex: 0 0 66.66667%;
-    width: 66.66667%;
-    max-width: 66.66667%;
+    width: 66.66667% !important;
+    max-width: 66.66667% !important;
+    min-width: 66.66667% !important;
   }
 
   .small-only-three-quarters {
     flex: 0 0 75%;
-    width: 75%;
-    max-width: 75%;
+    width: 75% !important;
+    max-width: 75% !important;
+    min-width: 75% !important;
   }
 
   .small-only-text-left { text-align: left !important; justify-content: left !important; }
@@ -81,7 +93,7 @@
   .small-only-text-center { text-align: center !important; justify-content: center !important; }
 
   {{ if (not (eq (.Get "background_src_small") "")) }}
-  body { background-image: url("{{ .Get "background_src_small" }}"); }
+  body { background-image: url("{{ .Get "background_src_small" | relURL }}"); }
   {{ end }}
 
   #main-nav { display: none; }
@@ -143,7 +155,7 @@
   }
 
   #social-icons {
-    justify-content: center;
+    justify-content: center !important;
   }
 
   #sidebar-tags { justify-content: center; }
@@ -156,43 +168,49 @@
 /* Medium screens */
 @media only screen and (min-width: 640px) {
   {{ if (not (eq (.Get "background_src_medium") "")) }}
-  body { background-image: url("{{ .Get "background_src_medium" }}"); }
+  body { background-image: url("{{ .Get "background_src_medium" | relURL }}"); }
   {{ end }}
 
   .medium-full {
     flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
   }
 
   .medium-half {
     flex: 0 0 50%;
-    width: 50%;
-    max-width: 50%;
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 50% !important;
   }
 
   .medium-quarter {
     flex: 0 0 25%;
-    width: 25%;
-    max-width: 25%;
+    width: 25% !important;
+    max-width: 25% !important;
+    min-width: 25% !important;
   }
 
   .medium-third {
     flex: 0 0 33.33333%;
-    width: 33.33333%;
-    max-width: 33.33333%;
+    width: 33.33333% !important;
+    max-width: 33.33333% !important;
+    min-width: 33.33333% !important;
   }
 
   .medium-two-thirds {
     flex: 0 0 66.66667%;
-    width: 66.66667%;
-    max-width: 66.66667%;
+    width: 66.66667% !important;
+    max-width: 66.66667% !important;
+    min-width: 66.66667% !important;
   }
 
   .medium-three-quarters {
     flex: 0 0 75%;
-    width: 75%;
-    max-width: 75%;
+    width: 75% !important;
+    max-width: 75% !important;
+    min-width: 75% !important;
   }
 
   .medium-text-left { text-align: left !important; justify-content: left !important; }
@@ -266,50 +284,56 @@
 
   #main-nav > ul label { display: none; }
 
-  #social-icons { justify-content: flex-end; }
-  #sidebar-tags { justify-content: flex-start; }
+  #social-icons { justify-content: flex-end !important; }
+  #sidebar-tags { justify-content: flex-start !important; }
 }
 
 /* Large screens */
 @media only screen and (min-width: 1024px) {
   {{ if (not (eq (.Get "background_src") "")) }}
-  body { background-image: url("{{ .Get "background_src" }}"); }
+  body { background-image: url("{{ .Get "background_src" | relURL }}"); }
   {{ end }}
 
   .large-full {
     flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
   }
 
   .large-half {
     flex: 0 0 50%;
-    width: 50%;
-    max-width: 50%;
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 50% !important;
   }
 
   .large-quarter {
     flex: 0 0 25%;
-    width: 25%;
-    max-width: 25%;
+    width: 25% !important;
+    max-width: 25% !important;
+    min-width: 25% !important;
   }
 
   .large-third {
     flex:  0 0 33.33333%;
-    width: 33.33333%;
-    max-width: 33.33333%;
+    width: 33.33333% !important;
+    max-width: 33.33333% !important;
+    min-width: 33.33333% !important;
   }
 
   .large-two-thirds {
     flex: 0 0 66.66667%;
-    width: 66.66667%;
-    max-width: 66.66667%;
+    width: 66.66667% !important;
+    max-width: 66.66667% !important;
+    min-width: 66.66667% !important;
   }
 
   .large-three-quarters {
     flex: 0 0 75%;
-    width: 75%;
-    max-width: 75%;
+    width: 75% !important;
+    max-width: 75% !important;
+    min-width: 75% !important;
   }
 
   .large-text-left { text-align: left !important; justify-content: left !important; }

@@ -62,6 +62,19 @@
   color: {{ .Get "accent" }}
 }
 
+.memberbox .social .fab:not(.fa-square):not(.fa-circle)::before,
+.memberbox .social .fab:not(.fa-square):not(.fa-circle)::before,
+.memberbox .social .fab:not(.fa-square):not(.fa-circle)::before {
+  color: {{ .Get "main_bg" }};
+}
+
+.memberbox .social .fab:not(.fa-square):not(.fa-circle):hover::before,
+.memberbox .social .fab:not(.fa-square):not(.fa-circle):hover::before,
+.memberbox .social .fab:not(.fa-square):not(.fa-circle):hover::before {
+  color: {{ .Get "header_text" }};
+}
+
+
 /* Widgets -- Patreon */
   /* Contain the banner within the sidebar */
 #patreon-banner {
@@ -79,6 +92,8 @@
   background-color: {{ .Get "alt_bg" }};
   color: {{ .Get "alt_body_text" }};
   border: none;
+  /* Fixes Safari not applying styles */
+  -webkit-appearance: textfield;
 }
 
 #search-results {

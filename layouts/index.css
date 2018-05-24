@@ -45,18 +45,12 @@
   {{- partial "css/color/detect_light_or_dark.css" $scr -}}
 {{- end -}}
 
-{{- .Scratch.Set "css" (partial "css/reset.css" .Scratch) -}}
-{{- .Scratch.Add "css" (partial "css/base_classes.css" .Scratch) -}}
-{{- .Scratch.Add "css" (partial "css/screen_size.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/handwriting.css" .Scratch) -}}
-{{- .Scratch.Add "css" (partial "css/page.css" .Scratch) -}}
-{{- .Scratch.Add "css" (partial "css/navigation.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/fonts.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/single.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/forms.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/table.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/list.css" .Scratch) -}}
-{{- .Scratch.Add "css" (partial "css/widgets.css" .Scratch) -}}
 {{- if ($.Site.Params.hashover) -}}{{- .Scratch.Add "css" (partial "css/hashover.css" .Scratch) -}}{{- end -}}
 {{- .Scratch.Add "css" (partial "css/print.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/figure.css" .Scratch) -}}

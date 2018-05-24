@@ -10,14 +10,6 @@
   background-color: {{ .Get "accent" }};
 }
 
-/* Apply hover animation on anything that changes text or background color */
-:hover, :focus, :active, .active {
-  -o-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-  -webkit-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-  -moz-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-  transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-}
-
 #site-container {
   margin: auto;
   background-color: {{ .Get "main_bg" }};
@@ -110,6 +102,7 @@ header a:link, header a:visited, #site-header header a:hover, #site-header heade
 
 :not(pre) > code {
   {{ .Set "label" "accent" -}}
+  {{ .Set "transparent_alpha" 0.2 -}}
   background-color: {{ trim (partial "css/color/semi_transparent.css" .) " \n" }};
   color: {{ .Get "accent" }};
   overflow-wrap: break-word;
@@ -174,6 +167,7 @@ main header a:hover, main header a:active, main header a:focus {
   padding: 1rem;
   margin-bottom: 0.5rem;
   max-width: 100%;
+  width: 100%;
 }
 
 .alert a, .alert a:hover, .alert code {
@@ -230,6 +224,8 @@ footer a {
   color: {{ .Get "accent" }};
 }
 
+footer .row { align-items: center; }
+
 #social-icons {
   font-size: 1.5rem;
 }
@@ -244,4 +240,16 @@ footer a {
 
 #social-icons a:hover {
   color: {{ .Get "accent" }};
+}
+
+#social-icons .fab:not(.fa-square):not(.fa-circle)::before,
+#social-icons .fas:not(.fa-square):not(.fa-circle)::before,
+#social-icons .far:not(.fa-square):not(.fa-circle)::before {
+  color: {{ .Get "alt_bg" }};
+}
+
+#social-icons .fab:not(.fa-square):not(.fa-circle):hover::before,
+#social-icons .fas:not(.fa-square):not(.fa-circle):hover::before,
+#social-icons .far:not(.fa-square):not(.fa-circle):hover::before {
+  color: {{ .Get "header_text" }};
 }
