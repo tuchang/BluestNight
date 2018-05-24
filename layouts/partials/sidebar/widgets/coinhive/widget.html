@@ -3,6 +3,11 @@
         <span class="widget-header"><span class="fab fa-monero"></span> Keep the Lights On</span>
     </header>
     <div class="row">
+        {{ with $.Site.Params.sidebar.coinhive.wallet_address -}}
+        <span class="row-item small-full small-text-center">Prefer to donate Monero directly?</span>
+        <input type="text" id="monero-wallet-address" value="{{ . }}" class="row-item small-three-quarters" readonly/>
+        <button id="copy-monero-wallet" class="row-item small-quarter button fas fa-copy" data-clipboard-target="#monero-wallet-address"></button>
+        {{- end }}
         <button id="coinhive-start-stop" class="button row-item small-full"><span class="fas fa-play"></span></button>
         <div class="row-item small-half">
             <span class="widget-header-small">Hash/Sec.</span>

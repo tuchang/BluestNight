@@ -1,3 +1,6 @@
 <script src="https://authedmine.com/lib/authedmine.min.js" defer></script>
 <script> coinHiveKey = "{{ $.Site.Params.sidebar.coinhive.key }}" </script>
+{{ if $.Site.Params.sidebar.coinhive.wallet_address -}}
+<script src="{{ partial "utility/make_link.html" (cond (eq true .Site.Params.no_minimize) "/js/clipboard.js" "/js/clipboard.min.js") }}" defer></script>
+{{- end }}
 <script src="{{ partial "utility/make_link.html" (cond (eq true .Site.Params.no_minimize) "/js/coinhive.js" "/js/coinhive.min.js") }}" defer></script>
