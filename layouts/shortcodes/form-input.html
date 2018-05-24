@@ -59,7 +59,7 @@
     {{- else if (in $types $type) -}}
       <input type="{{ $type }}" id="{{ $id }}" name="{{ $id }}"{{ ($.Scratch.Get "optional-tags" | safeHTMLAttr) }} />
     {{- else -}}
-      {{ errorf "If you are seeing this, please let the developer know at https://gitlab.com/BluestNight/BluestNight/issues\nInvalid input type \"%s\"" $type }}
+      {{ errorf "If you are seeing this, please let the developer know at https://dev.shadow53.com/maniphest/\nInvalid input type \"%s\"" $type }}
     {{- end -}}
   </div>
 </div>
