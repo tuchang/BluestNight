@@ -19,10 +19,6 @@
     [params.BluestNight.sidebar.categories]
         path = "sidebar/widgets/categories/widget.html"
         cache = true
-    [params.BluestNight.sidebar.coinhive]
-        path = "sidebar/widgets/coinhive/widget.html"
-        js = "sidebar/widgets/coinhive/js.html"
-        cache = true
     [params.BluestNight.sidebar.events]
         path = "sidebar/widgets/events/widget.html"
         cache = true
