@@ -53,27 +53,26 @@
   min-width: 90px; /* Fixes issue where width is not respected */
 }
 
-.memberbox .social a {
+.social a, .social .clickable {
   font-size: 1.5rem;
   color: {{ .Get "body_text" }};
 }
 
-.memberbox .social a:hover {
-  color: {{ .Get "accent" }}
+.social a:hover, .social .clickable:hover {
+  color: {{ .Get "accent" }} !important;
 }
 
-.memberbox .social .fab:not(.fa-square):not(.fa-circle)::before,
-.memberbox .social .fab:not(.fa-square):not(.fa-circle)::before,
-.memberbox .social .fab:not(.fa-square):not(.fa-circle)::before {
+.social .fab:not(.fa-square):not(.fa-circle)::before,
+.social .fab:not(.fa-square):not(.fa-circle)::before,
+.social .fab:not(.fa-square):not(.fa-circle)::before {
   color: {{ .Get "main_bg" }};
 }
 
-.memberbox .social .fab:not(.fa-square):not(.fa-circle):hover::before,
-.memberbox .social .fab:not(.fa-square):not(.fa-circle):hover::before,
-.memberbox .social .fab:not(.fa-square):not(.fa-circle):hover::before {
+.social .fab:not(.fa-square):not(.fa-circle):hover::before,
+.social .fab:not(.fa-square):not(.fa-circle):hover::before,
+.social .fab:not(.fa-square):not(.fa-circle):hover::before {
   color: {{ .Get "header_text" }};
 }
-
 
 /* Widgets -- Patreon */
   /* Contain the banner within the sidebar */
