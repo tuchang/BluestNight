@@ -21,4 +21,8 @@
         {{- $.Scratch.Add "sidebar" "taglist," -}}
     {{- end -}}
 {{- end -}}
-{{- $.Scratch.Set "widget_list" (split (strings.TrimRight "," ($.Scratch.Get "sidebar")) ",") -}}
+{{- if eq "" ($.Scratch.Get "sidebar") -}}
+    {{- errorf "No sidebar widgets are enabled. If this was intentional, set params.sidebar.disabled to true" -}}
+{{- else -}}
+    {{- $.Scratch.Set "widget_list" (split (strings.TrimRight "," ($.Scratch.Get "sidebar")) ",") -}}
+{{- end -}}
