@@ -10,7 +10,7 @@
 		  {{- $.Scratch.Set "link" "tags/" -}}
 			{{- $.Scratch.Add "link" $val.Name -}}
 			<a class="button row-item" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name | humanize | lower }}">
-				{{ $val.Name | humanize | lower }}{{ if $.Site.Params.widgets.tags_counter }} ({{ $val.Count }}){{ end }}
+				{{ $val.Name | humanize | lower }}{{ if $.Site.Params.sidebar.taglist.count }} ({{ $val.Count }}){{ end }}
 			</a>
 		{{- end -}}
 	</div>

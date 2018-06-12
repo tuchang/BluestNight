@@ -7,7 +7,7 @@
     {{- end -}}
 {{- end -}}
 {{- $muut := $.Site.Params.muut -}}
-{{- $lunr := $.Site.Params.widgets.search -}}
+{{- $lunr := in $.Site.Params.sidebar.order "search" -}}
 {{- $katex := $.Scratch.Get "katex" -}}
 {{- $iubenda := $.Site.Params.iubenda.id -}}
 {{- $recaptcha := $.Scratch.Get "recaptcha" -}}

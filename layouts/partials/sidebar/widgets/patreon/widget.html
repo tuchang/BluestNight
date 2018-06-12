@@ -3,9 +3,6 @@
 {{- .Scratch.Set "label" "main_bg" -}}
 {{- partial "css/color/detect_light_or_dark.css" .Scratch -}}
 {{- $scr := .Scratch -}}
-{{- with $.Site.Params.widgets.patreon -}}
-    {{- $scr.Set "patreon" . -}}
-{{- end -}}
 {{- with $.Site.Params.sidebar.patreon.username -}}
     {{ $scr.Set "patreon" . }}
 {{- end -}}
@@ -20,7 +17,7 @@
 		{{- else -}}
 			{{- $scr.Set "patreon_banner_url" "images/patreon/patreon_black.svg" -}}
 		{{- end -}}
-		{{- with $.Site.Params.widgets.patreon_banner -}}
+		{{- with $.Site.Params.sidebar.patreon.banner -}}
 		  {{- if and (ne (len (findRE "^http(s?)://" .)) 1) -}}
 				{{- if not (fileExists (add "static/" .)) -}}
 					{{- if not (fileExists (add "content/" .)) -}}

@@ -1,28 +1,5 @@
-{{- if and $.Site.Params.sidebar $.Site.Params.sidebar.order -}}
-    {{- $.Scratch.Set "sidebar" (delimit $.Site.Params.sidebar.order ",") -}}
-{{- else -}}
-    {{- $.Scratch.Set "sidebar" "" -}}
-    {{- if $.Site.Params.widgets.patreon -}}
-        {{- $.Scratch.Add "sidebar" "patreon," -}}
-    {{- end -}}
-    {{- if $.Site.Params.widgets.search -}}
-        {{- $.Scratch.Add "sidebar" "search," -}}
-    {{- end -}}
-    {{- if $.Site.Params.widgets.recent_articles -}}
-        {{- $.Scratch.Add "sidebar" "recent," -}}
-    {{- end -}}
-    {{- if $.Site.Params.widgets.upcoming_events -}}
-        {{- $.Scratch.Add "sidebar" "events," -}}
-    {{- end -}}
-    {{- if $.Site.Params.widgets.categories -}}
-        {{- $.Scratch.Add "sidebar" "categories," -}}
-    {{- end -}}
-    {{- if $.Site.Params.widgets.taglist -}}
-        {{- $.Scratch.Add "sidebar" "taglist," -}}
-    {{- end -}}
-{{- end -}}
-{{- if eq "" ($.Scratch.Get "sidebar") -}}
+{{- if or (not $.Site.Params.sidebar) (not $.Site.Params.sidebar.order) -}}
     {{- errorf "No sidebar widgets are enabled. If this was intentional, set params.sidebar.disabled to true" -}}
 {{- else -}}
-    {{- $.Scratch.Set "widget_list" (split (strings.TrimRight "," ($.Scratch.Get "sidebar")) ",") -}}
+    {{- $.Scratch.Set "widget_list" $.Site.Params.sidebar.order -}}
 {{- end -}}
