@@ -32,6 +32,17 @@
 
 {{ partial "async/cssrelpreload.js.html" }}
 
+{{- /* Include any code from sidebar widgets */ -}}
+{{- partial "sidebar/widget_list.html" . -}}
+{{- range $name := $.Scratch.Get "widget_list" -}}
+    {{- $.Scratch.Set "widget_name" $name -}}
+    {{- partial "sidebar/widget_definition.html" $ -}}
+    {{- $widget := $.Scratch.Get "widget" -}}
+    {{ with (index $widget "css") }}
+        {{- partial . $ -}}
+    {{- end -}}
+{{- end -}}
+
 {{ partial "inline_css.html" . }}
 
 {{ if .Content -}}
@@ -46,14 +57,3 @@
 {{ partial "matomo/head2.html" . }}
 
 {{- partial "favicons.html" . -}}
-
-{{- /* Include any code from sidebar widgets */ -}}
-{{- partial "sidebar/widget_list.html" . -}}
-{{- range $name := $.Scratch.Get "widget_list" -}}
-    {{- $.Scratch.Set "widget_name" $name -}}
-    {{- partial "sidebar/widget_definition.html" $ -}}
-    {{- $widget := $.Scratch.Get "widget" -}}
-    {{ with (index $widget "css") }}
-        {{- partial . $ -}}
-    {{- end -}}
-{{- end -}}

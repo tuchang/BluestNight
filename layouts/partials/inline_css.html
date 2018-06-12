@@ -1,4 +1,5 @@
 <style>
+    {{- partial "sidebar/widget_list.html" . -}}
     {{- partial "css/parse_config.css" . -}}
     {{- .Scratch.Set "css" (partial "css/inline/reset.css" .Scratch) -}}
     {{- .Scratch.Add "css" (partial "css/inline/base_classes.css" .Scratch) -}}
@@ -10,5 +11,17 @@
         {{- .Scratch.Get "css" | safeCSS -}}
     {{- else -}}
         {{- partial "css/minify.css" (.Scratch.Get "css") | safeCSS -}}
+    {{- end -}}
+    {{- range $name := $.Scratch.Get "widget_list" -}}
+        {{- $.Scratch.Set "widget_name" $name -}}
+        {{- partial "sidebar/widget_definition.html" $ -}}
+        {{- $widget := $.Scratch.Get "widget" -}}
+        {{ with (index $widget "css_inline") }}
+            {{- if $.Site.Params.no_minimize -}}
+                {{- partial . $ | safeCSS -}}
+            {{- else -}}
+                {{- partial "css/minify.css" (partial . $) | safeCSS -}}
+            {{- end -}}
+        {{- end -}}
     {{- end -}}
 </style>
