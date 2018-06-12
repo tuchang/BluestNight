@@ -32,6 +32,10 @@
         js = "sidebar/widgets/search/js.html"
         css = "sidebar/widgets/search/css.html"
         cache = true
+    [params.BluestNight.sidebar.support]
+        path = "sidebar/widgets/support/widget.html"
+        js = "sidebar/widgets/support/js.html"
+        cache = true
     [params.BluestNight.sidebar.taglist]
         path = "sidebar/widgets/taglist/widget.html"
         cache = true

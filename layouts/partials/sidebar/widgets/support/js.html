@@ -1,0 +1,4 @@
+{{ if $.Site.Params.sidebar.support.monero -}}
+<script src="{{ partial "utility/make_link.html" (cond (eq true .Site.Params.no_minimize) "/js/clipboard.js" "/js/clipboard.min.js") }}" defer></script>
+{{- end }}
+<script src="{{ partial "utility/make_link.html" (cond (eq true .Site.Params.no_minimize) "/js/support-sidebar.js" "/js/support-sidebar.min.js") }}" defer></script>
