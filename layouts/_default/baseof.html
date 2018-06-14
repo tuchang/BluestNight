@@ -54,9 +54,14 @@
             <p>{{ . | markdownify }}</p>
           </div>
         {{ end }}
-        {{ if .Site.Params.leftsidebar }}{{ partial "sidebar/sidebar.html" . }}{{ end }}
+        {{ $sbdisable := or .Site.Params.sidebar.disable .Params.sidebar.disable }}
+        {{ $sbalign := default "right" .Site.Params.sidebar.align }}
+        {{ if and (not $sbdisable) (and (ne $sbalign "left") (ne $sbalign "right")) }}
+            {{- errorf "\"%v\" is not a valid value for params.sidebar.align. Valid values are \"left\", \"right\", or \"\" (defaults to \"right\")" -}}
+        {{ end }}
+        {{ if and (not $sbdisable) (eq $sbalign "left") }}{{ partial "sidebar/sidebar.html" . }}{{ end }}
         {{ block "main_content" . }}{{ end }}
-        {{ if (not .Site.Params.leftsidebar) }}{{ partial "sidebar/sidebar.html" . }}{{ end }}
+        {{ if and (not $sbdisable) (eq $sbalign "right") }}{{ partial "sidebar/sidebar.html" . }}{{ end }}
       </div>
       <footer class="row">
         <div class="small-full medium-third small-text-center medium-text-left medium-left row">
