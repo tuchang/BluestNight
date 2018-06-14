@@ -54,9 +54,10 @@
     color: inherit;
   }
   .alert {
-    border-color: #000000;
+    border-color: #000000 !important;
     background: inherit;
     color: inherit;
+    page-break-inside: avoid;
   }
   #TableOfContents {
     background: inherit !important;
