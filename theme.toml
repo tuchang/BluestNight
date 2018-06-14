@@ -4,7 +4,7 @@ licenselink = "https://dev.shadow53.com/source/BluestNight/browse/master/LICENSE
 description = "A featureful, configurable, yet sleek dark theme for Hugo."
 homepage = "https://bluestnight.com/"
 tags = ["Blog", "Contact Form", "Custom Colors", "Dark", "Error Validation", "Font Awesome", "Netlify", "Responsive", "Syntax Highlighting", "Search", "Widgets", "Writing"]
-min_version = 0.39
+min_version = 0.40.3
 
 [author]
   name = "Michael Bryant"
