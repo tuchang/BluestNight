@@ -24,4 +24,16 @@
             {{- end -}}
         {{- end -}}
     {{- end -}}
+    {{- /* Include any code from shortcodes */ -}}
+    {{- partial "shortcodes/get_list.html" $ -}}
+    {{- range $name := ($.Scratch.Get "shortcodes") -}}
+        {{- if $.Page.HasShortcode $name -}}
+            {{- $.Scratch.Set "shortcode_name" $name -}}
+            {{- partial "shortcodes/definition.html" $ -}}
+            {{- $shortcode := $.Scratch.Get "shortcode" -}}
+            {{- with $shortcode.css_extern -}}
+                {{- partial . $ -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
 </style>

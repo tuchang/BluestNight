@@ -56,6 +56,24 @@
 {{- .Scratch.Add "css" (partial "css/figure.css" .Scratch) -}}
 {{- .Scratch.Add "css" (partial "css/iubenda.css" .Scratch) -}}
 
+{{- /* Add any CSS from shortcodes */ -}}
+{{- partial "shortcodes/get_list.html" $ -}}
+{{- range $name := ($.Scratch.Get "shortcodes") -}}
+    {{- $.Scratch.Set "page_has_shortcode" false -}}
+    {{- range $page := $.Site.Pages -}}
+        {{- if and (ne ($.Scratch.Get "page_has_shortcode") true) ($page.HasShortcode $name) -}}
+            {{- $.Scratch.Set "page_has_shortcode" true -}}
+            {{- $.Scratch.Set "shortcode_name" $name -}}
+            {{- partial "shortcodes/definition.html" $ -}}
+            {{- $shortcode := $.Scratch.Get "shortcode" -}}
+            {{- with (index $shortcode "css") -}}
+                {{- $.Scratch.Add "css" (partial . $.Scratch) -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+
 {{- if $.Site.Params.no_minimize -}}
 {{- .Scratch.Get "css" -}}
 {{- else -}}

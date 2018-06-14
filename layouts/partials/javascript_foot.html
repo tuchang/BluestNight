@@ -9,15 +9,15 @@
   {{ end }}
 {{- end -}}
 
-{{ partial "katex/foot.html" . }}
-
-{{- /* Include any code from sidebar widgets */ -}}
-{{- partial "sidebar/widget_list.html" . -}}
-{{- range $name := $.Scratch.Get "widget_list" -}}
-    {{- $.Scratch.Set "widget_name" $name -}}
-    {{- partial "sidebar/widget_definition.html" $ -}}
-    {{- $widget := $.Scratch.Get "widget" -}}
-    {{ with (index $widget "js") }}
-        {{- partial . $ -}}
+{{- /* Include any code from shortcodes */ -}}
+{{- partial "shortcodes/get_list.html" $ -}}
+{{- range $name := ($.Scratch.Get "shortcodes") -}}
+    {{- if $.Page.HasShortcode $name -}}
+        {{- $.Scratch.Set "shortcode_name" $name -}}
+        {{- partial "shortcodes/definition.html" $ -}}
+        {{- $shortcode := $.Scratch.Get "shortcode" -}}
+        {{- with $shortcode.js -}}
+            {{- partial . $ -}}
+        {{- end -}}
     {{- end -}}
 {{- end -}}

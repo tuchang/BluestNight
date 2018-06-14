@@ -15,6 +15,13 @@
     print_header_style = "sans-serif"
     print_body_style = "serif"
 
+[params.BluestNight.shortcodes]
+    [params.BluestNight.shortcodes.katex]
+        css = "shortcodes/katex/head.html"
+        js  = "shortcodes/katex/foot.html"
+    [params.BluestNight.shortcodes.tabgroup]
+        js  = "shortcodes/tabgroup/js.html"
+
 [params.BluestNight.sidebar]
     [params.BluestNight.sidebar.categories]
         path = "sidebar/widgets/categories/widget.html"

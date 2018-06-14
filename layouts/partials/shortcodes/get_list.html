@@ -1,0 +1,9 @@
+{{- range $name, $ignore := $.Site.Params.BluestNight.shortcodes -}}
+    {{- $.Scratch.Add "shortcode_list" $name -}}
+    {{- $.Scratch.Add "shortcode_list" "," -}}
+{{- end -}}
+{{- range $name, $ignore := $.Site.Params.shortcodes -}}
+    {{- $.Scratch.Add "shortcode_list" $name -}}
+    {{- $.Scratch.Add "shortcode_list" "," -}}
+{{- end -}}
+{{- .Scratch.Set "shortcodes" (split (strings.TrimSuffix "," ($.Scratch.Get "shortcode_list")) ",") -}}
