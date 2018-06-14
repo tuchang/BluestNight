@@ -1,0 +1,9 @@
+.tabs > .menu > li, .tabs > .menu > li > span.clickable {
+    background-color: {{ .Get "alt_bg" }};
+    color: {{ .Get "alt_body_text" }};
+}
+
+.tab > .menu > li.active, .tab > .menu > li.active > span.clickable {
+    background-color: {{ .Get "accent" }};
+    color: {{ .Get "header_text" }};
+}

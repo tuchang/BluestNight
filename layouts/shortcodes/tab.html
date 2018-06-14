@@ -1,0 +1,19 @@
+{{- if eq .Parent nil -}}
+    {{- errorf "The tab shortcode must be used within a tabgroup shortcode" -}}
+{{- end -}}
+{{- $parentId := .Parent.Get "id" -}}
+{{- $title := .Get "title" -}}
+{{- $id := default $title (.Get "id") -}}
+{{- if eq $title "" -}}
+    {{- errorf "Tabbed section must have a unique title within the tabgroup" -}}
+{{- end -}}
+{{- if eq $id "" -}}
+    {{- errorf "Tabbed section must have a unique id within the tabgroup" -}}
+{{- end -}}
+{{ $anchor := printf "tab-%s-%s" (anchorize $parentId) (anchorize $id) }}
+<li class="tab button {{ if eq .Ordinal 0 }} active{{ end }}" data-tab-id="{{ $anchor }}">
+    {{ $title }}
+</li>
+<section id="{{ $anchor }}" class="tab-content{{ if ne .Ordinal 0 }} hide{{ end }}">
+    {{ .Inner | safeHTML }}
+</section>
