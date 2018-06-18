@@ -308,9 +308,30 @@
 }
 
 @font-face {
-  font-family:'allura';
-  src: url('css/fonts/allura/allura-regular.woff2') format('woff2'), url('css/fonts/allura/allura-regular.woff') format('woff');
+  font-family: 'aquiline-two';
+  src: url('css/fonts/aquiline-two/aquiline-two.woff');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'blokletters';
+  src: url('css/fonts/blokletters/blokletters-regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'blokletters';
+  src: url('css/fonts/blokletters/blokletters-bold.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'blokletters';
+  src: url('css/fonts/blokletters/blokletters-light.woff');
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -322,29 +343,8 @@
 }
 
 @font-face {
-  font-family:'dancingscript';
-  src: url('css/fonts/dancingscript/dancingscript-regular.woff2') format('woff2'), url('css/fonts/dancingscript/dancingscript-regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family:'euphoriascript';
-  src: url('css/fonts/euphoriascript/euphoriascript-regular.woff2') format('woff2'), url('css/fonts/euphoriascript/euphoriascript-regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family:'journal';
-  src: url('css/fonts/journal/journal.woff2') format('woff2'), url('css/fonts/journal/journal.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family:'kingthings-wrote';
-  src: url('css/fonts/kingthings-wrote/kingthings-wrote.woff2') format('woff2'), url('css/fonts/kingthings-wrote/kingthings-wrote.woff') format('woff');
+  font-family: 'felipa';
+  src: url('css/fonts/felipa/felipa.otf');
   font-weight: normal;
   font-style: normal;
 }
@@ -357,34 +357,11 @@
 }
 
 @font-face {
-  font-family:'vag-handwritten';
-  src: url('css/fonts/vag-handwritten/vag-handwritten.woff2') format('woff2'), url('css/fonts/vag-handwritten/vag-handwritten.woff') format('woff');
+  font-family: 'over-the-rainbow';
+  src: url('css/fonts/over-the-rainbow/over-the-rainbow.ttf');
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-  font-family:'daniel';
-  src: url('css/fonts/daniel/daniel-regular.woff2') format('woff2'), url('css/fonts/daniel/daniel-regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family:'daniel';
-  src: url('css/fonts/daniel/daniel-bold.woff2') format('woff2'), url('css/fonts/daniel/daniel-bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
-{{ if (.Get "sitevar").Params.extra_font_weights -}}
-@font-face {
-  font-family:'danielblack';
-  src: url('css/fonts/daniel/daniel-black-webfont.woff2') format('woff2'), url('css/fonts/daniel/daniel-black-webfont.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-}
-{{- end }}
 
 {{- $body_style := lower (default "sans-serif" (.Get "sitevar").Params.fonts.body_style) -}}
 {{- $header_style := lower (default "sans-serif" (.Get "sitevar").Params.fonts.header_style) -}}

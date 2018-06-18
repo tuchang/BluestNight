@@ -1,5 +1,5 @@
 {{ $font := .Get 0 }}
-{{ $fonts := slice "allura" "daniel-regular" "calligraffiti" "dancing-script" "journal" "euphoria-script" "kingthings-wrote" "note-this" "vag-handwritten" "daniel" "daniel-black" }}
+{{ $fonts := slice "aquiline-two" "blokletters" "calligraffiti" "felipa" "note-this" "over-the-rainbow" }}
 {{ if in $fonts $font }}
   {{ partial "set_class.html" (dict "Inner" .Inner "Class" (add "handwriting " $font)) }}
 {{ else }}
