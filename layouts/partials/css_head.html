@@ -1,6 +1,7 @@
 <!-- Prematurely connect to the servers to save some milliseconds -->
 <!-- <link rel="preload"> is only in recent browser versions, so we keep "dns-prefetch" and "preconnect" -->
 <!-- <link rel="prefetch" is loads content the user may request *after* the page loads -->
+<link rel="preload" href="https://unpkg.com/normalize.css@8.0.0/normalize.css" as="style">
 <link rel="preload" href="{{ "styles.css" | absLangURL }}" as="style" />
 
 {{ partial "fontawesome/head.html" . }}
