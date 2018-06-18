@@ -20,3 +20,7 @@ figure figcaption p {
   margin-top: 1rem;
   margin-bottom: 0;
 }
+
+figure figcaption {
+  margin-bottom: 1em;
+}
