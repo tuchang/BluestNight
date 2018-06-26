@@ -12,6 +12,7 @@ p, li, pre { line-height: 1.5; }
 ul, ol {
   list-style: none;
   margin-bottom: 1rem;
+  padding-left: 0;
 }
 ul > li > ul, ol > li > ol { margin-bottom: 0; }
 main ul { list-style: disc inside; }
