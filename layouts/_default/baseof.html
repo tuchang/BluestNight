@@ -55,7 +55,7 @@
           </div>
         {{ end }}
         {{ $sbdisable := or .Site.Params.sidebar.disable .Params.sidebar.disable }}
-        {{ $sbalign := default "right" .Site.Params.sidebar.align }}
+        {{ $sbalign := default "right" (default .Site.Params.sidebar.align .Params.sidebar.align) }}
         {{ if and (not $sbdisable) (and (ne $sbalign "left") (ne $sbalign "right")) }}
             {{- errorf "\"%v\" is not a valid value for params.sidebar.align. Valid values are \"left\", \"right\", or \"\" (defaults to \"right\")" -}}
         {{ end }}
