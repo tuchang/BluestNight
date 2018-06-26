@@ -192,6 +192,8 @@ main header a:hover, main header a:active, main header a:focus {
 
 .alert p { margin-bottom: 0; }
 
+.alert p:first-child { margin-top: 0; }
+
 /* Sidebar */
 
 aside {
