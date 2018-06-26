@@ -24,7 +24,7 @@ body {
   background-attachment: fixed;
   {{ if (not (eq (.Get "background_src") "")) -}}
   background-repeat: {{ .Get "background_tile" }};
-  background-size: {{ .Get "background_fit" }};
+  {{ with (.Get "background_fit") }}background-size: {{ . }};{{ end }}
   {{- end }}
 }
 

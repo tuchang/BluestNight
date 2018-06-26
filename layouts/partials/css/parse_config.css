@@ -30,13 +30,16 @@
     {{- .Scratch.Set "background_fit" "cover" -}}
   {{- end -}}
 {{- end -}}
+{{- .Scratch.Set "background_fit" "" -}}
 {{- if ($.Site.Params.background.fit) -}}
   {{- if eq $.Site.Params.background.fit "cover" -}}
     {{- .Scratch.Set "background_fit" "cover" -}}
   {{- else if eq $.Site.Params.background.fit "contain" -}}
     {{- .Scratch.Set "background_fit" "contain" -}}
-  {{- else -}}
+  {{- else if eq $.Site.Params.background.fit "auto" -}}
     {{- .Scratch.Set "background_fit" "auto" -}}
+  {{- else -}}
+    {{- .Scratch.Set "background_fit" "" -}}
   {{- end -}}
 {{- end -}}
 {{- $scr := .Scratch -}}
