@@ -51,7 +51,7 @@
       <div id="main-container" class="row" role="main" itemprop="mainContentOfPage">
         {{ with $.Site.Params.alert }}
           <div class="alert small-full">
-            <p>{{ . | markdownify }}</p>
+              {{ . | markdownify }}
           </div>
         {{ end }}
         {{ $sbdisable := or .Site.Params.sidebar.disable .Params.sidebar.disable }}

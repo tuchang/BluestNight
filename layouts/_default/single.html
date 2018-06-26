@@ -34,7 +34,7 @@
     </header>
     {{ with .Params.alert -}}
       <div class="alert small-full">
-        <p>{{ . | markdownify }}</p>
+        {{ . | markdownify }}
       </div>
     {{- end }}
     <div id="post-content">

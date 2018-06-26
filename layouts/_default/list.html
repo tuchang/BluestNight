@@ -7,7 +7,7 @@
 	{{ end }}
   {{ with .Params.alert }}
     <div class="alert small-full">
-      <p>{{ . | markdownify }}</p>
+      {{ . | markdownify }}
     </div>
   {{ end }}
   {{ .Content }}
